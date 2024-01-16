@@ -1,9 +1,11 @@
 import { Navbar, NavbarBrand, NavbarContent, NavbarItem, NavbarMenu, NavbarMenuItem, NavbarMenuToggle } from "@nextui-org/react";
-import React from "react";
-import { Link } from "react-router-dom";
-import { HashLink } from "react-router-hash-link";
-import logo from '../images/Mask group.svg';
-import trophy from '../images/trophycup.svg';
+import React, { useState, useEffect } from 'react'
+import { Link } from "react-router-dom"
+import { HashLink } from "react-router-hash-link"
+import logo from '../images/Mask group.svg'
+import trophy from '../images/trophycup.svg'
+import axios from "axios"
+import { useNavigate } from 'react-router-dom'
 
 export default function Nav() {
     const [isMenuOpen, setIsMenuOpen] = React.useState(false);
@@ -16,6 +18,42 @@ export default function Nav() {
         "Sponsors",
         "Log Out",
     ];
+
+    const loginwithgoogle = () => {
+        window.open("http://localhost:6005/auth/google/callback", "_self")
+    }
+
+    const navigate = useNavigate();
+
+    const [userdata, setUserdata] = useState({});
+    // console.log("response", userdata)
+
+    const getUser = async () => {
+        try {
+            const response = await axios.get("http://localhost:6005/login/success", { withCredentials: true });
+
+            setUserdata(response.data.user)
+        } catch (error) {
+            console.log("error", error)
+        }
+    }
+
+    //logout
+    const logout = () => {
+        window.open("http://localhost:6005/logout", "_self")
+    }
+
+    const hackathon = () => {
+        navigate("/hackathon-registration")
+    }
+
+    const workshop = () => {
+        navigate("/workshop-registration")
+    }
+
+    useEffect(() => {
+        getUser()
+    }, [])
 
     return (
         <Navbar onMenuOpenChange={setIsMenuOpen} className="bg-[none] absolute p-6" isBlurred='false' id='nav'>
@@ -52,10 +90,29 @@ export default function Nav() {
                         </div>
                     </Link>
                 </NavbarItem>
-                <NavbarItem className="hidden lg:flex">
-                    <Link href="#"  className="text-[#006FEE] font-medium p-4">Login</Link>
-                    {/* <Link href='/'>Logout</Link> */}
-                </NavbarItem>
+
+                {
+                    Object?.keys(userdata)?.length > 0 ? (
+                        <>
+                            <NavbarItem className="p-4 text-red-700 text-right">
+                                <HashLink size="lg" href='#' onClick={logout}>
+                                    Log Out
+                                </HashLink>
+                            </NavbarItem>
+
+                        </>
+                    )
+                        :
+                        <NavbarItem className="hidden lg:flex">
+                            <Link href="#" className="text-[#006FEE] font-medium p-4" onClick={loginwithgoogle}>Login</Link>
+                            {/* <Link href='/'>Logout</Link> */}
+                        </NavbarItem>
+
+                }
+
+
+
+
                 <NavbarMenuToggle
                     aria-label={isMenuOpen ? "Close menu" : "Open menu"}
                     className="md:hidden sm:hidden relative left-[0.75rem] text-white"
@@ -101,12 +158,12 @@ export default function Nav() {
                         Sponsors
                     </HashLink>
                 </NavbarMenuItem>
-                <NavbarMenuItem  className="p-4 text-green-700 text-right">
+                <NavbarMenuItem className="p-4 text-green-700 text-right">
                     <HashLink size="lg" href='#'>
                         Login
                     </HashLink>
                 </NavbarMenuItem>
-                <NavbarMenuItem  className="p-4 text-red-700 text-right">
+                <NavbarMenuItem className="p-4 text-red-700 text-right">
                     <HashLink size="lg" href='#'>
                         Log Out
                     </HashLink>

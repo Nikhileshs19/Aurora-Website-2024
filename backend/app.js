@@ -53,6 +53,7 @@ passport.use(
                         phoneNo: 0,
                         regNo: 0,
                         branch: "null",
+                        year: 0,
                         learnerid: "null",
                         upiID: "null",
                         txnID: "null",
