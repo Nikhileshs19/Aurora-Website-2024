@@ -27,7 +27,6 @@ export default function Nav() {
     const navigate = useNavigate();
 
     const [userdata, setUserdata] = useState({});
-    // console.log("response", userdata)
 
     const getUser = async () => {
         try {
@@ -36,6 +35,7 @@ export default function Nav() {
             setUserdata(response.data.user)
         } catch (error) {
             console.log("error", error)
+            //navigate('/*')
         }
     }
 
@@ -150,16 +150,23 @@ export default function Nav() {
                         Sponsors
                     </HashLink>
                 </NavbarMenuItem>
-                <NavbarMenuItem className="p-4 text-green-700 text-right">
-                    <HashLink size="lg" href='#'>
-                        Login
-                    </HashLink>
-                </NavbarMenuItem>
-                <NavbarMenuItem className="p-4 text-red-700 text-right">
-                    <HashLink size="lg" href='#'>
-                        Log Out
-                    </HashLink>
-                </NavbarMenuItem>
+                {
+                    Object?.keys(userdata)?.length > 0 ? (
+                        <>
+                            <NavbarMenuItem className="p-4 text-red-700 text-right">
+                                <HashLink size="lg" href='#' onClick={logout}>
+                                    Log Out
+                                </HashLink>
+                            </NavbarMenuItem>
+                        </>
+                    )
+                        :
+                        <NavbarMenuItem className="p-4 text-green-700 text-right">
+                            <HashLink size="lg" href='#' onClick={loginwithgoogle}>
+                                Login
+                            </HashLink>
+                        </NavbarMenuItem>
+                }
             </NavbarMenu>
         </Navbar>
     );

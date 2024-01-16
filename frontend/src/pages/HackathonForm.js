@@ -5,7 +5,7 @@ import clock from "../images/clock.svg"
 import loc from "../images/loc.svg"
 import tsize from "../images/teamsize.svg"
 import QRimg from '../images/QRimg.png'
-import { MdCloudUpload, MdDelete } from 'react-icons/md'
+import { MdCloudUpload } from 'react-icons/md'
 import { useNavigate } from 'react-router-dom'
 
 function HackathonForm() {
@@ -590,6 +590,37 @@ function HackathonForm() {
                                 />
                         </div>
                     </div>
+
+            <div
+              key="underlined"
+              className="flex w-full flex-wrap pr-10 lg:pr-20 md:flex-nowrap mb-6 md:mb-0  pb-10"
+            >
+              <Input
+              onChange={handleChange}
+              isRequired
+                type="text"
+                variant="underlined"
+                label="UPI ID"
+                name="upiID"
+                id="upiID" 
+                style={{ color: "white" }}/>
+            </div>
+
+            <div
+              key="underlined"
+              className="flex w-full flex-wrap pr-10 lg:pr-20 md:flex-nowrap mb-6 md:mb-0  pb-10"
+            >
+              <Input
+              onChange={handleChange}
+              isRequired
+                type="text"
+                variant="underlined"
+                label="Transaction ID"
+                name="txnID"
+                id="txnID" 
+                style={{ color: "white" }}/>
+            </div>
+
                     <div className="grid lg:grid-cols-2 sm:grid-cols-1 grid-rows-3 pl-10 h-60 pt-14">
                         <div className="col-span-2 text-blue-500 text-2xl font-normal font-['Inter'] leading-normal h-5 ">
                             Payment Information
