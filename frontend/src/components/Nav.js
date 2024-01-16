@@ -7,6 +7,7 @@ import trophy from '../images/trophycup.svg';
 
 export default function Nav() {
     const [isMenuOpen, setIsMenuOpen] = React.useState(false);
+    const [closeNavMenu, setCloseNavMenu] = React.useState(false);
 
     const menuItems = [
         "Home",
@@ -31,16 +32,16 @@ export default function Nav() {
 
             <NavbarContent className="hidden md:flex sm:flex gap-4" justify="center">
                 <NavbarItem >
-                    <HashLink className="text-white p-6" to='#about'>About</HashLink>
+                    <HashLink smooth className="text-white p-6" to='#about'>About</HashLink>
                 </NavbarItem>
                 <NavbarItem>
-                    <HashLink className="text-white p-6" to='#partners'>Partners</HashLink>
+                    <HashLink smooth className="text-white p-6" to='#partners'>Partners</HashLink>
                 </NavbarItem>
                 <NavbarItem>
-                    <HashLink className="text-white p-6" to='#timeline'>Timeline</HashLink>
+                    <HashLink smooth className="text-white p-6" to='#timeline'>Timeline</HashLink>
                 </NavbarItem>
                 <NavbarItem>
-                    <HashLink className="text-white" to='#sponsors'>Sponsors</HashLink>
+                    <HashLink smooth className="text-white" to='#sponsors'>Sponsors</HashLink>
                 </NavbarItem>
             </NavbarContent>
             <NavbarContent justify="end" className="lg:relative left-[10%]">
@@ -53,12 +54,12 @@ export default function Nav() {
                     </Link>
                 </NavbarItem>
                 <NavbarItem className="hidden lg:flex">
-                    <Link href="#"  className="text-[#006FEE] font-medium p-4">Login</Link>
+                    <Link href="#" className="text-[#006FEE] font-medium p-4">Login</Link>
                     {/* <Link href='/'>Logout</Link> */}
                 </NavbarItem>
                 <NavbarMenuToggle
                     aria-label={isMenuOpen ? "Close menu" : "Open menu"}
-                    className="md:hidden sm:hidden relative left-[0.75rem] text-white"
+                    className="md:hidden sm:hidden fixed right-[0.75rem] text-white"
                 />
             </NavbarContent>
             <NavbarMenu className="mt-10 bg-black h-[5rem]">
@@ -77,36 +78,31 @@ export default function Nav() {
           </NavbarMenuItem>
         ))} */}
                 <NavbarMenuItem className="p-4 text-white text-right">
-                    <HashLink size="lg" href='#'>
-                        Home
-                    </HashLink>
-                </NavbarMenuItem>
-                <NavbarMenuItem className="p-4 text-white text-right">
-                    <HashLink size="lg" href='#'>
+                    <HashLink smooth size="lg" to='#about'>
                         About
                     </HashLink>
                 </NavbarMenuItem>
                 <NavbarMenuItem className="p-4 text-white text-right">
-                    <HashLink size="lg" href='#'>
+                    <HashLink smooth size="lg" to='#partners'>
                         Partners
                     </HashLink>
                 </NavbarMenuItem>
                 <NavbarMenuItem className="p-4 text-white text-right">
-                    <HashLink size="lg" href='#'>
+                    <HashLink smooth size="lg" to='#timeline'>
                         Timeline
                     </HashLink>
                 </NavbarMenuItem>
                 <NavbarMenuItem className="p-4 text-white text-right">
-                    <HashLink size="lg" href='#'>
+                    <HashLink smooth size="lg" to='#sponsors'>
                         Sponsors
                     </HashLink>
                 </NavbarMenuItem>
-                <NavbarMenuItem  className="p-4 text-green-700 text-right">
+                <NavbarMenuItem className="p-4 text-green-700 text-right">
                     <HashLink size="lg" href='#'>
                         Login
                     </HashLink>
                 </NavbarMenuItem>
-                <NavbarMenuItem  className="p-4 text-red-700 text-right">
+                <NavbarMenuItem className="p-4 text-red-700 text-right">
                     <HashLink size="lg" href='#'>
                         Log Out
                     </HashLink>
