@@ -1,4 +1,5 @@
 /** @type {import('tailwindcss').Config} */
+
 const {nextui} = require("@nextui-org/react");
 module.exports = {
   content: [ "./src/**/*.{js,jsx,ts,tsx}",
@@ -6,12 +7,28 @@ module.exports = {
 ],
   theme: {
     extend: {
+      fontFamily: {
+        global: ['Raleway']
+      },
       backgroundImage: {
         'form-bg': "url('/src/images/reg-form-bg.svg')",
         'footer-texture': "url('/src/images/bgfooter.svg')",
     },
   },
   darkMode: "class",
-  plugins: [nextui()]
-}
-}
+},
+    plugins: [nextui(),
+      function ({ addUtilities }) {
+          const newUtilities = {
+              ".no-scrollbar::-webkit-scrollbar": {
+                  display: "none",
+              },
+              ".no-scrollbar": {
+                  "-ms-overflow-style": "none",
+                  "scrollbar-width": "none",
+              },
+          };
+          addUtilities(newUtilities);
+      },
+  ],
+};

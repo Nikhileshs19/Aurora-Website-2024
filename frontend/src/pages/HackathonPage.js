@@ -4,12 +4,11 @@ import { MainHackathon } from "../components/MainHackathon"
 import { PrizesHackathon } from "../components/PrizesHackathon"
 import Mountain from "../images/hackathonpage.svg"
 import Sun from "../images/sun.svg"
-import QRimg from '../images/QRimg.png'
 
 function HackathonPage() {
     return(
         <div className="">
-            <Parallax pages={4} className="bg-black">
+            <Parallax pages={4} className="bg-black no-scrollbar">
                 
                 <ParallaxLayer offset={0} speed={1.5}>
                     <div  className="h-screen w-screen justify-center items-center flex lg:translate-y-[20rem] translate-y-[5rem]">
