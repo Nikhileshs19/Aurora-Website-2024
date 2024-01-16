@@ -8,6 +8,8 @@ import Sponsors from '../components/Sponsors.js';
 import Timer from '../components/Timer.js';
 import MyParallax from '../components/parallax/my-parallax.js';
 import Timeline from '../components/timeline/Timeline.js';
+import Footer from '../components/Footer.js';
+
 const MainHome = () => {
   return (
     <div style={{backgroundColor: "black"}} >
@@ -32,7 +34,7 @@ const MainHome = () => {
 
     <Sponsors/>
 
-    {/* <Footer/> */}
+    <Footer/>
    
      </div>
   )
