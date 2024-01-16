@@ -1,15 +1,56 @@
 .App {
-    font-family: sans-serif;
-    text-align: center;
+  font-family: sans-serif;
+  text-align: center;
+}
+
+.timeline-circle {
+  left: 664px;
+}
+
+.vertical-dashed-line {
+  margin-left: 680px;
+}
+
+.vertical-solid-line {
+  margin-left: 680px;
+}
+
+.timeline-card-container {
+  display: grid;
+  grid-template-columns: 1fr;
+  justify-items: center;
+}
+
+.timeline-card {
+  margin-top: 250px;
+}
+
+/* Media query for screens smaller than 768px */
+@media (max-width: 768px) {
+  .timeline-circle {
+    left: 10px;
+    transition: top 15s ease, opacity 1.5s ease;
   }
-  .vertical-timeline::before {
-    /* this is the vertical line */
-  
-    background: black !important;
+
+  .vertical-dashed-line {
+    margin-left: 10px;
   }
-  
-  .empty {
-    height: 50px;
-    /* border: 1px solid red; */
+
+  .vertical-solid-line {
+    margin-left: 10px;
+    transition: top 1.5s ease;
   }
-  
+
+  .timeline-card-container {
+    grid-template-columns: 1fr;
+    grid-row-gap: 100px;
+    margin-left: 10px;
+  }
+
+  .timeline-card {
+    margin-top: 10px;
+    grid-column: 1;
+    margin-left: 0;
+    grid-column-gap: 10px;
+  }
+}
