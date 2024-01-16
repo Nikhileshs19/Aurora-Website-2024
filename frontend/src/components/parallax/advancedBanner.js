@@ -45,7 +45,7 @@ export const AdvancedBannerTop = () => {
     opacity: [0, 1, 'easeOutCubic'],
     shouldAlwaysCompleteAnimation: true,
     expanded: false,
-    children: <div className="gradient inset" />,
+    children: <div className="gradient inset w-fit" />,
   };
 
   return (
