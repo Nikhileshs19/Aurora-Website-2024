@@ -48,17 +48,18 @@ passport.use(
                         googleId: profile.id,
                         googleName: profile.displayName,
                         email: profile.emails[0].value,
+                        registered: false,
 
-                        name: "null",
-                        phoneNo: 0,
-                        regNo: 0,
-                        branch: "null",
-                        year: 0,
-                        learnerid: "null",
-                        upiID: "null",
-                        txnID: "null",
-                        screenshot: "null",
-                        workshops: [],
+                        // name: "null",
+                        // phoneNo: 0,
+                        // regNo: 0,
+                        // branch: "null",
+                        // year: 0,
+                        // learnerid: "null",
+                        // upiID: "null",
+                        // txnID: "null",
+                        // screenshot: "null",
+                        // workshops: [],
                     });
 
                     await user.save();
@@ -145,15 +146,15 @@ app.patch('/workshop-registration/:id', async (req, res) => {
     }
 })
 
-app.get('/hackathon-team-data', async (req, res) => {
-    try {
-        const teamData = await hackathon.find({ learnerid: req.query.learnerid });
-        res.send(teamData);
-    } catch (error) {
-        console.log(error);
-        res.status(500).json({ message: 'Internal Server Error' });
-    }
-});
+// app.get('/hackathon-team-data', async (req, res) => {
+//     try {
+//         const teamData = await hackathon.find({ learnerid: req.query.learnerid });
+//         res.send(teamData);
+//     } catch (error) {
+//         console.log(error);
+//         res.status(500).json({ message: 'Internal Server Error' });
+//     }
+// });
 
 app.post('/hackathon-registration', async (req, res) => {
     try {
@@ -168,18 +169,18 @@ app.post('/hackathon-registration', async (req, res) => {
     }
 })
 
-app.patch('/hackathon-update-form/:id', async (req, res) => {
-    try {
-        const hackathonUpdate = await hackathon.findByIdAndUpdate(
-            req.params.id,
-            req.body,
-        );
-        res.send(hackathonUpdate);
-    } catch (error) {
-        res.status(500).send(error.message);
-        console.log(error.message);
-    }
-})
+// app.patch('/hackathon-update-form/:id', async (req, res) => {
+//     try {
+//         const hackathonUpdate = await hackathon.findByIdAndUpdate(
+//             req.params.id,
+//             req.body,
+//         );
+//         res.send(hackathonUpdate);
+//     } catch (error) {
+//         res.status(500).send(error.message);
+//         console.log(error.message);
+//     }
+// })
 
 app.listen(PORT, () => {
     console.log(`server start at port no ${PORT}`)
