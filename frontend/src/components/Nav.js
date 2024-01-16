@@ -19,7 +19,7 @@ export default function Nav() {
 
     return (
         <Navbar onMenuOpenChange={setIsMenuOpen} className="bg-[none] absolute p-6" isBlurred='false' id='nav'>
-            <NavbarContent>
+            <NavbarContent className="lg:relative left-[-10%]">
                 {/* <NavbarMenuToggle
           aria-label={isMenuOpen ? "Close menu" : "Open menu"}
           className="sm:hidden relative left-[-1.5rem]"
@@ -30,23 +30,20 @@ export default function Nav() {
             </NavbarContent>
 
             <NavbarContent className="hidden sm:flex gap-4" justify="center">
-                <NavbarItem>
-                    <HashLink className="text-white p-4" to='#nav'>Home</HashLink>
-                </NavbarItem>
                 <NavbarItem >
-                    <HashLink className="text-white p-4" to='#about'>About</HashLink>
+                    <HashLink className="text-white p-6" to='#about'>About</HashLink>
                 </NavbarItem>
                 <NavbarItem>
-                    <HashLink className="text-white p-4" to='#partners'>Partners</HashLink>
+                    <HashLink className="text-white p-6" to='#partners'>Partners</HashLink>
                 </NavbarItem>
                 <NavbarItem>
-                    <HashLink className="text-white p-4" to='#timeline'>Timeline</HashLink>
+                    <HashLink className="text-white p-6" to='#timeline'>Timeline</HashLink>
                 </NavbarItem>
                 <NavbarItem>
-                    <HashLink className="text-white">Sponsors</HashLink>
+                    <HashLink className="text-white" to='#sponsors'>Sponsors</HashLink>
                 </NavbarItem>
             </NavbarContent>
-            <NavbarContent justify="end" className="">
+            <NavbarContent justify="end" className="lg:relative left-[10%]">
                 <NavbarItem>
                     <Link to='/hackathon' className="">
                         <div className="lg:w-[7.2rem]  w-[5.9rem] lg:text-[14px] text-[12px] shadow-2xl font-medium h-fit flex justify-between bg-[#000419] text-[#006FEE] rounded-lg p-2">
@@ -56,15 +53,15 @@ export default function Nav() {
                     </Link>
                 </NavbarItem>
                 <NavbarItem className="hidden lg:flex">
-                    <Link href="#">Login</Link>
+                    <Link href="#"  className="text-[#006FEE] font-medium p-4">Login</Link>
                     {/* <Link href='/'>Logout</Link> */}
                 </NavbarItem>
                 <NavbarMenuToggle
                     aria-label={isMenuOpen ? "Close menu" : "Open menu"}
-                    className="sm:hidden relative left-[0.75rem]"
+                    className="sm:hidden relative left-[0.75rem] text-white"
                 />
             </NavbarContent>
-            <NavbarMenu className="mt-10">
+            <NavbarMenu className="mt-10 bg-black h-[5rem]">
                 {/* {menuItems.map((item, index) => (
           <NavbarMenuItem key={`${item}-${index}`}>
             <Link
@@ -79,35 +76,40 @@ export default function Nav() {
             </Link>
           </NavbarMenuItem>
         ))} */}
-                <NavbarMenuItem>
-                    <Link size="lg" href='#'>
+                <NavbarMenuItem className="p-4 text-white text-right">
+                    <HashLink size="lg" href='#'>
                         Home
-                    </Link>
+                    </HashLink>
                 </NavbarMenuItem>
-                <NavbarMenuItem>
-                    <Link size="lg" href='#'>
+                <NavbarMenuItem className="p-4 text-white text-right">
+                    <HashLink size="lg" href='#'>
                         About
-                    </Link>
+                    </HashLink>
                 </NavbarMenuItem>
-                <NavbarMenuItem>
-                    <Link size="lg" href='#'>
+                <NavbarMenuItem className="p-4 text-white text-right">
+                    <HashLink size="lg" href='#'>
                         Partners
-                    </Link>
+                    </HashLink>
                 </NavbarMenuItem>
-                <NavbarMenuItem>
-                    <Link size="lg" href='#'>
+                <NavbarMenuItem className="p-4 text-white text-right">
+                    <HashLink size="lg" href='#'>
                         Timeline
-                    </Link>
+                    </HashLink>
                 </NavbarMenuItem>
-                <NavbarMenuItem>
-                    <Link size="lg" href='#'>
+                <NavbarMenuItem className="p-4 text-white text-right">
+                    <HashLink size="lg" href='#'>
                         Sponsors
-                    </Link>
+                    </HashLink>
                 </NavbarMenuItem>
-                <NavbarMenuItem>
-                    <Link size="lg" href='#' color="danger">
+                <NavbarMenuItem  className="p-4 text-green-700 text-right">
+                    <HashLink size="lg" href='#'>
+                        Login
+                    </HashLink>
+                </NavbarMenuItem>
+                <NavbarMenuItem  className="p-4 text-red-700 text-right">
+                    <HashLink size="lg" href='#'>
                         Log Out
-                    </Link>
+                    </HashLink>
                 </NavbarMenuItem>
             </NavbarMenu>
         </Navbar>

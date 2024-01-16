@@ -1,7 +1,6 @@
 import React from 'react';
 // import Navbar from '../components/Navbar.js'
 import About from '../components/About.js';
-import Footer from '../components/Footer.js';
 import Gallery from '../components/Gallery.js';
 import Nav from '../components/Nav.js';
 import Partners from '../components/Partners.js';
@@ -33,7 +32,7 @@ const MainHome = () => {
 
     <Sponsors/>
 
-    <Footer/>
+    {/* <Footer/> */}
    
      </div>
   )
