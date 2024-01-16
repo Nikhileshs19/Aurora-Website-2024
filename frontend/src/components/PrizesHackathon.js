@@ -4,7 +4,7 @@ import P3 from "../images/3rdprize.svg"
 
 export const PrizesHackathon = () => {
     return(
-        <div className="font-family:'Inter-Regular',Helvetica] w-screen bg-black flex flex-col items-center justify-center">
+        <div className="w-screen bg-black flex flex-col items-center justify-center">
             <div className="[text-shadow:0px_4px_37.2px_#0070f3] [font-family:'Inter-Bold',Helvetica] font-bold text-[#0070f3] md:text-[78px] text-[35px] tracking-[0] leading-[normal]">
                 <h1 className="text-center p-6 text-[#0070f3]">Cash Prizes</h1>
             </div>
