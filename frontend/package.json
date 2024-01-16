@@ -20,6 +20,7 @@
     "react-spring": "^9.7.3",
     "react-vertical-timeline-component": "^3.6.0",
     "swiper": "^11.0.5",
+    "tailwind-scrollbar-hide": "^1.1.7",
     "web-vitals": "^2.1.4"
   },
   "scripts": {

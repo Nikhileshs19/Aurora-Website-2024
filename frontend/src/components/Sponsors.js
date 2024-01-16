@@ -11,7 +11,7 @@ export default function Sponsors() {
     return (
         <div id='sponsors'>
             <TitleStuff name="sponsors"/>
-            <div className='grid lg:grid-cols-3 gap-4 lg:mx-80 justify-center p-5'>
+            <div className='grid lg:grid-cols-3 grid-cols-2 gap-4 lg:mx-80 justify-center p-5'>
                 <img src={mcd} alt="" className='lg:w-full w-[8rem]' />
                 <img src={kevin} alt="" className='lg:w-full w-[8rem]' />
                 <img src={trigger} alt="" className='lg:w-full w-[8rem]' />
