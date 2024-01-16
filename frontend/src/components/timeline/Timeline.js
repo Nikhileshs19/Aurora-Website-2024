@@ -24,6 +24,23 @@ const Timeline = () => {
   const [scrollPercentage, setScrollPercentage] = useState(0);
   const [selectedModalIndex, setSelectedModalIndex] = useState(null);
 
+  const [windowSize, setWindowSize] = useState([
+    window.innerWidth,//0
+    window.innerHeight,//1
+  ]);
+
+  useEffect(() => {
+    const handleWindowResize = () => {
+      setWindowSize([window.innerWidth, window.innerHeight]);
+    };
+
+    window.addEventListener('resize', handleWindowResize);
+
+    return () => {
+      window.removeEventListener('resize', handleWindowResize);
+    };
+  }, []);
+
   const toggleModal = (index) => {
     setSelectedModalIndex(index);
   };
@@ -82,7 +99,8 @@ const Timeline = () => {
   }));
 
   return (
-    <div id="timeline">
+    <div>
+      <div id="timeline" className={windowSize[0]>760?"bg-black":"hidden"}>
       <TitleStuff name="timeline"/>
       <div className="timeline-container">
         <div
@@ -160,7 +178,7 @@ const Timeline = () => {
                     <small className="text-default-500">{card.date}</small>
                     <h4 className="font-bold text-large">{card.title}</h4>
                   </CardHeader>
-                  <CardBody className="overflow-visible py-2">
+                  <CardBody className="overflow-visible py-2 z-10">
                     <Image
                       alt="Card background"
                       className="object-cover rounded-xl"
@@ -222,6 +240,10 @@ const Timeline = () => {
           </div>
         </div>
       </div>
+    </div>
+    <div>
+      {/*do mobile timeline*/}
+    </div>
     </div>
   );
 };

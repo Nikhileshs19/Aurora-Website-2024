@@ -1,11 +1,10 @@
-import { Input, image } from '@nextui-org/react'
+import { Input } from '@nextui-org/react'
 import React, { useState } from 'react'
+import { MdCloudUpload } from 'react-icons/md'
 import QRimg from '../images/QRimg.png'
-import { ReactComponent as Timeline } from '../images/timeline form.svg'
-import bgimg from '../images/treee.svg'
 import icon from '../images/Vector.svg'
 import formbg from '../images/reg-form-bg.svg'
-import { MdCloudUpload, MdDelete } from 'react-icons/md'
+import { ReactComponent as Timeline } from '../images/timeline form.svg'
 
 export default function RegisterForm() {
   const [Image, setImage] = useState(null)
@@ -68,7 +67,7 @@ export default function RegisterForm() {
   return (
     <div
       className="lg:grid lg:grid-cols-5 flex-col bg-[#000F21] text-white"
-      style={{ height: '100vh', overflowY: 'auto', overflowX: 'hidden' }}
+      style={{ height: '', overflowY: 'auto', overflowX: 'hidden' }}
     >
       <div
         style={styles}
