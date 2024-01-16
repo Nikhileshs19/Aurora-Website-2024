@@ -41,7 +41,7 @@ function Gallery() {
             <SwiperSlide key={index} className="w-full h-auto">
               <img 
                 src={image} 
-                className={`w-full h-auto m-auto rounded-3xl object-cover lg:p-32 p-4`}
+                className={`w-full h-auto m-auto rounded-3xl object-cover lg:p-20 p-4`}
                 alt={`Slide ${index}`}
               />
             </SwiperSlide>

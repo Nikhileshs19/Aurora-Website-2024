@@ -29,7 +29,7 @@ export default function Nav() {
                 </NavbarBrand>
             </NavbarContent>
 
-            <NavbarContent className="hidden sm:flex gap-4" justify="center">
+            <NavbarContent className="hidden md:flex sm:flex gap-4" justify="center">
                 <NavbarItem >
                     <HashLink className="text-white p-6" to='#about'>About</HashLink>
                 </NavbarItem>
@@ -58,7 +58,7 @@ export default function Nav() {
                 </NavbarItem>
                 <NavbarMenuToggle
                     aria-label={isMenuOpen ? "Close menu" : "Open menu"}
-                    className="sm:hidden relative left-[0.75rem] text-white"
+                    className="md:hidden sm:hidden relative left-[0.75rem] text-white"
                 />
             </NavbarContent>
             <NavbarMenu className="mt-10 bg-black h-[5rem]">
