@@ -27,9 +27,9 @@ export default function Timer() {
   }, []);
 
   return (
-    <div className="py-10">
+    <div className="py-10 flex flex-row flex-wrap justify-center items-center align-middle">
       <h3 className="text-4xl text-white text-center my-5">Time to go</h3>
-      <div className="flex justify-center gap-10">
+      <div className="flex flex-wrap justify-center gap-10">
         <div className="text-center">
           <h4 className="border-white border-2 rounded-full p-10 font-bold text-5xl text-white">
             {timeRemaining.days.toString().padStart(2,'0')}

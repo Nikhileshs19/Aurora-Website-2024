@@ -5,9 +5,13 @@ module.exports = {
   "./node_modules/@nextui-org/theme/dist/**/*.{js,ts,jsx,tsx}",
 ],
   theme: {
-    extend: {},
+    extend: {
+      backgroundImage: {
+        'form-bg': "url('/src/images/reg-form-bg.svg')",
+        'footer-texture': "url('/src/images/bgfooter.svg')",
+    },
   },
   darkMode: "class",
   plugins: [nextui()]
 }
-
+}
