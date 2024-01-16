@@ -1,6 +1,6 @@
 import { Button } from "@nextui-org/react"
-import trophycup from "../images/trophycup.svg"
 import { ArrowLeft } from "../images/ArrowLeft"
+import trophycup from "../images/whitetrophy.svg"
 
 export const MainHackathon = () => {
     return (

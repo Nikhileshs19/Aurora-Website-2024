@@ -17,14 +17,14 @@ export const AdvancedBannerTop = () => {
   };
 
   const headline = {
-    translateY: [-20, 50],
+    translateY: [-22, 50],
     scale: [1, 1.25, 'easeOutCubic'],
     shouldAlwaysCompleteAnimation: true,
     expanded: false,
     children: (
       <div className="inset center">
         {/* <AuroraText /> */}
-        <img src={AuroraText} alt="AuroraText"  />
+        <img src={AuroraText} alt="AuroraText"  className='lg:w-[40rem] w-[20rem]'/>
       </div>
     ),
   };
@@ -32,11 +32,11 @@ export const AdvancedBannerTop = () => {
   const foreground = {
     image: tree,
     translateY: [28, 0],
-    scale: [1,1.1, 'easeOutCubic'], // Set initial width to 100%
+    scale: [1.05,1.2, 'easeOutCubic'], // Set initial width to 100%
     shouldAlwaysCompleteAnimation: true,
     children: (
-      <div style={{ width: '100vh' }}>
-        <img src={tree} alt="Tree" style={{ width: '110%' }} />
+      <div style={{ width: '105vh' }}>
+        <img src={tree} alt="Tree" style={{ width: '115' }} />
       </div>
     ),
   };
