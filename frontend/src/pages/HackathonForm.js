@@ -4,6 +4,8 @@ import calen from "../images/calendar.svg"
 import clock from "../images/clock.svg"
 import loc from "../images/loc.svg"
 import tsize from "../images/teamsize.svg"
+import QRimg from '../images/QRimg.png'
+import { MdCloudUpload, MdDelete } from 'react-icons/md'
 
 function HackathonForm() {
     //   const variants = ['flat', 'bordered', 'underlined', 'faded']
@@ -258,6 +260,44 @@ function HackathonForm() {
                             <Input type="email" variant="underlined" label="Learner ID" />
                         </div>
                     </div>
+                    <div className="grid lg:grid-cols-2 sm:grid-cols-1 grid-rows-3 pl-10 h-60 pt-14">
+          <div className="col-span-2 text-blue-500 text-2xl font-normal font-['Inter'] leading-normal h-5 ">
+            Payment Information
+          </div>
+
+          <div className=" text-blue-500 text-xl lg:text-2xl font-normal font-['Inter'] leading-normal h-8">
+            Payment Address
+          </div>
+          <div className=" text-blue-500 text-xl lg:text-2xl font-normal font-['Inter'] leading-normal pl-10">
+            Payment Screenshot Upload
+          </div>
+
+          <div className="h-40 pt-5">
+            <img
+              src={QRimg}
+              alt="Description of the image"
+              className="rounded-lg shadow-lg pr-5 lg:max-w-full h-auto"
+            />
+          </div>
+          <form
+            onClick={() => document.querySelector('.input-field').click()}
+            className="pl-12"
+          >
+            <input
+              type="file"
+              accept="image/*"
+              className="input-field"
+              hidden
+            />
+            <div className="lg:w-60 w-32 h-28 lg:h-60 border-dashed border-2 border-radius:1rem mt-5 flex align-middle justify-center">
+              <MdCloudUpload
+                color="#ffffff"
+                size={10}
+                className="lg:w-16 w-8 h-auto align-middle justify-center "
+              />
+            </div>
+          </form>
+        </div>
                     <div className=" lg:h-80 sm:h-60 lg:pt-16 lg:pb-0 pb-16">
                         <button className="w-24 h-12 rounded-xl border-2 border-blue-600  items-center gap-3 ml-12 inline-flex " 
                         type ="submit">

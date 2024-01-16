@@ -7,7 +7,8 @@ import './App.css';
 import Login from './components/Login';
 import HackathonForm from './pages/HackathonForm';
 import MainHome from './pages/MainHome';
-import Register from './pages/Register';
+import RegisterForm from './pages/RegisterForm';
+import HackathonPage from './pages/HackathonPage'
 
 function App() {
   const router = createBrowserRouter([
@@ -23,12 +24,17 @@ function App() {
     },
     {
       path: "/registration-form",
-      element: <Register />,
+      element: <RegisterForm />,
       // errorElement: <ErrorPage />,
     },
     {
       path: "/hackathon-form",
       element: <HackathonForm/>,
+      // errorElement: <ErrorPage />,
+    },
+    {
+      path: "/hackathon",
+      element: <HackathonPage/>,
       // errorElement: <ErrorPage />,
     },
   ]);
