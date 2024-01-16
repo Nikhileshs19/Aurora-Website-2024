@@ -7,7 +7,6 @@ import Sun from "../images/sun.svg"
 
 function HackathonPage() {
     return(
-        <div className="">
             <Parallax pages={4} className="bg-black no-scrollbar">
                 
                 <ParallaxLayer offset={0} speed={1.5}>
