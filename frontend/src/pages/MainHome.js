@@ -9,6 +9,7 @@ import Timer from '../components/Timer.js';
 import MyParallax from '../components/parallax/my-parallax.js';
 import Timeline from '../components/timeline/Timeline.js';
 import Footer from '../components/Footer.js';
+import { Auroractf } from '../components/Auroractf.js';
 
 const MainHome = () => {
   return (
@@ -29,6 +30,8 @@ const MainHome = () => {
     <div className="h-60"></div>
 
     <Gallery/>
+
+    <Auroractf />
 
     <Timeline />
 
