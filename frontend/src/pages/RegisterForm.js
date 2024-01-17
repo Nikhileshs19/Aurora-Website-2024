@@ -54,7 +54,6 @@ export default function RegisterForm() {
     learnerid: 'null',
     upiID: 'null',
     txnID: 'null',
-    screenshot: 'null',
     workshops: [],
   });
 
@@ -141,7 +140,7 @@ export default function RegisterForm() {
 
   useEffect(() => {
     const uploadbg = document.getElementById('upload-box');
-    if (uploadbg && formData.screenshot != undefined) {
+    if (uploadbg && formData.screenshot) {
       uploadbg.innerText = 'Uploaded';
       uploadbg.innerHTML = `<div className='uploaded-image' style='display: flex; justify-content: center; align-items: center; color: white; font-size: 1.5rem;'><img src=${formData.screenshot} /></div>`;
     }
