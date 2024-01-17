@@ -33,7 +33,7 @@ export default function Nav() {
 
             setUserdata(response.data.user)
         } catch (error) {
-            console.log("error", error)
+            //console.log("error", error)
             //navigate('/*')
         }
     }

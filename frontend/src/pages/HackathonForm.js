@@ -99,6 +99,9 @@ function HackathonForm() {
     const handleSubmit = async (e) => {
         e.preventDefault();
         console.log("submitted form data: ", formData);
+        if(!formData.screenshot){
+            return;
+        }
 
         // if (userdata.hackathon === true) {
         //     try {
