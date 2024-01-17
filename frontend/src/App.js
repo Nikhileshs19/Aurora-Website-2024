@@ -24,7 +24,8 @@ function App() {
     },
     {
       path: "/events",
-      element: <Workshops />,
+      // element: <Workshops />,
+      element: <Events/>,
       // errorElement: <ErrorPage />,
     },
     // {

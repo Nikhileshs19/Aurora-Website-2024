@@ -1,12 +1,17 @@
-import React from 'react'
-import Timeline from './timeline/Timeline'
+import React from 'react';
+import { Auroractf } from './Auroractf';
+import DevsprintEvents from './DevsprintEvents';
+import TimelineEvents from './timeline/TimelineEvents';
 
-export default function Events() {
+export default function Events(){
   return (
-    <div>
-      <h1 className='text-center'>EVENTS</h1>
+    <div className='bg-[#000509]'>
 
-      <Timeline/>
+      <TimelineEvents/>
+
+      <DevsprintEvents/>
+
+      <Auroractf/>
     </div>
-  )
-}
+  );
+};

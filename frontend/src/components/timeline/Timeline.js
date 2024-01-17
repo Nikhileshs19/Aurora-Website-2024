@@ -39,10 +39,10 @@ const Timeline = () => {
       setWindowSize([window.innerWidth, window.innerHeight]);
     };
 
-    window.addEventListener('resize', handleWindowResize);
+    window.addEventListener("resize", handleWindowResize);
 
     return () => {
-      window.removeEventListener('resize', handleWindowResize);
+      window.removeEventListener("resize", handleWindowResize);
     };
   }, []);
 
@@ -54,11 +54,11 @@ const Timeline = () => {
     const handleScroll = () => {
       const firstCard = document.querySelector(".timeline-card:first-child");
       const lastCard = document.querySelector(".timeline-card:last-child");
-      const circle = document.querySelector(".timeline-circle");
+
       const dashedLine = document.querySelector(".vertical-dashed-line");
       const solidLine = document.querySelector(".vertical-solid-line");
 
-      if (!firstCard || !lastCard || !circle) return;
+      if (!firstCard || !lastCard) return;
 
       const firstCardRect = firstCard.getBoundingClientRect();
       const lastCardRect = lastCard.getBoundingClientRect();
@@ -77,11 +77,6 @@ const Timeline = () => {
 
       setScrollPercentage(newScrollPercentage);
 
-      // Calculate the position for the circle to move through the center of the screen
-      const screenHeight = window.innerHeight;
-      const circleTop = newScrollPercentage * (maxTimelineHeight / 100);
-      const circleCenterOffset = (screenHeight - circle.offsetHeight) / 2;
-      // circle.style.top = `${circleTop + circleCenterOffset}px`;
       const firstCardTop = firstCardRect.top + window.scrollY;
       const lastCardBottom = lastCardRect.bottom + window.scrollY;
       const dashedLineHeight = lastCardBottom - firstCardTop;
@@ -92,12 +87,10 @@ const Timeline = () => {
       const scrollPercentage = (window.scrollY / timelineHeight) * -65;
       const adjustedPercentage = Math.min(192, newScrollPercentage * 2.39);
       console.log(adjustedPercentage);
-      const adjustedPercentageCircle = Math.min(192, newScrollPercentage * 0.7);
-      console.log(adjustedPercentage);
+
       document.querySelector(".vertical-solid-line").style.height =
         adjustedPercentage + "rem";
-      document.querySelector(".timeline-circle").style.top =
-        adjustedPercentageCircle + "rem";
+
       // document.querySelector(".vertical-solid-line-mobile").style.height =
       //   adjustedPercentage + "rem";
     };
@@ -109,7 +102,7 @@ const Timeline = () => {
     };
   }, []);
 
-  const timelineCards = Array.from({ length: 9 }, (_, index) => ({
+  const timelineCards = Array.from({ length: 11 }, (_, index) => ({
     title: `Event ${index + 1}`,
     time: "05:30PM - 08:00PM",
     date: `4th January, 2024`,
@@ -128,23 +121,6 @@ const Timeline = () => {
             className="my-timeline"
             style={{ position: "relative", margin: "280px auto" }}
           >
-            {/* Timeline Circle */}
-            <div
-              className="timeline-circle"
-              style={{
-                position: "fixed",
-                width: "0px",
-                height: "0px",
-                backgroundColor: "transparent",
-                borderRadius: "50%",
-                // top: "50%",
-                left: "50%", // Adjusted to move the circle to the left
-
-                zIndex: 3,
-                opacity: scrollPercentage > 0 ? 1 : 0,
-                // transition: "top 15s ease, opacity 1.5s ease",
-              }}
-            ></div>
             {/* Vertical Dashed Line */}
             <div
               className="vertical-dashed-line absolute left-0 top-0 bg-transparent w-1 h-full"
@@ -275,24 +251,6 @@ const Timeline = () => {
             className="my-timeline"
             style={{ position: "relative", margin: "280px auto" }}
           >
-            {/* Timeline Circle */}
-            {/* <div
-            ref={circleRef} // Set a ref to access the circle element
-            className="timeline-circle"
-            style={{
-              position: "fixed",
-              width: "40px",
-              height: "40px",
-              backgroundColor: "white",
-              borderRadius: "50%",
-              top: "50%",
-              left: "20px", // Move the circle to the left
-              zIndex: 3,
-              opacity: scrollPercentage > 0 ? 1 : 0,
-              transition: "opacity 1.5s ease",
-            }}
-          ></div> */}
-
             {/* Vertical Dashed Line */}
             <div
               className="vertical-dashed-line absolute left-0 top-0 bg-transparent w-1 h-full"
