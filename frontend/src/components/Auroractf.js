@@ -1,11 +1,11 @@
-import calen from "../images/calendar.svg"
-import clock from "../images/clock.svg"
-import laptop from "../images/laptop.svg"
+import gr from "../images/Group.svg"
+import hecker from "../images/Hacker-cuate-2 1.svg"
 import P1 from "../images/Ticket1.svg"
 import P2 from "../images/Ticket2.svg"
 import P3 from "../images/Ticket3.svg"
-import hecker from "../images/Hacker-cuate-2 1.svg"
-import gr from "../images/Group.svg"
+import calen from "../images/calendar.svg"
+import clock from "../images/clock.svg"
+import laptop from "../images/laptop.svg"
 
 export const Auroractf = () => {
     return (
