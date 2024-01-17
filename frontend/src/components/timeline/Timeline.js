@@ -34,11 +34,6 @@ const Timeline = () => {
     setTimelineHeight(maxTimelineHeight);
   }, []);
 
-  const [windowSize, setWindowSize] = useState([
-    window.innerWidth,//0
-    window.innerHeight,//1
-  ]);
-
   useEffect(() => {
     const handleWindowResize = () => {
       setWindowSize([window.innerWidth, window.innerHeight]);
