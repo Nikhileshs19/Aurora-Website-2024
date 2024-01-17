@@ -34,6 +34,23 @@ const Timeline = () => {
     setTimelineHeight(maxTimelineHeight);
   }, []);
 
+  const [windowSize, setWindowSize] = useState([
+    window.innerWidth,//0
+    window.innerHeight,//1
+  ]);
+
+  useEffect(() => {
+    const handleWindowResize = () => {
+      setWindowSize([window.innerWidth, window.innerHeight]);
+    };
+
+    window.addEventListener('resize', handleWindowResize);
+
+    return () => {
+      window.removeEventListener('resize', handleWindowResize);
+    };
+  }, []);
+
   const toggleModal = (index) => {
     setSelectedModalIndex(index);
   };
