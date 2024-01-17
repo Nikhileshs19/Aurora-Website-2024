@@ -4,11 +4,12 @@ import {
 } from "react-router-dom";
 import './App.css';
 
-import Login from './components/Login';
+import Events from "./components/Events";
+import Error from './pages/Error';
 import HackathonForm from './pages/HackathonForm';
+import HackathonPage from './pages/HackathonPage';
 import MainHome from './pages/MainHome';
 import RegisterForm from './pages/RegisterForm';
-import HackathonPage from './pages/HackathonPage'
 
 function App() {
   const router = createBrowserRouter([
@@ -18,10 +19,15 @@ function App() {
       // errorElement: <ErrorPage />,
     },
     {
-      path: "/login",
-      element: <Login />,
+      path: "/events",
+      element: <Events />,
       // errorElement: <ErrorPage />,
     },
+    // {
+    //   path: "/login",
+    //   element: <Login />,
+    //   // errorElement: <ErrorPage />,
+    // },
     {
       path: "/registration-form",
       element: <RegisterForm />,
@@ -35,6 +41,11 @@ function App() {
     {
       path: "/hackathon",
       element: <HackathonPage/>,
+      // errorElement: <ErrorPage />,
+    },
+    {
+      path: "/*",
+      element: <Error/>,
       // errorElement: <ErrorPage />,
     },
   ]);

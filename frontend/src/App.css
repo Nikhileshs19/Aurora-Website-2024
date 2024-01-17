@@ -4,13 +4,18 @@ body {
   margin: 0;
   height: 200vh;
   background: #000;
+  font-family: 'PT Sans', sans-serif;
 }
 
-.headline {
+h4 {
+  font-family: 'Open Sans', sans-serif;
+}
+
+/* .headline {
   font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
   font-weight: 100;
   font-size: 10vw;
-}
+} */
 
 .inset {
   position: absolute;
@@ -41,4 +46,10 @@ body {
 /*hackathon form bg*/
 #hackathonleft{
   background-image: url(./images/hackathonformbg.svg);
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
 }

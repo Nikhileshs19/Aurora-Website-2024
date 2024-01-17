@@ -1,13 +1,15 @@
 import { Button } from "@nextui-org/react"
-import trophycup from "../images/trophycup.svg"
 import { ArrowLeft } from "../images/ArrowLeft"
+import { Link } from "react-router-dom"
+import trophycup from "../images/whitetrophy.svg"
+
 
 export const MainHackathon = () => {
     return (
         <div className="[font-family:'Inter-Regular',Helvetica] w-screen bg-black bg-clip-text h-screen">
             <div className="">
                 <div className="flex w-screen h-24">
-                    <a  href='/'>
+                    <a href='/'>
                         <ArrowLeft className={`fixed w-[66px] h-[66px] top-0 left-0`} />
                     </a>
                 </div>
@@ -26,11 +28,12 @@ export const MainHackathon = () => {
                         and share them with the rest of the world by bringing back the community of student developers together yet
                         again.
                     </p>
-
-                    <Button size="" className="bg-[#0070f3] flex p-6 pt-8 pb-8 rounded-3xl font-bold text-xl text-white">
-                        <img src={trophycup} alt="wtf" />
-                        <span className="pl-3">Register Now!</span>
-                    </Button>
+                    <Link to='/hackathon-form' className="">
+                        <Button size="" className="bg-[#0070f3] flex p-6 pt-8 pb-8 rounded-3xl font-bold text-xl text-white">
+                            <img src={trophycup} alt="wtf" />
+                            <span className="pl-3">Register Now!</span>
+                        </Button>
+                    </Link>
 
                 </div>
             </div>
