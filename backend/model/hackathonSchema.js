@@ -2,7 +2,6 @@ const mongoose = require("mongoose");
 
 const hackathonSchema = mongoose.Schema({
     teamName: { type: String, },
-    teamSize: { type: Number, },
 
     leaderName: { type: String, },
     leaderPhoneNo: { type: Number, },
