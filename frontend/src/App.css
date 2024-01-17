@@ -7,6 +7,10 @@ body {
   font-family: 'PT Sans', sans-serif;
 }
 
+label{
+  color: white;
+}
+
 h4 {
   font-family: 'Open Sans', sans-serif;
 }
