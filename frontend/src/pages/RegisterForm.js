@@ -1,10 +1,10 @@
-import { Input, image } from '@nextui-org/react'
+import { Input } from '@nextui-org/react'
 import React, { useState, useEffect } from 'react'
 import QRimg from '../images/QRimg.png'
 import { ReactComponent as Timeline } from '../images/timeline form.svg'
 import icon from '../images/Vector.svg'
 import formbg from '../images/reg-form-bg.svg'
-import { MdCloudUpload, MdDelete } from 'react-icons/md'
+import { MdCloudUpload } from 'react-icons/md'
 import axios from 'axios'
 import { useNavigate } from 'react-router-dom'
 
@@ -25,20 +25,13 @@ export default function RegisterForm() {
   const getUser = async () => {
     try {
       const response = await axios.get("http://localhost:6005/login/success", { withCredentials: true });
-      console.log("response axios", response)
+      // console.log("response axios", response)
       setUserdata(response.data.user)
 
       // setUserdata(response.data.user)
       console.log(userdata)
 
-      if (response.data.user.name !== "null"
-        && response.data.user.phoneNo !== 0
-        && response.data.user.regNo !== 0
-        && response.data.user.branch !== "null"
-        && response.data.user.learnerid !== "null"
-        && response.data.user.upiId !== "null"
-        && response.data.user.txnId !== "null"
-        && response.data.user.screenshot !== "null") {
+      if (response.data.user.registered === true) {
         navigate("/")
       }
 
@@ -62,7 +55,7 @@ export default function RegisterForm() {
     upiID: 'null',
     txnID: 'null',
     screenshot: 'null',
-    hackathon: false,
+    workshops: [],
   });
 
   const [image, setImage] = useState("")
@@ -76,13 +69,28 @@ export default function RegisterForm() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    if(formData.image==='null'){
+    if (formData.screenshot === 'null') {
       return;
     }
-    console.log(formData);
+    // console.log(formData);
 
     try {
       await updateData(userdata._id);
+      try {
+        const response = await fetch(`http://localhost:6005/register/${userdata._id}`, {
+          method: 'PATCH',
+          body: JSON.stringify({ registered: true }),
+          headers: {
+            'Content-Type': 'application/json'
+          }
+        });
+
+        const json = await response.json();
+        console.log("Response JSON: ", json);
+      } catch (error) {
+        console.error("Error updating data:", error);
+      }
+
       navigate("/");
     } catch (error) {
       console.log("Error during form submission: ", error);
@@ -102,7 +110,7 @@ export default function RegisterForm() {
 
     const uploadbg = document.getElementById('upload-box');
     if (uploadbg) {
-      uploadbg.innerHTML ="<div className='uploaded-image' style='display: flex; justify-content: center; align-items: center; color: white; font-size: 1.5rem;'>Uploading...</div>";
+      uploadbg.innerHTML = "<div className='uploaded-image' style='display: flex; justify-content: center; align-items: center; color: white; font-size: 1.5rem;'>Uploading...</div>";
     }
 
     const data = new FormData();
@@ -133,9 +141,9 @@ export default function RegisterForm() {
 
   useEffect(() => {
     const uploadbg = document.getElementById('upload-box');
-    if (uploadbg && formData.screenshot!=undefined) {
+    if (uploadbg && formData.screenshot != undefined) {
       uploadbg.innerText = 'Uploaded';
-      uploadbg.innerHTML =`<div className='uploaded-image' style='display: flex; justify-content: center; align-items: center; color: white; font-size: 1.5rem;'><img src=${formData.screenshot} /></div>`;
+      uploadbg.innerHTML = `<div className='uploaded-image' style='display: flex; justify-content: center; align-items: center; color: white; font-size: 1.5rem;'><img src=${formData.screenshot} /></div>`;
     }
   }, [formData.screenshot])
 
@@ -212,13 +220,13 @@ export default function RegisterForm() {
               className="flex w-full flex-wrap pr-10 lg:pr-20 md:flex-nowrap mb-6 md:mb-0 pb-10"
             >
               <Input
-              onChange={handleChange}
-              isRequired
+                onChange={handleChange}
+                isRequired
                 type="text"
                 variant="underlined"
                 label="Name"
                 name="name"
-                    id="name"
+                id="name"
                 style={{ color: "white" }} />
             </div>
 
@@ -227,14 +235,14 @@ export default function RegisterForm() {
               className="flex w-full flex-wrap pr-8 lg:pr-20 md:flex-nowrap mb-6 md:mb-0 pb-10"
             >
               <Input
-              onChange={handleChange}
-              isRequired
+                onChange={handleChange}
+                isRequired
                 type="number"
                 variant="underlined"
                 label="Registration Number"
                 name="regNo"
-                id="regNo" 
-                style={{ color: "white" }}/>
+                id="regNo"
+                style={{ color: "white" }} />
             </div>
 
             <div
@@ -242,14 +250,14 @@ export default function RegisterForm() {
               className="flex w-full flex-wrap pr-10 lg:pr-20 md:flex-nowrap mb-6 md:mb-0 pb-10"
             >
               <Input
-              onChange={handleChange}
-              isRequired
+                onChange={handleChange}
+                isRequired
                 type="number"
                 variant="underlined"
-                label="Phone Number" 
+                label="Phone Number"
                 name="phoneNo"
-                    id="phoneNo"
-                    style={{ color: "white" }}/>
+                id="phoneNo"
+                style={{ color: "white" }} />
             </div>
 
             <div
@@ -257,14 +265,14 @@ export default function RegisterForm() {
               className="flex w-full flex-wrap md:flex-nowrap mb-6 md:mb-0 gap-4  pr-8 lg:pr-20"
             >
               <Input
-              onChange={handleChange}
-              isRequired
+                onChange={handleChange}
+                isRequired
                 type="email"
                 variant="underlined"
                 label="Learner ID"
                 name="learnerid"
-                id="learnerid" 
-                style={{ color: "white" }}/>
+                id="learnerid"
+                style={{ color: "white" }} />
             </div>
 
             <div
@@ -272,14 +280,14 @@ export default function RegisterForm() {
               className="flex w-full flex-wrap pr-10 lg:pr-20 md:flex-nowrap mb-6 md:mb-0  pb-10"
             >
               <Input
-              onChange={handleChange}
-              isRequired
+                onChange={handleChange}
+                isRequired
                 type="number"
                 variant="underlined"
-                label="Year of Study" 
+                label="Year of Study"
                 name="year"
                 id="year"
-                style={{ color: "white" }}/>
+                style={{ color: "white" }} />
             </div>
 
             <div
@@ -287,14 +295,14 @@ export default function RegisterForm() {
               className="flex w-full flex-wrap pr-8 lg:pr-20 md:flex-nowrap mb-6 md:mb-0  pb-10"
             >
               <Input
-              onChange={handleChange}
-              isRequired
+                onChange={handleChange}
+                isRequired
                 type="text"
                 variant="underlined"
                 label="Branch"
                 name="branch"
-                id="branch" 
-                style={{ color: "white" }}/>
+                id="branch"
+                style={{ color: "white" }} />
             </div>
 
             <div
@@ -302,14 +310,14 @@ export default function RegisterForm() {
               className="flex w-full flex-wrap pr-10 lg:pr-20 md:flex-nowrap mb-6 md:mb-0  pb-10"
             >
               <Input
-              onChange={handleChange}
-              isRequired
+                onChange={handleChange}
+                isRequired
                 type="text"
                 variant="underlined"
                 label="UPI ID"
                 name="upiID"
-                id="upiID" 
-                style={{ color: "white" }}/>
+                id="upiID"
+                style={{ color: "white" }} />
             </div>
 
             <div
@@ -317,14 +325,14 @@ export default function RegisterForm() {
               className="flex w-full flex-wrap pr-10 lg:pr-20 md:flex-nowrap mb-6 md:mb-0  pb-10"
             >
               <Input
-              onChange={handleChange}
-              isRequired
+                onChange={handleChange}
+                isRequired
                 type="text"
                 variant="underlined"
                 label="Transaction ID"
                 name="txnID"
-                id="txnID" 
-                style={{ color: "white" }}/>
+                id="txnID"
+                style={{ color: "white" }} />
             </div>
 
           </div>
@@ -353,7 +361,7 @@ export default function RegisterForm() {
               className="pl-12"
             >
               <input
-              isRequired
+                isRequired
                 id="file-upload"
                 name="screenshot"
                 type="file"
