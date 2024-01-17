@@ -81,6 +81,9 @@ export default function Nav() {
                 <NavbarItem>
                     <HashLink smooth className="text-white" to='#sponsors'>Sponsors</HashLink>
                 </NavbarItem>
+                <NavbarItem>
+                    <HashLink smooth className="text-white p-6" to='/events'>Events</HashLink>
+                </NavbarItem>
             </NavbarContent>
             <NavbarContent justify="end" className="lg:relative left-[10%]">
                 <NavbarItem>
@@ -148,6 +151,11 @@ export default function Nav() {
                 <NavbarMenuItem className="p-4 text-white text-right">
                     <HashLink smooth size="lg" to='#sponsors'>
                         Sponsors
+                    </HashLink>
+                </NavbarMenuItem>
+                <NavbarMenuItem className="p-4 text-white text-right">
+                    <HashLink smooth size="lg" to='/events'>
+                        Events
                     </HashLink>
                 </NavbarMenuItem>
                 {
