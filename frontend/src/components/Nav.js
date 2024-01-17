@@ -1,11 +1,10 @@
 import { Navbar, NavbarBrand, NavbarContent, NavbarItem, NavbarMenu, NavbarMenuItem, NavbarMenuToggle } from "@nextui-org/react";
-import React, { useState, useEffect } from 'react'
-import { Link } from "react-router-dom"
-import { HashLink } from "react-router-hash-link"
-import logo from '../images/Mask group.svg'
-import trophy from '../images/trophycup.svg'
-import axios from "axios"
-import { useNavigate } from 'react-router-dom'
+import axios from "axios";
+import React, { useEffect, useState } from 'react';
+import { Link, useNavigate } from "react-router-dom";
+import { HashLink } from "react-router-hash-link";
+import logo from '../images/Mask group.svg';
+import trophy from '../images/trophycup.svg';
 
 export default function Nav() {
     const [isMenuOpen, setIsMenuOpen] = React.useState(false);
@@ -95,7 +94,7 @@ export default function Nav() {
                 {
                     Object?.keys(userdata)?.length > 0 ? (
                         <>
-                            <NavbarItem className="p-4 text-red-700 text-right">
+                            <NavbarItem className="hidden lg:flex p-4 text-red-700 text-right">
                                 <HashLink size="lg" href='#' onClick={logout}>
                                     Log Out
                                 </HashLink>

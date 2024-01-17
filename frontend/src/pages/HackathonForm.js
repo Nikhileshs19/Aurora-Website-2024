@@ -1,12 +1,12 @@
 import { Input } from '@nextui-org/react'
-import React, { useState, useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
+import { MdCloudUpload } from 'react-icons/md'
+import { useNavigate } from 'react-router-dom'
+import QRimg from '../images/QRimg.png'
 import calen from "../images/calendar.svg"
 import clock from "../images/clock.svg"
 import loc from "../images/loc.svg"
 import tsize from "../images/teamsize.svg"
-import QRimg from '../images/QRimg.png'
-import { MdCloudUpload } from 'react-icons/md'
-import { useNavigate } from 'react-router-dom'
 
 function HackathonForm() {
 
@@ -150,17 +150,17 @@ function HackathonForm() {
 
     useEffect(() => {
         uploadScreenshot()
-    
-      }, [image])
+
+    }, [image])
 
     const uploadScreenshot = async (e) => {
 
         if (!image) return;
 
         const uploadbg = document.getElementById('upload-box');
-    if (uploadbg) {
-      uploadbg.innerHTML ="<div className='uploaded-image' style='display: flex; justify-content: center; align-items: center; color: white; font-size: 1.5rem;'>Uploading...</div>";
-    }
+        if (uploadbg) {
+            uploadbg.innerHTML = "<div className='uploaded-image' style='display: flex; justify-content: center; align-items: center; color: white; font-size: 1.5rem;'>Uploading...</div>";
+        }
 
         const data = new FormData();
         data.append("file", image);
@@ -189,10 +189,10 @@ function HackathonForm() {
     useEffect(() => {
         const uploadbg = document.getElementById('upload-box');
         if (uploadbg && formData.screenshot) {
-          uploadbg.innerText = 'Uploaded';
-          uploadbg.innerHTML =`<div className='uploaded-image' style='display: flex; justify-content: center; align-items: center; color: white; font-size: 1.5rem;'><img src=${formData.screenshot} /></div>`;
+            uploadbg.innerText = 'Uploaded';
+            uploadbg.innerHTML = `<div className='uploaded-image' style='display: flex; justify-content: center; align-items: center; color: white; font-size: 1.5rem;'><img src=${formData.screenshot} /></div>`;
         }
-      }, [formData.screenshot])
+    }, [formData.screenshot])
 
 
     return (
@@ -241,7 +241,7 @@ function HackathonForm() {
                                 className="flex  flex-wrap md:flex-nowrap mb-6 md:mb-0 gap-4"
                             >
                                 <Input
-                                onChange={handleChange}
+                                    onChange={handleChange}
                                     isRequired
                                     type="text"
                                     name="teamName"
@@ -264,14 +264,14 @@ function HackathonForm() {
                             className="flex w-full flex-wrap pr-20 md:flex-nowrap mb-6 md:mb-0  pb-10"
                         >
                             <Input
-                            onChange={handleChange}
+                                onChange={handleChange}
                                 isRequired
                                 type="text"
                                 name="leaderName"
                                 id="leaderName"
                                 variant="underlined"
-                                label="Name" 
-                            style={{ color: "white" }}
+                                label="Name"
+                                style={{ color: "white" }}
                             />
                         </div>
                         <div
@@ -279,7 +279,7 @@ function HackathonForm() {
                             className="flex w-full flex-wrap md:flex-nowrap mb-6 md:mb-0 gap-4 pr-20 pb-10"
                         >
                             <Input
-                            onChange={handleChange}
+                                onChange={handleChange}
                                 isRequired
                                 type="number"
                                 onFocus={(e) => e.target.addEventListener("wheel", function (e) { e.preventDefault() }, { passive: false })}
@@ -296,15 +296,15 @@ function HackathonForm() {
                             className="flex w-full flex-wrap md:flex-nowrap mb-6 md:mb-0 gap-4  pr-20"
                         >
                             <Input
-                            onChange={handleChange}
+                                onChange={handleChange}
                                 isRequired
                                 type="number"
                                 onFocus={(e) => e.target.addEventListener("wheel", function (e) { e.preventDefault() }, { passive: false })}
                                 name="leaderPhoneNo"
                                 id="leaderPhoneNo"
                                 variant="underlined"
-                                label="Phone Number" 
-                            style={{ color: "white" }}
+                                label="Phone Number"
+                                style={{ color: "white" }}
                             />
                         </div>
                         <div
@@ -312,14 +312,14 @@ function HackathonForm() {
                             className="flex w-full flex-wrap md:flex-nowrap mb-6 md:mb-0 gap-4  pr-20"
                         >
                             <Input
-                            onChange={handleChange}
+                                onChange={handleChange}
                                 isRequired
                                 type="email"
                                 name="leaderLearnerid"
                                 id="leaderLearnerid"
                                 variant="underlined"
-                                label="Learner ID" 
-                            style={{ color: "white" }}
+                                label="Learner ID"
+                                style={{ color: "white" }}
                             />
                         </div>
                     </div>
@@ -333,7 +333,7 @@ function HackathonForm() {
                             className="flex w-full flex-wrap md:flex-nowrap mb-6 md:mb-0 gap-4  pr-20  pb-10"
                         >
                             <Input
-                            onChange={handleChange}
+                                onChange={handleChange}
                                 isRequired
                                 type="text"
                                 name="member1Name"
@@ -349,7 +349,7 @@ function HackathonForm() {
                             className="flex w-full flex-wrap md:flex-nowrap mb-6 md:mb-0 gap-4  pr-20 pb-10"
                         >
                             <Input
-                            onChange={handleChange}
+                                onChange={handleChange}
                                 isRequired
                                 type="number"
                                 onFocus={(e) => e.target.addEventListener("wheel", function (e) { e.preventDefault() }, { passive: false })}
@@ -366,15 +366,15 @@ function HackathonForm() {
                             className="flex w-full flex-wrap md:flex-nowrap mb-6 md:mb-0 gap-4  pr-20"
                         >
                             <Input
-                            onChange={handleChange}
+                                onChange={handleChange}
                                 isRequired
                                 type="number"
                                 onFocus={(e) => e.target.addEventListener("wheel", function (e) { e.preventDefault() }, { passive: false })}
                                 name="member1PhoneNo"
                                 id="member1PhoneNo"
                                 variant="underlined"
-                                label="Phone Number" 
-                            style={{ color: "white" }}
+                                label="Phone Number"
+                                style={{ color: "white" }}
                             />
                         </div>
                         <div
@@ -382,14 +382,14 @@ function HackathonForm() {
                             className="flex w-full flex-wrap md:flex-nowrap mb-6 md:mb-0 gap-4 pr-20"
                         >
                             <Input
-                            onChange={handleChange}
+                                onChange={handleChange}
                                 isRequired
                                 type="email"
                                 name="member1Learnerid"
                                 id="member1Learnerid"
                                 variant="underlined"
-                                label="Learner ID" 
-                            style={{ color: "white" }}
+                                label="Learner ID"
+                                style={{ color: "white" }}
                             />
                         </div>
                     </div>
@@ -403,7 +403,7 @@ function HackathonForm() {
                             className="flex w-full flex-wrap md:flex-nowrap mb-6 md:mb-0 gap-4  pr-20  pb-10"
                         >
                             <Input
-                            onChange={handleChange}
+                                onChange={handleChange}
                                 type="text"
                                 name="member2Name"
                                 id="member2Name"
@@ -418,7 +418,7 @@ function HackathonForm() {
                             className="flex w-full flex-wrap md:flex-nowrap mb-6 md:mb-0 gap-4  pr-20 pb-10"
                         >
                             <Input
-                            onChange={handleChange}
+                                onChange={handleChange}
                                 type="number"
                                 onFocus={(e) => e.target.addEventListener("wheel", function (e) { e.preventDefault() }, { passive: false })}
                                 name="member2RegNo"
@@ -434,14 +434,14 @@ function HackathonForm() {
                             className="flex w-full flex-wrap md:flex-nowrap mb-6 md:mb-0 gap-4  pr-20"
                         >
                             <Input
-                            onChange={handleChange}
+                                onChange={handleChange}
                                 type="number"
                                 onFocus={(e) => e.target.addEventListener("wheel", function (e) { e.preventDefault() }, { passive: false })}
                                 name="member2PhoneNo"
                                 id="member2PhoneNo"
                                 variant="underlined"
-                                label="Phone Number" 
-                            style={{ color: "white" }}
+                                label="Phone Number"
+                                style={{ color: "white" }}
                             />
                         </div>
                         <div
@@ -449,14 +449,14 @@ function HackathonForm() {
                             className="flex w-full flex-wrap md:flex-nowrap mb-6 md:mb-0 gap-4 pr-20"
                         >
                             <Input
-                            onChange={handleChange}
+                                onChange={handleChange}
                                 type="email"
                                 name="member2Learnerid"
                                 id="member2Learnerid"
                                 variant="underlined"
-                                label="Learner ID" 
+                                label="Learner ID"
                                 style={{ color: "white" }}
-                                />
+                            />
                         </div>
                     </div>
                     <div className="grid grid-cols-2 grid-rows-3 pl-10 pt-8">
@@ -469,7 +469,7 @@ function HackathonForm() {
                             className="flex w-full flex-wrap md:flex-nowrap mb-6 md:mb-0 gap-4  pr-20  pb-10"
                         >
                             <Input
-                            onChange={handleChange}
+                                onChange={handleChange}
                                 type="text"
                                 name="member3Name"
                                 id="member3Name"
@@ -483,7 +483,7 @@ function HackathonForm() {
                             className="flex w-full flex-wrap md:flex-nowrap mb-6 md:mb-0 gap-4  pr-20 pb-10"
                         >
                             <Input
-                            onChange={handleChange}
+                                onChange={handleChange}
                                 type="number"
                                 onFocus={(e) => e.target.addEventListener("wheel", function (e) { e.preventDefault() }, { passive: false })}
                                 name="member3RegNo"
@@ -499,7 +499,7 @@ function HackathonForm() {
                             className="flex w-full flex-wrap md:flex-nowrap mb-6 md:mb-0 gap-4  pr-20"
                         >
                             <Input
-                            onChange={handleChange}
+                                onChange={handleChange}
                                 type="number"
                                 onFocus={(e) => e.target.addEventListener("wheel", function (e) { e.preventDefault() }, { passive: false })}
                                 name="member3PhoneNo"
@@ -514,14 +514,14 @@ function HackathonForm() {
                             className="flex w-full flex-wrap md:flex-nowrap mb-6 md:mb-0 gap-4 pr-20"
                         >
                             <Input
-                            onChange={handleChange}
+                                onChange={handleChange}
                                 type="email"
                                 name="member3Learnerid"
                                 id="member3Learnerid"
                                 variant="underlined"
-                                label="Learner ID" 
-                                style={{ color: "white" }} 
-                                />
+                                label="Learner ID"
+                                style={{ color: "white" }}
+                            />
                         </div>
                     </div>
                     <div className="grid grid-cols-2 grid-rows-3 pl-10 pt-8">
@@ -534,14 +534,14 @@ function HackathonForm() {
                             className="flex w-full flex-wrap md:flex-nowrap mb-6 md:mb-0 gap-4  pr-20  pb-10"
                         >
                             <Input
-                            onChange={handleChange}
+                                onChange={handleChange}
                                 type="text"
                                 name="member4Name"
                                 id="member4Name"
                                 variant="underlined"
                                 label="Name"
                                 className="text-zinc-500 text-base font-normal font-['Inter'] leading-normal"
-                                style={{ color: "white" }} 
+                                style={{ color: "white" }}
                             />
                         </div>
                         <div
@@ -549,14 +549,14 @@ function HackathonForm() {
                             className="flex w-full flex-wrap md:flex-nowrap mb-6 md:mb-0 gap-4  pr-20 pb-10"
                         >
                             <Input
-                            onChange={handleChange}
+                                onChange={handleChange}
                                 type="number"
                                 onFocus={(e) => e.target.addEventListener("wheel", function (e) { e.preventDefault() }, { passive: false })}
                                 name="member4RegNo"
                                 id="member4RegNo"
                                 variant="underlined"
                                 label="Registration Number"
-                                style={{ color: "white" }} 
+                                style={{ color: "white" }}
                             />
                         </div>
 
@@ -565,61 +565,66 @@ function HackathonForm() {
                             className="flex w-full flex-wrap md:flex-nowrap mb-6 md:mb-0 gap-4  pr-20"
                         >
                             <Input
-                            onChange={handleChange}
+                                onChange={handleChange}
                                 type="number"
                                 onFocus={(e) => e.target.addEventListener("wheel", function (e) { e.preventDefault() }, { passive: false })}
                                 name="member4PhoneNo"
                                 id="member4PhoneNo"
                                 variant="underlined"
-                                label="Phone Number" 
-                                style={{ color: "white" }} 
-                                />
+                                label="Phone Number"
+                                style={{ color: "white" }}
+                            />
                         </div>
                         <div
                             key="underlined"
                             className="flex w-full flex-wrap md:flex-nowrap mb-6 md:mb-0 gap-4 pr-20"
                         >
                             <Input
-                            onChange={handleChange}
+                                onChange={handleChange}
                                 type="email"
                                 name="member4Learnerid"
                                 id="member4Learnerid"
                                 variant="underlined"
-                                label="Learner ID" 
-                                style={{ color: "white" }} 
-                                />
+                                label="Learner ID"
+                                style={{ color: "white" }}
+                            />
                         </div>
                     </div>
 
-            <div
-              key="underlined"
-              className="flex w-full flex-wrap pr-10 lg:pr-20 md:flex-nowrap mb-6 md:mb-0  pb-10"
-            >
-              <Input
-              onChange={handleChange}
-              isRequired
-                type="text"
-                variant="underlined"
-                label="UPI ID"
-                name="upiID"
-                id="upiID" 
-                style={{ color: "white" }}/>
-            </div>
+                    <div className='grid grid-cols-1 grid-rows-2 p-10'>
+                        <div className="text-blue-500 text-2xl font-normal font-['Inter'] leading-normal h-5 ">
+                            Transaction Details
+                        </div>
+                        <div
+                            key="underlined"
+                            className="flex w-full flex-wrap pr-10 lg:pr-20 md:flex-nowrap mb-6 md:mb-0  pb-10"
+                        >
+                            <Input
+                                onChange={handleChange}
+                                isRequired
+                                type="text"
+                                variant="underlined"
+                                label="UPI ID"
+                                name="upiID"
+                                id="upiID"
+                                style={{ color: "white" }} />
+                        </div>
 
-            <div
-              key="underlined"
-              className="flex w-full flex-wrap pr-10 lg:pr-20 md:flex-nowrap mb-6 md:mb-0  pb-10"
-            >
-              <Input
-              onChange={handleChange}
-              isRequired
-                type="text"
-                variant="underlined"
-                label="Transaction ID"
-                name="txnID"
-                id="txnID" 
-                style={{ color: "white" }}/>
-            </div>
+                        <div
+                            key="underlined"
+                            className="flex w-full flex-wrap pr-10 lg:pr-20 md:flex-nowrap mb-6 md:mb-0  pb-10"
+                        >
+                            <Input
+                                onChange={handleChange}
+                                isRequired
+                                type="text"
+                                variant="underlined"
+                                label="Transaction ID"
+                                name="txnID"
+                                id="txnID"
+                                style={{ color: "white" }} />
+                        </div>
+                    </div>
 
                     <div className="grid lg:grid-cols-2 sm:grid-cols-1 grid-rows-3 pl-10 h-60 pt-14">
                         <div className="col-span-2 text-blue-500 text-2xl font-normal font-['Inter'] leading-normal h-5 ">
