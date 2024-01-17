@@ -54,3 +54,16 @@
     grid-column-gap: 10px;
   }
 }
+.timeline-card.glow {
+  transform: translateY(-10px);
+  box-shadow: 0 5px 30px rgba(17, 172, 228, 0.9);
+  border-radius: 10%; /* Adjust the border-radius value as needed */
+  transition: transform 0.3s, box-shadow 0.3s, border-radius 0.3s;
+}
+
+.vertical-solid-line.glow {
+  box-shadow: 0 5px 40px rgba(17, 172, 228, 1);
+  /* width: 5px; */
+  border-radius: 10%; /* Adjust the border-radius value as needed */
+  transition: transform 0.3s, box-shadow 0.3s, border-radius 0.3s;
+}
