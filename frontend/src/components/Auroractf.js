@@ -12,7 +12,7 @@ export const Auroractf = () => {
         <div className="p-10 text-white">
         <div className="grid bg-aurora-bg bg-cover md:grid-cols-2 grid-cols-1 rounded-3xl ">
             <div className="flex justify-center align-middle">
-                <img className="" src={hecker}></img>
+                <img className="m-auto mt-6" src={hecker}></img>
             </div>
             <div className="flex-col justify-center align-middle">
                 <img className="h-72 w-72 object-center m-auto" src={gr}></img>
