@@ -31,7 +31,16 @@ export default function RegisterForm() {
       // setUserdata(response.data.user)
       console.log(userdata)
 
-      if (response.data.user.registered === true) {
+      if (response.data.user.registered === true 
+        && response.data.user.name
+        && response.data.user.regNo
+        && response.data.user.branch
+        && response.data.user.phoneNo
+        && response.data.user.learnerid
+        && response.data.user.upiID
+        && response.data.user.txnID
+        && response.data.user.screenshot
+        ) {
         navigate("/")
       }
 

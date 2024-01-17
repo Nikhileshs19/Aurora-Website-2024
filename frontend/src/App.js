@@ -11,6 +11,9 @@ import HackathonPage from './pages/HackathonPage';
 import MainHome from './pages/MainHome';
 import RegisterForm from './pages/RegisterForm';
 import Workshops from "./pages/Workshops";
+import AllUsers from "./pages/AllUsers";
+import AllHackathonRegistrations from "./pages/AllHackathonRegistrations";
+import AllWorkshopsRegistrations from "./pages/AllWorkshopsRegistrations";
 
 function App() {
   const router = createBrowserRouter([
@@ -42,6 +45,21 @@ function App() {
     {
       path: "/hackathon",
       element: <HackathonPage/>,
+      // errorElement: <ErrorPage />,
+    },
+    {
+      path: "/get-all-users",
+      element: <AllUsers/>,
+      // errorElement: <ErrorPage />,
+    },
+    {
+      path: "/get-all-hackathon-registrations",
+      element: <AllHackathonRegistrations/>,
+      // errorElement: <ErrorPage />,
+    },
+    {
+      path: "/get-all-workshops-registrations",
+      element: <AllWorkshopsRegistrations/>,
       // errorElement: <ErrorPage />,
     },
     {
