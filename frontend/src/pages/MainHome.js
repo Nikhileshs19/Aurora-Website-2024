@@ -1,5 +1,4 @@
 import React from 'react';
-// import Navbar from '../components/Navbar.js'
 import About from '../components/About.js';
 import Footer from '../components/Footer.js';
 import Gallery from '../components/Gallery.js';
@@ -10,7 +9,6 @@ import Timer from '../components/Timer.js';
 import MyParallax from '../components/parallax/my-parallax.js';
 import Timeline from '../components/timeline/Timeline.js';
 import { Auroractf }  from '../components/Auroractf.js';
-
 
 const MainHome = () => {
   return (

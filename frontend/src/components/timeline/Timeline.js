@@ -275,23 +275,7 @@ const Timeline = () => {
             className="my-timeline"
             style={{ position: "relative", margin: "280px auto" }}
           >
-            {/* Timeline Circle */}
-            {/* <div
-            ref={circleRef} // Set a ref to access the circle element
-            className="timeline-circle"
-            style={{
-              position: "fixed",
-              width: "40px",
-              height: "40px",
-              backgroundColor: "white",
-              borderRadius: "50%",
-              top: "50%",
-              left: "20px", // Move the circle to the left
-              zIndex: 3,
-              opacity: scrollPercentage > 0 ? 1 : 0,
-              transition: "opacity 1.5s ease",
-            }}
-          ></div> */}
+
 
             {/* Vertical Dashed Line */}
             <div
