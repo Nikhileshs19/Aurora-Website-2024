@@ -1,6 +1,7 @@
 import React from 'react';
 // import Navbar from '../components/Navbar.js'
 import About from '../components/About.js';
+import Footer from '../components/Footer.js';
 import Gallery from '../components/Gallery.js';
 import Nav from '../components/Nav.js';
 import Partners from '../components/Partners.js';
@@ -13,7 +14,7 @@ import { Auroractf } from '../components/Auroractf.js';
 
 const MainHome = () => {
   return (
-    <div style={{backgroundColor: "black"}} >
+    <div style={{backgroundColor: "#000509"}} >
 
     <Nav/>
 

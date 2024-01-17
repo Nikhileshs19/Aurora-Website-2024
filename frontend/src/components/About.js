@@ -7,18 +7,18 @@ function About() {
     <div className="flex flex-row flex-wrap items-center p-10 rounded-3xl justify-evenly  glow-about">
       {/* First Column */}
       <div className='flex-col p-6  flex justify-center'>
-        <span className="text-white text-4xl sm:text-6xl font-bold">
+        <span className="text-white text-center text-4xl sm:text-6xl font-bold">
          200+
           
         </span>
         <br />
-        <span className="text-2xl sm:text-3xl text-white font-bold">Registerations</span>
+        <span className="text-2xl sm:text-3xl text-white font-bold">Registrations</span>
       </div>
 
 
       {/* Second Column */}
       <div className='flex-col p-6 flex justify-center'>
-        <span className="text-white text-4xl sm:text-6xl font-bold">
+        <span className="text-white text-center text-4xl sm:text-6xl font-bold">
           8+
           
         </span>
@@ -28,7 +28,7 @@ function About() {
       {/* Third Column */}
       
       <div className='flex-col p-6  flex justify-center'>
-        <span className="text-white text-4xl sm:text-6xl font-bold">
+        <span className="text-white text-center text-4xl sm:text-6xl font-bold">
           45+
           
         </span>
