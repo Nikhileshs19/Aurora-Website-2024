@@ -13,6 +13,7 @@ module.exports = {
       backgroundImage: {
         'form-bg': "url('/src/images/reg-form-bg.svg')",
         'footer-texture': "url('/src/images/bgfooter.svg')",
+        'aurora-bg': "url('/src/images/Rectangle.svg')",
     },
   },
   darkMode: "class",
