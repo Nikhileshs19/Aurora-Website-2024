@@ -32,6 +32,7 @@ export default function Nav() {
             const response = await axios.get("http://localhost:6005/login/success", { withCredentials: true });
 
             setUserdata(response.data.user)
+            
         } catch (error) {
             //console.log("error", error)
             //navigate('/*')
