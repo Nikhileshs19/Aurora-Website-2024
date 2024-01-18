@@ -8,6 +8,7 @@ import {
 } from "@nextui-org/react";
 import React, { useState } from "react";
 import neuralnetworks from "../../images/neuralnetworks.png";
+import workshopsevents from '../../images/workshopsevents.svg';
 import Modal_1 from "../Modal_1";
 import Modal_2 from "../Modal_2";
 import Modal_3 from "../Modal_3";
@@ -17,17 +18,18 @@ import Modal_6 from "../Modal_6";
 import Modal_7 from "../Modal_7";
 import Modal_8 from "../Modal_8";
 import Modal_9 from "../Modal_9";
-import TitleStuff from '../Title_Stuff';
 
 export default function TimelineEventsCards() {
   const [selectedModalIndex, setSelectedModalIndex] = useState(null);
 
-  const timelineCards = Array.from({ length: 9 }, (_, index) => ({
+  const timelineCards = Array.from({ length: 9 }, (_, index) => (
+    {
     title: `Event ${index + 1}`,
     time: "05:30PM - 08:00PM",
     date: `4th January, 2024`,
     image: neuralnetworks,
-  }));
+    }
+    ));
 
   const toggleModal = (index) => {
     setSelectedModalIndex(index);
@@ -35,15 +37,15 @@ export default function TimelineEventsCards() {
   return (
     <div className="lg:p-12 p-8">
       <div className="bg-aurora-bg bg-cover rounded-3xl">
-        <TitleStuff name="workshops" />
-        <div className="p-6 grid md:grid-cols-3 grid-cols-2 ">
+        <img src={workshopsevents} alt="" className="mx-auto"/>
+        <div className="p-6 grid md:grid-cols-3 grid-cols-1 ">
 
           {timelineCards.map((card, index) => (
             <div
               key={index}
-              className="py-5 m-auto"
+              className="pb-5 m-auto"
             >
-              <Card className="py-4 lg:w-[19rem] w-[6.8rem] lg:h-auto h-[15rem] text-xs">
+              <Card className="py-4 text-xs">
                 <CardHeader className="pb-0 pt-2 px-4 flex-col items-center">
                   <p className=" uppercase font-bold lg:text-[0.8rem] text-[0.50rem]">
                     {card.time}
