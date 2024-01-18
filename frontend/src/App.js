@@ -10,6 +10,7 @@ import HackathonForm from './pages/HackathonForm';
 import HackathonPage from './pages/HackathonPage';
 import MainHome from './pages/MainHome';
 import RegisterForm from './pages/RegisterForm';
+import Developers from "./pages/Developers";
 
 function App() {
   const router = createBrowserRouter([
@@ -41,6 +42,11 @@ function App() {
     {
       path: "/hackathon",
       element: <HackathonPage/>,
+      // errorElement: <ErrorPage />,
+    },
+    {
+      path: "/developers",
+      element: <Developers />
       // errorElement: <ErrorPage />,
     },
     {
