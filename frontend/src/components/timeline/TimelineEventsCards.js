@@ -43,29 +43,29 @@ export default function TimelineEventsCards() {
               key={index}
               className="py-5 m-auto"
             >
-              <Card className="py-4 lg:w-[20rem] w-[7rem] lg:h-auto h-[15rem] text-xs">
-                <CardHeader className="pb-0 pt-2 px-4 flex-col items-start">
+              <Card className="py-4 lg:w-[19rem] w-[6.8rem] lg:h-auto h-[15rem] text-xs">
+                <CardHeader className="pb-0 pt-2 px-4 flex-col items-center">
                   <p className=" uppercase font-bold lg:text-[0.8rem] text-[0.50rem]">
                     {card.time}
                   </p>
                   <h4 className="text-default-500 lg:text-[0.7rem] text-[0.6rem]">{card.date}</h4>
                   <h4 className="font-bold lg:text-[1.3rem]">{card.title}</h4>
                 </CardHeader>
-                <CardBody className="overflow-visible py-2">
+                <CardBody className="overflow-visible py-2 items-center ">
                   <Image
                     alt="Card background"
                     className="object-cover rounded-xl "
                     src={card.image}
                     width={270}
                   />
-                  <div className="lg:mx-auto mt-6 flex lg:flex-row flex-col lg:gap-5 gap-2">
+                  <div className="mx-auto mt-6 flex lg:flex-row flex-col lg:gap-5 gap-2">
                     <Checkbox size="sm" color="success" radius="sm" className="lg:pt-2 pt-1">
                       Participate
                     </Checkbox>
                     <Button
-                      className="lg:w-fit w-[4rem] "
+                      className=" "
                       color="primary"
-                      size="md"
+                      size="sm"
                       radius="lg"
                       onClick={() => toggleModal(index)}
                     >
