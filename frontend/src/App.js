@@ -10,6 +10,7 @@ import HackathonForm from './pages/HackathonForm';
 import HackathonPage from './pages/HackathonPage';
 import MainHome from './pages/MainHome';
 import RegisterForm from './pages/RegisterForm';
+import Workshops from "./pages/Workshops";
 
 function App() {
   const router = createBrowserRouter([
@@ -20,7 +21,7 @@ function App() {
     },
     {
       path: "/events",
-      element: <Events />,
+      element: <Workshops />,
       // errorElement: <ErrorPage />,
     },
     // {
