@@ -121,15 +121,15 @@ const TimelineMain = () => {
       //height of solid line
       // const scrollPercentageMobile = (window.scrollY / timelineHeight) * -65;
       const adjustedPercentageMobile = Math.min(
-        279,
-        Math.abs(newScrollPercentageMobile * 1.5)
+        289,
+        Math.abs(newScrollPercentageMobile * 1.1)
       );
       console.log(adjustedPercentageMobile);
 
       document.querySelector(".vertical-solid-line-mobile").style.height =
         adjustedPercentageMobile + "rem";
-      document.querySelector(".vertical-dashed-line-mobile").style.height =
-        adjustedPercentageMobile + "rem";
+      //   document.querySelector(".vertical-dashed-line-mobile").style.height =
+      //     adjustedPercentageMobile + "rem";
     };
 
     window.addEventListener("scroll", handleScroll);
@@ -248,7 +248,7 @@ const TimelineMain = () => {
               className="vertical-dashed-line-mobile absolute left-0 top-0 bg-transparent w-1 h-full"
               style={{
                 marginLeft: "40px", // Adjusted the left margin for the vertical line
-                marginTop: "100px", // Set the top margin for the vertical line
+                marginTop: "60px", // Set the top margin for the vertical line
                 backgroundImage: `repeating-linear-gradient(transparent, transparent 10px, white 10px, white 20px)`, // Vertical dashed line background
               }}
             ></div>

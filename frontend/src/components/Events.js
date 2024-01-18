@@ -20,7 +20,7 @@ export default function Events(){
       
       <img src={eventslines} alt="" className='mx-auto'/>
 
-      <Auroractf/>
+      <Auroractf />
     </div>
   );
 };
