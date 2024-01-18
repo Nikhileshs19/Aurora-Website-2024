@@ -14,7 +14,7 @@ const Modal_4 = ({ toggleModal, index }) => {
           <div className="bg-white w-[70%] h-[80%] rounded-3xl shadow-lg overflow-hidden">
             <div className="relative justify-between items-center border-b pb-4 mb-4">
               <h3 className="mt-3 mx-3 my-3 text-xl font-semibold text-[#00418C] p-2">
-                INTRODUCTION TO JS
+                RECOMMENDER SYSTEMS AND SENTIMENT ANALYSIS
               </h3>
               <button
                 onClick={() => toggleModal(index)}
@@ -38,29 +38,58 @@ const Modal_4 = ({ toggleModal, index }) => {
             </div>
             <div className="p-5 overflow-y-auto max-h-[60vh]">
               <div className="my-4">
-                <h4 className="text-black p-2">Description</h4>
+                <h4 className="text-black p-2">Course Overview</h4>
                 <p className="text-black mx-auto">
-                  Lorem ipsum is placeholder text commonly used in the graphic,
+                  Embark on a professional workshop covering Recommender Systems
+                  and Sentiment Analysis. Day 1 introduces Python basics and
+                  essential scipy libraries, culminating in the implementation
+                  of a simple analysis model using TextBlob. Day 2 advances
+                  skills with the implementation of a basic item-item
+                  similarity-based recommender system and a more sophisticated
+                  system integrating sentiment analysis. This comprehensive
+                  course enhances proficiency in Python for data analysis,
+                  machine learning, and the creation of impactful recommendation
+                  models. Elevate your capabilities in data analysis and
+                  sentiment-aware recommendations through practical, hands-on
+                  learning in this dynamic workshop.
                 </p>
               </div>
 
               <div className="my-4">
-                <h2 className="mt-2 p-2">Day 2</h2>
+                <h2 className="mt-2 p-2">
+                  Day 1: Introduction to Python for Data Analysis
+                </h2>
                 <p className="text-black">
-                  Lorem ipsum is placeholder text commonly used in the graphic,
+                  Foundations of Python: Delve into the basics of Python for
+                  data analysis. Explore essential scipy libraries including
+                  pandas and numpy for efficient data analysis and model
+                  building. Introduction to TextBlob: Implement a simple
+                  analysis model using TextBlob, gaining insights into sentiment
+                  analysis and text processing.
                 </p>
               </div>
               <div className="my-4">
-                <h2 className="mt-2 p-2">Day 3</h2>
+                <h2 className="mt-2 p-2">
+                  Day 2: Recommender Systems and Sentiment Analysis
+                  Implementation
+                </h2>
                 <p className="text-black">
-                  Lorem ipsum is placeholder text commonly used in the graphic,
+                  Item-Item Similarity-Based Recommender System: Implement a
+                  basic recommendation system focusing on item-item similarity,
+                  understanding collaborative filtering concepts. Recommender
+                  System with Sentiment Analysis: Implement a robust recommender
+                  system incorporating sentiment analysis. Enhance
+                  recommendations by considering user sentiments towards items.
                 </p>
               </div>
               <div className="my-4">
-                <h2 className="mt-2 p-2">Prerequisites</h2>
-                <p className="text-black">
+                <h2 className="mt-2 p-2 text-lg">Prerequisites</h2>
+                <p className="text-black text-base">
                   Lorem ipsum is placeholder text commonly used in the graphic,
                 </p>
+              </div>
+              <div className="my-4 text-lg">
+                <h2 className="mt-2 p-2">Conducted by: ACM Manipal</h2>
               </div>
             </div>
           </div>
