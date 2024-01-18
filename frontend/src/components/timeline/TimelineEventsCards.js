@@ -69,7 +69,7 @@ export default function TimelineEventsCards() {
   return (
     <div className="lg:p-12 p-8">
       <div className="bg-aurora-bg bg-cover rounded-3xl">
-        <img src={workshopsevents} alt="" className="mx-auto"/>
+        <img src={workshopsevents} alt="" className="mx-auto p-10"/>
         <div className="p-6 grid md:grid-cols-3 grid-cols-1 ">
           {titles.map((title, index) => (
             <div key={index} className="py-5 m-auto">

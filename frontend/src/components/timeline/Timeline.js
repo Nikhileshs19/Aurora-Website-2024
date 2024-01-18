@@ -251,6 +251,7 @@ const Timeline = () => {
             className="my-timeline"
             style={{ position: "relative", margin: "280px auto" }}
           >
+
             {/* Vertical Dashed Line */}
             <div
               className="vertical-dashed-line absolute left-0 top-0 bg-transparent w-1 h-full"
