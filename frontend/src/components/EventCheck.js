@@ -22,7 +22,7 @@ const checkbox = tv({
   },
 });
 
-export default function EventCheck() {
+export default function EventCheck(props) {
   const {
     children,
     isSelected,
