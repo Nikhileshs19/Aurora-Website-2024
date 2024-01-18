@@ -1,8 +1,10 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 import cashprizeseventhack from '../images/cashprizeseventhack.svg'
 import cashprizestitle from '../images/cashprizestitle.svg'
 import devsprintdate from '../images/devsprintdate.svg'
 import hackathoneventtitle from '../images/hackathoneventtitle.svg'
+import trophy from '../images/whitetrophy.svg'
 
 export default function DevsprintEvents() {
     return (
@@ -11,7 +13,7 @@ export default function DevsprintEvents() {
 
                 <div className="grid lg:grid-cols-2  justify-center items-center">
                     <div className='col-span-2 mx-auto'>
-                        <img src={hackathoneventtitle} alt="" className='mx-auto'/>
+                        <img src={hackathoneventtitle} alt="" className='mx-auto' />
                         <div className="[text-shadow:0px_4px_53px_#00000073] [font-family:'Inter-Regular',Helvetica] font-normal text-white lg:text-[27px] text-[16px] tracking-[0] leading-[normal]">
                             AURORA PRESENTS
                         </div>
@@ -26,6 +28,14 @@ export default function DevsprintEvents() {
                         and share them with the rest of the world by bringing back the community of student developers together yet
                         again.
                     </p>
+                    <div className='col-span-2 mx-auto pb-10'>
+                        <Link to='/hackathon' className="">
+                            <div className="w-fit lg:text-[14px] text-[12px] shadow-2xl font-medium h-fit flex justify-between bg-[#0070F3] text-white rounded-lg p-2">
+                                <img src={trophy} alt="" className="lg:w-[1.5rem] w-[1rem]" />
+                                Go Hackathon
+                            </div>
+                        </Link>
+                    </div>
                     <div className='col-span-1 mx-auto'>
                         <img src={devsprintdate} alt="" />
                     </div>
