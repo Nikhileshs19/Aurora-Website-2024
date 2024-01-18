@@ -1,20 +1,26 @@
-import React from "react";
-import { Auroractf } from "./Auroractf";
-import DevsprintEvents from "./DevsprintEvents";
-import Timeline from "./timeline/Timeline";
+import React from 'react';
+import events from '../images/events.svg';
+import eventslines from '../images/eventslines.svg';
+import { Auroractf } from './Auroractf';
+import DevsprintEvents from './DevsprintEvents';
+import TimelineEvents from './timeline/TimelineEvents';
 
-const Events = () => {
+export default function Events(){
   return (
-    <div className="bg-[#000509]">
-      <h1 className="text-center">EVENTS</h1>
+    <div className='bg-[#000509]'>
+      
 
-      <Timeline />
+      <img src={events} alt="" className='mx-auto'/>
 
-      <DevsprintEvents />
+      <TimelineEvents/>
+
+      <img src={eventslines} alt="" className='mx-auto'/>
+
+      <DevsprintEvents/>
+      
+      <img src={eventslines} alt="" className='mx-auto'/>
 
       <Auroractf />
     </div>
   );
 };
-
-export default Events;

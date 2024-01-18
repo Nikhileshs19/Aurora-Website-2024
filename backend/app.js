@@ -169,6 +169,33 @@ app.post('/hackathon-registration', async (req, res) => {
     }
 })
 
+app.get('/get-all-user', async(req, res) => {
+    try{
+        const allUser = await userdb.find({});
+        res.send({ status: "ok", data: allUser});
+    } catch (error){
+        console.log(error)
+    }
+});
+
+app.get('/get-all-hackathon-registrations', async(req, res) => {
+    try{
+        const allUser = await hackathon.find({});
+        res.send({ status: "ok", data: allUser});
+    } catch (error){
+        console.log(error)
+    }
+});
+
+app.get('/get-all-workshops-registrations', async(req, res) => {
+    try{
+        const allUser = await userdb.find({});
+        res.send({ status: "ok", data: allUser});
+    } catch (error){
+        console.log(error)
+    }
+});
+
 // app.patch('/hackathon-update-form/:id', async (req, res) => {
 //     try {
 //         const hackathonUpdate = await hackathon.findByIdAndUpdate(
