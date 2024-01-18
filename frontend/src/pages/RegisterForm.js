@@ -1,12 +1,12 @@
 import { Input } from '@nextui-org/react'
-import React, { useState, useEffect } from 'react'
+import axios from 'axios'
+import React, { useEffect, useState } from 'react'
+import { MdCloudUpload } from 'react-icons/md'
+import { useNavigate } from 'react-router-dom'
 import QRimg from '../images/QRimg.png'
-import { ReactComponent as Timeline } from '../images/timeline form.svg'
 import icon from '../images/Vector.svg'
 import formbg from '../images/reg-form-bg.svg'
-import { MdCloudUpload } from 'react-icons/md'
-import axios from 'axios'
-import { useNavigate } from 'react-router-dom'
+import { ReactComponent as Timeline } from '../images/timeline form.svg'
 
 export default function RegisterForm() {
 

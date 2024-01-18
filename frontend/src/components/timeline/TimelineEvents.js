@@ -3,7 +3,7 @@ import TimelineEventsCards from "./TimelineEventsCards";
 
 export default function TimelineEvents() {
     return (
-        <div>
+        <div className="">
             <TimelineEventsCards/>
         </div>
     )

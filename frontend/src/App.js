@@ -4,16 +4,15 @@ import {
 } from "react-router-dom";
 import './App.css';
 
-import Events from "./components/Events";
+import Events from './components/Events';
+import AllHackathonRegistrations from "./pages/AllHackathonRegistrations";
+import AllUsers from "./pages/AllUsers";
+import AllWorkshopsRegistrations from "./pages/AllWorkshopsRegistrations";
 import Error from './pages/Error';
 import HackathonForm from './pages/HackathonForm';
 import HackathonPage from './pages/HackathonPage';
 import MainHome from './pages/MainHome';
 import RegisterForm from './pages/RegisterForm';
-import Workshops from "./pages/Workshops";
-import AllUsers from "./pages/AllUsers";
-import AllHackathonRegistrations from "./pages/AllHackathonRegistrations";
-import AllWorkshopsRegistrations from "./pages/AllWorkshopsRegistrations";
 
 function App() {
   const router = createBrowserRouter([

@@ -2,6 +2,7 @@ import { Button, Card, CardBody, CardHeader, Image } from "@nextui-org/react";
 import React, { useState } from "react";
 import TitleStuff from "../Title_Stuff";
 import EventCheck from "../EventCheck";
+import workshopsevents from '../../images/workshopsevents.svg';
 
 // Separate arrays for titles, times, dates, and images
 const titles = [
@@ -68,11 +69,11 @@ export default function TimelineEventsCards() {
   return (
     <div className="lg:p-12 p-8">
       <div className="bg-aurora-bg bg-cover rounded-3xl">
-        <TitleStuff name="workshops" />
-        <div className="p-6 grid md:grid-cols-3 grid-cols-2 ">
+        <img src={workshopsevents} alt="" className="mx-auto"/>
+        <div className="p-6 grid md:grid-cols-3 grid-cols-1 ">
           {titles.map((title, index) => (
             <div key={index} className="py-5 m-auto">
-              <Card className="py-4 lg:w-[19rem] w-[6.8rem] lg:h-auto h-[15rem] text-xs">
+              <Card className="py-4 text-xs">
                 <CardHeader className="pb-0 pt-2 px-4 flex-col items-center">
                   <p className=" uppercase font-bold lg:text-[0.8rem] text-[0.50rem] p-1">
                     {times[index]}
