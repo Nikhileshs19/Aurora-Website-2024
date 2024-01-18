@@ -1,11 +1,12 @@
-import React from 'react';
+import React from "react";
+import events from "../images/events.svg";
+import eventslines from "../images/eventslines.svg";
+import { Auroractf } from "./Auroractf";
+import DevsprintEvents from "./DevsprintEvents";
+import TimelineEvents from "./timeline/TimelineEvents";
 import Footer from '../components/Footer';
-import events from '../images/events.svg';
-import { Auroractf } from './Auroractf';
-import DevsprintEvents from './DevsprintEvents';
-import TimelineEvents from './timeline/TimelineEvents';
 
-export default function Events(){
+export default function Events() {
   return (
     <div className='bg-[#000509]'>
       
@@ -22,4 +23,4 @@ export default function Events(){
       <Footer/>     
     </div>
   );
-};
+}

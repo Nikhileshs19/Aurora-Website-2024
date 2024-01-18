@@ -37,30 +37,60 @@ const Modal_1 = ({ toggleModal, index }) => {
               </button>
             </div>
             <div className="p-5 overflow-y-auto max-h-[60vh]">
-              <div className="my-4">
-                <h4 className="text-black p-2">Description</h4>
-                <p className="text-black mx-auto">
-                  Lorem ipsum is placeholder text commonly used in the graphic,
+              <div className="my-0">
+                <h4 className="text-black mb-1 text-2xl">Course Overview</h4>
+                <p className="text-black mx-auto text-base">
+                  Embark on a transformative learning experience designed to
+                  equip you with essential skills in data analytics and machine
+                  learning. This intensive three-day course combines theoretical
+                  foundations with hands-on practical applications, providing a
+                  comprehensive understanding of key concepts. Whether you're a
+                  beginner or seeking to enhance your knowledge, join us for a
+                  dynamic journey that bridges theory and real-world
+                  application.
                 </p>
               </div>
 
               <div className="my-4">
-                <h2 className="mt-2 p-2">Day 2</h2>
-                <p className="text-black">
-                  Lorem ipsum is placeholder text commonly used in the graphic,
+                <h2 className="mt-2 p-2 text-lg">
+                  Day 1: Python and Essential Libraries
+                </h2>
+                <p className="text-black text-base">
+                  Day one focuses on strengthening your Python skills while
+                  introducing indispensable libraries, Numpy and Pandas, laying
+                  the groundwork for effective data analysis.
                 </p>
               </div>
               <div className="my-4">
-                <h2 className="mt-2 p-2">Day 3</h2>
-                <p className="text-black">
-                  Lorem ipsum is placeholder text commonly used in the graphic,
+                <h2 className="mt-2 p-2 text-lg">
+                  Day 2: Machine Learning Foundations
+                </h2>
+                <p className="text-black text-base">
+                  Day two delves into the mathematical intricacies of machine
+                  learning, unraveling the logic behind algorithms such as
+                  Linear Regression, Logistic Regression, and Basic Neural
+                  Networks.
                 </p>
               </div>
               <div className="my-4">
-                <h2 className="mt-2 p-2">Prerequisites</h2>
-                <p className="text-black">
+                <h2 className="mt-2 p-2 text-lg">
+                  Day 3: Project Based Learning
+                </h2>
+                <p className="text-black text-base">
+                  Day three is dedicated to practical application, guiding you
+                  through a hands-on project that reinforces learned concepts
+                  and builds your confidence in data analysis and machine
+                  learning model development
+                </p>
+              </div>
+              <div className="my-4">
+                <h2 className="mt-2 p-2 text-lg">Prerequisites</h2>
+                <p className="text-black text-base">
                   Lorem ipsum is placeholder text commonly used in the graphic,
                 </p>
+              </div>
+              <div className="my-4 text-lg">
+                <h2 className="mt-2 p-2">Conducted by: ACM Manipal</h2>
               </div>
             </div>
           </div>

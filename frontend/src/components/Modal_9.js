@@ -57,10 +57,13 @@ const Modal_9 = ({ toggleModal, index }) => {
                 </p>
               </div>
               <div className="my-4">
-                <h2 className="mt-2 p-2">Prerequisites</h2>
-                <p className="text-black">
+                <h2 className="mt-2 p-2 text-lg">Prerequisites</h2>
+                <p className="text-black text-base">
                   Lorem ipsum is placeholder text commonly used in the graphic,
                 </p>
+              </div>
+              <div className="my-4 text-lg">
+                <h2 className="mt-2 p-2">Conducted by: ACM Manipal</h2>
               </div>
             </div>
           </div>
