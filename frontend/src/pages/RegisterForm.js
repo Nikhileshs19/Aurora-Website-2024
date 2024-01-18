@@ -7,6 +7,8 @@ import QRimg from '../images/QRimg.png'
 import icon from '../images/Vector.svg'
 import formbg from '../images/reg-form-bg.svg'
 import { ReactComponent as Timeline } from '../images/timeline form.svg'
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 export default function RegisterForm() {
 
@@ -16,6 +18,19 @@ export default function RegisterForm() {
     backgroundPosition: 'center center',
     backgroundRepeat: 'no-repeat',
     height: '', // Adjust the height as needed
+  }
+
+  const notify = () => {
+    toast.success('Successfully Registered', {
+      position: "top-right",
+      autoClose: 2500,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+      theme: "colored"
+    });
   }
 
   const [userdata, setUserdata] = useState({});
@@ -31,7 +46,7 @@ export default function RegisterForm() {
       // setUserdata(response.data.user)
       console.log(userdata)
 
-      if (response.data.user.registered === true 
+      if (response.data.user.registered === true
         && response.data.user.name
         && response.data.user.regNo
         && response.data.user.branch
@@ -40,7 +55,7 @@ export default function RegisterForm() {
         && response.data.user.upiID
         && response.data.user.txnID
         && response.data.user.screenshot
-        ) {
+      ) {
         navigate("/")
       }
 
@@ -98,8 +113,11 @@ export default function RegisterForm() {
       } catch (error) {
         console.error("Error updating data:", error);
       }
+      notify()
+      setTimeout(() => {
+        navigate("/");
+      }, 2500);
 
-      navigate("/");
     } catch (error) {
       console.log("Error during form submission: ", error);
       navigate("*");
@@ -397,6 +415,19 @@ export default function RegisterForm() {
           </div>
         </form>
       </div>
+
+      <ToastContainer
+        position="top-right"
+        autoClose={5000}
+        hideProgressBar={false}
+        newestOnTop={false}
+        closeOnClick
+        rtl={false}
+        pauseOnFocusLoss
+        draggable
+        pauseOnHover
+        theme="colored"
+      />
     </div>
   )
 }

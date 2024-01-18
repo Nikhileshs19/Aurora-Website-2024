@@ -7,10 +7,25 @@ import calen from "../images/calendar.svg"
 import clock from "../images/clock.svg"
 import loc from "../images/loc.svg"
 import tsize from "../images/teamsize.svg"
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 function HackathonForm() {
 
     const navigate = useNavigate();
+
+    const notify = () => {
+        toast.success('Successfully Registered', {
+            position: "top-right",
+            autoClose: 2500,
+            hideProgressBar: false,
+            closeOnClick: true,
+            pauseOnHover: true,
+            draggable: true,
+            progress: undefined,
+            theme: "colored"
+        });
+    }
 
     const [formData, setFormData] = useState({});
     const [userdata, setUserdata] = useState({});
@@ -99,7 +114,7 @@ function HackathonForm() {
     const handleSubmit = async (e) => {
         e.preventDefault();
         console.log("submitted form data: ", formData);
-        if(!formData.screenshot){
+        if (!formData.screenshot) {
             return;
         }
 
@@ -148,7 +163,10 @@ function HackathonForm() {
         //     console.error("Error updating data:", error);
         // }
         // }
-        navigate('/')
+        notify()
+        setTimeout(() => {
+            navigate("/");
+        }, 2500);
     }
 
     useEffect(() => {
@@ -682,6 +700,18 @@ function HackathonForm() {
                     </div>
                 </form>
             </div>
+            <ToastContainer
+                position="top-right"
+                autoClose={5000}
+                hideProgressBar={false}
+                newestOnTop={false}
+                closeOnClick
+                rtl={false}
+                pauseOnFocusLoss
+                draggable
+                pauseOnHover
+                theme="colored"
+            />
         </div >
     )
 }

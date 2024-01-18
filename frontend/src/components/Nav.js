@@ -6,7 +6,7 @@ import { HashLink } from "react-router-hash-link";
 import logo from '../images/Mask group.svg';
 import trophy from '../images/trophycup.svg';
 
-const name = "kiri"
+
 export default function Nav() {
     const [isMenuOpen, setIsMenuOpen] = React.useState(false);
     const [closeNavMenu, setCloseNavMenu] = React.useState(false);
@@ -62,7 +62,7 @@ export default function Nav() {
             <NavbarContent className="lg:relative left-[-10%]">
                 <NavbarBrand className="flex">
                     <img src={logo} alt="" className="w-10 md:w-20 h-fit" />
-                    <p className="pl-5 text-white font-semibold">Hi, {name} </p>
+                    <p className="pl-5 text-white font-semibold">Hi, {userdata ? userdata.name: " "} </p>
                 </NavbarBrand>
             </NavbarContent>
 
