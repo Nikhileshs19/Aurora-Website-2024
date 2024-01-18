@@ -30,8 +30,6 @@ const MainHome = () => {
 
     <Gallery/>
 
-    <Auroractf />
-
     <Timeline />
 
     <Sponsors/>

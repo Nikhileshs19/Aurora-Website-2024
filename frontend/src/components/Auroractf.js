@@ -10,7 +10,7 @@ import gr from "../images/Group.svg"
 export const Auroractf = () => {
     return (
         <div className="p-10 text-white">
-        <div className="grid bg-aurora-bg bg-cover md:grid-cols-2 grid-cols-1 rounded-3xl ">
+        <div className="grid bg-aurora-bg bg-cover md:grid-cols-2 grid-cols-1 rounded-3xl p-4 ">
             <div className="flex justify-center align-middle">
                 <img className="m-auto mt-6" src={hecker}></img>
             </div>

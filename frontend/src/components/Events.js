@@ -1,15 +1,18 @@
-import React from 'react'
-import Title_Stuff from './Title_Stuff'
-import TimelineEvents from './timeline/TimelineEvents'
+import React from 'react';
+import Footer from '../components/Footer';
+import { Auroractf } from './Auroractf';
+import TimelineEvents from './timeline/TimelineEvents';
 
-export default function Events() {
+export default function Events(){
   return (
-    <div>
-      <Title_Stuff name={"events"} />
-      <div>
-        <TimelineEvents/>
-      </div>
+    <div className='bg-[#000509]'>
       
+    <div className="h-20"></div>
+      <TimelineEvents/>
+
+      <Auroractf />
+
+      <Footer/>     
     </div>
-  )
-}
+  );
+};

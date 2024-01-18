@@ -58,13 +58,13 @@ export default function Developers() {
         <Nav />
         <div className="bg-black pt-16">
             <div className="p-10"><img src={meetjr} className="m-auto"></img></div>
-            <div className="grid grid-cols-3 p-6">
+            <div className="grid md:grid-cols-3 grid-cols-1 p-6">
             {Juniors.map((member) => (
                 <JuniorCard key={member.id} member={member} />
             ))}
             </div>
             <div className="p-10"><img src={meetsr} className="m-auto"></img></div>
-            <div className="grid grid-cols-3 p-6">
+            <div className="grid md:grid-cols-3 grid-cols-1 p-6">
             {Seniors.map((member) => (
                 <SeniorCard key={member.id} member={member} />
             ))}
