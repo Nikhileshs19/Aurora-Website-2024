@@ -10,7 +10,7 @@ export default function HomeNav() {
                     <img src={logo} alt="" />
                 </div>
                 <div className="justify-end">
-                    <Link className="text-[#338EF7] pt-7" to='/' style={{ display: "block" }}>Go Back Home</Link>
+                    <Link className="text-[#338EF7] pt-7" to="/" style={{ display: "block" }}>Go Back Home</Link>
                 </div>
             </nav>
         </div>
