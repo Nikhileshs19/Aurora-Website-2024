@@ -1,10 +1,12 @@
-import TimelineCard from "./TimelineCard";
+
+import TimelineEventsCards from "./TimelineEventsCards";
 
 
 export default function TimelineEvents() {
     return (
-        <div>
-            <TimelineCard />
+
+        <div className="">
+            <TimelineEventsCards/>
         </div>
     )
 }

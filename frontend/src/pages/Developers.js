@@ -56,7 +56,7 @@ export default function Developers() {
     return (
         <>
         <Nav />
-        <div className="bg-black pt-16">
+        <div className="bg-black pt-16 bg-dev-bg">
             <div className="p-10"><img src={meetjr} className="m-auto"></img></div>
             <div className="grid md:grid-cols-3 grid-cols-1 p-6">
             {Juniors.map((member) => (

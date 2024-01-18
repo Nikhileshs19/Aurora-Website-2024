@@ -1,43 +1,43 @@
-import React from 'react';
-import About from '../components/About.js';
-import Footer from '../components/Footer.js';
-import Gallery from '../components/Gallery.js';
-import Nav from '../components/Nav.js';
-import Partners from '../components/Partners.js';
-import Sponsors from '../components/Sponsors.js';
-import Timer from '../components/Timer.js';
-import MyParallax from '../components/parallax/my-parallax.js';
-import Timeline from '../components/timeline/Timeline.js';
-import { Auroractf }  from '../components/Auroractf.js';
+
+import React from "react";
+// import Navbar from '../components/Navbar.js'
+import About from "../components/About.js";
+import Footer from "../components/Footer.js";
+import Gallery from "../components/Gallery.js";
+import Nav from "../components/Nav.js";
+import Partners from "../components/Partners.js";
+import Sponsors from "../components/Sponsors.js";
+import Timer from "../components/Timer.js";
+import MyParallax from "../components/parallax/my-parallax.js";
+import Timeline from "../components/timeline/Timeline.js";
+import TimelineMain from "../components/timeline/TimelineMain.js";
 
 const MainHome = () => {
   return (
-    <div style={{backgroundColor: "#000509"}} >
+    <div style={{ backgroundColor: "#000509" }}>
+      <Nav />
 
-    <Nav/>
+      <MyParallax />
 
-    <MyParallax /> 
+      <About />
 
-    <About/>
+      <Timer />
 
-    <Timer/>
+      <div className="h-60"></div>
 
-    <div className="h-60"></div>
+      <Partners />
 
-    <Partners />
+      <div className="h-60"></div>
 
-    <div className="h-60"></div>
+      <Gallery />
 
-    <Gallery/>
+      <TimelineMain />
 
-    <Timeline />
+      <Sponsors />
 
-    <Sponsors/>
+      <Footer />
+    </div>
+  );
+};
 
-    <Footer/>
-   
-     </div>
-  )
-}
-
-export default MainHome
+export default MainHome;

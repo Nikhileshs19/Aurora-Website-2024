@@ -1,12 +1,12 @@
 import { Input } from '@nextui-org/react'
-import React, { useState, useEffect } from 'react'
+import axios from 'axios'
+import React, { useEffect, useState } from 'react'
+import { MdCloudUpload } from 'react-icons/md'
+import { useNavigate } from 'react-router-dom'
 import QRimg from '../images/QRimg.png'
-import { ReactComponent as Timeline } from '../images/timeline form.svg'
 import icon from '../images/Vector.svg'
 import formbg from '../images/reg-form-bg.svg'
-import { MdCloudUpload } from 'react-icons/md'
-import axios from 'axios'
-import { useNavigate } from 'react-router-dom'
+import { ReactComponent as Timeline } from '../images/timeline form.svg'
 
 export default function RegisterForm() {
 
@@ -31,7 +31,16 @@ export default function RegisterForm() {
       // setUserdata(response.data.user)
       console.log(userdata)
 
-      if (response.data.user.registered === true) {
+      if (response.data.user.registered === true 
+        && response.data.user.name
+        && response.data.user.regNo
+        && response.data.user.branch
+        && response.data.user.phoneNo
+        && response.data.user.learnerid
+        && response.data.user.upiID
+        && response.data.user.txnID
+        && response.data.user.screenshot
+        ) {
         navigate("/")
       }
 

@@ -7,6 +7,10 @@ body {
   font-family: 'PT Sans', sans-serif;
 }
 
+label{
+  color: white;
+}
+
 h4 {
   font-family: 'Open Sans', sans-serif;
 }
@@ -53,3 +57,12 @@ input::-webkit-inner-spin-button {
   -webkit-appearance: none;
   margin: 0;
 }
+
+#devsprintevents{
+  background-image: url(./images/mountainevent.svg);
+  background-size: 100%;
+  background-repeat: repeat-x;
+  /* background-position-y: 30rem; */
+  background-position: bottom;
+}
+
