@@ -68,7 +68,7 @@ const TimelineMain = () => {
 
       //height of solid line
       const scrollPercentage = (window.scrollY / timelineHeight) * -65;
-      const adjustedPercentage = Math.min(214, newScrollPercentage * 2.39);
+      const adjustedPercentage = Math.min(214, newScrollPercentage * 2.8);
       console.log(adjustedPercentage);
 
       document.querySelector(".vertical-solid-line").style.height =

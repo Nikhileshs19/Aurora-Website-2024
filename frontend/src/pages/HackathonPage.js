@@ -1,6 +1,5 @@
 import { Parallax, ParallaxLayer } from "@react-spring/parallax"
 import { AboutHackathon } from "../components/AboutHackathon"
-import HomeNav from "../components/HomeNav"
 import { MainHackathon } from "../components/MainHackathon"
 import { PrizesHackathon } from "../components/PrizesHackathon"
 import Mountain from "../images/hackathonpage.svg"
@@ -8,9 +7,8 @@ import Sun from "../images/sun.svg"
 
 function HackathonPage() {
     return (
-        <div>
-            <HomeNav className="absolute top-0 h-[100rem]"/>
-            <Parallax pages={4} className="bg-black no-scrollbar">
+        <div> 
+            <Parallax pages={3} className="bg-black no-scrollbar">
 
 
                 <ParallaxLayer offset={0} speed={1.5}>
