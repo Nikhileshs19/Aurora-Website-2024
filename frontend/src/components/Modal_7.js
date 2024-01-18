@@ -14,7 +14,7 @@ const Modal_7 = ({ toggleModal, index }) => {
           <div className="bg-white w-[70%] h-[80%] rounded-3xl shadow-lg overflow-hidden">
             <div className="relative justify-between items-center border-b pb-4 mb-4">
               <h3 className="mt-3 mx-3 my-3 text-xl font-semibold text-[#00418C] p-2">
-                INTRODUCTION TO KOTLIN
+                INTRODUCTION TO WEB SCRAPING
               </h3>
               <button
                 onClick={() => toggleModal(index)}
@@ -38,29 +38,49 @@ const Modal_7 = ({ toggleModal, index }) => {
             </div>
             <div className="p-5 overflow-y-auto max-h-[60vh]">
               <div className="my-4">
-                <h4 className="text-black p-2">Description</h4>
+                <h4 className="text-black p-2">Course Overview</h4>
                 <p className="text-black mx-auto">
-                  Lorem ipsum is placeholder text commonly used in the graphic,
+                  Embark on a journey through web scraping fundamentals in our
+                  workshop. Day 1 covers basics and introduces Selenium for data
+                  extraction. Day 2 features a hands-on project applying skills
+                  to real scenarios. Elevate your proficiency, engage with
+                  forms, and fetch valuable data. Uncover the potential of web
+                  scraping with Selenium in this dynamic workshop!
                 </p>
               </div>
 
               <div className="my-4">
+                <h2 className="mt-2 p-2">Day 1</h2>
+                <p className="text-black">
+                  Exploration of Fundamentals: Define web scraping and its
+                  essential components. Discuss optimal scraping times for
+                  effective data retrieval. Understand the critical aspect of
+                  determining site permissions. Dive into Selenium: In-depth
+                  exploration of Selenium. Step-by-step guide through Selenium
+                  setup. Techniques for data extraction and automating browser
+                  tasks.
+                </p>
+              </div>
+              <div className="my-4">
                 <h2 className="mt-2 p-2">Day 2</h2>
                 <p className="text-black">
-                  Lorem ipsum is placeholder text commonly used in the graphic,
+                  Hands-On Project: Apply acquired skills in a real-world
+                  scenario. Engage in activities like interacting with forms and
+                  executing actions on a site. Fetch valuable data using
+                  Selenium for practical experience. Advanced Techniques:
+                  Explore advanced web scraping techniques. Enhance proficiency
+                  in Selenium for more complex tasks. Elevate your web scraping
+                  capabilities for diverse projects.
                 </p>
               </div>
               <div className="my-4">
-                <h2 className="mt-2 p-2">Day 3</h2>
-                <p className="text-black">
+                <h2 className="mt-2 p-2 text-lg">Prerequisites</h2>
+                <p className="text-black text-base">
                   Lorem ipsum is placeholder text commonly used in the graphic,
                 </p>
               </div>
-              <div className="my-4">
-                <h2 className="mt-2 p-2">Prerequisites</h2>
-                <p className="text-black">
-                  Lorem ipsum is placeholder text commonly used in the graphic,
-                </p>
+              <div className="my-4 text-lg">
+                <h2 className="mt-2 p-2">Conducted by: ACM Manipal</h2>
               </div>
             </div>
           </div>
