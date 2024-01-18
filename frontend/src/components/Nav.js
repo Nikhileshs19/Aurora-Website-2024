@@ -6,6 +6,7 @@ import { HashLink } from "react-router-hash-link";
 import logo from '../images/Mask group.svg';
 import trophy from '../images/trophycup.svg';
 
+const name = "kiri"
 export default function Nav() {
     const [isMenuOpen, setIsMenuOpen] = React.useState(false);
     const [closeNavMenu, setCloseNavMenu] = React.useState(false);
@@ -59,12 +60,9 @@ export default function Nav() {
     return (
         <Navbar onMenuOpenChange={setIsMenuOpen} className="bg-[none] absolute p-6" isBlurred='false' id='nav'>
             <NavbarContent className="lg:relative left-[-10%]">
-                {/* <NavbarMenuToggle
-          aria-label={isMenuOpen ? "Close menu" : "Open menu"}
-          className="sm:hidden relative left-[-1.5rem]"
-        /> */}
-                <NavbarBrand>
+                <NavbarBrand className="flex">
                     <img src={logo} alt="" className="w-10 md:w-20" />
+                    <p className="pl-5 text-white font-semibold">Hi, {name} </p>
                 </NavbarBrand>
             </NavbarContent>
 
