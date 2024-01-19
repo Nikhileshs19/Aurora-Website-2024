@@ -26,13 +26,13 @@ export default function Nav() {
 
     const navigate = useNavigate();
 
-    const [userdata, setUserdata] = useState({});
+    const [googleUserData, setGoogleUserData] = useState({});
 
-    const getUser = async () => {
+    const getGoogleData = async () => {
         try {
             const response = await axios.get("http://localhost:6005/login/success", { withCredentials: true });
 
-            setUserdata(response.data.user)
+            setGoogleUserData(response.data.user)
             
         } catch (error) {
             //console.log("error", error)
@@ -54,7 +54,7 @@ export default function Nav() {
     }
 
     useEffect(() => {
-        getUser()
+        getGoogleData()
     }, [])
 
     return (
@@ -62,7 +62,7 @@ export default function Nav() {
             <NavbarContent className="lg:relative left-[-10%]">
                 <NavbarBrand className="flex">
                     <img src={logo} alt="" className="w-10 md:w-20 h-fit" />
-                    <p className="pl-5 text-white font-semibold">Hi, {userdata ? userdata.name: " "} </p>
+                    <p className="pl-5 text-white font-semibold">Hi, {googleUserData ? googleUserData.name: " "} </p>
                 </NavbarBrand>
             </NavbarContent>
 
@@ -94,7 +94,7 @@ export default function Nav() {
                 </NavbarItem>
 
                 {
-                    Object?.keys(userdata)?.length > 0 ? (
+                    Object?.keys(googleUserData)?.length > 0 ? (
                         <>
                             <NavbarItem className="hidden lg:flex p-4 text-red-700 text-right">
                                 <HashLink size="lg" href='#' onClick={logout}>
@@ -157,7 +157,7 @@ export default function Nav() {
                     </HashLink>
                 </NavbarMenuItem>
                 {
-                    Object?.keys(userdata)?.length > 0 ? (
+                    Object?.keys(googleUserData)?.length > 0 ? (
                         <>
                             <NavbarMenuItem className="p-4 text-red-700 text-right">
                                 <HashLink size="lg" href='#' onClick={logout}>
