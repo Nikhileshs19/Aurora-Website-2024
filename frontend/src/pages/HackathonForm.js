@@ -31,76 +31,7 @@ function HackathonForm() {
     const [userdata, setUserdata] = useState({});
     const [prevTeamData, setPrevTeamData] = useState({});
 
-    // const getUser = async () => {
-    //     try {
-    //         const response = await axios.get("http://localhost:6005/login/success", { withCredentials: true });
-    //         setUserdata(response.data.user)
-    //     } catch (error) {
-    //         console.log("error", error)
-    //     }
-    // }
 
-
-    // const getHackathonData = async () => {
-    //     if (userdata.hackathon === true) {
-    //         console.log("in gethackathon data", userdata.regNo)
-    //         try {
-    //             const response = await axios.get(`http://localhost:6005/hackathon-team-data?leaderRegNo=${formData.learnerid}`, { withCredentials: true });
-    //             console.log("gethackathondata: ", response)
-    //             setPrevTeamData(response.data[0])
-
-    //         } catch (error) {
-    //             console.log("error: ", error)
-    //         }
-    //     }
-    //     else if (userdata.hackathon === false) {
-    //         setPrevTeamData({
-    //             teamName: undefined,
-    //             teamSize: null,
-
-    //             leaderName: undefined,
-    //             leaderPhoneNo: null,
-    //             leaderRegNo: null,
-    //             leaderLearnerid: undefined,
-
-    //             member1Name: undefined,
-    //             member1PhoneNo: null,
-    //             member1RegNo: null,
-
-    //             member2Name: undefined,
-    //             member2PhoneNo: null,
-    //             member2RegNo: null,
-
-    //             member3Name: undefined,
-    //             member3PhoneNo: null,
-    //             member3RegNo: null,
-
-    //             member4Name: undefined,
-    //             member4PhoneNo: null,
-    //             member4RegNo: null,
-
-    //             upiID: undefined,
-    //             txnID: undefined,
-    //             screenshot: undefined,
-    //         });
-    //     }
-
-    // }
-
-    // useEffect(() => {
-    //     getUser()
-    // }, [])
-
-    // useEffect(() => {
-    //     getHackathonData()
-
-    //     setFormData({
-    //         leaderName: userdata.name,
-    //         leaderPhoneNo: userdata.phoneNo,
-    //         leaderRegNo: userdata.regNo,
-    //         leaderLearnerid: userdata.learnerid,
-    //     })
-    // }, [userdata])
 
     const [image, setImage] = useState("")
 
@@ -118,24 +49,6 @@ function HackathonForm() {
             return;
         }
 
-        // if (userdata.hackathon === true) {
-        //     try {
-        //         const response = await fetch(`http://localhost:6005/hackathon-update-form/${prevTeamData._id}`, {
-        //             method: 'PATCH',
-        //             body: JSON.stringify(formData),
-        //             headers: {
-        //                 'Content-Type': 'application/json'
-        //             }
-        //         });
-
-        //         const json = await response.json();
-        //         console.log("Response update patch JSON: ", json);
-        //     } catch (error) {
-        //         console.error("Error updating data:", error);
-        //     }
-        // }
-
-        // else {
         try {
             const response = await fetch(`http://localhost:6005/hackathon-registration/`, {
                 method: 'POST',
@@ -151,18 +64,6 @@ function HackathonForm() {
             console.error("Error updating data:", error);
         }
 
-        // try {
-        //     const response = await fetch(`http://localhost:6005/register/${userdata._id}`, {
-        //         method: 'PATCH',
-        //         body: JSON.stringify({ hackathon: true }),
-        //         headers: {
-        //             'Content-Type': 'application/json'
-        //         }
-        //     });
-        // } catch (error) {
-        //     console.error("Error updating data:", error);
-        // }
-        // }
         notify()
         setTimeout(() => {
             navigate("/");
