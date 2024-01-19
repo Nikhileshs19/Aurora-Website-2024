@@ -40,16 +40,16 @@ function About() {
     //   </div>
     // </div>
     // </div>
-    <div className='grid grid-cols-2 bg-transparent'>
+    <div className='lg:grid grid-cols-2 bg-transparent pt-5'>
       <div  className='w-full'>
-        <img src={aboutbox1} alt="" className='mx-auto w-full p-16'/>  
+        <img src={aboutbox1} alt="" className='mx-auto w-full lg:p-16 p-12'/>  
       </div>
       <div className='grid w-full'>
         <div>
-          <img src={aboutbox2} alt="" className=' mx-auto px-40 pt-14'/>
+          <img src={aboutbox2} alt="" className=' mx-auto lg:px-40 lg:block hidden lg:pt-14 '/>
         </div>
         <div>
-          <img src={aboutbox3} alt="" className='mx-auto w-full px-20'/>
+          <img src={aboutbox3} alt="" className='mx-auto w-full lg:px-20 px-12'/>
         </div>
       </div>
     </div>

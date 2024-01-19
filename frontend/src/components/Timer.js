@@ -30,7 +30,7 @@ export default function Timer() {
   }, []);
 
   return (
-    <div>
+    <div className="lg:pt-10 pt-6 px-3">
       <h3 className="text-4xl text-white text-center my-5">Time to go</h3>
       <div className="py-10 flex flex-row flex-wrap justify-center items-center align-middle">
         <div className="flex flex-wrap justify-center gap-10 glow">

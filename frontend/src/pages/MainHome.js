@@ -2,6 +2,7 @@
 import React from "react";
 // import Navbar from '../components/Navbar.js'
 import About from "../components/About.js";
+import { AboutNew } from "../components/AboutNew.js";
 import Footer from "../components/Footer.js";
 import Gallery from "../components/Gallery.js";
 import Nav from "../components/Nav.js";
@@ -18,7 +19,7 @@ const MainHome = () => {
 
       <MyParallax />
 
-      <About />
+      <AboutNew />
 
       <Timer />
 
