@@ -1,20 +1,19 @@
 import { Button, Card, CardBody, CardHeader, Image } from "@nextui-org/react";
-import React, { useEffect, useState } from "react";
-import workshopsevents from '../../images/workshopsevents.svg';
-import EventCheck from "../EventCheck";
 import axios from "axios";
+import React, { useEffect, useState } from "react";
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import workshopsevents from '../../images/workshopsevents.svg';
 
-import P1 from "../../images/1st.svg"
-import P2 from "../../images/2nd.svg"
-import P3 from "../../images/3rd.svg"
-import gr from "../../images/Group.svg"
-import hecker from "../../images/Hacker-cuate-2 1.svg"
-import calen from "../../images/calendar.svg"
-import clock from "../../images/clock.svg"
-import ctfevents from '../../images/ctfevents.svg'
-import laptop from "../../images/laptop.svg"
+import P1 from "../../images/1st.svg";
+import P2 from "../../images/2nd.svg";
+import P3 from "../../images/3rd.svg";
+import gr from "../../images/Group.svg";
+import hecker from "../../images/Hacker-cuate-2 1.svg";
+import calen from "../../images/calendar.svg";
+import clock from "../../images/clock.svg";
+import ctfevents from '../../images/ctfevents.svg';
+import laptop from "../../images/laptop.svg";
 
 // const styles = {
 //   '.control::after': {
@@ -310,9 +309,13 @@ export default function TimelineEventsCards() {
   }
 
   return (
-    <div className="lg:p-12 p-8">
-      <div className="bg-aurora-bg bg-cover p-6 rounded-3xl">
-        <img src={workshopsevents} alt="" className="mx-auto p-10" />
+    <div className="lg:p-12 p-8 bg-[#000509]">
+      <div className="bg-aurora-bg bg-cover m-5 p-6 rounded-[2rem]">
+        <img src={workshopsevents} alt="" className="mx-auto p-5" />
+        <div className="text-center p-5">
+          <h3 className="text-default-600 lg:text-lg text-[0.8rem]">Click participate for the Workshops you want to attend and the click Submit to confirm you selections!</h3>
+          <h3 className="text-default-600 lg:text-lg text-[0.8rem]">(Keep in mind you won't be able to select workshops happening during the same time slots)</h3>
+        </div>
         <div className="p-6 grid md:grid-cols-3 grid-cols-1 ">
           {allEvents.map((event, index) => (
             <div key={index} className="py-5 m-auto">
@@ -374,7 +377,7 @@ export default function TimelineEventsCards() {
 
 
 
-      <div className="p-10 text-white">
+      <div className="p-7 text-white">
 
         <div className="grid bg-aurora-bg bg-cover md:grid-cols-2 grid-cols-1 rounded-3xl ">
           <img src={ctfevents} alt="" className="col-span-2 mx-auto" />
@@ -382,14 +385,10 @@ export default function TimelineEventsCards() {
             <img className="m-auto mt-6" src={hecker}></img>
           </div>
           <div className="flex-col justify-center align-middle">
-            <img className="h-72 w-72 object-center m-auto" src={gr}></img>
+            <img className="lg:h-72 lg:w-72 h-40 w-40 object-center m-auto" src={gr}></img>
             <p className="text-center w-5/6 m-auto">
               Magnam et id commodi non quia. Cumque sed aut architecto.Laboriosam est a quae aliquam. Tempora et impedit eos praesentium voluptatem. Reprehenderit unde consequatur quia. Dignissimos provident error fugit. Ut exercitationem impedit voluptas consequatur ut dicta. Provident dicta magnam est qui porro. Ratione similique dignissimos beatae. Qui repellat quam eaque dolores.
             </p>
-          </div>
-          <div className="flex-row border-1 border-solid border-blue-600 w-full">
-            <label htmlFor="TS6_E1_CTF" className="control text-black bg-slate-300 rounded-xl p-2">Participate</label>
-            <input type="checkbox" id="TS6_E1_CTF" name="TS6_E1_CTF" className="toggle visualy-hidden event" onClick={() => { updateEvent("TS6_E1_CTF") }} />
           </div>
           <div className="flex-col flex m-auto justify-center align-middle md:text-3xl text-xl p-6">
             <div className="pt-4 pl-10 flex flex-row">
@@ -423,21 +422,31 @@ export default function TimelineEventsCards() {
               </div>
             </div>
           </div>
+          <div className="mx-auto h-40 col-span-2 text-center w-full">
+            <div className="h-32 ">
+              <div className="">
+                <label htmlFor="TS6_E1_CTF" className="control  p-2">Participate</label>
+                <input type="checkbox" id="TS6_E1_CTF" name="TS6_E1_CTF" className="toggle visualy-hidden event" onClick={() => { updateEvent("TS6_E1_CTF") }} />
+              </div>
+              <h3 className="text-default-600 lg:pt-5 pt-3 lg:text-lg text-[0.8rem]">After you click particpate, remember to click on submit!</h3>
+              <h3 className="text-default-600 lg:text-lg text-[0.8rem]">(after you confirm your Workshops)</h3>
+            </div>
+          </div>
         </div>
       </div>
 
 
-      <div className='border-[#11A8E4] border-solid border-3 rounded-lg w-fit mx-auto m-10'>
+      <div className='sticky bottom-0 lg:block z-[9999] lg:h-fit h-24 bg-[#000509] w-full'>
         <div className='text-center text-white'>
-          <h4 className='p-5 text-[#11A8E4] font-semibold'>PRESS SUBMIT TO CONFIRM YOUR SELECTION!</h4>
+          <h4 className='lg:p-5 p-3 text-[#11A8E4] lg:text-lg text-[0.4rem] font-semibold'>PRESS SUBMIT TO CONFIRM YOUR SELECTION!</h4>
           {/* <h4 className='p-5 font-bold'>Register Now for AURORA's Ultimate Experience!</h4> */}
-          <Button color="primary" size="lg" variant="shadow"
-            className="lg:w-[15rem] m-5"
+          <Button color="primary" size="sm" variant="shadow"
+            className="lg:w-[15rem] lg:m-5 m-1"
             onClick={(e) => { handleSubmit(e) }}>
             Submit
           </Button>
-          <Button color="danger" size="lg" variant="shadow"
-            className="lg:w-[15rem] m-5"
+          <Button color="danger" size="sm" variant="shadow"
+            className="lg:w-[15rem] lg:m-5 m-1"
             onClick={(e) => { clearSelection(e) }}>
             Clear
           </Button>

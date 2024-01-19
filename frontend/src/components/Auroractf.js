@@ -13,7 +13,7 @@ export const Auroractf = () => {
     return (
         <div className="p-10 text-white">
 
-            <div className="grid bg-aurora-bg bg-cover md:grid-cols-2 grid-cols-1 rounded-3xl ">
+            <div className="grid bg-aurora-bg bg-cover lg:grid-cols-2 grid-cols-1 rounded-3xl ">
                 <img src={ctfevents} alt="" className="col-span-2 mx-auto" />
                 <div className="flex justify-center align-middle">
                     <img className="m-auto mt-6" src={hecker}></img>
@@ -24,7 +24,7 @@ export const Auroractf = () => {
                         Magnam et id commodi non quia. Cumque sed aut architecto.Laboriosam est a quae aliquam. Tempora et impedit eos praesentium voluptatem. Reprehenderit unde consequatur quia. Dignissimos provident error fugit. Ut exercitationem impedit voluptas consequatur ut dicta. Provident dicta magnam est qui porro. Ratione similique dignissimos beatae. Qui repellat quam eaque dolores.
                     </p>
                 </div>
-                <div className="flex-row border-1 border-solid border-blue-600 w-full">
+                <div className=" border-1 border-solid border-blue-600 w-full">
                     <EventCheck/> 
                 </div>
                 <div className="flex-col flex m-auto justify-center align-middle md:text-3xl text-xl p-6">

@@ -8,12 +8,12 @@ import Events from './components/Events';
 import AllHackathonRegistrations from "./pages/AllHackathonRegistrations";
 import AllUsers from "./pages/AllUsers";
 import AllWorkshopsRegistrations from "./pages/AllWorkshopsRegistrations";
+import Developers from "./pages/Developers";
 import Error from './pages/Error';
 import HackathonForm from './pages/HackathonForm';
 import HackathonPage from './pages/HackathonPage';
 import MainHome from './pages/MainHome';
 import RegisterForm from './pages/RegisterForm';
-import Developers from "./pages/Developers";
 
 function App() {
   const router = createBrowserRouter([
