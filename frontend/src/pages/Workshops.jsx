@@ -74,7 +74,7 @@ const Workshops = () => {
 
     useEffect(() => {
         if(logged===0){
-            getUser()
+            getGoogleData()
         }
         
     },)

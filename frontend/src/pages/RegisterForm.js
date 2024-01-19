@@ -21,7 +21,7 @@ export default function RegisterForm() {
   }
 
   const notify = () => {
-    toast.success('Successfully Registered', {
+    toast.success('Successfully Registered, Login again to continue', {
       position: "top-right",
       autoClose: 2500,
       hideProgressBar: false,
@@ -33,29 +33,27 @@ export default function RegisterForm() {
     });
   }
 
-  const [userdata, setUserdata] = useState({});
-  // console.log("response userdata", userdata)
+  const [googleData, setGoogleData] = useState({});
+  const [userData, setUserData] = useState({});
+
+  // console.log("response googleData", googleData)
   const navigate = useNavigate();
 
-  const getUser = async () => {
+  const logout = () => {
+    window.open("http://localhost:6005/logout", "_self")
+}
+
+  const getGoogleData = async () => {
     try {
       const response = await axios.get("http://localhost:6005/login/success", { withCredentials: true });
-      // console.log("response axios", response)
-      setUserdata(response.data.user)
+      console.log("response axios", response)
+      setGoogleData(response.data.user)
+      setFormData({email: response.data.user.email})
 
-      // setUserdata(response.data.user)
-      console.log(userdata)
+      // setGoogleData(response.data.user)
+      console.log(googleData)
 
-      if (response.data.user.registered === true
-        && response.data.user.name
-        && response.data.user.regNo
-        && response.data.user.branch
-        && response.data.user.phoneNo
-        && response.data.user.learnerid
-        && response.data.user.upiID
-        && response.data.user.txnID
-        && response.data.user.screenshot
-      ) {
+      if (response.data.user.registered === true) {
         navigate("/")
       }
 
@@ -66,11 +64,16 @@ export default function RegisterForm() {
   }
 
   useEffect(() => {
-    getUser()
+    getGoogleData()
   }, [])
+
+  useEffect(() => {
+    console.log(googleData)
+  }, [googleData])
 
   const [formData, setFormData] = useState({
 
+    email: 'null',
     name: 'null',
     phoneNo: 0,
     regNo: 0,
@@ -98,9 +101,9 @@ export default function RegisterForm() {
     // console.log(formData);
 
     try {
-      await updateData(userdata._id);
+      await registerUser();
       try {
-        const response = await fetch(`http://localhost:6005/register/${userdata._id}`, {
+        const response = await fetch(`http://localhost:6005/update-google-data/${googleData._id}`, {
           method: 'PATCH',
           body: JSON.stringify({ registered: true }),
           headers: {
@@ -111,11 +114,12 @@ export default function RegisterForm() {
         const json = await response.json();
         console.log("Response JSON: ", json);
       } catch (error) {
-        console.error("Error updating data:", error);
+        console.error("Error updating data:", error.message);
       }
       notify()
       setTimeout(() => {
         navigate("/");
+        logout()
       }, 2500);
 
     } catch (error) {
@@ -175,10 +179,10 @@ export default function RegisterForm() {
 
 
   // Define the asynchronous function
-  const updateData = async (id) => {
+  const registerUser = async () => {
     try {
-      const response = await fetch(`http://localhost:6005/register/${id}`, {
-        method: 'PATCH',
+      const response = await fetch(`http://localhost:6005/register-user`, {
+        method: 'POST',
         body: JSON.stringify(formData),
         headers: {
           'Content-Type': 'application/json'

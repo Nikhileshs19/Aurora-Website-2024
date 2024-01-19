@@ -133,19 +133,32 @@ export default function TimelineEventsCards() {
   const [uniqueID, setUniqueID] = useState('');
   const [logged, setLogged] = useState(0)
   const [registered, setRegistered] = useState([])
-  const [userData, setUserData] = useState({});
+  const [googleUserData, setGoogleUserData] = useState({});
+  const [userData, setuserData] = useState({});
 
-  const getUser = async () => {
+
+  const getGoogleData = async () => {
     try {
       const response = await axios.get("http://localhost:6005/login/success", { withCredentials: true });
       setLogged(1)
       setUniqueID(response.data.user._id)
-      console.log(response.data.user.workshops)
-      setUserData(response.data.user)
+      console.log(response.data.user)
+      setGoogleUserData(response.data.user)
 
-      //console.log('asdfghjkljhgfdxzdfghjk');
-      //console.log(userData);
-      let a = response.data.user.workshops
+    } catch (error) {
+      //console.log("error", error)
+    }
+    // console.log(registered)
+  }
+
+  const getUser = async () => {
+    try {
+      const response = await axios.get(`http://localhost:6005/get-user-data?email=${googleUserData.email}`, { withCredentials: true });
+      console.log("getuserdata: ", response)
+      setUniqueID(response.data._id)
+      setuserData(response.data)
+
+      let a = response.data.workshops
       let newRegistered = []
       for (let i = 0; i < a.length; i++) {
         if (a[i] === "ACM") { newRegistered.push("TS1_E1_ACM"); document.getElementById("TS1_E1_ACM").checked = true }
@@ -160,20 +173,29 @@ export default function TimelineEventsCards() {
         else if (a[i] === "CTF") { newRegistered.push("TS6_E1_CTF"); document.getElementById("TS6_E1_CTF").checked = true }
       }
       setRegistered(newRegistered)
+
     } catch (error) {
-      //console.log("error", error)
+      console.log("error: ", error)
     }
-    // console.log(registered)
   }
+
+  // useEffect(() => {
+  //   console.log("updated user data", userData)
+  // }, [userData])
+
+  // useEffect(() => {
+  //   console.log("unique id", uniqueID)
+  // }, [uniqueID])
+  
 
   // const getUpdatedUser = async () => {
   //   try {
   //     //console.log('get updated user');
-  //     //console.log(userData);
-  //     // const response = await axios.get(`http://localhost:6005/updated-user-data/${userData._id}`, { withCredentials: true });
+  //     //console.log(googleUserData);
+  //     // const response = await axios.get(`http://localhost:6005/updated-user-data/${googleUserData._id}`, { withCredentials: true });
   //     // //console.log("next update: ", response)
-  //     // setUserData(response.data.user)
-  //     let a = userData.workshops
+  //     // setGoogleUserData(response.data.user)
+  //     let a = googleUserData.workshops
   //     //console.log(a);
   //     let newRegistered = []
   //     for (let i = 0; i < a.length; i++) {
@@ -201,10 +223,10 @@ export default function TimelineEventsCards() {
 
   // useEffect(() => {
   //   getUpdatedUser()
-  // }, [uniqueID, userData])
+  // }, [uniqueID, googleUserData])
 
   const notifySave = () => {
-    toast('🦄 Wow so easy!', {
+    toast('Successfully Saved!', {
       position: "bottom-right",
       autoClose: 5000,
       hideProgressBar: false,
@@ -226,10 +248,14 @@ export default function TimelineEventsCards() {
 
   useEffect(() => {
     if (logged === 0) {
-      getUser()
+      getGoogleData()
     }
-
   },)
+
+  useEffect(() => {
+      getUser()
+  }, [googleUserData])
+
 
   const handleSubmit = async (e) => {
     e.preventDefault()
@@ -250,20 +276,20 @@ export default function TimelineEventsCards() {
       }
     }
     try {
-      const response = await fetch(`http://localhost:6005/workshop-registration/${uniqueID}`, {
-        method: 'PATCH',
-        body: JSON.stringify({ workshops: registeredWorkshops }),
+      const response = await axios.patch(`http://localhost:6005/workshop-registration/${uniqueID}`, {
+        workshops: registeredWorkshops,
+      }, {
         headers: {
-          'Content-Type': 'application/json'
-        }
+          'Content-Type': 'application/json',
+        },
       });
-
-      const json = await response.json();
-      //console.log("Response JSON: ", json);
-      //console.log("workshops: ", registeredWorkshops)
+    
+      // The response.data contains the JSON parsed response
+      console.log("Response JSON: ", response.data);
+      console.log("workshops: ", registeredWorkshops);
       notifyRegistered();
     } catch (error) {
-      //console.error("Error updating data:", error);
+      // console.error("Error updating data:", error);
     }
 
     registeredWorkshops = []
