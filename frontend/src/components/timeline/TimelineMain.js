@@ -121,7 +121,7 @@ const TimelineMain = () => {
       //height of solid line
       // const scrollPercentageMobile = (window.scrollY / timelineHeight) * -65;
       const adjustedPercentageMobile = Math.min(
-        289,
+        290,
         Math.abs(newScrollPercentageMobile * 1.1)
       );
       console.log(adjustedPercentageMobile);
@@ -237,10 +237,10 @@ const TimelineMain = () => {
       {/* mobile timeline  */}
       <div
         id="timeline"
-        className={windowSize[0] <= 760 ? "bg-black" : "hidden"}
+        className={windowSize[0] <= 760 ? "bg-transparent" : "hidden"}
       >
         <TitleStuff name="timeline" />
-        <div className="timeline-container">
+        <div className="timeline-container relative top-[-10rem]">
           <div
             className="my-timeline"
             style={{ position: "relative", margin: "280px auto" }}
@@ -250,7 +250,7 @@ const TimelineMain = () => {
               className="vertical-dashed-line-mobile absolute left-0 top-0 bg-transparent w-1 h-full"
               style={{
                 marginLeft: "40px", // Adjusted the left margin for the vertical line
-                marginTop: "60px", // Set the top margin for the vertical line
+                marginTop: "80px", // Set the top margin for the vertical line
                 backgroundImage: `repeating-linear-gradient(transparent, transparent 10px, white 10px, white 20px)`, // Vertical dashed line background
               }}
             ></div>

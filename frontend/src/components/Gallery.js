@@ -20,7 +20,7 @@ function Gallery() {
     return(
       <div className='bg-transparent'>
       <TitleStuff name="gallery" />
-      <div className="w-full overflow-hidden relative top-[-10rem]">
+      <div className="w-full overflow-hidden relative lg:top-[-10rem]">
           <Swiper
             className='mySwiper'
             modules={[Navigation, Autoplay]}
