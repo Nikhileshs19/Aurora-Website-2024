@@ -68,7 +68,7 @@ const TimelineMain = () => {
 
       //height of solid line
       const scrollPercentage = (window.scrollY / timelineHeight) * -65;
-      const adjustedPercentage = Math.min(214, newScrollPercentage * 2.8);
+      const adjustedPercentage = Math.min(214, newScrollPercentage * 2.39);
       console.log(adjustedPercentage);
 
       document.querySelector(".vertical-solid-line").style.height =
@@ -121,7 +121,7 @@ const TimelineMain = () => {
       //height of solid line
       // const scrollPercentageMobile = (window.scrollY / timelineHeight) * -65;
       const adjustedPercentageMobile = Math.min(
-        289,
+        290,
         Math.abs(newScrollPercentageMobile * 1.1)
       );
       console.log(adjustedPercentageMobile);
@@ -151,10 +151,10 @@ const TimelineMain = () => {
       {/* desktop timeline  */}
       <div
         id="timeline"
-        className={windowSize[0] > 760 ? "bg-black" : "hidden"}
+        className={windowSize[0] > 760 ? "bg-transparent" : "hidden"}
       >
         <TitleStuff name="timeline" />
-        <div className="timeline-container">
+        <div className="timeline-container relative top-[-20rem]">
           <div
             className="my-timeline"
             style={{ position: "relative", margin: "280px auto" }}
@@ -169,7 +169,7 @@ const TimelineMain = () => {
               }}
             ></div>
             <div
-              className="vertical-solid-line absolute left-0 top-0 bg-transparent m-auto w-1 glow"
+              className="vertical-solid-line absolute left-[-0.1rem] top-0 bg-transparent m-auto w-2 glow"
               style={{
                 marginLeft: "50%",
                 marginTop: "200px",
@@ -208,7 +208,8 @@ const TimelineMain = () => {
                     width: "fit-content",
                   }}
                 >
-                  <Card className="py-4 lg:w-[20rem] w-[14rem] custom-timeline-card">
+                  <div className="card-glow rounded-3xl">
+                  <Card className="py-4 lg:w-[20rem] w-[14rem] custom-timeline-card card-glow">
                     <CardHeader className="pb-0 pt-2 px-4 flex-col items-start">
                       <p className="text-tiny uppercase font-bold">
                         {card.time}
@@ -226,6 +227,7 @@ const TimelineMain = () => {
                       <div className="w-16 mt-6"></div>
                     </CardBody>
                   </Card>
+                  </div>
                 </div>
               ))}
             </div>
@@ -235,10 +237,10 @@ const TimelineMain = () => {
       {/* mobile timeline  */}
       <div
         id="timeline"
-        className={windowSize[0] <= 760 ? "bg-black" : "hidden"}
+        className={windowSize[0] <= 760 ? "bg-transparent" : "hidden"}
       >
         <TitleStuff name="timeline" />
-        <div className="timeline-container">
+        <div className="timeline-container relative top-[-10rem]">
           <div
             className="my-timeline"
             style={{ position: "relative", margin: "280px auto" }}
@@ -248,7 +250,7 @@ const TimelineMain = () => {
               className="vertical-dashed-line-mobile absolute left-0 top-0 bg-transparent w-1 h-full"
               style={{
                 marginLeft: "40px", // Adjusted the left margin for the vertical line
-                marginTop: "60px", // Set the top margin for the vertical line
+                marginTop: "80px", // Set the top margin for the vertical line
                 backgroundImage: `repeating-linear-gradient(transparent, transparent 10px, white 10px, white 20px)`, // Vertical dashed line background
               }}
             ></div>
@@ -280,8 +282,8 @@ const TimelineMain = () => {
                     width: "fit-content", // Adjust the width as needed
                   }}
                 >
-                  <div>
-                    <Card className="py-4 lg:w-[20rem] w-[14rem] custom-timeline-card">
+                  <div className="card-glow rounded-3xl">
+                    <Card className="py-4 lg:w-[20rem] w-[14rem] custom-timeline-card card-glow">
                       <CardHeader className="pb-0 pt-2 px-4 flex-col items-start">
                         <p className="text-tiny uppercase font-bold">
                           {card.time}

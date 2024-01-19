@@ -9,12 +9,11 @@ import Partners from "../components/Partners.js";
 import Sponsors from "../components/Sponsors.js";
 import Timer from "../components/Timer.js";
 import MyParallax from "../components/parallax/my-parallax.js";
-import Timeline from "../components/timeline/Timeline.js";
 import TimelineMain from "../components/timeline/TimelineMain.js";
 
 const MainHome = () => {
   return (
-    <div style={{ backgroundColor: "#000509" }}>
+    <div>
       <Nav />
 
       <MyParallax />
@@ -23,11 +22,11 @@ const MainHome = () => {
 
       <Timer />
 
-      <div className="h-60"></div>
+      <div className="h-20"></div>
 
       <Partners />
 
-      <div className="h-60"></div>
+      <div className="h-20"></div>
 
       <Gallery />
 

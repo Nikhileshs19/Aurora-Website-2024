@@ -86,7 +86,7 @@ export default function Nav() {
             <NavbarContent justify="end" className="lg:relative left-[10%]">
                 <NavbarItem>
                     <Link to='/hackathon' className="">
-                        <div className="lg:w-[7.2rem]  w-[5.9rem] lg:text-[14px] text-[12px] shadow-2xl font-medium h-fit flex justify-between bg-[#000419] text-[#006FEE] rounded-lg p-2">
+                        <div className="lg:w-[7.2rem]  w-[5.9rem] lg:text-[14px] text-[12px] shadow-2xl font-medium h-fit flex justify-between bg-[#1b224a] text-[#006FEE] rounded-lg p-2">
                             <img src={trophy} alt="" className="lg:w-[1.5rem] w-[1rem]" />
                             Hackathon
                         </div>

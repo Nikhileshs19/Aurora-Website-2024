@@ -2,9 +2,14 @@ html,
 body {
   padding: 0;
   margin: 0;
-  height: 200vh;
-  background: #000;
+  background: #000509;
+  /* height: 100%; */
   font-family: 'PT Sans', sans-serif;
+  background-image: url(./images/bgstars.svg);
+  background-repeat: repeat;
+
+
+
 }
 
 label{
@@ -64,5 +69,14 @@ input::-webkit-inner-spin-button {
   background-repeat: repeat-x;
   /* background-position-y: 30rem; */
   background-position: bottom;
+}
+
+#aboutbox1{
+  background-image: url(./images/aboutbox1.svg);
+  background-size: 100%;
+}
+
+#hackathonpage{
+  background-image: url(./images/bgstars.svg);
 }
 

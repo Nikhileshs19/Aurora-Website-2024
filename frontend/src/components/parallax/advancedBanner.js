@@ -17,7 +17,7 @@ export const AdvancedBannerTop = () => {
   };
 
   const headline = {
-    translateY: [-22, 50],
+    translateY: [-15, 50],
     scale: [1, 1.25, 'easeOutCubic'],
     shouldAlwaysCompleteAnimation: true,
     expanded: false,
