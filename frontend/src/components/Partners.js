@@ -8,11 +8,11 @@ import './Partners.css';
 
 import { Autoplay, Navigation } from 'swiper/modules';
 
-import P1 from "../images/gallery1.svg";
-import P2 from "../images/gallery2.svg";
-import P3 from "../images/gallery3.svg";
-import P4 from "../images/gallery4.svg";
-import P5 from "../images/gallery5.svg";
+import P1 from "../images/finalp1.svg";
+import P2 from "../images/finalp2.svg";
+import P3 from "../images/finalp3.svg";
+import P4 from "../images/finalp4.svg";
+import P5 from "../images/finalp5.svg";
 import Title_Stuff from './Title_Stuff';
 
 // import Title_Stuff from './Title_Stuff';
@@ -62,7 +62,7 @@ const Carousel = () => {
 
   const images = [P1, P2, P3, P4, P5, P1, P2, P3, P4, P5];
   return(
-  <div className="w-full overflow-hidden pt-20">
+  <div className="w-full overflow-hidden pt-10">
   {/* <h1 className=" p-6 h-[109px] text-center [text-shadow:0px_4px_25.1px_#ffffff80] [font-family:'Inter-Bold',Helvetica] font-bold text-white text-3xl md:text-[69.9px] md:tracking-[6.99px] tracking-normal leading-[108.8px] md:leading-8 whitespace-nowrap">
           &lt;/Partners&gt;
         </h1> */}
@@ -125,7 +125,7 @@ const Carousel = () => {
 
 function Partners(){
     return (
-      <div className="text-white" id='partners'>
+      <div className="text-white bg-transparent" id='partners'>
         <div className="p-2">
           <Title_Stuff name="partners"/>
         </div>

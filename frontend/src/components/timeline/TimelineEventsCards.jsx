@@ -436,7 +436,7 @@ export default function TimelineEventsCards() {
       </div>
 
 
-      <div className='sticky bottom-0 lg:block z-[9999] lg:h-fit h-24 bg-[#000509] w-full'>
+      <div className=' bottom-0 lg:block z-[9999] lg:h-fit h-24 bg-[#000509] w-full pt-2'>
         <div className='text-center text-white'>
           <h4 className='lg:p-5 p-3 text-[#11A8E4] lg:text-lg text-[0.4rem] font-semibold'>PRESS SUBMIT TO CONFIRM YOUR SELECTION!</h4>
           {/* <h4 className='p-5 font-bold'>Register Now for AURORA's Ultimate Experience!</h4> */}

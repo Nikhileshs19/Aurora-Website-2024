@@ -1,41 +1,57 @@
 import 'tailwindcss/tailwind.css'
+import aboutbox1 from '../images/aboutbox1.svg'
+import aboutbox2 from '../images/aboutbox2new.png.jpg'
+import aboutbox3 from '../images/aboutbox3.svg'
 import './About.css'
 
 function About() {
   return (
-    <div className="p-24" id='about'>
-    <div className="flex flex-row flex-wrap items-center p-10 rounded-3xl justify-evenly  glow-about">
-      {/* First Column */}
-      <div className='flex-col p-6  flex justify-center'>
-        <span className="text-white text-center text-4xl sm:text-6xl font-bold">
-         200+
+    // <div className="p-24" id='about'>
+    // <div className="flex flex-row flex-wrap items-center p-10 rounded-3xl justify-evenly  glow-about">
+    //   {/* First Column */}
+    //   <div className='flex-col p-6  flex justify-center'>
+    //     <span className="text-white text-center text-4xl sm:text-6xl font-bold">
+    //      200+
           
-        </span>
-        <br />
-        <span className="text-2xl sm:text-3xl text-white font-bold">Registrations</span>
-      </div>
+    //     </span>
+    //     <br />
+    //     <span className="text-2xl sm:text-3xl text-white font-bold">Registrations</span>
+    //   </div>
 
 
-      {/* Second Column */}
-      <div className='flex-col p-6 flex justify-center'>
-        <span className="text-white text-center text-4xl sm:text-6xl font-bold">
-          8+
+    //   {/* Second Column */}
+    //   <div className='flex-col p-6 flex justify-center'>
+    //     <span className="text-white text-center text-4xl sm:text-6xl font-bold">
+    //       8+
           
-        </span>
-        <br />
-        <span className="text-2xl sm:text-3xl text-white font-bold">Workshops</span>
-      </div>
-      {/* Third Column */}
+    //     </span>
+    //     <br />
+    //     <span className="text-2xl sm:text-3xl text-white font-bold">Workshops</span>
+    //   </div>
+    //   {/* Third Column */}
       
-      <div className='flex-col p-6  flex justify-center'>
-        <span className="text-white text-center text-4xl sm:text-6xl font-bold">
-          45+
+    //   <div className='flex-col p-6  flex justify-center'>
+    //     <span className="text-white text-center text-4xl sm:text-6xl font-bold">
+    //       45+
           
-        </span>
-        <br />
-        <span className="text-2xl sm:text-3xl text-white font-bold">hours of skill sharing</span>
+    //     </span>
+    //     <br />
+    //     <span className="text-2xl sm:text-3xl text-white font-bold">hours of skill sharing</span>
+    //   </div>
+    // </div>
+    // </div>
+    <div className='grid grid-cols-2 bg-transparent'>
+      <div  className='w-full'>
+        <img src={aboutbox1} alt="" className='mx-auto w-full p-16'/>  
       </div>
-    </div>
+      <div className='grid w-full'>
+        <div>
+          <img src={aboutbox2} alt="" className=' mx-auto px-40 pt-14'/>
+        </div>
+        <div>
+          <img src={aboutbox3} alt="" className='mx-auto w-full px-20'/>
+        </div>
+      </div>
     </div>
   )
 }

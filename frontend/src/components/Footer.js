@@ -4,7 +4,7 @@ import linkedin from '../images/linkedin.svg'
 
 export default function Footer() {
     return (
-        <div className="bg-footer-texture h-screen bg-blend-darken bg-fixed bg-cover bg-bottom">
+        <div className="bg-footer-texture bg-transparent h-screen bg-blend-darken bg-fixed bg-cover bg-bottom">
             <div className="lg:pt-0 pt-96">
                 <h4 className="text-white p-5 text-center">Contact Us:</h4>
                 <div className="flex relative lg:left-[45%] left-[29%] w-fit">
