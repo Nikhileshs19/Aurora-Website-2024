@@ -391,6 +391,7 @@ export default function NewTimelineEventsCards() {
             <img src={ctfevents} alt="" className="col-span-2 mx-auto" />
             <div className="grid  md:grid-cols-2 grid-cols-1 rounded-3xl ">
 
+
               <div className="flex justify-center align-middle">
                 <img className="m-auto mt-6 p-4" src={hecker}></img>
               </div>
