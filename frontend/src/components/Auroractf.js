@@ -12,7 +12,7 @@ export const Auroractf = () => {
     return (
         <div className="p-10">
             <div className="text-white bg-aurora-bg bg-cover bg-center rounded-3xl">
-                <img src={ctfevents} alt="" className="col-span-2 mx-auto" />
+                <img src={ctfevents} alt="dg" className="col-span-2 mx-auto" />
                 <div className="grid  md:grid-cols-2 grid-cols-1 rounded-3xl ">
 
                     <div className="flex justify-center align-middle">
@@ -44,14 +44,14 @@ export const Auroractf = () => {
                         </div>
                         <div className="flex flex-col items-center justify-center">
                             <div className="p-6 flex-col items-center">
-                                <img className="w-36 h-36" src={P1} alt=""></img>
+                                <img className="w-36 h-36" src={P1} alt="gdg"></img>
                             </div>
                             <div className="flex flex-row justify-center flex-wrap">
                                 <div className="p-6 flex-col items-center">
-                                    <img className="w-36 h-36" src={P2} alt=""></img>
+                                    <img className="w-36 h-36" src={P2} alt="ggd"></img>
                                 </div>
                                 <div className="p-6 flex-col items-center">
-                                    <img className="w-36 h-36" src={P3} alt=""></img>
+                                    <img className="w-36 h-36" src={P3} alt="dgztg"></img>
                                 </div>
                             </div>
                         </div>

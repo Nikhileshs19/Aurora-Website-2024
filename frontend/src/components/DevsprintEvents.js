@@ -14,8 +14,9 @@ export default function DevsprintEvents() {
 
                 <div className="grid lg:grid-cols-2  justify-center items-center lg:p-28 p-8" >
                     <div className='col-span-2 mx-auto'>
-                        <img src={hackathoneventtitle} alt="" className='mx-auto' />
-                        <div className="[text-shadow:0px_4px_53px_#00000073] [font-family:'Inter-Regular',Helvetica] font-normal text-white text-center lg:text-[27px] text-[16px] tracking-[0] leading-[normal]">
+                        <img src={hackathoneventtitle} alt="gzg" className='mx-auto' />
+                        <div className="[text-shadow:0px_4px_53px_#00000073] [font-family:'Inter-Regular',Helvetica] font-normal text-white lg:text-[27px] text-[16px] tracking-[0] leading-[normal]">
+
                             AURORA PRESENTS
                         </div>
                         <div className="[text-shadow:0px_4px_37.2px_#0070f394] [font-family:'Inter-Bold',Helvetica] font-bold text-[#0070f3] text-center lg:text-[88px] text-[18px] tracking-[0] leading-[normal]">
@@ -32,17 +33,17 @@ export default function DevsprintEvents() {
                     <div className='col-span-2 mx-auto pb-10'>
                         <Link to='/hackathon' className="">
                             <div className="w-fit lg:text-[14px] text-[12px] shadow-2xl font-medium h-fit flex justify-between bg-[#0070F3] text-white rounded-lg p-2">
-                                <img src={trophy} alt="" className="lg:w-[1.5rem] w-[1rem]" />
+                                <img src={trophy} alt="zdgg" className="lg:w-[1.5rem] w-[1rem]" />
                                 Go Hackathon
                             </div>
                         </Link>
                     </div>
                     <div className='col-span-1 mx-auto'>
-                        <img src={devsprintdate} alt="" />
+                        <img src={devsprintdate} alt="dggdd" />
                     </div>
                     <div className="col-span-1 mx-auto flex flex-col">
-                        <img src={cashprizestitle} alt="" />
-                        <img src={cashprizeseventhack} alt="" />
+                        <img src={cashprizestitle} alt="zgrg" />
+                        <img src={cashprizeseventhack} alt="vfdbfd" />
                     </div>
                 </div>
             </div>

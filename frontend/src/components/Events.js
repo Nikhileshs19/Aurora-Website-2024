@@ -13,7 +13,9 @@ export default function Events() {
       
     {/* <div className="h-20"></div> */}
 
-      <img src={events} alt="" className='mx-auto p-10'/>
+
+      <img src={events} alt="fdbdzb" className='mx-auto'/>
+
 
       <TimelineEvents/>
 

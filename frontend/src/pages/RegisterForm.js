@@ -47,7 +47,7 @@ export default function RegisterForm() {
   }
 
   const [googleData, setGoogleData] = useState({});
-  const [userData, setUserData] = useState({});
+ // const [userData, setUserData] = useState({});
 
   // console.log("response googleData", googleData)
   const navigate = useNavigate();
@@ -189,7 +189,7 @@ export default function RegisterForm() {
     const uploadbg = document.getElementById('upload-box');
     if (uploadbg && formData.screenshot) {
       uploadbg.innerText = 'Uploaded';
-      uploadbg.innerHTML = `<div className='uploaded-image' style='display: flex; justify-content: center; align-items: center; color: white; font-size: 1.5rem;'><img src=${formData.screenshot} /></div>`;
+      uploadbg.innerHTML = `<div className='uploaded-image' style='display: flex; justify-content: center; align-items: center; color: white; font-size: 1.5rem;'><img src=${formData.screenshot} alt="hduh"="df" /></div>`;
     }
   }, [formData.screenshot])
 
@@ -240,7 +240,7 @@ export default function RegisterForm() {
         </div>
 
         <div className="flex justify-center text-center text-white text-[25.26px] font-medium font-['Inter'] pt-16">
-          <img src={icon} alt="" />
+          <img src={icon} alt="dghh" />
           02 Feb 2024 - 09 Feb 2024
         </div>
 

@@ -13,12 +13,12 @@ function HackathonPage() {
 
                 <ParallaxLayer offset={0} speed={1.5}>
                     <div className="h-screen w-screen justify-center items-center flex lg:translate-y-[20rem] translate-y-[5rem]">
-                        <img className="lg:h-screen lg:w-screen" alt="" src={Sun}></img>
+                        <img className="lg:h-screen lg:w-screen" alt="h" src={Sun}></img>
                     </div>
                 </ParallaxLayer>
 
                 <ParallaxLayer offset={0} speed={-0.001} className="w-screen">
-                    <img className="w-[150rem] bottom-0 lg:translate-y-[10rem] translate-y-96" alt="" src={Mountain}></img>
+                    <img className="w-[150rem] bottom-0 lg:translate-y-[10rem] translate-y-96" alt="h" src={Mountain}></img>
                 </ParallaxLayer>
 
                 <ParallaxLayer offset={0} className="z-50" speed={0.1}>
