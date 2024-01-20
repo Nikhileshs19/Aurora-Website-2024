@@ -1,4 +1,4 @@
-import { Button, Card, CardBody, CardHeader, Image } from "@nextui-org/react";
+import { Button } from "@nextui-org/react";
 import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { ToastContainer, toast } from 'react-toastify';
@@ -14,6 +14,7 @@ import calen from "../../images/calendar.svg";
 import clock from "../../images/clock.svg";
 import ctfevents from '../../images/ctfevents.svg';
 import laptop from "../../images/laptop.svg";
+import Timeline from "./Timeline";
 
 const allEvents = [
   ["TS1_E1_ACM", "ACM"],
@@ -122,7 +123,7 @@ export default function TimelineEventsCards() {
           checkbox[i].style.visibility = 'hidden'
           label[i].style.visibility = 'hidden'
         }
-        document.getElementByClassName('event-submit')[0].style.visibility='hidden'
+        document.getElementByClassName('event-submit')[0].style.visibility = 'hidden'
         formNotify()
       }
 
@@ -133,7 +134,7 @@ export default function TimelineEventsCards() {
         checkbox[i].style.visibility = 'hidden'
         label[i].style.visibility = 'hidden'
       }
-      document.getElementsByClassName('event-submit')[0].style.visibility='hidden'
+      document.getElementsByClassName('event-submit')[0].style.visibility = 'hidden'
       //console.log("error", error)
     }
     // console.log(registered)
@@ -277,117 +278,62 @@ export default function TimelineEventsCards() {
   }
 
   return (
-    <div className="lg:p-12 p-8 bg-[#000509]">
-      <div className="bg-aurora-bg bg-cover m-5 p-6 rounded-[2rem]">
-        <img src={workshopsevents} alt="" className="mx-auto p-5" />
-        <div className="text-center p-5">
-          <h3 className="text-default-600 lg:text-lg text-[0.8rem]">Click participate for the Workshops you want to attend and the click Submit to confirm you selections!</h3>
-          <h3 className="text-default-600 lg:text-lg text-[0.8rem]">(Keep in mind you won't be able to select workshops happening during the same time slots)</h3>
-        </div>
-        <div className="p-1 grid md:grid-cols-3 grid-cols-1 justify-center">
-          {allEvents.map((event, index) => (
-            <div key={index} className="py-5 m-auto">
-              <Card className="py-4 text-xs lg:h-[20rem] h-[18rem] lg:w-[20rem] w-[12rem]">
-                <CardHeader className="pb-0 pt-2 px-4 flex-col items-center">
-                  <p className=" uppercase font-bold lg:text-[0.8rem] text-[0.50rem] p-1">
-                    {times[index]}
-                  </p>
-                  <h4 className="text-default-500 lg:text-[0.7rem] text-[0.6rem] p-1">
-                    {dates[index]}
-                  </h4>
-                  <h4 className="font-bold lg:text-[1.3rem] p-1.5">{event[1]}</h4>
-                </CardHeader>
-                <CardBody className="overflow-visible py-2 items-center ">
-                  <Image
-                    alt="Card background"
-                    className="object-cover rounded-xl "
-                    src={images[index]}
-                    width={270}
-                  />
-                  <div className="mx-auto lg:mt-3 mt-0 flex lg:flex-row flex-col lg:gap-5 gap-0 " >
-
-                    <label htmlFor={event[0]} id={"label_" + event} className="event_label text-black bg-emerald-500 rounded-xl p-2">Turn in</label>
-                    <input type="checkbox" id={event[0]} name={event[0]} className="toggle visualy-hidden event" onClick={() => { updateEvent(event[0]) }} />
-
-                    <Button
-                      className=""
-                      color="primary"
-                      size="sm"
-                      radius="lg"
-                      onClick={() => toggleModal(index)}
-                    >
-                      Preview
-                    </Button>
-                  </div>
-
-                  {selectedModalIndex === index && (
-                    <>
-                      {React.createElement(modalComponents[index], {
-                        toggleModal: () => toggleModal(null),
-                        index,
-                      })}
-                    </>
-                  )}
-                </CardBody>
-              </Card>
-            </div>
-          ))}
+    <div>
+      <div className="lg:p-12 p-8 ">
+        <div className="m-5 p-6 rounded-[2rem]" id="glasseffect">
+          <img src={workshopsevents} alt="" className="mx-auto p-5" />
+          <Timeline />
         </div>
       </div>
 
-      <div className="p-7 text-white">
+      <div className="lg:p-16 p-7 text-white">
+        <div className="" id="glasseffect">
+          <div className="text-white  bg-center rounded-3xl lg:p-28 p-0" >
+            <img src={ctfevents} alt="" className="col-span-2 mx-auto" />
+            <div className="grid  md:grid-cols-2 grid-cols-1 rounded-3xl ">
 
-        <div className="grid bg-aurora-bg bg-cover md:grid-cols-2 grid-cols-1 rounded-3xl ">
-          <img src={ctfevents} alt="" className="col-span-2 mx-auto" />
-          <div className="flex justify-center align-middle">
-            <img className="m-auto mt-6" src={hecker}></img>
-          </div>
-          <div className="flex-col justify-center align-middle">
-            <img className="lg:h-72 lg:w-72 h-40 w-40 object-center m-auto" src={gr}></img>
-            <p className="text-center w-5/6 m-auto">
-              Magnam et id commodi non quia. Cumque sed aut architecto.Laboriosam est a quae aliquam. Tempora et impedit eos praesentium voluptatem. Reprehenderit unde consequatur quia. Dignissimos provident error fugit. Ut exercitationem impedit voluptas consequatur ut dicta. Provident dicta magnam est qui porro. Ratione similique dignissimos beatae. Qui repellat quam eaque dolores.
-            </p>
-          </div>
-          <div className="flex-col flex m-auto justify-center align-middle md:text-3xl text-xl p-6">
-            <div className="pt-4 pl-10 flex flex-row">
-              <img src={calen}></img>
-              <span className="pt-4 pl-10 [font-family:'Inter-Medium',Helvetica] font-semibold"> Date: 31-01-2024</span>
-            </div>
-            <div className="pt-6 pl-10 flex flex-row">
-              <img src={clock}></img>
-              <span className="pt-1 pl-10 [font-family:'Inter-Medium',Helvetica] font-semibold"> Time: 12:30 PM</span>
-            </div>
-            <div className="pt-6 pl-10 flex flex-row">
-              <img src={laptop}></img>
-              <span className="pt-2 pl-10 [font-family:'Inter-Medium',Helvetica] font-semibold"> Mode: Online</span>
-            </div>
-          </div>
-          <div className="p-6 justify-center align-middle">
-            <div className="[text-shadow:0px_4px_37.2px_#0070f3] [font-family:'Inter-Bold',Helvetica] font-bold text-[#0070f3] md:text-[58px] text-[35px] tracking-[0] leading-[normal]">
-              <h1 className="text-center p-6 text-[#0070f3]">Cash Prizes</h1>
-            </div>
-            <div className="flex flex-col items-center justify-center">
-              <div className="p-6 flex-col items-center">
-                <img className="w-36 h-36" src={P1} alt=""></img>
+
+              <div className="flex justify-center align-middle">
+                <img className="m-auto mt-6 p-4" src={hecker}></img>
               </div>
-              <div className="flex flex-row justify-center flex-wrap">
-                <div className="p-6 flex-col items-center">
-                  <img className="w-36 h-36" src={P2} alt=""></img>
+              <div className="flex-col justify-center align-middle p-3">
+                <img className="h-72 w-72 object-center m-auto" src={gr}></img>
+                <p className="text-center w-5/6 m-auto">
+                  Magnam et id commodi non quia. Cumque sed aut architecto.Laboriosam est a quae aliquam. Tempora et impedit eos praesentium voluptatem. Reprehenderit unde consequatur quia. Dignissimos provident error fugit. Ut exercitationem impedit voluptas consequatur ut dicta. Provident dicta magnam est qui porro. Ratione similique dignissimos beatae. Qui repellat quam eaque dolores.
+                </p>
+              </div>
+              <div className="flex-col flex m-auto justify-center align-middle md:text-3xl text-xl p-6">
+                <div className="pt-4 pl-10 flex flex-row">
+                  <img src={calen}></img>
+                  <span className="pt-4 pl-10 [font-family:'Inter-Medium',Helvetica] font-semibold"> Date: 31-01-2024</span>
                 </div>
-                <div className="p-6 flex-col items-center">
-                  <img className="w-36 h-36" src={P3} alt=""></img>
+                <div className="pt-6 pl-10 flex flex-row">
+                  <img src={clock}></img>
+                  <span className="pt-1 pl-10 [font-family:'Inter-Medium',Helvetica] font-semibold"> Time: 12:30 PM</span>
+                </div>
+                <div className="pt-6 pl-10 flex flex-row">
+                  <img src={laptop}></img>
+                  <span className="pt-2 pl-10 [font-family:'Inter-Medium',Helvetica] font-semibold"> Mode: Online</span>
                 </div>
               </div>
-            </div>
-          </div>
-          <div className="mx-auto h-40 col-span-2 text-center w-full">
-            <div className="h-32 ">
-              <div className="">
-                <label htmlFor="TS6_E1_CTF" id="label_TS6_E1_CTF" className="event_label p-2">Participate</label>
-                <input type="checkbox" id="TS6_E1_CTF" name="TS6_E1_CTF" className="toggle visualy-hidden event" onClick={() => { updateEvent("TS6_E1_CTF") }} />
+              <div className="p-6 justify-center align-middle">
+                <div className="[text-shadow:0px_4px_37.2px_#0070f3] [font-family:'Inter-Bold',Helvetica] font-bold text-[#0070f3] md:text-[58px] text-[35px] tracking-[0] leading-[normal]">
+                  <h1 className="text-center p-6 text-[#0070f3]">Cash Prizes</h1>
+                </div>
+                <div className="flex flex-col items-center justify-center">
+                  <div className="p-6 flex-col items-center">
+                    <img className="w-36 h-36" src={P1} alt=""></img>
+                  </div>
+                  <div className="flex flex-row justify-center flex-wrap">
+                    <div className="p-6 flex-col items-center">
+                      <img className="w-36 h-36" src={P2} alt=""></img>
+                    </div>
+                    <div className="p-6 flex-col items-center">
+                      <img className="w-36 h-36" src={P3} alt=""></img>
+                    </div>
+                  </div>
+                </div>
               </div>
-              <h3 className="text-default-600 lg:pt-5 pt-3 lg:text-lg text-[0.8rem]">After you click particpate, remember to click on submit!</h3>
-              <h3 className="text-default-600 lg:text-lg text-[0.8rem]">(after you confirm your Workshops)</h3>
             </div>
           </div>
         </div>

@@ -1,7 +1,14 @@
 import { Card, CardBody, CardHeader, Image } from "@nextui-org/react";
-import React, { useEffect, useState } from "react";
-import neuralnetworks from "../../images/neuralnetworks.png";
-
+import React, { useEffect, useRef, useState } from "react";
+import W_iste2 from "../../images/AppDev.svg";
+import W_gdsc from "../../images/ChatBot.svg";
+import W_mist from "../../images/Cybersec.svg";
+import W_ieee from "../../images/W-ieee.svg";
+import W_iemech from "../../images/W-iemech.svg";
+import W_iste1 from "../../images/W-iste1.svg";
+import W_acm from "../../images/W_acm.svg";
+import W_astronomy from "../../images/W_astronomy.svg";
+import W_dronaid from "../../images/W_dronaid.svg";
 import TitleStuff from "../Title_Stuff";
 import "./styles.css";
 
@@ -15,6 +22,8 @@ const TimelineMain = () => {
     window.innerWidth, //0
     window.innerHeight, //1
   ]);
+  const circleRef = useRef(null);
+  // let lastScrollY = 0;
   useEffect(() => {
     const maxTimelineHeight =
       (document.querySelectorAll(".timeline-container").length - 1) * 100;
@@ -37,11 +46,12 @@ const TimelineMain = () => {
     const handleScroll = () => {
       const firstCard = document.querySelector(".timeline-card:first-child");
       const lastCard = document.querySelector(".timeline-card:last-child");
-
+      const circle = document.querySelector(".timeline-circle");
       const dashedLine = document.querySelector(".vertical-dashed-line");
       const solidLine = document.querySelector(".vertical-solid-line");
-
-      if (!firstCard || !lastCard) return;
+      const circleMobile = document.querySelector(".timeline-circle-mobile");
+      if (!firstCard || !lastCard || !circle || !dashedLine || !solidLine)
+        return;
 
       const firstCardRect = firstCard.getBoundingClientRect();
       const lastCardRect = lastCard.getBoundingClientRect();
@@ -57,24 +67,27 @@ const TimelineMain = () => {
           ((window.scrollY - startScrollPosition) / maxTimelineHeight) * 100
         )
       );
+      console.log(newScrollPercentage);
 
       setScrollPercentage(newScrollPercentage);
-
+      const screenHeight = window.innerHeight;
       const firstCardTop = firstCardRect.top + window.scrollY;
       const lastCardBottom = lastCardRect.bottom + window.scrollY;
       const dashedLineHeight = lastCardBottom - firstCardTop;
       dashedLine.style.height = `${dashedLineHeight}px`;
       solidLine.style.zIndex = newScrollPercentage > 0 ? 2 : 0;
 
-      //height of solid line
-      const scrollPercentage = (window.scrollY / timelineHeight) * -65;
-      const adjustedPercentage = Math.min(214, newScrollPercentage * 2.39);
-      console.log(adjustedPercentage);
-
+      const adjustedPercentage = Math.min(178, newScrollPercentage * 2.5);
       document.querySelector(".vertical-solid-line").style.height =
         adjustedPercentage + "rem";
+      const circleTop =
+        (adjustedPercentage / 700) * maxTimelineHeight +
+        firstCardTop -
+        startScrollPosition -
+        circle.offsetHeight / 2;
 
-      //mobile
+      circle.style.top = circleTop + "px";
+      // Handle mobile timeline
       const firstCardMobile = document.querySelector(
         ".timeline-card-mobile:first-child"
       );
@@ -88,7 +101,13 @@ const TimelineMain = () => {
         ".vertical-solid-line-mobile"
       );
 
-      if (!firstCardMobile || !lastCardMobile) return;
+      if (
+        !firstCardMobile ||
+        !lastCardMobile ||
+        !dashedLineMobile ||
+        !solidLineMobile
+      )
+        return;
 
       const firstCardRectMobile = firstCardMobile.getBoundingClientRect();
       const lastCardRectMobile = lastCardMobile.getBoundingClientRect();
@@ -103,12 +122,13 @@ const TimelineMain = () => {
       const newScrollPercentageMobile = Math.max(
         0,
         Math.min(
-          300,
+          104,
           ((window.scrollY - startScrollPositionMobile) /
             maxTimelineHeightMobile) *
-            300
+            200
         )
       );
+      console.log(newScrollPercentageMobile);
 
       setScrollPercentageMobile(newScrollPercentageMobile);
 
@@ -118,18 +138,22 @@ const TimelineMain = () => {
       dashedLineMobile.style.height = `${dashedLineHeightMobile}px`;
       solidLineMobile.style.zIndex = newScrollPercentageMobile > 0 ? 2 : 0;
 
-      //height of solid line
-      // const scrollPercentageMobile = (window.scrollY / timelineHeight) * -65;
       const adjustedPercentageMobile = Math.min(
-        290,
-        Math.abs(newScrollPercentageMobile * 1.1)
+        270,
+        newScrollPercentageMobile * 2.39
       );
-      console.log(adjustedPercentageMobile);
-
       document.querySelector(".vertical-solid-line-mobile").style.height =
         adjustedPercentageMobile + "rem";
-      //   document.querySelector(".vertical-dashed-line-mobile").style.height =
-      //     adjustedPercentageMobile + "rem";
+
+      if (circleMobile) {
+        const circleTopMobile =
+          (adjustedPercentageMobile / 400) * maxTimelineHeightMobile +
+          firstCardTopMobile -
+          startScrollPositionMobile -
+          circleMobile.offsetHeight / 2;
+
+        circleMobile.style.top = circleTopMobile + "px";
+      }
     };
 
     window.addEventListener("scroll", handleScroll);
@@ -139,26 +163,85 @@ const TimelineMain = () => {
     };
   }, []);
 
-  const timelineCards = Array.from({ length: 11 }, (_, index) => ({
-    title: `Event ${index + 1}`,
-    time: "05:30PM - 08:00PM",
-    date: `4th January, 2024`,
-    image: neuralnetworks,
-  }));
+  const titles = [
+    "ACM",
+    "DRONAID",
+    "MIST",
+    "ISTE",
+    "GDSC",
+    "ISTE2",
+    "IE MECH",
+    "IEEE",
+    "Event 9",
+  ];
+
+  const times = [
+    "05:30PM - 08:30PM & 10:00AM - 05:00PM",
+    "05:30PM - 08:30PM & 10:00AM - 05:00PM",
+    "05:30PM - 08:30PM",
+    "05:30PM - 08:30PM",
+    "05:30PM - 08:30PM",
+    "05:30PM - 08:30PM",
+    "05:30PM - 08:30PM",
+    "05:30PM - 08:30PM",
+    "05:30PM - 08:30PM",
+    "05:30PM - 08:30PM",
+  ];
+  const dates = [
+    "3rd February, 2024 & 4th February, 2024",
+    "3rd February, 2024 & 4th February, 2024",
+    "5th February, 2024 & 6th February, 2024",
+    "5th February, 2024 & 6th February, 2024",
+
+    "7th February, 2024 & 8th February, 2024",
+    "7th February, 2024 & 8th February, 2024",
+    "9th February, 2024",
+    "9th February, 2024",
+    "9th February, 2024",
+  ];
+  const images = [
+    W_acm,
+    W_dronaid,
+    W_mist,
+    W_iste1,
+    W_gdsc,
+    W_iste2,
+    W_iemech,
+    W_ieee,
+    W_astronomy,
+  ];
 
   return (
-    <>
+    <div className="">
       {/* desktop timeline  */}
       <div
         id="timeline"
         className={windowSize[0] > 760 ? "bg-transparent" : "hidden"}
       >
-        <TitleStuff name="timeline" />
-        <div className="timeline-container relative top-[-20rem]">
+        <TitleStuff name="timeline" className="relative top-[10rem]"/>
+        <div className="timeline-container relative top-[-24rem]">
           <div
             className="my-timeline"
             style={{ position: "relative", margin: "280px auto" }}
           >
+            {/* Timeline Circle */}
+            <div
+              ref={circleRef} // Set a ref to access the circle element
+              className="timeline-circle hidden"
+              style={{
+                position: "fixed",
+                width: "30px",
+                height: "30px",
+                backgroundColor: "blue",
+                borderRadius: "50%",
+                top: "50%",
+                left: "49.1%", // Move the circle to the left
+                zIndex: 3,
+                opacity: scrollPercentage > 0 ? 1 : 0,
+                transition: "opacity 0.5s ease",
+              }}
+            ></div>
+
             {/* Vertical Dashed Line */}
             <div
               className="vertical-dashed-line absolute left-0 top-0 bg-transparent w-1 h-full"
@@ -184,18 +267,9 @@ const TimelineMain = () => {
                 display: "grid",
                 gridTemplateColumns: "1fr",
                 justifyItems: "center", // Centering the cards
-                // "@media (max-width: 640px)": {
-                //   gridTemplateColumns: "1fr", // Change to one column for smaller screens
-                //   gridRowGap: "100px",
-                //   marginLeft: "20px", // Adjust margin for smaller screens
-                // },
-                // "@media (min-width: 1024px and max-width: 641px)": {
-                //   gridColumnGap: "100px",
-                //   gridTemplateColumns: "repeat(2, 1fr)", // Adjust for zigzag fashion
-                // },
               }}
             >
-              {timelineCards.map((card, index) => (
+              {titles.map((titles, index) => (
                 <div
                   key={index}
                   className="timeline-card py-5"
@@ -208,26 +282,24 @@ const TimelineMain = () => {
                     width: "fit-content",
                   }}
                 >
-                  <div className="card-glow rounded-3xl">
-                  <Card className="py-4 lg:w-[20rem] w-[14rem] custom-timeline-card card-glow">
+                  <Card className="py-4 lg:w-[20rem] w-[14rem] custom-timeline-card">
                     <CardHeader className="pb-0 pt-2 px-4 flex-col items-start">
                       <p className="text-tiny uppercase font-bold">
-                        {card.time}
+                        {times[index]}
                       </p>
-                      <small className="text-default-500">{card.date}</small>
-                      <h4 className="font-bold text-large">{card.title}</h4>
+                      <small className="text-default-500">{dates[index]}</small>
+                      <h4 className="font-bold text-large">{titles}</h4>
                     </CardHeader>
                     <CardBody className="overflow-visible py-2">
                       <Image
                         alt="Card background"
                         className="object-cover rounded-xl"
-                        src={card.image}
+                        src={images[index]}
                         width={270}
                       />
                       <div className="w-16 mt-6"></div>
                     </CardBody>
                   </Card>
-                  </div>
                 </div>
               ))}
             </div>
@@ -237,20 +309,36 @@ const TimelineMain = () => {
       {/* mobile timeline  */}
       <div
         id="timeline"
-        className={windowSize[0] <= 760 ? "bg-transparent" : "hidden"}
+        className={windowSize[0] <= 760 ? "bg-black" : "hidden"}
       >
         <TitleStuff name="timeline" />
-        <div className="timeline-container relative top-[-10rem]">
+        <div className="timeline-container">
           <div
             className="my-timeline"
             style={{ position: "relative", margin: "280px auto" }}
           >
+            <div
+              ref={circleRef} // Set a ref to access the circle element
+              className="timeline-circle-mobile hidden"
+              style={{
+                position: "fixed",
+                width: "30px",
+                height: "30px",
+                backgroundColor: "blue",
+                borderRadius: "50%",
+                top: "50%",
+                left: "7.2%", // Move the circle to the left
+                zIndex: 3,
+                opacity: scrollPercentageMobile > 0 ? 1 : 0,
+                transition: "opacity 0.5s ease",
+              }}
+            ></div>
             {/* Vertical Dashed Line */}
             <div
-              className="vertical-dashed-line-mobile absolute left-0 top-0 bg-transparent w-1 h-full"
+              className="vertical-dashed-line-mobile absolute left-0 top-1 bg-transparent w-1 h-full"
               style={{
                 marginLeft: "40px", // Adjusted the left margin for the vertical line
-                marginTop: "80px", // Set the top margin for the vertical line
+                marginTop: "60px", // Set the top margin for the vertical line
                 backgroundImage: `repeating-linear-gradient(transparent, transparent 10px, white 10px, white 20px)`, // Vertical dashed line background
               }}
             ></div>
@@ -272,7 +360,7 @@ const TimelineMain = () => {
                 alignItems: "center",
               }}
             >
-              {timelineCards.map((card, index) => (
+              {titles.map((titles, index) => (
                 <div
                   key={index}
                   className="timeline-card-mobile py-5"
@@ -282,20 +370,22 @@ const TimelineMain = () => {
                     width: "fit-content", // Adjust the width as needed
                   }}
                 >
-                  <div className="card-glow rounded-3xl">
-                    <Card className="py-4 lg:w-[20rem] w-[14rem] custom-timeline-card card-glow">
+                  <div>
+                    <Card className="py-4 lg:w-[20rem] w-[14rem] custom-timeline-card">
                       <CardHeader className="pb-0 pt-2 px-4 flex-col items-start">
                         <p className="text-tiny uppercase font-bold">
-                          {card.time}
+                          {times[index]}
                         </p>
-                        <small className="text-default-500">{card.date}</small>
-                        <h4 className="font-bold text-large">{card.title}</h4>
+                        <small className="text-default-500">
+                          {dates[index]}
+                        </small>
+                        <h4 className="font-bold text-large">{titles}</h4>
                       </CardHeader>
                       <CardBody className="overflow-visible py-2">
                         <Image
                           alt="Card background"
                           className="object-cover rounded-xl"
-                          src={card.image}
+                          src={images[index]}
                           width={270}
                         />
                         <div className="w-16 mt-6"></div>
@@ -308,7 +398,7 @@ const TimelineMain = () => {
           </div>
         </div>
       </div>
-    </>
+    </div>
   );
 };
 
