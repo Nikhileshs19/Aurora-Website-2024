@@ -184,15 +184,15 @@ const TimelineMain = () => {
                 display: "grid",
                 gridTemplateColumns: "1fr",
                 justifyItems: "center", // Centering the cards
-                "@media (max-width: 640px)": {
-                  gridTemplateColumns: "1fr", // Change to one column for smaller screens
-                  gridRowGap: "100px",
-                  marginLeft: "20px", // Adjust margin for smaller screens
-                },
-                "@media (min-width: 1024px and max-width: 641px)": {
-                  gridColumnGap: "100px",
-                  gridTemplateColumns: "repeat(2, 1fr)", // Adjust for zigzag fashion
-                },
+                // "@media (max-width: 640px)": {
+                //   gridTemplateColumns: "1fr", // Change to one column for smaller screens
+                //   gridRowGap: "100px",
+                //   marginLeft: "20px", // Adjust margin for smaller screens
+                // },
+                // "@media (min-width: 1024px and max-width: 641px)": {
+                //   gridColumnGap: "100px",
+                //   gridTemplateColumns: "repeat(2, 1fr)", // Adjust for zigzag fashion
+                // },
               }}
             >
               {timelineCards.map((card, index) => (

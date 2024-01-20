@@ -15,6 +15,8 @@ import clock from "../../images/clock.svg";
 import ctfevents from '../../images/ctfevents.svg';
 import laptop from "../../images/laptop.svg";
 
+import './CheckBoxStyles.css';
+
 // const styles = {
 //   '.control::after': {
 //     content: '😃',
