@@ -284,10 +284,10 @@ export default function TimelineEventsCards() {
           <h3 className="text-default-600 lg:text-lg text-[0.8rem]">Click participate for the Workshops you want to attend and the click Submit to confirm you selections!</h3>
           <h3 className="text-default-600 lg:text-lg text-[0.8rem]">(Keep in mind you won't be able to select workshops happening during the same time slots)</h3>
         </div>
-        <div className="p-6 grid md:grid-cols-3 grid-cols-1 ">
+        <div className="p-1 grid md:grid-cols-3 grid-cols-1 justify-center">
           {allEvents.map((event, index) => (
             <div key={index} className="py-5 m-auto">
-              <Card className="py-4 text-xs">
+              <Card className="py-4 text-xs lg:h-[20rem] h-[18rem] lg:w-[20rem] w-[12rem]">
                 <CardHeader className="pb-0 pt-2 px-4 flex-col items-center">
                   <p className=" uppercase font-bold lg:text-[0.8rem] text-[0.50rem] p-1">
                     {times[index]}
@@ -304,7 +304,7 @@ export default function TimelineEventsCards() {
                     src={images[index]}
                     width={270}
                   />
-                  <div className="mx-auto mt-6 flex lg:flex-row flex-col lg:gap-5 gap-2" >
+                  <div className="mx-auto lg:mt-3 mt-0 flex lg:flex-row flex-col lg:gap-5 gap-0" >
 
                     <label htmlFor={event[0]} id={"label_" + event} className="event_label text-black bg-emerald-500 rounded-xl p-2">Turn in</label>
                     <input type="checkbox" id={event[0]} name={event[0]} className="toggle visualy-hidden event" onClick={() => { updateEvent(event[0]) }} />

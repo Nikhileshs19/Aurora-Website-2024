@@ -19,7 +19,7 @@ function Gallery() {
   const images = [i1, i2, i3, i4, i5]
     return(
       <div className='bg-transparent'>
-      <TitleStuff name="gallery" />
+      <TitleStuff name="gallery" className="relative lg:top-[9rem]"/>
       <div className="w-full overflow-hidden relative lg:top-[-10rem]">
           <Swiper
             className='mySwiper'
@@ -41,7 +41,7 @@ function Gallery() {
             <SwiperSlide key={index} className="w-full h-auto">
               <img 
                 src={image} 
-                className={`w-full h-auto m-auto rounded-3xl object-cover lg:p-20 p-4`}
+                className={`w-full h-auto m-auto rounded-3xl object-cover lg:p-32 p-4`}
                 alt={`Slide ${index}`}
               />
             </SwiperSlide>
