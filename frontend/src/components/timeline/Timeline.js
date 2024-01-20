@@ -1,369 +1,123 @@
-import {
-  Button,
-  Card,
-  CardBody,
-  CardHeader,
-  Checkbox,
-  Image,
-} from "@nextui-org/react";
-import React, { useEffect, useState } from "react";
-import neuralnetworks from "../../images/neuralnetworks.png";
-import Modal_1 from "../Modal_1";
-import Modal_2 from "../Modal_2";
-import Modal_3 from "../Modal_3";
-import Modal_4 from "../Modal_4";
-import Modal_5 from "../Modal_5";
-import Modal_6 from "../Modal_6";
-import Modal_7 from "../Modal_7";
-import Modal_8 from "../Modal_8";
-import Modal_9 from "../Modal_9";
-import TitleStuff from "../Title_Stuff";
-import "./styles.css";
+import { Button, Card, CardBody, CardHeader, Image } from "@nextui-org/react";
+import React, { useState } from "react";
+import W_iste2 from "../../images/AppDev.svg";
+import W_gdsc from "../../images/ChatBot.svg";
+import W_mist from "../../images/Cybersec.svg";
+import W_ieee from "../../images/W-ieee.svg";
+import W_iemech from "../../images/W-iemech.svg";
+import W_iste1 from "../../images/W-iste1.svg";
+import W_acm from "../../images/W_acm.svg";
+import W_astronomy from "../../images/W_astronomy.svg";
+import W_dronaid from "../../images/W_dronaid.svg";
+import EventCheck from "../EventCheck";
+// import "./styles.css"
+// Separate arrays for titles, times, dates, and images
+const titles = [
+  "ACM",
+  "DRONAID",
+  "MIST",
+  "ISTE",
+  "GDSC",
+  "ISTE2",
+  "IE MECH",
+  "IEEE",
+  "Event 9",
+];
 
-const Timeline = () => {
-  const [scrollPercentage, setScrollPercentage] = useState(0);
+const times = [
+  "05:30PM - 08:30PM & 10:00AM - 05:00PM",
+  "05:30PM - 08:30PM & 10:00AM - 05:00PM",
+  "05:30PM - 08:30PM",
+  "05:30PM - 08:30PM",
+  "05:30PM - 08:30PM",
+  "05:30PM - 08:30PM",
+  "05:30PM - 08:30PM",
+  "05:30PM - 08:30PM",
+  "05:30PM - 08:30PM",
+  "05:30PM - 08:30PM",
+];
+const dates = [
+  "3rd February, 2024 & 4th February, 2024",
+  "3rd February, 2024 & 4th February, 2024",
+  "5th February, 2024 & 6th February, 2024",
+  "5th February, 2024 & 6th February, 2024",
+
+  "7th February, 2024 & 8th February, 2024",
+  "7th February, 2024 & 8th February, 2024",
+  "9th February, 2024",
+  "9th February, 2024",
+  "9th February, 2024",
+];
+const images = [
+  W_acm,
+  W_dronaid,
+  W_mist,
+  W_iste1,
+  W_gdsc,
+  W_iste2,
+  W_iemech,
+  W_ieee,
+  W_astronomy,
+];
+
+const modalComponents = Array.from(
+  { length: 9 },
+  (_, index) => require(`../Modal_${index + 1}`).default
+);
+
+export default function Timeline() {
   const [selectedModalIndex, setSelectedModalIndex] = useState(null);
-  const [timelineHeight, setTimelineHeight] = useState(0);
-  const [windowSize, setWindowSize] = useState([
-    window.innerWidth, //0
-    window.innerHeight, //1
-  ]);
-  useEffect(() => {
-    const maxTimelineHeight =
-      (document.querySelectorAll(".timeline-container").length - 1) * 100;
-    setTimelineHeight(maxTimelineHeight);
-  }, []);
-
-  useEffect(() => {
-    const handleWindowResize = () => {
-      setWindowSize([window.innerWidth, window.innerHeight]);
-    };
-
-    window.addEventListener("resize", handleWindowResize);
-
-    return () => {
-      window.removeEventListener("resize", handleWindowResize);
-    };
-  }, []);
 
   const toggleModal = (index) => {
     setSelectedModalIndex(index);
   };
 
-  useEffect(() => {
-    const handleScroll = () => {
-      const firstCard = document.querySelector(".timeline-card:first-child");
-      const lastCard = document.querySelector(".timeline-card:last-child");
-
-      const dashedLine = document.querySelector(".vertical-dashed-line");
-      const solidLine = document.querySelector(".vertical-solid-line");
-
-      if (!firstCard || !lastCard) return;
-
-      const firstCardRect = firstCard.getBoundingClientRect();
-      const lastCardRect = lastCard.getBoundingClientRect();
-
-      const startScrollPosition = firstCardRect.top + window.scrollY;
-      const endScrollPosition = lastCardRect.bottom + window.scrollY;
-
-      const maxTimelineHeight = endScrollPosition - startScrollPosition;
-      const newScrollPercentage = Math.max(
-        0,
-        Math.min(
-          100,
-          ((window.scrollY - startScrollPosition) / maxTimelineHeight) * 100
-        )
-      );
-
-      setScrollPercentage(newScrollPercentage);
-
-      const firstCardTop = firstCardRect.top + window.scrollY;
-      const lastCardBottom = lastCardRect.bottom + window.scrollY;
-      const dashedLineHeight = lastCardBottom - firstCardTop;
-      dashedLine.style.height = `${dashedLineHeight}px`;
-      solidLine.style.zIndex = newScrollPercentage > 0 ? 2 : 0;
-
-      //height of solid line
-      const scrollPercentage = (window.scrollY / timelineHeight) * -65;
-      const adjustedPercentage = Math.min(192, newScrollPercentage * 2.39);
-      console.log(adjustedPercentage);
-
-      document.querySelector(".vertical-solid-line").style.height =
-        adjustedPercentage + "rem";
-
-      // document.querySelector(".vertical-solid-line-mobile").style.height =
-      //   adjustedPercentage + "rem";
-    };
-
-    window.addEventListener("scroll", handleScroll);
-
-    return () => {
-      window.removeEventListener("scroll", handleScroll);
-    };
-  }, []);
-
-  const timelineCards = Array.from({ length: 11 }, (_, index) => ({
-    title: `Event ${index + 1}`,
-    time: "05:30PM - 08:00PM",
-    date: `4th January, 2024`,
-    image: neuralnetworks,
-  }));
-
   return (
-    <>
-      <div
-        id="timeline"
-        className={windowSize[0] > 760 ? "bg-black" : "hidden"}
-      >
-        <TitleStuff name="timeline" />
-        <div className="timeline-container">
-          <div
-            className="my-timeline"
-            style={{ position: "relative", margin: "280px auto" }}
-          >
-            {/* Vertical Dashed Line */}
-            <div
-              className="vertical-dashed-line absolute left-0 top-0 bg-transparent w-1 h-full"
-              style={{
-                marginLeft: "50%",
-                marginTop: "200px", // Set the left margin for the vertical line
-                backgroundImage: `repeating-linear-gradient(transparent, transparent 10px, white 10px, white 20px)`, // Vertical dashed line background
-              }}
-            ></div>
-            <div
-              className="vertical-solid-line absolute left-0 top-0 bg-transparent m-auto w-1 glow"
-              style={{
-                marginLeft: "50%",
-                marginTop: "200px",
-                background: "white",
-                transition: "top 1.5s ease",
-              }}
-            ></div>
-            {/* Timeline Cards */}
-            <div
-              className="timeline-card-container lg:mx-96 mx-7 grid lg:grid-cols-3 grid-cols-2"
-              style={{
-                display: "grid",
-                gridTemplateColumns: "1fr",
-                justifyItems: "center", // Centering the cards
-                "@media (max-width: 640px)": {
-                  gridTemplateColumns: "1fr", // Change to one column for smaller screens
-                  gridRowGap: "100px",
-                  marginLeft: "20px", // Adjust margin for smaller screens
-                },
-                "@media (min-width: 1024px and max-width: 641px)": {
-                  gridColumnGap: "100px",
-                  gridTemplateColumns: "repeat(2, 1fr)", // Adjust for zigzag fashion
-                },
-              }}
-            >
-              {timelineCards.map((card, index) => (
-                <div
-                  key={index}
-                  className="timeline-card py-5"
-                  style={{
-                    marginTop: index % 2 === 0 ? "250px" : "10px",
-                    zIndex: 2,
-                    gridColumn: index % 2 === 0 ? "3" : "2",
-                    marginLeft: index % 2 === 0 ? "-1700px" : "500px",
-                    gridColumnGap: index % 2 === 0 ? "700px" : "500px",
-                    width: "fit-content",
-                  }}
+    <div className="p-6 grid md:grid-cols-3 grid-cols-2 ">
+      {titles.map((title, index) => (
+        <div key={index} className="py-5 m-auto">
+          <Card className="py-4 lg:w-[19rem] w-[6.8rem] lg:h-auto h-[15rem] text-xs">
+            <CardHeader className="pb-0 pt-2 px-4 flex-col items-center">
+              <p className=" uppercase font-bold lg:text-[0.8rem] text-[0.50rem] p-1">
+                {times[index]}
+              </p>
+              <h4 className="text-default-500 lg:text-[0.7rem] text-[0.6rem] p-1">
+                {dates[index]}
+              </h4>
+              <h4 className="font-bold lg:text-[1.3rem] p-1.5">{title}</h4>
+            </CardHeader>
+            <CardBody className="overflow-visible py-2 items-center ">
+              <Image
+                alt="Card background"
+                className="object-cover rounded-xl "
+                src={images[index]}
+                width={270}
+              />
+              <div className="mx-auto mt-6 flex lg:flex-row flex-col lg:gap-5 gap-2">
+                <EventCheck />
+                <Button
+                  className=" "
+                  color="primary"
+                  size="sm"
+                  radius="lg"
+                  onClick={() => toggleModal(index)}
                 >
-                  <Card className="py-4 lg:w-[20rem] w-[14rem] custom-timeline-card">
-                    <CardHeader className="pb-0 pt-2 px-4 flex-col items-start">
-                      <p className="text-tiny uppercase font-bold">
-                        {card.time}
-                      </p>
-                      <small className="text-default-500">{card.date}</small>
-                      <h4 className="font-bold text-large">{card.title}</h4>
-                    </CardHeader>
-                    <CardBody className="overflow-visible py-2">
-                      <Image
-                        alt="Card background"
-                        className="object-cover rounded-xl"
-                        src={card.image}
-                        width={270}
-                      />
-                      <div className="w-16 mt-6">
-                        <Button
-                          color="primary"
-                          size="sm"
-                          radius="lg"
-                          onClick={() => toggleModal(index)}
-                        >
-                          Read More
-                        </Button>
-                        <Checkbox size="md" color="success" radius="sm">
-                          Participate
-                        </Checkbox>
-                      </div>
+                  Preview
+                </Button>
+              </div>
 
-                      {selectedModalIndex === index && (
-                        <>
-                          {index === 0 && (
-                            <Modal_1
-                              toggleModal={() => toggleModal(null)}
-                              index={index}
-                            />
-                          )}
-                          {index === 1 && (
-                            <Modal_2 toggleModal={() => toggleModal(null)} />
-                          )}
-                          {index === 2 && (
-                            <Modal_3 toggleModal={() => toggleModal(null)} />
-                          )}
-                          {index === 3 && (
-                            <Modal_4 toggleModal={() => toggleModal(null)} />
-                          )}
-                          {index === 4 && (
-                            <Modal_5 toggleModal={() => toggleModal(null)} />
-                          )}
-                          {index === 5 && (
-                            <Modal_6 toggleModal={() => toggleModal(null)} />
-                          )}
-                          {index === 6 && (
-                            <Modal_7 toggleModal={() => toggleModal(null)} />
-                          )}
-                          {index === 7 && (
-                            <Modal_8 toggleModal={() => toggleModal(null)} />
-                          )}
-                          {index === 8 && (
-                            <Modal_9 toggleModal={() => toggleModal(null)} />
-                          )}
-                        </>
-                      )}
-                    </CardBody>
-                  </Card>
-                </div>
-              ))}
-            </div>
-          </div>
+              {selectedModalIndex === index && (
+                <>
+                  {React.createElement(modalComponents[index], {
+                    toggleModal: () => toggleModal(null),
+                    index,
+                  })}
+                </>
+              )}
+            </CardBody>
+          </Card>
         </div>
-      </div>
-      <div
-        id="timeline"
-        className={windowSize[0] >= 760 ? "hidden" : "bg-black"}
-      >
-        <TitleStuff name="timeline" />
-        <div className="timeline-container">
-          <div
-            className="my-timeline"
-            style={{ position: "relative", margin: "280px auto" }}
-          >
-
-            {/* Vertical Dashed Line */}
-            <div
-              className="vertical-dashed-line absolute left-0 top-0 bg-transparent w-1 h-full"
-              style={{
-                marginLeft: "40px", // Adjusted the left margin for the vertical line
-                marginTop: "300px", // Set the top margin for the vertical line
-                backgroundImage: `repeating-linear-gradient(transparent, transparent 10px, white 10px, white 20px)`, // Vertical dashed line background
-              }}
-            ></div>
-            <div
-              className="vertical-solid-line absolute left-0 top-0 bg-transparent m-auto w-1 h-full"
-              style={{
-                marginLeft: "40px", // Adjusted the left margin for the vertical line
-                marginTop: "100px",
-                background: "white",
-                transition: "top 1.5s ease",
-              }}
-            ></div>
-            {/* Timeline Cards */}
-            <div
-              className="timeline-card-container"
-              style={{
-                display: "flex",
-                flexDirection: "column",
-                alignItems: "center",
-              }}
-            >
-              {timelineCards.map((card, index) => (
-                <div
-                  key={index}
-                  className="timeline-card py-5"
-                  style={{
-                    margin: "10px",
-                    zIndex: 2,
-                    width: "fit-content", // Adjust the width as needed
-                  }}
-                >
-                  <div>
-                    <Card className="py-4 lg:w-[20rem] w-[14rem] custom-timeline-card">
-                      <CardHeader className="pb-0 pt-2 px-4 flex-col items-start">
-                        <p className="text-tiny uppercase font-bold">
-                          {card.time}
-                        </p>
-                        <small className="text-default-500">{card.date}</small>
-                        <h4 className="font-bold text-large">{card.title}</h4>
-                      </CardHeader>
-                      <CardBody className="overflow-visible py-2">
-                        <Image
-                          alt="Card background"
-                          className="object-cover rounded-xl"
-                          src={card.image}
-                          width={270}
-                        />
-                        <div className="w-16 mt-6">
-                          <Button
-                            color="primary"
-                            size="sm"
-                            radius="lg"
-                            onClick={() => toggleModal(index)}
-                          >
-                            Read More
-                          </Button>
-                          <Checkbox size="md" color="success" radius="sm">
-                            Participate
-                          </Checkbox>
-                        </div>
-
-                        {selectedModalIndex === index && (
-                          <>
-                            {index === 0 && (
-                              <Modal_1
-                                toggleModal={() => toggleModal(null)}
-                                index={index}
-                              />
-                            )}
-                            {index === 1 && (
-                              <Modal_2 toggleModal={() => toggleModal(null)} />
-                            )}
-                            {index === 2 && (
-                              <Modal_3 toggleModal={() => toggleModal(null)} />
-                            )}
-                            {index === 3 && (
-                              <Modal_4 toggleModal={() => toggleModal(null)} />
-                            )}
-                            {index === 4 && (
-                              <Modal_5 toggleModal={() => toggleModal(null)} />
-                            )}
-                            {index === 5 && (
-                              <Modal_6 toggleModal={() => toggleModal(null)} />
-                            )}
-                            {index === 6 && (
-                              <Modal_7 toggleModal={() => toggleModal(null)} />
-                            )}
-                            {index === 7 && (
-                              <Modal_8 toggleModal={() => toggleModal(null)} />
-                            )}
-                            {index === 8 && (
-                              <Modal_9 toggleModal={() => toggleModal(null)} />
-                            )}
-                          </>
-                        )}
-                      </CardBody>
-                    </Card>
-                  </div>
-                </div>
-              ))}
-            </div>
-          </div>
-        </div>
-      </div>
-    </>
+      ))}
+    </div>
   );
-};
-
-export default Timeline;
+}
