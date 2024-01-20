@@ -292,6 +292,7 @@ export default function TimelineEventsCards() {
         newRegistered.push(eventID)
         document.getElementById(eventID).checked = true
         setRegistered(newRegistered)
+        selectionNotify()
       }
       else if (i === newRegistered.length - 1 && found === 0) {
         newRegistered.push(eventID)
@@ -305,7 +306,6 @@ export default function TimelineEventsCards() {
       document.getElementById(eventID).checked = true
       setRegistered(newRegistered)
     }
-    selectionNotify()
   }
 
   return (
