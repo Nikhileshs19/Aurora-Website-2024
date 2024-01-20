@@ -304,7 +304,7 @@ export default function TimelineEventsCards() {
                     src={images[index]}
                     width={270}
                   />
-                  <div className="mx-auto lg:mt-3 mt-0 flex lg:flex-row flex-col lg:gap-5 gap-0" >
+                  <div className="mx-auto lg:mt-3 mt-0 flex lg:flex-row flex-col lg:gap-5 gap-0 " >
 
                     <label htmlFor={event[0]} id={"label_" + event} className="event_label text-black bg-emerald-500 rounded-xl p-2">Turn in</label>
                     <input type="checkbox" id={event[0]} name={event[0]} className="toggle visualy-hidden event" onClick={() => { updateEvent(event[0]) }} />

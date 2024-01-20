@@ -314,72 +314,74 @@ export default function NewTimelineEventsCards() {
   return (
     <div className="lg:p-12 p-8 bg-[#000509]">
       <div className=" m-5 p-6 rounded-[2rem]" id="glasseffect">
-        <img src={workshopsevents} alt="" className="mx-auto p-5" />
-        <div className="text-center p-5">
-          <h3 className="text-default-600 lg:text-lg text-[0.8rem]">Click participate for the Workshops you want to attend and the click Submit to confirm you selections!</h3>
-          <h3 className="text-default-600 lg:text-lg text-[0.8rem]">(Keep in mind you won't be able to select workshops happening during the same time slots)</h3>
-        </div>
-        <div className="p-3 grid md:grid-cols-3 grid-cols-1 ">
-          {allEvents.map((event, index) => (
-            <div key={index} className="py-5 m-auto">
-              <Card className="py-4 text-xs lg:h-[20rem] h-[20rem] lg:w-[20rem] w-[12rem]">
-                <CardHeader className="pb-0 pt-2 px-4 flex-col items-center">
-                  <p className=" uppercase font-bold lg:text-[0.8rem] text-[0.50rem] p-1">
-                    {times[index]}
-                  </p>
-                  <h4 className="text-default-500 lg:text-[0.7rem] text-[0.6rem] p-1">
-                    {dates[index]}
-                  </h4>
-                  <h4 className="font-bold lg:text-[1.3rem] p-1.5">{event[1]}</h4>
-                </CardHeader>
-                <CardBody className="overflow-visible py-2 items-center ">
-                  <Image
-                    alt="Card background"
-                    className="object-cover rounded-xl "
-                    src={images[index]}
-                    width={270}
-                  />
-                  <div className="mx-auto mt-3 flex lg:flex-row flex-col lg:gap-5 gap-2" >
+        <div>
+          <img src={workshopsevents} alt="" className="mx-auto p-5" />
+          <div className="text-center p-5">
+            <h3 className="text-default-600 lg:text-lg text-[0.8rem]">Click participate for the Workshops you want to attend and the click Submit to confirm you selections!</h3>
+            <h3 className="text-default-600 lg:text-lg text-[0.8rem]">(Keep in mind you won't be able to select workshops happening during the same time slots)</h3>
+          </div>
+          <div className="p-3 grid md:grid-cols-3 grid-cols-1 ">
+            {allEvents.map((event, index) => (
+              <div key={index} className="py-5 m-auto">
+                <Card className="py-4 text-xs lg:h-[20rem] h-[20rem] lg:w-[20rem] w-[12rem]">
+                  <CardHeader className="pb-0 pt-2 px-4 flex-col items-center">
+                    <p className=" uppercase font-bold lg:text-[0.8rem] text-[0.50rem] p-1">
+                      {times[index]}
+                    </p>
+                    <h4 className="text-default-500 lg:text-[0.7rem] text-[0.6rem] p-1">
+                      {dates[index]}
+                    </h4>
+                    <h4 className="font-bold lg:text-[1.3rem] p-1.5">{event[1]}</h4>
+                  </CardHeader>
+                  <CardBody className="overflow-visible py-2 items-center ">
+                    <Image
+                      alt="Card background"
+                      className="object-cover rounded-xl "
+                      src={images[index]}
+                      width={270}
+                    />
+                    <div className="mx-auto mt-3 flex lg:flex-row flex-col lg:gap-5 gap-2" >
 
 
-                    {/* <EventCheck
+                      {/* <EventCheck
                       id={event[0]}
                       name={event[0]}
                     isSelected={isSelected}
                     onClick={handleCheckboxClick}
                     /> */}
 
-                    <div className="checkwrapper">
-                      <label htmlFor={event[0]} className="control">
-                        <span>Select</span>
-                      </label>
-                      <input type="checkbox" id={event[0]} name={event[0]} className="toggle visualy-hidden event" onClick={() => { updateEvent(event[0]) }} />
+                      <div className="checkwrapper">
+                        <label htmlFor={event[0]} className="control">
+                          <span>Select</span>
+                        </label>
+                        <input type="checkbox" id={event[0]} name={event[0]} className="toggle visualy-hidden event" onClick={() => { updateEvent(event[0]) }} />
+                      </div>
+
+
+                      <Button
+                        className=""
+                        color="primary"
+                        size="sm"
+                        radius="lg"
+                        onClick={() => toggleModal(index)}
+                      >
+                        Preview
+                      </Button>
                     </div>
 
-
-                    <Button
-                      className=""
-                      color="primary"
-                      size="sm"
-                      radius="lg"
-                      onClick={() => toggleModal(index)}
-                    >
-                      Preview
-                    </Button>
-                  </div>
-
-                  {selectedModalIndex === index && (
-                    <>
-                      {React.createElement(modalComponents[index], {
-                        toggleModal: () => toggleModal(null),
-                        index,
-                      })}
-                    </>
-                  )}
-                </CardBody>
-              </Card>
-            </div>
-          ))}
+                    {selectedModalIndex === index && (
+                      <>
+                        {React.createElement(modalComponents[index], {
+                          toggleModal: () => toggleModal(null),
+                          index,
+                        })}
+                      </>
+                    )}
+                  </CardBody>
+                </Card>
+              </div>
+            ))}
+          </div>
         </div>
       </div>
 
