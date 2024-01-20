@@ -1,16 +1,16 @@
 const mongoose = require("mongoose"); 
   
 const userSchema = mongoose.Schema({ 
-    email: {type: String, unique: true},
+    email: {type: String, },
 
-    name: { type: String,  }, //required: true}, 
-    phoneNo: { type: Number,  }, //required: true}, 
-    regNo: { type: Number,  }, //required: true },
-    branch: { type: String, }, // required:true },
-    learnerid: { type: String, }, // required: true},
-    upiID: { type: String, }, // required: true},
-    txnID: { type: String, }, // required: true},
-    screenshot: {type: String, }, // required: true},
+    name: { type: String,  }, 
+    phoneNo: { type: Number,  }, 
+    regNo: { type: Number,  }, 
+    branch: { type: String, }, 
+    learnerid: { type: String, }, 
+    upiID: { type: String, }, 
+    txnID: { type: String, }, 
+    screenshot: {type: String, }, 
     workshops: {type: [String]},
 }, {timestamps: true});
   

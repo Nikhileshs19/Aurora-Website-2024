@@ -15,36 +15,6 @@ import clock from "../../images/clock.svg";
 import ctfevents from '../../images/ctfevents.svg';
 import laptop from "../../images/laptop.svg";
 
-// const styles = {
-//   '.control::after': {
-//     content: '😃',
-//   },
-
-//   '.toggle:checked ~ .control::after': {
-//     content: '😩',
-//   },
-//   label: {
-//     background: '#A5D6A7',
-//     padding: '0.5rem 1rem',
-//     borderRadius: '0.5rem',
-//   },
-//   '.visually-hidden': {
-
-//   },
-
-//   body: {
-//     height: '100vh',
-//     margin: '0',
-//     display: 'grid',
-//     placeItems: 'center',
-//     textAlign: 'center',
-//     font: '900 24px/1.4 -apple-system, sans-serif',
-//   },
-// };
-
-
-// Separate arrays for titles, times, dates, and images
-
 const allEvents = [
   ["TS1_E1_ACM", "ACM"],
   ["TS1_E2_DRONAID", "DRONEAID"],
@@ -145,7 +115,25 @@ export default function TimelineEventsCards() {
       console.log(response.data.user)
       setGoogleUserData(response.data.user)
 
+      if (response.data.user.registered === false) {
+        const checkbox = document.getElementsByClassName('event')
+        const label = document.getElementsByClassName('event_label')
+        for (let i = 0; i < checkbox.length; i++) {
+          checkbox[i].style.visibility = 'hidden'
+          label[i].style.visibility = 'hidden'
+        }
+        document.getElementByClassName('event-submit')[0].style.visibility='hidden'
+        formNotify()
+      }
+
     } catch (error) {
+      const checkbox = document.getElementsByClassName('event')
+      const label = document.getElementsByClassName('event_label')
+      for (let i = 0; i < checkbox.length; i++) {
+        checkbox[i].style.visibility = 'hidden'
+        label[i].style.visibility = 'hidden'
+      }
+      document.getElementsByClassName('event-submit')[0].style.visibility='hidden'
       //console.log("error", error)
     }
     // console.log(registered)
@@ -175,68 +163,9 @@ export default function TimelineEventsCards() {
       setRegistered(newRegistered)
 
     } catch (error) {
-      console.log("error: ", error)
+      // console.log("error: ", error)
     }
   }
-
-  // useEffect(() => {
-  //   console.log("updated user data", userData)
-  // }, [userData])
-
-  // useEffect(() => {
-  //   console.log("unique id", uniqueID)
-  // }, [uniqueID])
-  
-
-  // const getUpdatedUser = async () => {
-  //   try {
-  //     //console.log('get updated user');
-  //     //console.log(googleUserData);
-  //     // const response = await axios.get(`http://localhost:6005/updated-user-data/${googleUserData._id}`, { withCredentials: true });
-  //     // //console.log("next update: ", response)
-  //     // setGoogleUserData(response.data.user)
-  //     let a = googleUserData.workshops
-  //     //console.log(a);
-  //     let newRegistered = []
-  //     for (let i = 0; i < a.length; i++) {
-  //       // console.log("hello", i, a[i]);
-  //       if (a[i] === "ACM") { newRegistered.push("TS1_E1_ACM"); document.getElementById("TS1_E1_ACM").checked = true }
-  //       else if (a[i] === "DRONAID") { newRegistered.push("TS1_E2_DRONAID"); document.getElementById("TS1_E2_DRONAID").checked = true }
-  //       else if (a[i] === "MSIT") { newRegistered.push("TS2_E1_MIST"); document.getElementById("TS2_E1_MIST").checked = true }
-  //       else if (a[i] === "ISTE1") { newRegistered.push("TS2_E2_ISTE1"); document.getElementById("TS2_E2_ISTE1").checked = true }
-  //       else if (a[i] === "GDSC") { newRegistered.push("TS3_E1_GDSC"); document.getElementById("TS3_E1_GDSC").checked = true }
-  //       else if (a[i] === "ISTE2") { newRegistered.push("TS3_E2_ISTE2"); document.getElementById("TS3_E2_ISTE2").checked = true }
-  //       else if (a[i] === "IEMECH") { newRegistered.push("TS4_E1_IEMECH"); document.getElementById("TS4_E1_IEMECH").checked = true }
-  //       else if (a[i] === "IEEE") { newRegistered.push("TS4_E2_IEEE"); document.getElementById("TS4_E2_IEEE").checked = true }
-  //       else if (a[i] === "EVENT9") { newRegistered.push("TS5_E1_EVENT9"); document.getElementById("TS5_E1_EVENT9").checked = true }
-  //       else if (a[i] === "CTF") { newRegistered.push("TS6_E1_CTF"); document.getElementById("TS6_E1_CTF").checked = true }
-  //     }
-  //     setRegistered(newRegistered)
-  //   } catch (error) {
-  //     //console.log("error", error)
-  //   }
-  //   //console.log(registered)
-
-  // }
-
-
-
-  // useEffect(() => {
-  //   getUpdatedUser()
-  // }, [uniqueID, googleUserData])
-
-  const notifySave = () => {
-    toast('Successfully Saved!', {
-      position: "bottom-right",
-      autoClose: 5000,
-      hideProgressBar: false,
-      closeOnClick: true,
-      pauseOnHover: false,
-      draggable: true,
-      progress: undefined,
-      theme: "colored",
-    });
-  };
 
   const notifyRegistered = () => {
     toast.success('Successfully Registered!', {
@@ -246,6 +175,19 @@ export default function TimelineEventsCards() {
     });
   };
 
+  const formNotify = () => {
+    toast.warn('Complete Registration process to participate in events!', {
+      position: "top-center",
+      autoClose: 4000,
+      hideProgressBar: true,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+      theme: "colored"
+    });
+  }
+
   useEffect(() => {
     if (logged === 0) {
       getGoogleData()
@@ -253,7 +195,7 @@ export default function TimelineEventsCards() {
   },)
 
   useEffect(() => {
-      getUser()
+    getUser()
   }, [googleUserData])
 
 
@@ -283,7 +225,7 @@ export default function TimelineEventsCards() {
           'Content-Type': 'application/json',
         },
       });
-    
+
       // The response.data contains the JSON parsed response
       console.log("Response JSON: ", response.data);
       console.log("workshops: ", registeredWorkshops);
@@ -364,15 +306,7 @@ export default function TimelineEventsCards() {
                   />
                   <div className="mx-auto mt-6 flex lg:flex-row flex-col lg:gap-5 gap-2" >
 
-
-                    {/* <EventCheck
-                      id={event[0]}
-                      name={event[0]}
-                    isSelected={isSelected}
-                    onClick={handleCheckboxClick}
-                    /> */}
-
-                    <label htmlFor={event[0]} className="control text-black bg-emerald-500 rounded-xl p-2">Turn in</label>
+                    <label htmlFor={event[0]} id={"label_" + event} className="event_label text-black bg-emerald-500 rounded-xl p-2">Turn in</label>
                     <input type="checkbox" id={event[0]} name={event[0]} className="toggle visualy-hidden event" onClick={() => { updateEvent(event[0]) }} />
 
                     <Button
@@ -400,8 +334,6 @@ export default function TimelineEventsCards() {
           ))}
         </div>
       </div>
-
-
 
       <div className="p-7 text-white">
 
@@ -451,7 +383,7 @@ export default function TimelineEventsCards() {
           <div className="mx-auto h-40 col-span-2 text-center w-full">
             <div className="h-32 ">
               <div className="">
-                <label htmlFor="TS6_E1_CTF" className="control  p-2">Participate</label>
+                <label htmlFor="TS6_E1_CTF" id="label_TS6_E1_CTF" className="event_label p-2">Participate</label>
                 <input type="checkbox" id="TS6_E1_CTF" name="TS6_E1_CTF" className="toggle visualy-hidden event" onClick={() => { updateEvent("TS6_E1_CTF") }} />
               </div>
               <h3 className="text-default-600 lg:pt-5 pt-3 lg:text-lg text-[0.8rem]">After you click particpate, remember to click on submit!</h3>
@@ -462,7 +394,7 @@ export default function TimelineEventsCards() {
       </div>
 
 
-      <div className=' bottom-0 lg:block z-[9999] lg:h-fit h-24 bg-[#000509] w-full pt-2'>
+      <div className=' bottom-0 lg:block z-[9999] lg:h-fit h-24 bg-[#000509] w-full pt-2 event-submit'>
         <div className='text-center text-white'>
           <h4 className='lg:p-5 p-3 text-[#11A8E4] lg:text-lg text-[0.4rem] font-semibold'>PRESS SUBMIT TO CONFIRM YOUR SELECTION!</h4>
           {/* <h4 className='p-5 font-bold'>Register Now for AURORA's Ultimate Experience!</h4> */}
@@ -483,6 +415,19 @@ export default function TimelineEventsCards() {
         position="top-right"
         autoClose={1500}
         theme="light"
+      />
+
+      <ToastContainer
+        position="top-center"
+        autoClose={4000}
+        hideProgressBar
+        newestOnTop={false}
+        closeOnClick
+        rtl={false}
+        pauseOnFocusLoss
+        draggable
+        pauseOnHover
+        theme="colored"
       />
     </div>
   );
