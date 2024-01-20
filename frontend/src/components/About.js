@@ -40,7 +40,7 @@ function About() {
     //   </div>
     // </div>
     // </div>
-    <div className='lg:grid grid-cols-2 bg-transparent pt-5'>
+    <div className='lg:grid grid-cols-2 bg-transparent pt-5' id="about">
       <div  className='w-full'>
         <img src={aboutbox1} alt="" className='mx-auto w-full lg:p-16 p-12'/>  
       </div>

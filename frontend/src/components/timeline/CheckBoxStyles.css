@@ -6,7 +6,7 @@
     position: relative;
     left: 26px;
 }
-input[type="checkbox"]{
+.checkwrapper input[type="checkbox"]{
     appearance: none;
     -webkit-appearance: none;
     height: 28px;
@@ -18,13 +18,13 @@ input[type="checkbox"]{
     align-items: center;
     justify-content: center;
 }
-label{
+.checkwrapper label{
     color: white;
     font-size: 14px;
     position: relative;
-    left: -74px;
+    left: -72px;
 }
-input[type="checkbox"]::after{
+.checkwrapper input[type="checkbox"]::after{
     font-family: "Font Awesome 5 Free";
     font-weight: 900;
     font-size: 8px;
@@ -32,12 +32,12 @@ input[type="checkbox"]::after{
     color: white;
     display: none;
 }
-input[type="checkbox"]:hover{
+.checkwrapper input[type="checkbox"]:hover{
     background-color: #a5a5a5;
 }
-input[type="checkbox"]:checked{
+.checkwrapper input[type="checkbox"]:checked{
     background-color: #5bcd3e;
 }
-input[type="checked"]:checked::after{
+.checkwrapper input[type="checked"]:checked::after{
     display: block;
 }

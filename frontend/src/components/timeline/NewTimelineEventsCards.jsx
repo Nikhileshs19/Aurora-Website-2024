@@ -433,7 +433,7 @@ export default function NewTimelineEventsCards() {
           <div className="mx-auto h-40 col-span-2 text-center w-full">
             <div className="h-32 ">
               <div className="checkwrapper">
-                <label htmlFor="TS6_E1_CTF" className="control  p-2">
+                <label htmlFor="TS6_E1_CTF" className="control">
                   <span>Register</span>
                 </label>
                 <input type="checkbox" id="TS6_E1_CTF" name="TS6_E1_CTF" className="toggle visualy-hidden event" onClick={() => { updateEvent("TS6_E1_CTF") }} />
