@@ -387,8 +387,8 @@ export default function NewTimelineEventsCards() {
 
       <div className="p-7 text-white">
 
-        <div className="grid bg-aurora-bg bg-cover md:grid-cols-2 grid-cols-1 rounded-3xl ">
-          <img src={ctfevents} alt="" className="col-span-2 mx-auto" />
+        <div className="grid bg-aurora-bg bg-cover lg:grid-cols-2 grid-cols-1 rounded-3xl ">
+          <img src={ctfevents} alt="" className="lg:col-span-2 mx-auto" />
           <div className="flex justify-center align-middle">
             <img className="m-auto mt-6" src={hecker}></img>
           </div>
