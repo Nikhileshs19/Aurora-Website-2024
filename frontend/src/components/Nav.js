@@ -24,7 +24,7 @@ export default function Nav() {
     ];
 
     const loginwithgoogle = () => {
-        window.open("http://localhost:6005/auth/google/callback", "_self")
+        window.open("/auth/google/callback", "_self")
     }
 
     const navigate = useNavigate();
@@ -33,7 +33,7 @@ export default function Nav() {
 
     const getGoogleData = async () => {
         try {
-            const response = await axios.get("http://localhost:6005/login/success", { withCredentials: true });
+            const response = await axios.get("/login/success", { withCredentials: true });
             setGoogleUserData(response.data.user)
 
         } catch (error) {
@@ -44,7 +44,7 @@ export default function Nav() {
 
     //logout
     const logout = () => {
-        window.open("http://localhost:6005/logout", "_self")
+        window.open("/logout", "_self")
     }
 
     useEffect(() => {

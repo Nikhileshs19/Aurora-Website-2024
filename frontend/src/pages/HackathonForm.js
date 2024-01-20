@@ -59,7 +59,7 @@ function HackathonForm() {
         }
 
         try {
-            const response = await fetch(`http://localhost:6005/hackathon-registration/`, {
+            const response = await fetch(`/hackathon-registration/`, {
                 method: 'POST',
                 body: JSON.stringify(formData),
                 headers: {

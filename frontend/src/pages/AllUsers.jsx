@@ -8,7 +8,7 @@ const AllUsers = () => {
 
     const getGoogleData = async () => {
         try {
-            const response = await axios.get("http://localhost:6005/login/success", { withCredentials: true });
+            const response = await axios.get("/login/success", { withCredentials: true });
 
         } catch (error) {
             //console.log("error", error)
@@ -22,7 +22,7 @@ const AllUsers = () => {
     const [data, setData] = useState([])
 
     useEffect(() => {
-        fetch("http://localhost:6005/get-all-user", {
+        fetch("/get-all-user", {
             method: 'GET',
         })
             .then((res) => res.json())

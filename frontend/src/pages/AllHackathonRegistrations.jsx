@@ -8,7 +8,7 @@ const AllHackathonRegistrations = () => {
 
     const getGoogleData = async () => {
         try {
-            const response = await axios.get("http://localhost:6005/login/success", { withCredentials: true });
+            const response = await axios.get("/login/success", { withCredentials: true });
 
         } catch (error) {
             //console.log("error", error)
@@ -22,7 +22,7 @@ const AllHackathonRegistrations = () => {
     const [data, setData] = useState([])
 
     useEffect(() => {
-        fetch("http://localhost:6005/get-all-hackathon-registrations", {
+        fetch("/get-all-hackathon-registrations", {
             method: 'GET',
         })
             .then((res) => res.json())

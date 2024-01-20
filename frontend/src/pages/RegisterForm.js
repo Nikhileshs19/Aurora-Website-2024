@@ -53,12 +53,12 @@ export default function RegisterForm() {
   const navigate = useNavigate();
 
   const logout = () => {
-    window.open("http://localhost:6005/logout", "_self")
+    window.open("/logout", "_self")
   }
 
   const getGoogleData = async () => {
     try {
-      const response = await axios.get("http://localhost:6005/login/success", { withCredentials: true });
+      const response = await axios.get("/login/success", { withCredentials: true });
       console.log("response axios", response)
       setGoogleData(response.data.user)
       setFormData({ email: response.data.user.email })
@@ -119,7 +119,7 @@ export default function RegisterForm() {
     try {
       await registerUser();
       try {
-        const response = await fetch(`http://localhost:6005/update-google-data/${googleData._id}`, {
+        const response = await fetch(`/update-google-data/${googleData._id}`, {
           method: 'PATCH',
           body: JSON.stringify({ registered: true }),
           headers: {
@@ -197,7 +197,7 @@ export default function RegisterForm() {
   // Define the asynchronous function
   const registerUser = async () => {
     try {
-      const response = await fetch(`http://localhost:6005/register-user`, {
+      const response = await fetch(`/register-user`, {
         method: 'POST',
         body: JSON.stringify(formData),
         headers: {

@@ -112,7 +112,7 @@ export default function TimelineEventsCards() {
 
   const getGoogleData = async () => {
     try {
-      const response = await axios.get("http://localhost:6005/login/success", { withCredentials: true });
+      const response = await axios.get("/login/success", { withCredentials: true });
       setLogged(1)
       setUniqueID(response.data.user._id)
       console.log(response.data.user)
@@ -146,7 +146,7 @@ export default function TimelineEventsCards() {
 
   const getUser = async () => {
     try {
-      const response = await axios.get(`http://localhost:6005/get-user-data?email=${googleUserData.email}`, { withCredentials: true });
+      const response = await axios.get(`/get-user-data?email=${googleUserData.email}`, { withCredentials: true });
       console.log("getuserdata: ", response)
       setUniqueID(response.data._id)
       setuserData(response.data)
@@ -250,7 +250,7 @@ export default function TimelineEventsCards() {
       }
     }
     try {
-      const response = await axios.patch(`http://localhost:6005/workshop-registration/${uniqueID}`, {
+      const response = await axios.patch(`/workshop-registration/${uniqueID}`, {
         workshops: registeredWorkshops,
       }, {
         headers: {
