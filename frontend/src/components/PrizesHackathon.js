@@ -1,6 +1,6 @@
-import P1 from "../images/1stprize.svg"
-import P2 from "../images/2ndprize.svg"
-import P3 from "../images/3rdprize.svg"
+import P1 from "../images/hack1st.svg"
+import P2 from "../images/hack2nd.svg"
+import P3 from "../images/hack3rd.svg"
 
 export const PrizesHackathon = () => {
     return(

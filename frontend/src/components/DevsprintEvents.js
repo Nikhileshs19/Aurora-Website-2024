@@ -9,16 +9,17 @@ import trophy from '../images/whitetrophy.svg'
 export default function DevsprintEvents() {
     return ( 
         <div className='p-9' id="devsprintevents">
-            <div className='p-10 rounded-3xl' >
+            <div className=' rounded-3xl' >
             <div className="rounded-3xl" id="glasseffect">
 
-                <div className="grid lg:grid-cols-2  justify-center items-center lg:p-28" >
+                <div className="grid lg:grid-cols-2  justify-center items-center lg:p-28 p-8" >
                     <div className='col-span-2 mx-auto'>
                         <img src={hackathoneventtitle} alt="gzg" className='mx-auto' />
                         <div className="[text-shadow:0px_4px_53px_#00000073] [font-family:'Inter-Regular',Helvetica] font-normal text-white lg:text-[27px] text-[16px] tracking-[0] leading-[normal]">
+
                             AURORA PRESENTS
                         </div>
-                        <div className="[text-shadow:0px_4px_37.2px_#0070f394] [font-family:'Inter-Bold',Helvetica] font-bold text-[#0070f3] lg:text-[88px] text-[18px] tracking-[0] leading-[normal]">
+                        <div className="[text-shadow:0px_4px_37.2px_#0070f394] [font-family:'Inter-Bold',Helvetica] font-bold text-[#0070f3] text-center lg:text-[88px] text-[18px] tracking-[0] leading-[normal]">
                             &lt;DEVSPRINT’24 /&gt;
                         </div>
                     </div>

@@ -7,13 +7,15 @@ import TimelineEvents from "./timeline/TimelineEvents";
 
 export default function Events() {
   return (
-    <div className='bg-[#000509]'>
+    <div className='bg-transparent' id="eventsbg">
 
       <HomeNav/>
       
     {/* <div className="h-20"></div> */}
 
+
       <img src={events} alt="fdbdzb" className='mx-auto'/>
+
 
       <TimelineEvents/>
 
