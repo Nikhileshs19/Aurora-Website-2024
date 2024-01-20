@@ -4,18 +4,16 @@ import React, { useEffect, useState } from "react";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import workshopsevents from "../../images/workshopsevents.svg";
-import { Button, Card, CardBody, CardHeader, Image } from "@nextui-org/react";
 
 
 import gr from "../../images/Group.svg";
 import hecker from "../../images/Hacker-cuate-2 1.svg";
 import calen from "../../images/calendar.svg";
 import clock from "../../images/clock.svg";
-import ctfevents from "../../images/ctfevents.svg";
 import P1 from "../../images/ctf1st.svg";
 import P2 from "../../images/ctf2nd.svg";
 import P3 from "../../images/ctf3rd.svg";
-import ctfevents from '../../images/ctfevents.svg';
+import ctfevents from "../../images/ctfevents.svg";
 import laptop from "../../images/laptop.svg";
 import submitchoices from '../../images/submitchoices.svg';
 
