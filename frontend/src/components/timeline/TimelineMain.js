@@ -309,10 +309,10 @@ const TimelineMain = () => {
       {/* mobile timeline  */}
       <div
         id="timeline"
-        className={windowSize[0] <= 760 ? "bg-black" : "hidden"}
+        className={windowSize[0] <= 760 ? "bg-transparent" : "hidden"}
       >
         <TitleStuff name="timeline" />
-        <div className="timeline-container">
+        <div className="timeline-container relative top-[-15rem]">
           <div
             className="my-timeline"
             style={{ position: "relative", margin: "280px auto" }}
@@ -346,7 +346,7 @@ const TimelineMain = () => {
               className="vertical-solid-line-mobile absolute left-0 top-0 bg-transparent m-auto w-1 glow "
               style={{
                 marginLeft: "40px", // Adjusted the left margin for the vertical line
-                marginTop: "100px",
+                marginTop: "80px",
                 background: "white",
                 transition: "top 1.5s ease",
               }}

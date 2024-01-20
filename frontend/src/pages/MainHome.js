@@ -10,6 +10,7 @@ import Sponsors from "../components/Sponsors.js";
 import Timer from "../components/Timer.js";
 import MyParallax from "../components/parallax/my-parallax.js";
 import TimelineMain from "../components/timeline/TimelineMain.js";
+import timelinedate from '../images/timelinedate.svg';
 
 const MainHome = () => {
   return (
@@ -22,7 +23,7 @@ const MainHome = () => {
 
       <Timer />
 
-      <div className="h-20"></div>
+      <img src={timelinedate} alt=""  className="mt-8 mb-32 p-5 mx-auto"/>
 
       <Partners />
 
