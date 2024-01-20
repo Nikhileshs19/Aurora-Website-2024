@@ -1,6 +1,23 @@
 import React, { useEffect, useState } from 'react'
+import { useNavigate } from "react-router-dom";
+import axios from "axios";
 
 const AllHackathonRegistrations = () => {
+
+    const navigate = useNavigate();
+
+    const getGoogleData = async () => {
+        try {
+            const response = await axios.get("http://localhost:6005/login/success", { withCredentials: true });
+
+        } catch (error) {
+            //console.log("error", error)
+            navigate('/*')
+        }
+    }
+    useEffect(() => {
+      getGoogleData()
+    }, [])
 
     const [data, setData] = useState([])
 
@@ -77,7 +94,7 @@ const AllHackathonRegistrations = () => {
                                     {<li>{i.member3Name}</li>}
                                     {<li>{i.member3PhoneNo}</li>}
                                     {<li>{i.member3RegNo}</li>}
-                                    {<li>Learner ID: {i.member3Learnerid}</li>}
+                                    {<li>{i.member3Learnerid}</li>}
                                 </ul>
                             </td>
                             <td style={cellStyle}>

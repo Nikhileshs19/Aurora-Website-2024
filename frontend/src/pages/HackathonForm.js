@@ -27,11 +27,20 @@ function HackathonForm() {
         });
     }
 
+    const notifyRedirect = () => {
+        toast.info('Redirecting!', {
+            position: "top-right",
+            autoClose: 2000,
+            hideProgressBar: true,
+            closeOnClick: true,
+            pauseOnHover: true,
+            draggable: true,
+            progress: undefined,
+            theme: "light"
+            });
+    }
+
     const [formData, setFormData] = useState({});
-    const [userdata, setUserdata] = useState({});
-    const [prevTeamData, setPrevTeamData] = useState({});
-
-
 
     const [image, setImage] = useState("")
 
@@ -65,9 +74,14 @@ function HackathonForm() {
         }
 
         notify()
+        
+        setTimeout(() => {
+            notifyRedirect()
+        }, 2000);
+
         setTimeout(() => {
             navigate("/");
-        }, 2500);
+        }, 5500);
     }
 
     useEffect(() => {
@@ -613,6 +627,19 @@ function HackathonForm() {
                 pauseOnHover
                 theme="colored"
             />
+
+            <ToastContainer
+                position="top-right"
+                autoClose={2000}
+                hideProgressBar
+                newestOnTop={false}
+                closeOnClick
+                rtl={false}
+                pauseOnFocusLoss
+                draggable
+                pauseOnHover
+                theme="light"
+                />
         </div >
     )
 }

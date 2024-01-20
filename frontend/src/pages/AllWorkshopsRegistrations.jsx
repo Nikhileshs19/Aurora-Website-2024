@@ -1,6 +1,24 @@
 import React, { useState, useEffect } from 'react';
+import { useNavigate } from "react-router-dom";
+import axios from "axios";
 
 const AllWorkshopsRegistrations = () => {
+
+    const navigate = useNavigate();
+
+    const getGoogleData = async () => {
+        try {
+            const response = await axios.get("http://localhost:6005/login/success", { withCredentials: true });
+
+        } catch (error) {
+            //console.log("error", error)
+            navigate('/*')
+        }
+    }
+    useEffect(() => {
+      getGoogleData()
+    }, [])
+    
 
     const [data, setData] = useState([])
 
@@ -39,16 +57,16 @@ const AllWorkshopsRegistrations = () => {
         <>
             <div>
                 {[
-                    'ISTE',
-                    'ACM',
-                    'IECSE',
-                    'IEMCT',
-                    'MIST',
-                    'Astronomy',
-                    'IOSD',
-                    'IE-ENC',
-                    'IE-MEC',
-                    'CTF',
+                      "ACM",
+                      "DRONAID",
+                      "MIST",
+                      "ISTE1",
+                      "GDSC",
+                      "ISTE2",
+                      "IE MECH",
+                      "IEEE",
+                      "Event 9",
+                      "CTF"
                 ].map((name, index) => (
                     <label key={index} style={{ marginBottom: '10px', padding: '1rem' }}>
                         <input

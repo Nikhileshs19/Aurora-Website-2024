@@ -1,9 +1,9 @@
 const mongoose = require("mongoose"); 
   
 const googleSchema = mongoose.Schema({ 
-    googleId: {type: Number, unique: true},
+    googleId: {type: Number, },
     googleName: {type: String},
-    email: {type: String, unique: true},
+    email: {type: String, },
     registered: {type: Boolean, },
 }, {timestamps: true});
   
