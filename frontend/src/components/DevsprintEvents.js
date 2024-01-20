@@ -1,9 +1,9 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
-import cashprizeseventhack from '../images/cashprizeseventhack.svg'
 import cashprizestitle from '../images/cashprizestitle.svg'
 import devsprintdate from '../images/devsprintdate.svg'
 import hackathoneventtitle from '../images/hackathoneventtitle.svg'
+import cashprizeseventhack from '../images/hackathontrophies.svg'
 import trophy from '../images/whitetrophy.svg'
 
 export default function DevsprintEvents() {
