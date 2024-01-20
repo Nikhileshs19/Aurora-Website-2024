@@ -7,7 +7,6 @@ export default function TimelineEvents() {
 
         <div className="">
             <TimelineEventsCards/>
-            {/* <NewTimelineEventsCards/> */}
         </div>
     )
 }
