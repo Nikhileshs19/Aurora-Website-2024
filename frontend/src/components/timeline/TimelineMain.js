@@ -1,8 +1,8 @@
 import { Card, CardBody, CardHeader, Image } from "@nextui-org/react";
 import React, { useEffect, useRef, useState } from "react";
-import W_iste2 from "../../images/AppDev.svg";
-import W_gdsc from "../../images/ChatBot.svg";
-import W_mist from "../../images/Cybersec.svg";
+import W_iste2 from "../../images/AppDev (1).svg";
+import W_gdsc from "../../images/ChatBot (1).svg";
+import W_mist from "../../images/Cybersec (1).svg";
 import W_ieee from "../../images/W-ieee.svg";
 import W_iemech from "../../images/W-iemech.svg";
 import W_iste1 from "../../images/W-iste1.svg";
@@ -18,6 +18,7 @@ const TimelineMain = () => {
   const [scrollPercentageMobile, setScrollPercentageMobile] = useState(0);
 
   const [timelineHeight, setTimelineHeight] = useState(0);
+  console.log(timelineHeight)
   const [windowSize, setWindowSize] = useState([
     window.innerWidth, //0
     window.innerHeight, //1
@@ -70,7 +71,7 @@ const TimelineMain = () => {
       console.log(newScrollPercentage);
 
       setScrollPercentage(newScrollPercentage);
-      const screenHeight = window.innerHeight;
+      
       const firstCardTop = firstCardRect.top + window.scrollY;
       const lastCardBottom = lastCardRect.bottom + window.scrollY;
       const dashedLineHeight = lastCardBottom - firstCardTop;

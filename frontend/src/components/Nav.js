@@ -12,22 +12,15 @@ export default function Nav() {
     const admins = ["2shashank11@gmail.com"]
 
     const [isMenuOpen, setIsMenuOpen] = React.useState(false);
-    const [closeNavMenu, setCloseNavMenu] = React.useState(false);
+    
 
-    const menuItems = [
-        "Home",
-        "About",
-        "Partners",
-        "Timeline",
-        "Sponsors",
-        "Log Out",
-    ];
+   
 
     const loginwithgoogle = () => {
         window.open("/auth/google/callback", "_self")
     }
 
-    const navigate = useNavigate();
+   
 
     const [googleUserData, setGoogleUserData] = useState({});
 
@@ -63,7 +56,7 @@ export default function Nav() {
             <Navbar onMenuOpenChange={setIsMenuOpen} className="bg-[none] absolute p-6" isBlurred='false' id='nav'>
                 <NavbarContent className="lg:relative left-[-10%]">
                     <NavbarBrand className="flex">
-                        <img src={logo} alt="" className="w-10 md:w-20 h-fit" />
+                        <img src={logo} alt="h" className="w-10 md:w-20 h-fit" />
                         <p className="pl-5 text-white font-semibold">{googleUserData.googleName ? (`Hi, ${(googleUserData.googleName.split(" ")[0])}`) : " "} </p>
                     </NavbarBrand>
                 </NavbarContent>
@@ -89,7 +82,7 @@ export default function Nav() {
                     <NavbarItem>
                         <Link to='/hackathon' className="">
                             <div className="lg:w-[7.2rem]  w-[5.9rem] lg:text-[14px] text-[12px] shadow-2xl font-medium h-fit flex justify-between bg-[#1b224a] text-[#006FEE] rounded-lg p-2">
-                                <img src={trophy} alt="" className="lg:w-[1.5rem] w-[1rem]" />
+                                <img src={trophy} alt="h" className="lg:w-[1.5rem] w-[1rem]" />
                                 Hackathon
                             </div>
                         </Link>

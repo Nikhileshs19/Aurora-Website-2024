@@ -23,7 +23,7 @@ export default function MyParallax() {
         </p>
         <div className="m-auto relative left-[75%] lg:pt-20 pt-12 w-[100%]">
           <Button color="primary" className="m-auto w-[50%] lg:text-lg text-[0.64rem]" onClick={register}>
-            <img src={trophy} alt="" className="lg:w-[2rem] w-[0.9rem]" />
+            <img src={trophy} alt="h" className="lg:w-[2rem] w-[0.9rem]" />
             Register Now
           </Button>
         </div>

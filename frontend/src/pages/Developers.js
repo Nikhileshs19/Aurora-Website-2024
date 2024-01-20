@@ -104,59 +104,90 @@ const Seniors = [Aryan, Aditi, Harry]
 
 function JuniorCard( {member} ) {
     return (
-        <div className="w-5/6 p-6 m-auto backdrop-blur-sm">
-
-            <div className="flex flex-col align-middle rounded-3xl border-1 border-slate-300 hover:border-slate-400 bg-aurora-bg hover:bg-gradient-to-br from-stone-800 to-bg-black bg-bottom text-white p-6">
-                <div className="p-4"><img className="rounded-full w-28 h-28 object-cover m-auto" src={member.img}></img></div>
-                <h1 className="text-center text-2xl font-bold py-4">{member.name}</h1>
-                <div className="rounded-3xl border-white border-2 p-2">
-                    <h1 className="text-center text-xl px-4"> {member.designation} </h1>
-                </div>
-                <div className="flex flex-row justify-center">
-                    <a href ={member.linkedin}><button className="p-2"><img src={linkedin} alt="" /></button></a>
-                    <a href ={member.git_link}><button className="p-2"><img src={gitlogo} alt="" /></button></a>
-                </div>
-            </div>
-            </div>
-    )
+      <div className="w-5/6 p-6 m-auto backdrop-blur-sm">
+        <div className="flex flex-col align-middle rounded-3xl border-1 border-slate-300 hover:border-slate-400 bg-aurora-bg hover:bg-gradient-to-br from-stone-800 to-bg-black bg-bottom text-white p-6">
+          <div className="p-4">
+            <img
+              className="rounded-full w-28 h-28 object-cover m-auto"
+              src={member.img}
+              alt="h"
+            ></img>
+          </div>
+          <h1 className="text-center text-2xl font-bold py-4">{member.name}</h1>
+          <div className="rounded-3xl border-white border-2 p-2">
+            <h1 className="text-center text-xl px-4"> {member.designation} </h1>
+          </div>
+          <div className="flex flex-row justify-center">
+            <a href={member.linkedin}>
+              <button className="p-2">
+                <img src={linkedin} alt="h" />
+              </button>
+            </a>
+            <a href={member.git_link}>
+              <button className="p-2">
+                <img src={gitlogo} alt="hd" />
+              </button>
+            </a>
+          </div>
+        </div>
+      </div>
+    );
 }
 
 function SeniorCard( {member} ) {
     return (
-        <div className="w-5/6 p-6 m-auto backdrop-blur-sm">
-            <div className="flex flex-col rounded-3xl bg-aurora-bg border-1 border-slate-300 hover:border-slate-400 bg-bottom hover:bg-gradient-to-br from-stone-800 to-bg-black text-white p-6">
-                <div className="p-4"><img className="rounded-full w-24 h-24 m-auto" src={member.img}></img></div>
-                <h1 className="text-center text-2xl font-bold py-4">{member.name}</h1>
-                <div className="rounded-3xl border-white border-2 p-2">
-                    <h1 className="text-center text-xl px-4"> {member.designation} </h1>
-                </div>
-                <div className="flex flex-row justify-center">
-                    <a href ={member.linkedin}><button className="p-2"><img src={linkedin} alt="" /></button></a>
-                    <a href ={member.git_link}><button className="p-2"><img src={gitlogo} alt="" /></button></a>
-                </div>
-            </div>
-            </div>
-    )
+      <div className="w-5/6 p-6 m-auto backdrop-blur-sm">
+        <div className="flex flex-col rounded-3xl bg-aurora-bg border-1 border-slate-300 hover:border-slate-400 bg-bottom hover:bg-gradient-to-br from-stone-800 to-bg-black text-white p-6">
+          <div className="p-4">
+            <img
+              className="rounded-full w-24 h-24 m-auto"
+              src={member.img}
+              alt="h"
+            ></img>
+          </div>
+          <h1 className="text-center text-2xl font-bold py-4">{member.name}</h1>
+          <div className="rounded-3xl border-white border-2 p-2">
+            <h1 className="text-center text-xl px-4"> {member.designation} </h1>
+          </div>
+          <div className="flex flex-row justify-center">
+            <a href={member.linkedin}>
+              <button className="p-2">
+                <img src={linkedin} alt="hd" />
+              </button>
+            </a>
+            <a href={member.git_link}>
+              <button className="p-2">
+                <img src={gitlogo} alt="hd" />
+              </button>
+            </a>
+          </div>
+        </div>
+      </div>
+    );
 }
 
 export default function Developers() {
     return (
-        <div className="h-[120rem]">
+      <div className="h-[120rem]">
         <div className="bg-black pt-0 lg:px-0 px-4 bg-dev-bg bg-center bg-full h-fit">
-        <HomeNav />
-            <div className="pt-10"><img src={meetjr} className="m-auto"></img></div>
-            <div className="grid md:grid-cols-3 grid-cols-1 lg:m-24">
+          <HomeNav />
+          <div className="pt-10">
+            <img src={meetjr} alt="h" className="m-auto"></img>
+          </div>
+          <div className="grid md:grid-cols-3 grid-cols-1 lg:m-24">
             {Juniors.map((member) => (
-                <JuniorCard key={member.id} member={member} />
+              <JuniorCard key={member.id} member={member} />
             ))}
-            </div>
-            <div className="py-6"><img src={meetsr} className="m-auto"></img></div>
-            <div className="grid md:grid-cols-3 grid-cols-1 lg:m-24">
+          </div>
+          <div className="py-6">
+            <img src={meetsr} alt="h" className="m-auto"></img>
+          </div>
+          <div className="grid md:grid-cols-3 grid-cols-1 lg:m-24">
             {Seniors.map((member) => (
-                <SeniorCard key={member.id} member={member} />
+              <SeniorCard key={member.id} member={member} />
             ))}
-            </div>
+          </div>
         </div>
-        </div>
-    )
+      </div>
+    );
 }

@@ -9,6 +9,9 @@ const AllWorkshopsRegistrations = () => {
     const getGoogleData = async () => {
         try {
             const response = await axios.get("/login/success", { withCredentials: true });
+            if(response){
+                
+            }
 
         } catch (error) {
             //console.log("error", error)

@@ -144,19 +144,19 @@ function HackathonForm() {
                 </div>
                 <div className="w-[427px] h-[135px] left-[70px] top-[366px] flex-col lg:text-[20px] md:text-lg">
                     <div className="pl-10 flex flex-row">
-                        <img src={calen}></img>
+                        <img src={calen} alt="h"></img>
                         <span className="pt-2 [font-family:'Inter-Medium',Helvetica] font-semibold"> 02 February 2024</span>
                     </div>
                     <div className="pl-10 flex flex-row">
-                        <img src={clock}></img>
+                        <img src={clock} alt="h"></img>
                         <span className="pt-2 [font-family:'Inter-Medium',Helvetica] font-semibold"> 12:30 PM</span>
                     </div>
                     <div className="pl-10 flex flex-row">
-                        <img src={loc}></img>
+                        <img src={loc} alt="h"></img>
                         <span className="pt-2 [font-family:'Inter-Medium',Helvetica] font-semibold"> Library Auditorium, MIT Manipal</span>
                     </div>
                     <div className="pl-10 flex flex-row">
-                        <img src={tsize}></img>
+                        <img src={tsize} alt="h"></img>
                         <span className="pt-2 [font-family:'Inter-Medium',Helvetica] font-semibold"> Team Size : 2-4</span>
                     </div>
                 </div>

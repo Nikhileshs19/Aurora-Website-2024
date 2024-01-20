@@ -14,14 +14,14 @@ export default function Sponsors() {
         <div id='sponsors' className='relative top-[-15rem]'>
             <TitleStuff name="sponsors" className="relative top-[-10rem]"/>
             <div className='grid lg:grid-cols-3 grid-cols-2 gap-20 lg:mx-80 justify-center p-5'>
-                <img src={spons1} alt="" className='lg:w-full w-[8rem]' />
-                <img src={spons2} alt="" className='lg:w-full w-[8rem]' />
-                <img src={spons3} alt="" className='lg:w-full w-[8rem]' />
-                <img src={spons4} alt="" className='lg:w-full w-[8rem]' />
-                <img src={spons5} alt="" className='lg:w-full w-[8rem]' />
-                <img src={spons6} alt="" className='lg:w-full w-[8rem]' />
-                <img src={spons7} alt="" className='lg:w-full w-[8rem]'/>
-                <img src={spons8} alt="" className='lg:w-full w-[8rem]'/>
+                <img src={spons1} alt="h" className='lg:w-full w-[8rem]' />
+                <img src={spons2} alt="h" className='lg:w-full w-[8rem]' />
+                <img src={spons3} alt="h" className='lg:w-full w-[8rem]' />
+                <img src={spons4} alt="h" className='lg:w-full w-[8rem]' />
+                <img src={spons5} alt="h" className='lg:w-full w-[8rem]' />
+                <img src={spons6} alt="h" className='lg:w-full w-[8rem]' />
+                <img src={spons7} alt="h" className='lg:w-full w-[8rem]'/>
+                <img src={spons8} alt="h" className='lg:w-full w-[8rem]'/>
             </div>
         </div>
     )
