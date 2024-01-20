@@ -1,6 +1,23 @@
 import React, { useEffect, useState } from 'react'
+import { useNavigate } from "react-router-dom";
+import axios from "axios";
 
 const AllUsers = () => {
+
+    const navigate = useNavigate();
+
+    const getGoogleData = async () => {
+        try {
+            const response = await axios.get("http://localhost:6005/login/success", { withCredentials: true });
+
+        } catch (error) {
+            //console.log("error", error)
+            navigate('/*')
+        }
+    }
+    useEffect(() => {
+      getGoogleData()
+    }, [])
 
     const [data, setData] = useState([])
 
