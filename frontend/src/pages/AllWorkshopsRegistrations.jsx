@@ -6,11 +6,12 @@ const AllWorkshopsRegistrations = () => {
 
     const navigate = useNavigate();
 
+    const admins = ["2shashank11@gmail.com", "istemanipalboard@gmail.com", "aditi26shr@gmail.com", "prateekanand.work@gmail.com"]
     const getGoogleData = async () => {
         try {
             const response = await axios.get("/login/success", { withCredentials: true });
-            if(response){
-                
+            if (!admins.includes(response.data.user.email)) {
+                navigate("/*")
             }
 
         } catch (error) {
@@ -19,9 +20,9 @@ const AllWorkshopsRegistrations = () => {
         }
     }
     useEffect(() => {
-      getGoogleData()
+        getGoogleData()
     }, [])
-    
+
 
     const [data, setData] = useState([])
 
@@ -45,31 +46,31 @@ const AllWorkshopsRegistrations = () => {
         setSelectedOption(e.target.value)
         const selectedWorkshop = e.target.value;
         const filteredData = data.filter((item) =>
-        item.workshops && item.workshops.includes(selectedWorkshop)
-    );
-    setWorkshopData([...filteredData]);  
+            item.workshops && item.workshops.includes(selectedWorkshop)
+        );
+        setWorkshopData([...filteredData]);
     };
 
     const cellStyle = {
         border: '1px solid white',
         padding: '8px',
         textAlign: 'left',
-      };
+    };
 
     return (
         <>
             <div>
                 {[
-                      "ACM",
-                      "DRONAID",
-                      "MIST",
-                      "ISTE1",
-                      "GDSC",
-                      "ISTE2",
-                      "IE MECH",
-                      "IEEE",
-                      "Event 9",
-                      "CTF"
+                    "ACM",
+                    "DRONAID",
+                    "MIST",
+                    "ISTE1",
+                    "GDSC",
+                    "ISTE2",
+                    "IE MECH",
+                    "IEEE",
+                    "Event 9",
+                    "CTF"
                 ].map((name, index) => (
                     <label key={index} style={{ marginBottom: '10px', padding: '1rem' }}>
                         <input
@@ -111,12 +112,12 @@ const AllWorkshopsRegistrations = () => {
                             {/* <th style={cellStyle}>{i.workshops.map(a=>{return(<li>{a}</li>)})}</th> */}
                             <th style={cellStyle}>{i.upiID}</th>
                             <th style={cellStyle}>{i.txnID}</th>
-                            <th style={cellStyle}><img src={i.screenshot} style={{ width: '10rem'}}/></th>
+                            <th style={cellStyle}><img src={i.screenshot} style={{ width: '10rem' }} /></th>
                         </tr>
                     )
                 })}
             </table>
-                    
+
         </>
     );
 };
