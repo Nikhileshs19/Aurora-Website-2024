@@ -38,8 +38,10 @@ const Modal_1 = ({ toggleModal, index }) => {
             </div>
             <div className="p-5 overflow-y-auto max-h-[60vh]">
               <div className="my-0">
-                <h4 className="text-black mb-1 text-2xl">Course Overview</h4>
-                <p className="text-black mx-auto text-base">
+                <h4 className="text-black mb-1 text-2xl mx-2 p-1 font-sans">
+                  Course Overview
+                </h4>
+                <p className="text-black  text-base mx-3 font-sans">
                   Embark on a transformative learning experience designed to
                   equip you with essential skills in data analytics and machine
                   learning. This intensive three-day course combines theoretical
@@ -52,20 +54,20 @@ const Modal_1 = ({ toggleModal, index }) => {
               </div>
 
               <div className="my-4">
-                <h2 className="mt-2 p-2 text-lg">
+                <h2 className="mt-2 p-2 text-lg mx-1 font-sans">
                   Day 1: Python and Essential Libraries
                 </h2>
-                <p className="text-black text-base">
+                <p className="text-black text-base mx-3">
                   Day one focuses on strengthening your Python skills while
                   introducing indispensable libraries, Numpy and Pandas, laying
                   the groundwork for effective data analysis.
                 </p>
               </div>
               <div className="my-4">
-                <h2 className="mt-2 p-2 text-lg">
+                <h2 className="mt-2 p-2 text-lg mx-1 font-sans">
                   Day 2: Machine Learning Foundations
                 </h2>
-                <p className="text-black text-base">
+                <p className="text-black text-base mx-3">
                   Day two delves into the mathematical intricacies of machine
                   learning, unraveling the logic behind algorithms such as
                   Linear Regression, Logistic Regression, and Basic Neural
@@ -73,10 +75,10 @@ const Modal_1 = ({ toggleModal, index }) => {
                 </p>
               </div>
               <div className="my-4">
-                <h2 className="mt-2 p-2 text-lg">
+                <h2 className="mt-2 p-2 text-lg mx-1 font-sans">
                   Day 3: Project Based Learning
                 </h2>
-                <p className="text-black text-base">
+                <p className="text-black text-base mx-3">
                   Day three is dedicated to practical application, guiding you
                   through a hands-on project that reinforces learned concepts
                   and builds your confidence in data analysis and machine
@@ -84,12 +86,14 @@ const Modal_1 = ({ toggleModal, index }) => {
                 </p>
               </div>
               <div className="my-4">
-                <h2 className="mt-2 p-2 text-lg">Prerequisites</h2>
-                <p className="text-black text-base">
+                <h2 className="mt-2 p-2 text-lg mx-1 font-sans">
+                  Prerequisites
+                </h2>
+                <p className="text-black text-base mx-3">
                   Lorem ipsum is placeholder text commonly used in the graphic,
                 </p>
               </div>
-              <div className="my-4 text-lg">
+              <div className="my-4 text-lg mx-1 font-sans">
                 <h2 className="mt-2 p-2">Conducted by: ACM Manipal</h2>
               </div>
             </div>

@@ -38,8 +38,10 @@ const Modal_2 = ({ toggleModal, index }) => {
             </div>
             <div className="p-5 overflow-y-auto max-h-[60vh]">
               <div className="my-0">
-                <h4 className="text-black mb-1 text-2xl">Course Overview</h4>
-                <p className="text-black mx-auto text-base">
+                <h4 className="text-black mb-1 text-2xl mx-2 p-1 font-sans">
+                  Course Overview
+                </h4>
+                <p className="text-black  text-base mx-3 font-sans">
                   Join Project DronAid for a dynamic two-day workshop on PCB
                   design using KiCad. Day one covers PCB basics, software
                   tutorials, and design guidelines, while day two includes a
@@ -52,10 +54,10 @@ const Modal_2 = ({ toggleModal, index }) => {
               </div>
 
               <div className="my-4">
-                <h2 className="mt-2 p-2 text-lg">
+                <h2 className="mt-2 p-2 text-lg mx-1 font-sans">
                   Day 1: Introduction to PCB Design Project
                 </h2>
-                <p className="text-black text-base">
+                <p className="text-black  text-base mx-3 font-sans">
                   DronAid's two-day workshop kicks off with a deep dive into the
                   fundamental aspects of PCB (Printed Circuit Board) design
                   using the advanced software tool KiCad. Highlights:
@@ -70,10 +72,10 @@ const Modal_2 = ({ toggleModal, index }) => {
                 </p>
               </div>
               <div className="my-4">
-                <h2 className="mt-2 p-2 text-lg">
+                <h2 className="mt-2 p-2 text-lg mx-1 font-sans">
                   Day 2: Mini Project Objectives
                 </h2>
-                <p className="text-black text-base">
+                <p className="text-black  text-base mx-3 font-sans">
                   On the second day, participants will engage in a hands-on mini
                   project that reinforces the learned concepts, focusing on
                   practical applications in drone design. Highlights: System
@@ -88,10 +90,10 @@ const Modal_2 = ({ toggleModal, index }) => {
                 </p>
               </div>
               <div className="my-4">
-                <h2 className="mt-2 p-2 text-lg">
+                <h2 className="mt-2 p-2 text-lg mx-1 font-sans">
                   Day 3:OpenVSP and VSPAero Workshop
                 </h2>
-                <p className="text-black text-base">
+                <p className="text-black  text-base mx-3 font-sans">
                   In addition to the PCB Design workshop, Project DronAid is
                   offering a second workshop for enthusiasts interested in
                   aircraft modeling and flow simulation. Highlights: OpenVSP -
@@ -104,13 +106,15 @@ const Modal_2 = ({ toggleModal, index }) => {
                 </p>
               </div>
               <div className="my-4">
-                <h2 className="mt-2 p-2 text-lg">Prerequisites</h2>
-                <p className="text-black text-base">
+                <h2 className="mt-2 p-2 text-lg mx-1 font-sans">
+                  Prerequisites
+                </h2>
+                <p className="text-black  text-base mx-3 font-sans">
                   Lorem ipsum is placeholder text commonly used in the graphic,
                 </p>
               </div>
-              <div className="my-4 text-lg">
-                <h2 className="mt-2 p-2">Conducted by: ACM Manipal</h2>
+              <div className="my-4 text-lg mx-1 font-sans">
+                <h2 className="mt-2 p-2">Conducted by: PROJECT DRONAID </h2>
               </div>
             </div>
           </div>

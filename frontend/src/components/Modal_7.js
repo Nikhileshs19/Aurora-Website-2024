@@ -11,10 +11,10 @@ const Modal_7 = ({ toggleModal, index }) => {
     <div className="relative" onClick={handleBackdropClick}>
       <div className={toggleModal ? "" : "hidden"}>
         <div className="fixed inset-0 flex items-center justify-center z-[9999]">
-          <div className="bg-white w-[70%] h-[80%] rounded-3xl shadow-lg overflow-hidden">
+          <div className="bg-white w-[70%] h-[80%] rounded-3xl shadow-lg overflow-hidden ">
             <div className="relative justify-between items-center border-b pb-4 mb-4">
               <h3 className="mt-3 mx-3 my-3 text-xl font-semibold text-[#00418C] p-2">
-                INTRODUCTION TO WEB SCRAPING
+                ENGINEERING EXCELLENCE JOURNEY: F1 CAR MODELLING EVENT
               </h3>
               <button
                 onClick={() => toggleModal(index)}
@@ -36,51 +36,55 @@ const Modal_7 = ({ toggleModal, index }) => {
                 {/* close */}
               </button>
             </div>
-            <div className="p-5 overflow-y-auto max-h-[60vh]">
-              <div className="my-4">
-                <h4 className="text-black p-2">Course Overview</h4>
-                <p className="text-black mx-auto">
-                  Embark on a journey through web scraping fundamentals in our
-                  workshop. Day 1 covers basics and introduces Selenium for data
-                  extraction. Day 2 features a hands-on project applying skills
-                  to real scenarios. Elevate your proficiency, engage with
-                  forms, and fetch valuable data. Uncover the potential of web
-                  scraping with Selenium in this dynamic workshop!
+            <div className="p-5 overflow-y-auto max-h-[60vh] font-sans">
+              <div className="my-0">
+                <h4 className="text-black mb-1 text-2xl mx-2 p-1 font-sans">
+                  Course Overview
+                </h4>
+                <p className="text-black text-base mx-3">
+                  Embark on a dynamic two-day event that delves into the art of
+                  F1 car modelling and the fascinating world of 3D printing.
                 </p>
               </div>
 
               <div className="my-4">
-                <h2 className="mt-2 p-2">Day 1</h2>
-                <p className="text-black">
-                  Exploration of Fundamentals: Define web scraping and its
-                  essential components. Discuss optimal scraping times for
-                  effective data retrieval. Understand the critical aspect of
-                  determining site permissions. Dive into Selenium: In-depth
-                  exploration of Selenium. Step-by-step guide through Selenium
-                  setup. Techniques for data extraction and automating browser
-                  tasks.
+                <h2 className="mt-2 p-2 text-lg mx-1 font-sans">
+                  Day 1: F1 Car Modelling
+                </h2>
+                <p className="text-black text-base mx-3 font-sans">
+                  Mastering F1 Car Modelling: Comprehensive exploration of F1
+                  car design intricacies. Guided session through the
+                  step-by-step design processes. Interactive ANSYS Simulation:
+                  Engage in an interactive ANSYS simulation to understand the
+                  intricacies of airflow. Gain invaluable insights into the
+                  impact of design choices on aerodynamics. Visualize your F1
+                  car designs in a realistic simulation environment.
                 </p>
               </div>
-              <div className="my-4">
-                <h2 className="mt-2 p-2">Day 2</h2>
-                <p className="text-black">
-                  Hands-On Project: Apply acquired skills in a real-world
-                  scenario. Engage in activities like interacting with forms and
-                  executing actions on a site. Fetch valuable data using
-                  Selenium for practical experience. Advanced Techniques:
-                  Explore advanced web scraping techniques. Enhance proficiency
-                  in Selenium for more complex tasks. Elevate your web scraping
-                  capabilities for diverse projects.
+              <div className="my-4 font-sans">
+                <h2 className="mt-2 p-2 text-lg mx-1">
+                  Day 2: 3D Printing Workshop
+                </h2>
+                <p className="text-black text-base mx-3 font-sans">
+                  Basics of 3D Printing: Hands-on workshop covering the
+                  fundamentals of 3D printing technology. Explore various 3D
+                  printing techniques and materials. Witness Your F1 Car Designs
+                  Come to Life: Translate your virtual designs into tangible
+                  prototypes using 3D printing. Experience the thrill of seeing
+                  your F1 car designs materialize layer by layer. Personalized
+                  3D Printed F1 Car: As a token of achievement, each participant
+                  receives a personalized 3D printed F1 car. A tangible memento
+                  commemorating your engineering adventure and newfound skills.
                 </p>
               </div>
-              <div className="my-4">
-                <h2 className="mt-2 p-2 text-lg">Prerequisites</h2>
-                <p className="text-black text-base">
+              <div className="my-4 font-sans">
+                <h2 className="mt-2 p-2 text-lg mx-1">Prerequisites</h2>
+                <p className="text-black text-base mx-3 font-sans">
                   Lorem ipsum is placeholder text commonly used in the graphic,
                 </p>
               </div>
-              <div className="my-4 text-lg">
-                <h2 className="mt-2 p-2">Conducted by: ACM Manipal</h2>
+              <div className="my-4 text-lg font-sans">
+                <h2 className="mt-2 p-2 mx-1">Conducted by: IE-MECH </h2>
               </div>
             </div>
           </div>

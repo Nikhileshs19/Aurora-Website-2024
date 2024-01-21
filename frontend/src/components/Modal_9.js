@@ -13,8 +13,8 @@ const Modal_9 = ({ toggleModal, index }) => {
         <div className="fixed inset-0 flex items-center justify-center z-[9999]">
           <div className="bg-white w-[70%] h-[80%] rounded-3xl shadow-lg overflow-hidden">
             <div className="relative justify-between items-center border-b pb-4 mb-4">
-              <h3 className="mt-3 mx-3 my-3 text-xl font-semibold text-[#00418C] p-2">
-                INTRODUCTION TO SOCKET
+              <h3 className="mt-3 mx-3 my-3 text-xl font-semibold text-[#00418C] p-2 font-sans">
+                INTRODUCTION TO ASTRONOMY
               </h3>
               <button
                 onClick={() => toggleModal(index)}
@@ -38,32 +38,24 @@ const Modal_9 = ({ toggleModal, index }) => {
             </div>
             <div className="p-5 overflow-y-auto max-h-[60vh]">
               <div className="my-4">
-                <h4 className="text-black p-2">Description</h4>
-                <p className="text-black mx-auto">
-                  Lorem ipsum is placeholder text commonly used in the graphic,
+                <h4 className="text-black p-2 mx-1 text-xl font-sans">
+                  Overview
+                </h4>
+                <p className="text-black mx-3 text-base font-sans">
+                  Embark on an enchanting cosmic journey with our Moon Gazing
+                  and Star Gazing Astronomy Workshop! Discover lunar wonders,
+                  decode celestial constellations, and explore the night sky
+                  using cutting-edge telescopes. Our passionate astronomers will
+                  guide you through this captivating experience, blending
+                  enthusiasm with expertise. Limited spaces available, so secure
+                  your spot now for an unforgettable celestial adventure.
                 </p>
               </div>
 
-              <div className="my-4">
-                <h2 className="mt-2 p-2">Day 2</h2>
-                <p className="text-black">
-                  Lorem ipsum is placeholder text commonly used in the graphic,
-                </p>
-              </div>
-              <div className="my-4">
-                <h2 className="mt-2 p-2">Day 3</h2>
-                <p className="text-black">
-                  Lorem ipsum is placeholder text commonly used in the graphic,
-                </p>
-              </div>
-              <div className="my-4">
-                <h2 className="mt-2 p-2 text-lg">Prerequisites</h2>
-                <p className="text-black text-base">
-                  Lorem ipsum is placeholder text commonly used in the graphic,
-                </p>
-              </div>
               <div className="my-4 text-lg">
-                <h2 className="mt-2 p-2">Conducted by: ACM Manipal</h2>
+                <h2 className="mt-2 mx-1 p-2 font-sans">
+                  Conducted by: The Astronomy Club Manipal
+                </h2>
               </div>
             </div>
           </div>

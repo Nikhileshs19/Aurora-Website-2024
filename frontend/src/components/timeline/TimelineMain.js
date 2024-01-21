@@ -9,6 +9,8 @@ import W_iste1 from "../../images/W-iste1.svg";
 import W_acm from "../../images/W_acm.svg";
 import W_astronomy from "../../images/W_astronomy.svg";
 import W_dronaid from "../../images/W_dronaid.svg";
+import hackathon from "../../images/Hacathon.svg";
+import ctf from "../../images/CTF (1).svg";
 import TitleStuff from "../Title_Stuff";
 import "./styles.css";
 
@@ -18,7 +20,7 @@ const TimelineMain = () => {
   const [scrollPercentageMobile, setScrollPercentageMobile] = useState(0);
 
   const [timelineHeight, setTimelineHeight] = useState(0);
-  console.log(timelineHeight)
+  console.log(timelineHeight);
   const [windowSize, setWindowSize] = useState([
     window.innerWidth, //0
     window.innerHeight, //1
@@ -71,14 +73,14 @@ const TimelineMain = () => {
       console.log(newScrollPercentage);
 
       setScrollPercentage(newScrollPercentage);
-      
+
       const firstCardTop = firstCardRect.top + window.scrollY;
       const lastCardBottom = lastCardRect.bottom + window.scrollY;
       const dashedLineHeight = lastCardBottom - firstCardTop;
       dashedLine.style.height = `${dashedLineHeight}px`;
       solidLine.style.zIndex = newScrollPercentage > 0 ? 2 : 0;
 
-      const adjustedPercentage = Math.min(178, newScrollPercentage * 2.5);
+      const adjustedPercentage = Math.min(225, newScrollPercentage * 2.5);
       document.querySelector(".vertical-solid-line").style.height =
         adjustedPercentage + "rem";
       const circleTop =
@@ -123,7 +125,7 @@ const TimelineMain = () => {
       const newScrollPercentageMobile = Math.max(
         0,
         Math.min(
-          104,
+          144,
           ((window.scrollY - startScrollPositionMobile) /
             maxTimelineHeightMobile) *
             200
@@ -140,7 +142,7 @@ const TimelineMain = () => {
       solidLineMobile.style.zIndex = newScrollPercentageMobile > 0 ? 2 : 0;
 
       const adjustedPercentageMobile = Math.min(
-        270,
+        302,
         newScrollPercentageMobile * 2.39
       );
       document.querySelector(".vertical-solid-line-mobile").style.height =
@@ -173,7 +175,9 @@ const TimelineMain = () => {
     "ISTE2",
     "IE MECH",
     "IEEE",
-    "Event 9",
+    "ASTRONOMY",
+    "CTF",
+    "HACKATHON",
   ];
 
   const times = [
@@ -185,8 +189,9 @@ const TimelineMain = () => {
     "05:30PM - 08:30PM",
     "05:30PM - 08:30PM",
     "05:30PM - 08:30PM",
-    "05:30PM - 08:30PM",
-    "05:30PM - 08:30PM",
+    "8:30PM Onwards",
+    "12:30PM Onwards",
+    "08:00AM - 10:00PM",
   ];
   const dates = [
     "3rd February, 2024 & 4th February, 2024",
@@ -199,6 +204,8 @@ const TimelineMain = () => {
     "9th February, 2024",
     "9th February, 2024",
     "9th February, 2024",
+    "31st January, 2024",
+    "11th February, 2024",
   ];
   const images = [
     W_acm,
@@ -210,6 +217,8 @@ const TimelineMain = () => {
     W_iemech,
     W_ieee,
     W_astronomy,
+    ctf,
+    hackathon,
   ];
 
   return (
@@ -219,7 +228,7 @@ const TimelineMain = () => {
         id="timeline"
         className={windowSize[0] > 760 ? "bg-transparent" : "hidden"}
       >
-        <TitleStuff name="timeline" className="relative top-[10rem]"/>
+        <TitleStuff name="timeline" className="relative top-[10rem]" />
         <div className="timeline-container relative top-[-24rem]">
           <div
             className="my-timeline"

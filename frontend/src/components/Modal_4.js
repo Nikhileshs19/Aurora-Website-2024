@@ -37,9 +37,11 @@ const Modal_4 = ({ toggleModal, index }) => {
               </button>
             </div>
             <div className="p-5 overflow-y-auto max-h-[60vh]">
-              <div className="my-4">
-                <h4 className="text-black p-2">Course Overview</h4>
-                <p className="text-black mx-auto">
+              <div className="my-0">
+                <h4 className="text-black mb-1 text-2xl mx-2 p-1 font-sans">
+                  Course Overview
+                </h4>
+                <p className="text-black text-base mx-3 font-sans">
                   Embark on a professional workshop covering Recommender Systems
                   and Sentiment Analysis. Day 1 introduces Python basics and
                   essential scipy libraries, culminating in the implementation
@@ -56,10 +58,10 @@ const Modal_4 = ({ toggleModal, index }) => {
               </div>
 
               <div className="my-4">
-                <h2 className="mt-2 p-2">
+                <h2 className="mt-2 p-2 text-lg mx-1 font-sans">
                   Day 1: Introduction to Python for Data Analysis
                 </h2>
-                <p className="text-black">
+                <p className="text-black text-base mx-3 font-sans">
                   Foundations of Python: Delve into the basics of Python for
                   data analysis. Explore essential scipy libraries including
                   pandas and numpy for efficient data analysis and model
@@ -69,11 +71,11 @@ const Modal_4 = ({ toggleModal, index }) => {
                 </p>
               </div>
               <div className="my-4">
-                <h2 className="mt-2 p-2">
+                <h2 className="mt-2 p-2 text-lg mx-1 font-sans">
                   Day 2: Recommender Systems and Sentiment Analysis
                   Implementation
                 </h2>
-                <p className="text-black">
+                <p className="text-black text-base mx-3 font-sans">
                   Item-Item Similarity-Based Recommender System: Implement a
                   basic recommendation system focusing on item-item similarity,
                   understanding collaborative filtering concepts. Recommender
@@ -83,13 +85,15 @@ const Modal_4 = ({ toggleModal, index }) => {
                 </p>
               </div>
               <div className="my-4">
-                <h2 className="mt-2 p-2 text-lg">Prerequisites</h2>
-                <p className="text-black text-base">
+                <h2 className="mt-2 p-2 text-lg mx-1 font-sans">
+                  Prerequisites
+                </h2>
+                <p className="text-black text-base mx-3 font-sans">
                   Lorem ipsum is placeholder text commonly used in the graphic,
                 </p>
               </div>
-              <div className="my-4 text-lg">
-                <h2 className="mt-2 p-2">Conducted by: ACM Manipal</h2>
+              <div className="my-4 text-lg mx-1 font-sans">
+                <h2 className="mt-2 p-2">Conducted by: ISTE Manipal</h2>
               </div>
             </div>
           </div>

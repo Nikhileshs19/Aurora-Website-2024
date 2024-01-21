@@ -11,7 +11,7 @@ const Modal_5 = ({ toggleModal, index }) => {
     <div className="relative" onClick={handleBackdropClick}>
       <div className={toggleModal ? "" : "hidden"}>
         <div className="fixed inset-0 flex items-center justify-center z-[9999]">
-          <div className="bg-white w-[70%] h-[80%] rounded-3xl shadow-lg overflow-hidden ">
+          <div className="bg-white w-[70%] h-[80%] rounded-3xl shadow-lg overflow-hidden">
             <div className="relative justify-between items-center border-b pb-4 mb-4">
               <h3 className="mt-3 mx-3 my-3 text-xl font-semibold text-[#00418C] p-2">
                 EXPLORE CHATBOTS
@@ -38,8 +38,10 @@ const Modal_5 = ({ toggleModal, index }) => {
             </div>
             <div className="p-5 overflow-y-auto max-h-[60vh]">
               <div className="my-0">
-                <h4 className="text-black mb-1 text-2xl">Course Overview</h4>
-                <p className="text-black mx-auto text-base">
+                <h4 className="text-black mb-1 text-2xl mx-2 p-1 font-sans">
+                  Course Overview
+                </h4>
+                <p className="text-black text-base mx-3 font-sans">
                   The ChatBots Workshop by GDSC Manipal offers a comprehensive
                   2-day exploration of AI and Natural Language Processing (NLP).
                   Day 1 introduces participants to the secrets of AI/ML,
@@ -56,8 +58,10 @@ const Modal_5 = ({ toggleModal, index }) => {
               </div>
 
               <div className="my-4">
-                <h2 className="mt-2 p-2 text-lg">Day 1: Foundation</h2>
-                <p className="text-black text-base">
+                <h2 className="mt-2 p-2 text-lg mx-1 font-sans">
+                  Day 1: Foundation
+                </h2>
+                <p className="text-black text-base mx-3 font-sans">
                   Unlocking the Secrets of AI & Machine Learning: Dive deep into
                   the fundamentals of AI/ML, laying the groundwork for an
                   understanding of advanced concepts. Introduction to Natural
@@ -68,10 +72,10 @@ const Modal_5 = ({ toggleModal, index }) => {
                 </p>
               </div>
               <div className="my-4">
-                <h2 className="mt-2 p-2 text-lg">
+                <h2 className="mt-2 p-2 text-lg mx-1 font-sans">
                   Day 2: Hands-on ChatBot Development
                 </h2>
-                <p className="text-black text-base">
+                <p className="text-black text-base mx-3 font-sans">
                   Mastering Your Machine Learning Toolkit: Create the ideal
                   environment using Anaconda Navigator and delve into essential
                   libraries such as PyTorch and TensorFlow, empowering you with
@@ -83,13 +87,15 @@ const Modal_5 = ({ toggleModal, index }) => {
                 </p>
               </div>
               <div className="my-4">
-                <h2 className="mt-2 p-2 text-lg">Prerequisites</h2>
-                <p className="text-black text-base">
+                <h2 className="mt-2 p-2 text-lg mx-1 font-sans">
+                  Prerequisites
+                </h2>
+                <p className="text-black text-base mx-3 font-sans">
                   Lorem ipsum is placeholder text commonly used in the graphic,
                 </p>
               </div>
-              <div className="my-4 text-lg">
-                <h2 className="mt-2 p-2">Conducted by: ACM Manipal</h2>
+              <div className="my-4 text-lg mx-1 font-sans">
+                <h2 className="mt-2 p-2">Conducted by: GDSC Manipal</h2>
               </div>
             </div>
           </div>
