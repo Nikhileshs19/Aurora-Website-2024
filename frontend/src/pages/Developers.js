@@ -35,11 +35,11 @@ const Roop = {
 }
 
 const Shash = {
-    name : "Shashank",
+    name : "Shashank Kumar",
     git_link : "https://github.com/2shashank11",
     linkedin : "https://www.linkedin.com/in/work-with-shashank?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app",
     img : shashank,
-    designation : "Backend developer"
+    designation : "Backend Developer"
 }
 
 const Aman = {
@@ -118,12 +118,12 @@ function JuniorCard( {member} ) {
             <h1 className="text-center text-xl px-4"> {member.designation} </h1>
           </div>
           <div className="flex flex-row justify-center">
-            <a href={member.linkedin}>
+            <a href={member.linkedin} target="_blank">
               <button className="p-2">
                 <img src={linkedin} alt="h" />
               </button>
             </a>
-            <a href={member.git_link}>
+            <a href={member.git_link} target="_blank">
               <button className="p-2">
                 <img src={gitlogo} alt="hd" />
               </button>
@@ -150,12 +150,12 @@ function SeniorCard( {member} ) {
             <h1 className="text-center text-xl px-4"> {member.designation} </h1>
           </div>
           <div className="flex flex-row justify-center">
-            <a href={member.linkedin}>
+            <a href={member.linkedin} target="_blank">
               <button className="p-2">
                 <img src={linkedin} alt="hd" />
               </button>
             </a>
-            <a href={member.git_link}>
+            <a href={member.git_link} target="_blank">
               <button className="p-2">
                 <img src={gitlogo} alt="hd" />
               </button>

@@ -39,32 +39,35 @@ const allEvents = [
   ["TS3_E2_ISTE2", "ISTE2"],
   ["TS4_E1_IEMECH", "IE MECH"],
   ["TS4_E2_IEEE", "IEEE"],
-  ["TS5_E2_EVENT9", "Event 9"],
+  ["TS5_E1_ASTRONOMY", "ASTRONOMY"],
 ];
 
 const times = [
-  "05:30PM - 08:30PM & 10:00AM - 05:00PM",
-  "05:30PM - 08:30PM & 10:00AM - 05:00PM",
+  "05:30PM - 08:00PM & 10:00AM - 04:30PM",
+  "05:30PM - 08:00PM & 10:00AM - 04:30PM",
+  "05:30PM - 08:00PM",
+  "05:30PM - 08:00PM",
+  "05:30PM - 08:00PM",
+  "05:30PM - 08:00PM",
   "05:30PM - 08:30PM",
-  "05:30PM - 08:30PM",
-  "05:30PM - 08:30PM",
-  "05:30PM - 08:30PM",
-  "05:30PM - 08:30PM",
-  "05:30PM - 08:30PM",
-  "05:30PM - 08:30PM",
-  "05:30PM - 08:30PM",
+  "05:30PM - 08:00PM",
+  "08:30 PM onwards",
 ];
 const dates = [
-  "3rd February, 2024",
-  "4th February, 2024",
-  "4th February, 2024",
-  "5th February, 2024",
+  "3rd & 4th February, 2024",
+  "3rd & 4th February, 2024",
 
-  "5th February, 2024",
-  "6th February, 2024",
-  "6th February, 2024",
-  "7th February, 2024",
-  "7th February, 2024",
+  "5th & 6th February, 2024",
+  "5th & 6th February, 2024",
+
+  "7th & 8th February, 2024",
+  "7th & 8th February, 2024",
+
+  "9th & 10th February, 2024",
+
+  "9th February, 2024",
+
+  "9th February, 2024",
 ];
 const images = [
   W_acm,
@@ -104,7 +107,7 @@ export default function TimelineEventsCards() {
       });
       setLogged(1);
       setUniqueID(response.data.user._id);
-      console.log(response.data.user);
+      //console.log(response.data.user);
       setGoogleUserData(response.data.user);
 
       if (response.data.user.registered === false) {
@@ -140,7 +143,7 @@ export default function TimelineEventsCards() {
         `/get-user-data?email=${googleUserData.email}`,
         { withCredentials: true }
       );
-      console.log("getuserdata: ", response);
+      //console.log("getuserdata: ", response);
       setUniqueID(response.data._id);
       setuserData(response.data);
 
@@ -171,9 +174,9 @@ export default function TimelineEventsCards() {
         } else if (a[i] === "IEEE") {
           newRegistered.push("TS4_E2_IEEE");
           document.getElementById("TS4_E2_IEEE").checked = true;
-        } else if (a[i] === "EVENT9") {
-          newRegistered.push("TS5_E1_EVENT9");
-          document.getElementById("TS5_E1_EVENT9").checked = true;
+        } else if (a[i] === "ASTRONOMY") {
+          newRegistered.push("TS5_E1_ASTRONOMY");
+          document.getElementById("TS5_E1_ASTRONOMY").checked = true;
         } else if (a[i] === "CTF") {
           newRegistered.push("TS6_E1_CTF");
           document.getElementById("TS6_E1_CTF").checked = true;
@@ -207,7 +210,7 @@ export default function TimelineEventsCards() {
   };
 
   const selectionNotify = () => {
-    toast.info("You can only select one Workshop in a particular time-slot!", {
+    toast.info("Remember, you can only select one Workshop in a particular time-slot!", {
       position: "top-right",
       autoClose: 3000,
       hideProgressBar: false,
@@ -271,8 +274,8 @@ export default function TimelineEventsCards() {
         case "TS4_E2_IEEE":
           registeredWorkshops.push("IEEE");
           break;
-        case "TS5_E1_EVENT9":
-          registeredWorkshops.push("EVENT9");
+        case "TS5_E1_ASTRONOMY":
+          registeredWorkshops.push("ASTRONOMY");
           break;
         case "TS6_E1_CTF":
           registeredWorkshops.push("CTF");
@@ -295,8 +298,8 @@ export default function TimelineEventsCards() {
       );
 
       // The response.data contains the JSON parsed response
-      console.log("Response JSON: ", response.data);
-      console.log("workshops: ", registeredWorkshops);
+      //console.log("Response JSON: ", response.data);
+      //console.log("workshops: ", registeredWorkshops);
       notifyRegistered();
     } catch (error) {
       // console.error("Error updating data:", error);
@@ -317,25 +320,27 @@ export default function TimelineEventsCards() {
   function updateEvent(eventID) {
     let timeSlot = eventID.substring(0, 3);
     let newRegistered = [...registered];
-
-    for (let i = 0; i < newRegistered.length; i++) {
-      let found = 0;
-      if (newRegistered[i].includes(timeSlot)) {
-        found = 1;
-        document.getElementById(newRegistered[i]).checked = false;
-        newRegistered.splice(i, 1);
-        newRegistered.push(eventID);
-        document.getElementById(eventID).checked = true;
-        setRegistered(newRegistered);
-        selectionNotify();
-      } else if (i === newRegistered.length - 1 && found === 0) {
-        newRegistered.push(eventID);
-        document.getElementById(eventID).checked = true;
-        setRegistered(newRegistered);
+    var found;
+    if (newRegistered.length > 0){
+      for (let i = 0; i < newRegistered.length; i++) {
+        found = 0;
+        if (newRegistered[i].includes(timeSlot)) {
+          found = 1;
+          document.getElementById(newRegistered[i]).checked = false;
+          newRegistered.splice(i, 1);
+          newRegistered.push(eventID);
+          document.getElementById(eventID).checked = true;
+          setRegistered(newRegistered);
+          if(found===1) {selectionNotify()}
+          break;
+        } else if (i === newRegistered.length - 1 && found === 0) {
+          newRegistered.push(eventID);
+          document.getElementById(eventID).checked = true;
+          setRegistered(newRegistered);
+        }
       }
     }
-
-    if (newRegistered.length === 0) {
+    else if (newRegistered.length === 0) {
       newRegistered.push(eventID);
       document.getElementById(eventID).checked = true;
       setRegistered(newRegistered);
@@ -464,7 +469,7 @@ export default function TimelineEventsCards() {
             </div>
 
             {/* submit choices */}
-            <div className="grid">
+            <div className="grid event-submit">
               <img src={submitchoices} alt="" className="mx-auto" />
               <div className="mx-auto">
                 <Button color="primary" size="sm" variant="shadow"

@@ -53,18 +53,18 @@ export default function RegisterForm() {
   const navigate = useNavigate();
 
   const logout = () => {
-    window.open("/logout", "_self")
+    window.open("http://localhost:6005/logout", "_self")
   }
 
   const getGoogleData = async () => {
     try {
       const response = await axios.get("/login/success", { withCredentials: true });
-      console.log("response axios", response)
+      //console.log("response axios", response)
       setGoogleData(response.data.user)
       setFormData({ email: response.data.user.email })
 
       // setGoogleData(response.data.user)
-      console.log(googleData)
+      //console.log(googleData)
 
       if (response.data.user.registered === true) {
         alreadyRegistered()
@@ -75,7 +75,7 @@ export default function RegisterForm() {
 
     } catch (error) {
       console.log("axios error: ", error)
-      navigate("*")
+      navigate("/*")
     }
   }
 
@@ -84,7 +84,7 @@ export default function RegisterForm() {
   }, [])
 
   useEffect(() => {
-    console.log(googleData)
+    //console.log(googleData)
   }, [googleData])
 
   const [formData, setFormData] = useState({
@@ -128,20 +128,19 @@ export default function RegisterForm() {
         });
 
         const json = await response.json();
-        console.log("Response JSON: ", json);
+        //console.log("Response JSON: ", json);
       } catch (error) {
         console.error("Error updating data:", error.message);
       }
-      notify()
-      setTimeout(() => {
-        navigate("/");
-        logout()
-      }, 4000);
 
     } catch (error) {
       console.log("Error during form submission: ", error);
-      navigate("*");
+      navigate("/*");
     }
+    notify()
+      setTimeout(() => {
+        logout()
+      }, 5000);
   };
 
   useEffect(() => {
@@ -175,7 +174,7 @@ export default function RegisterForm() {
       }
 
       const result = await response.json();
-      console.log(result);
+      //console.log(result);
 
       // Update the screenshot field in the form data
       setFormData({ ...formData, screenshot: result.secure_url });
@@ -206,7 +205,7 @@ export default function RegisterForm() {
       });
 
       const json = await response.json();
-      console.log("Response JSON: ", json);
+      //console.log("Response JSON: ", json);
     } catch (error) {
       console.error("Error updating data:", error);
       // Handle the error as needed
@@ -426,7 +425,7 @@ export default function RegisterForm() {
             </form>
           </div>
 
-          <div className=" h-80 pt-48 lg:pt-60">
+          <div className=" h-80 pt-48 lg:pt-60 submit-btn">
             <button type='submit' className="w-24 h-12 rounded-xl border-2 border-blue-600  items-center gap-3 ml-12 inline-flex ">
               <div className="text-blue-600 text-base font-medium font-['Inter'] leading-normal pl-5">
                 Register

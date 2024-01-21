@@ -53,17 +53,17 @@ function App() {
       element: <Developers />
     },
     {
-      path: "/get-all-users",
+      path: "/users",
       element: <AllUsers/>,
       // errorElement: <ErrorPage />,
     },
     {
-      path: "/get-all-hackathon-registrations",
+      path: "/hackathon-registrations",
       element: <AllHackathonRegistrations/>,
       // errorElement: <ErrorPage />,
     },
     {
-      path: "/get-all-workshops-registrations",
+      path: "/workshops-registrations",
       element: <AllWorkshopsRegistrations/>,
       // errorElement: <ErrorPage />,
     },

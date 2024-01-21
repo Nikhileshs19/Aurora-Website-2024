@@ -53,7 +53,7 @@ function HackathonForm() {
 
     const handleSubmit = async (e) => {
         e.preventDefault();
-        console.log("submitted form data: ", formData);
+        //console.log("submitted form data: ", formData);
         if (!formData.screenshot) {
             return;
         }
@@ -68,7 +68,7 @@ function HackathonForm() {
             });
 
             const json = await response.json();
-            console.log("Response update post JSON: ", json);
+            //console.log("Response update post JSON: ", json);
         } catch (error) {
             console.error("Error updating data:", error);
         }
