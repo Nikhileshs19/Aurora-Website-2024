@@ -69,7 +69,7 @@ const AllWorkshopsRegistrations = () => {
                     "ISTE2",
                     "IE MECH",
                     "IEEE",
-                    "Event 9",
+                    "ASTRONOMY",
                     "CTF"
                 ].map((name, index) => (
                     <label key={index} style={{ marginBottom: '10px', padding: '1rem' }}>
