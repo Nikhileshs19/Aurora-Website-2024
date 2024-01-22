@@ -110,3 +110,10 @@ input::-webkit-inner-spin-button {
 #eventsbg{
   background-image: url(./images/eventsbg.png);
 }
+
+#shadowcard{
+  box-shadow: 0 0 25px 10px rgba(255, 255, 255, 0.8);
+}
+#shadowcard:hover{
+  box-shadow: 0 0 35px 15px rgba(255, 255, 255, 0.9);
+}

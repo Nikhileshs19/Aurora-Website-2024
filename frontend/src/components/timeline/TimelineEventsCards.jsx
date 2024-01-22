@@ -435,7 +435,7 @@ export default function TimelineEventsCards() {
                         <span className="pt-1 pl-10 [font-family:'Inter-Medium',Helvetica] font-semibold lg:text-lg text-[0.8rem]"> Time: 12:30 PM</span>
                       </div>
                       <div className="pt-6 pl-10 flex flex-row">
-                        <img src={laptop} alt=""gesags className="lg:w-fit w-[1rem]"></img>
+                        <img src={laptop} alt="gesags" className="lg:w-fit w-[1rem]"></img>
                         <span className="pt-2 pl-10 [font-family:'Inter-Medium',Helvetica] font-semibold lg:text-lg text-[0.8rem]"> Mode: Online</span>
                       </div>
                     </div>

@@ -2,6 +2,7 @@ import { Card, CardBody, CardHeader, Image } from "@nextui-org/react";
 import React, { useEffect, useRef, useState } from "react";
 
 import W_iste2 from "../../images/AppDev.svg";
+import ctf from "../../images/CTF.svg";
 import W_gdsc from "../../images/ChatBot.svg";
 import W_mist from "../../images/Cybersec.svg";
 import hackathon from "../../images/Hacathon.svg";
@@ -11,7 +12,6 @@ import W_iste1 from "../../images/W-iste1.svg";
 import W_acm from "../../images/W_acm.svg";
 import W_astronomy from "../../images/W_astronomy.svg";
 import W_dronaid from "../../images/W_dronaid.svg";
-import ctf from "../../images/CTF.svg";
 
 import TitleStuff from "../Title_Stuff";
 import "./styles.css";
@@ -296,7 +296,7 @@ const TimelineMain = () => {
                     width: "fit-content",
                   }}
                 >
-                  <Card className="py-4 lg:w-[20rem] w-[14rem] custom-timeline-card bg-black text-white opacity-80">
+                  <Card className="py-4 lg:w-[20rem] w-[14rem] custom-timeline-card bg-black text-white opacity-80" id="shadowcard">
                     <CardHeader className="pb-0 pt-2 px-4 flex-col items-start">
                       <p className="text-tiny uppercase font-bold">
                         {times[index]}
@@ -386,7 +386,7 @@ const TimelineMain = () => {
                   }}
                 >
                   <div>
-                    <Card className="py-4 lg:w-[20rem] w-[14rem] custom-timeline-card  bg-black text-white opacity-80">
+                    <Card className="py-4 lg:w-[20rem] w-[14rem] custom-timeline-card  bg-black text-white opacity-80" id="shadowcard">
                       <CardHeader className="pb-0 pt-2 px-4 flex-col items-start">
                         <p className="text-tiny uppercase font-bold">
                           {times[index]}
