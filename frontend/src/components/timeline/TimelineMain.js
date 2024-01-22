@@ -146,21 +146,21 @@ const TimelineMain = () => {
       solidLineMobile.style.zIndex = newScrollPercentageMobile > 0 ? 2 : 0;
 
       const adjustedPercentageMobile = Math.min(
-        302,
+        310,
         newScrollPercentageMobile * 2.39
       );
       document.querySelector(".vertical-solid-line-mobile").style.height =
         adjustedPercentageMobile + "rem";
 
-      if (circleMobile) {
-        const circleTopMobile =
-          (adjustedPercentageMobile / 400) * maxTimelineHeightMobile +
-          firstCardTopMobile -
-          startScrollPositionMobile -
-          circleMobile.offsetHeight / 2;
+      // if (circleMobile) {
+      //   const circleTopMobile =
+      //     (adjustedPercentageMobile / 400) * maxTimelineHeightMobile +
+      //     firstCardTopMobile -
+      //     startScrollPositionMobile -
+      //     circleMobile.offsetHeight / 2;
 
-        circleMobile.style.top = circleTopMobile + "px";
-      }
+      //   circleMobile.style.top = circleTopMobile + "px";
+      // }
     };
 
     window.addEventListener("scroll", handleScroll);
@@ -296,8 +296,7 @@ const TimelineMain = () => {
                     width: "fit-content",
                   }}
                 >
-              
-                  <Card className="py-4 lg:w-[20rem] w-[14rem] custom-timeline-card">
+                  <Card className="py-4 lg:w-[20rem] w-[14rem] custom-timeline-card bg-black text-white opacity-80">
                     <CardHeader className="pb-0 pt-2 px-4 flex-col items-start">
                       <p className="text-tiny uppercase font-bold">
                         {times[index]}
@@ -308,7 +307,7 @@ const TimelineMain = () => {
                     <CardBody className="overflow-visible py-2">
                       <Image
                         alt="Card background"
-                        className="object-cover rounded-xl"
+                        className="object-cover rounded-xl ml-3 mt-3"
                         src={images[index]}
                         width={270}
                       />
@@ -387,7 +386,7 @@ const TimelineMain = () => {
                   }}
                 >
                   <div>
-                    <Card className="py-4 lg:w-[20rem] w-[14rem] custom-timeline-card">
+                    <Card className="py-4 lg:w-[20rem] w-[14rem] custom-timeline-card  bg-black text-white opacity-80">
                       <CardHeader className="pb-0 pt-2 px-4 flex-col items-start">
                         <p className="text-tiny uppercase font-bold">
                           {times[index]}
@@ -400,7 +399,7 @@ const TimelineMain = () => {
                       <CardBody className="overflow-visible py-2">
                         <Image
                           alt="Card background"
-                          className="object-cover rounded-xl"
+                          className="object-cover rounded-xl ml-1 mt-1"
                           src={images[index]}
                           width={270}
                         />
