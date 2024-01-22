@@ -5,16 +5,17 @@ import axios from "axios";
 const AllUsers = () => {
   const navigate = useNavigate();
 
+  const admins = ["2shashank11@gmail.com", "istemanipalboard@gmail.com", "aditi26shr@gmail.com", "prateekanand.work@gmail.com", "tanishakar1906@gmail.com"]
   const getGoogleData = async () => {
     try {
-      const response = await axios.get("/login/success", {
-        withCredentials: true,
-      });
-      if (response) {
+      const response = await axios.get("/login/success", { withCredentials: true });
+      if (!admins.includes(response.data.user.email)) {
+        navigate("/*")
       }
+
     } catch (error) {
       //console.log("error", error)
-      navigate("/*");
+      navigate('/*')
     }
   };
   useEffect(() => {
@@ -45,6 +46,8 @@ const AllUsers = () => {
       <div style={{ color: "white" }}>
         <h1>All Registered Users</h1>
       </div>
+      <h1 style={{ borderCollapse: 'collapse', width: '100%', color: 'white' }}>Total Registrations: {data.length}</h1>
+
       <table
         style={{ borderCollapse: "collapse", width: "100%", color: "white" }}
       >

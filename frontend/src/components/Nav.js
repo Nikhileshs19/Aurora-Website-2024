@@ -1,7 +1,7 @@
 import { Navbar, NavbarBrand, NavbarContent, NavbarItem, NavbarMenu, NavbarMenuItem, NavbarMenuToggle } from "@nextui-org/react";
 import axios from "axios";
 import React, { useEffect, useState } from 'react';
-import { Link, useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { HashLink } from "react-router-hash-link";
 import logo from '../images/Mask group.svg';
 import trophy from '../images/trophycup.svg';
@@ -12,15 +12,10 @@ export default function Nav() {
     const admins = ["2shashank11@gmail.com"]
 
     const [isMenuOpen, setIsMenuOpen] = React.useState(false);
-    
-
-   
 
     const loginwithgoogle = () => {
-        window.open("/auth/google/callback", "_self")
+        window.open("http://localhost:6005/auth/google/callback", "_self")
     }
-
-   
 
     const [googleUserData, setGoogleUserData] = useState({});
 
@@ -37,18 +32,11 @@ export default function Nav() {
 
     //logout
     const logout = () => {
-        window.open("/logout", "_self")
+        window.open("http://localhost:6005/logout", "_self")
     }
 
     useEffect(() => {
         getGoogleData()
-    }, [])
-
-    useEffect(() => {
-        if (googleUserData.registered === false) {
-            console.log("logging out")
-            logout()
-        }
     }, [])
 
     return (
@@ -72,7 +60,7 @@ export default function Nav() {
                         <HashLink smooth className="text-white p-6" to='#timeline'>Timeline</HashLink>
                     </NavbarItem>
                     <NavbarItem>
-                        <HashLink smooth className="text-white" to='#sponsors'>Sponsors</HashLink>
+                        <HashLink smooth className="text-white p-6" to='#sponsors'>Sponsors</HashLink>
                     </NavbarItem>
                     <NavbarItem>
                         <HashLink smooth className="text-white p-6" to='/events'>Events</HashLink>
@@ -96,8 +84,6 @@ export default function Nav() {
                                         Log Out
                                     </HashLink>
                                 </NavbarItem>
-
-
                             </>
                         )
                             :
@@ -160,31 +146,6 @@ export default function Nav() {
                                         Log Out
                                     </HashLink>
                                 </NavbarMenuItem>
-
-                                {(admins.includes(googleUserData.email)) ?
-                                    (
-                                        <><NavbarMenuItem className="p-4 text-red-700 text-right">
-                                            <Link size="lg" to='/get-all-workshops-registrations'>
-                                                Workshops Data
-                                            </Link>
-                                        </NavbarMenuItem>
-
-                                            <NavbarMenuItem className="p-4 text-red-700 text-right">
-                                                <Link size="lg" to='/get-all-hackathon-registrations'>
-                                                    Hackathon Data
-                                                </Link>
-                                            </NavbarMenuItem>
-
-                                            <NavbarMenuItem className="p-4 text-red-700 text-right">
-                                                <Link size="lg" to='/get-all-users'>
-                                                    Registrations Data
-                                                </Link>
-                                            </NavbarMenuItem>
-                                        </>
-                                    )
-                                    : (<></>)}
-
-
                             </>
                         )
                             :
@@ -196,32 +157,6 @@ export default function Nav() {
                     }
                 </NavbarMenu>
             </Navbar>
-
-            <div>
-                {(admins.includes(googleUserData.email)) ?
-                    (
-                        <><span className="p-4 text-white text-right">
-                            <Link size="lg" to='/get-all-workshops-registrations'>
-                                Workshops Data
-                            </Link>
-                        </span>
-
-                            <span className="p-4 text-white text-right">
-                                <Link size="lg" to='/get-all-hackathon-registrations'>
-                                    Hackathon Data
-                                </Link>
-                            </span>
-
-                            <span className="p-4 text-white text-right">
-                                <Link size="lg" to='/get-all-users'>
-                                    Registrations Data
-                                </Link>
-                            </span>
-                        </>
-                    )
-                    : (<></>)}
-            </div>
-
         </>
     );
 }

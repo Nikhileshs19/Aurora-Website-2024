@@ -1,5 +1,4 @@
 {
-  "proxy": "http://localhost:6005",
   "name": "frontend",
   "version": "0.1.0",
   "private": true,
@@ -31,6 +30,7 @@
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },
+  "proxy": "http://localhost:6005",
   "eslintConfig": {
     "extends": [
       "react-app",

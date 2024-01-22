@@ -3,15 +3,15 @@ import axios from 'axios'
 import React, { useEffect, useState } from 'react'
 import { MdCloudUpload } from 'react-icons/md'
 import { useNavigate } from 'react-router-dom'
-import QRimg from '../images/QRimg.png'
+import { ToastContainer, toast } from 'react-toastify'
+import 'react-toastify/dist/ReactToastify.css'
+import HomeNav from '../components/HomeNav'
+import QRimg from '../images/QRimg.jpeg'
 import icon from '../images/Vector.svg'
-import formbg from '../images/reg-form-bg.svg'
-import { ReactComponent as Timeline } from '../images/timeline form.svg'
-import { ToastContainer, toast } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
+import formbg from '../images/reg-form-bg.png'
+import regformtimeline from '../images/regformtimeline.svg'
 
 export default function RegisterForm() {
-
   const styles = {
     backgroundImage: `url(${formbg})`,
     backgroundSize: 'cover',
@@ -22,60 +22,61 @@ export default function RegisterForm() {
 
   const notify = () => {
     toast.success('Successfully Registered, Login again to continue', {
-      position: "top-right",
+      position: 'top-right',
       autoClose: 2500,
       hideProgressBar: false,
       closeOnClick: true,
       pauseOnHover: true,
       draggable: true,
       progress: undefined,
-      theme: "colored"
-    });
+      theme: 'colored',
+    })
   }
 
   const alreadyRegistered = () => {
-    toast.success("Already Registered!", {
-      position: "top-right",
+    toast.success('Already Registered!', {
+      position: 'top-right',
       autoClose: 2000,
       hideProgressBar: false,
       closeOnClick: true,
       pauseOnHover: true,
       draggable: true,
       progress: undefined,
-      theme: "light"
-    });
+      theme: 'light',
+    })
   }
 
-  const [googleData, setGoogleData] = useState({});
- // const [userData, setUserData] = useState({});
+  const [googleData, setGoogleData] = useState({})
+  // const [userData, setUserData] = useState({});
 
   // console.log("response googleData", googleData)
-  const navigate = useNavigate();
+  const navigate = useNavigate()
 
   const logout = () => {
-    window.open("/logout", "_self")
+    window.open('http://localhost:6005/logout', '_self')
   }
 
   const getGoogleData = async () => {
     try {
-      const response = await axios.get("/login/success", { withCredentials: true });
-      console.log("response axios", response)
+      const response = await axios.get('/login/success', {
+        withCredentials: true,
+      })
+      //console.log("response axios", response)
       setGoogleData(response.data.user)
       setFormData({ email: response.data.user.email })
 
       // setGoogleData(response.data.user)
-      console.log(googleData)
+      //console.log(googleData)
 
       if (response.data.user.registered === true) {
         alreadyRegistered()
         setTimeout(() => {
-          navigate("/")
-        }, 2000);
+          navigate('/')
+        }, 2000)
       }
-
     } catch (error) {
-      console.log("axios error: ", error)
-      navigate("*")
+      console.log('axios error: ', error)
+      navigate('/*')
     }
   }
 
@@ -84,11 +85,10 @@ export default function RegisterForm() {
   }, [])
 
   useEffect(() => {
-    console.log(googleData)
+    //console.log(googleData)
   }, [googleData])
 
   const [formData, setFormData] = useState({
-
     email: 'null',
     name: 'null',
     phoneNo: 0,
@@ -98,101 +98,100 @@ export default function RegisterForm() {
     upiID: 'null',
     txnID: 'null',
     workshops: [],
-  });
+  })
 
-  const [image, setImage] = useState("")
+  const [image, setImage] = useState('')
 
   const handleChange = (e) => {
     setFormData({
       ...formData,
       [e.target.name]: e.target.value,
-    });
-  };
+    })
+  }
 
   const handleSubmit = async (e) => {
-    e.preventDefault();
+    e.preventDefault()
     if (!formData.screenshot) {
-      return;
+      return
     }
     // console.log(formData);
 
     try {
-      await registerUser();
+      await registerUser()
       try {
         const response = await fetch(`/update-google-data/${googleData._id}`, {
           method: 'PATCH',
           body: JSON.stringify({ registered: true }),
           headers: {
-            'Content-Type': 'application/json'
-          }
-        });
+            'Content-Type': 'application/json',
+          },
+        })
 
-        const json = await response.json();
-        console.log("Response JSON: ", json);
+        const json = await response.json()
+        //console.log("Response JSON: ", json);
       } catch (error) {
-        console.error("Error updating data:", error.message);
+        console.error('Error updating data:', error.message)
       }
-      notify()
-      setTimeout(() => {
-        navigate("/");
-        logout()
-      }, 4000);
-
     } catch (error) {
-      console.log("Error during form submission: ", error);
-      navigate("*");
+      console.log('Error during form submission: ', error)
+      navigate('/*')
     }
-  };
+    notify()
+    setTimeout(() => {
+      logout()
+    }, 5000)
+  }
 
   useEffect(() => {
     uploadScreenshot()
-
   }, [image])
-
 
   const uploadScreenshot = async () => {
     // e.preventDefault()
-    if (!image) return;
+    if (!image) return
 
-    const uploadbg = document.getElementById('upload-box');
+    const uploadbg = document.getElementById('upload-box')
     if (uploadbg) {
-      uploadbg.innerHTML = "<div className='uploaded-image' style='display: flex; justify-content: center; align-items: center; color: white; font-size: 1.5rem;'>Uploading...</div>";
+      uploadbg.innerHTML =
+        "<div className='uploaded-image' style='display: flex; justify-content: center; align-items: center; color: white; font-size: 1.5rem;'>Uploading...</div>"
     }
 
-    const data = new FormData();
-    data.append("file", image);
-    data.append("upload_preset", "Aurora");
-    data.append("cloud_name", "days7d2mj");
+    const data = new FormData()
+    data.append('file', image)
+    data.append('upload_preset', 'Aurora')
+    data.append('cloud_name', 'days7d2mj')
 
     try {
-      const response = await fetch("https://api.cloudinary.com/v1_1/days7d2mj/image/upload", {
-        method: "POST",
-        body: data,
-      });
+      const response = await fetch(
+        'https://api.cloudinary.com/v1_1/days7d2mj/image/upload',
+        {
+          method: 'POST',
+          body: data,
+        }
+      )
 
       if (!response.ok) {
-        throw new Error('Failed to upload image');
+        throw new Error('Failed to upload image')
       }
 
-      const result = await response.json();
-      console.log(result);
+      const result = await response.json()
+      //console.log(result);
 
       // Update the screenshot field in the form data
-      setFormData({ ...formData, screenshot: result.secure_url });
+      setFormData({ ...formData, screenshot: result.secure_url })
     } catch (error) {
-      console.error('Error uploading image:', error);
-      throw error; // Propagate the error to the calling function
+      console.error('Error uploading image:', error)
+      throw error // Propagate the error to the calling function
     }
-  };
+  }
 
   useEffect(() => {
-    const uploadbg = document.getElementById('upload-box');
+    const uploadbg = document.getElementById('upload-box')
     if (uploadbg && formData.screenshot) {
-      uploadbg.innerText = 'Uploaded';
-      uploadbg.innerHTML = `<div className='uploaded-image' style='display: flex; justify-content: center; align-items: center; color: white; font-size: 1.5rem;'><img src=${formData.screenshot} alt="hduh"="df" /></div>`;
+      uploadbg.innerText = 'Uploaded'
+      uploadbg.innerHTML = `<div className='uploaded-image' style='display: flex; justify-content: center; align-items: center; color: white; font-size: 1.5rem;'><img src=${formData.screenshot} alt="hduh"="df" /></div>`
     }
   }, [formData.screenshot])
-
 
   // Define the asynchronous function
   const registerUser = async () => {
@@ -201,268 +200,277 @@ export default function RegisterForm() {
         method: 'POST',
         body: JSON.stringify(formData),
         headers: {
-          'Content-Type': 'application/json'
-        }
-      });
+          'Content-Type': 'application/json',
+        },
+      })
 
-      const json = await response.json();
-      console.log("Response JSON: ", json);
+      const json = await response.json()
+      //console.log("Response JSON: ", json);
     } catch (error) {
-      console.error("Error updating data:", error);
+      console.error('Error updating data:', error)
       // Handle the error as needed
     }
-  };
-
-
+  }
 
   return (
-    <div
-      className="lg:grid lg:grid-cols-5 flex-col bg-[#000F21] text-white"
-      style={{ height: '', overflowY: 'auto', overflowX: 'hidden' }}
-    >
-      <div
-        style={styles}
-        className="style={styles} grid-rows-4 row-span-5 block w-full  col-span-2 left-[-3px] lg:rounded-tr-[72.74px] lg:rounded-br-[72.74px] border border-white border-opacity-10"
-      >
-        <div className="mix-blend-hard-light text-blue-200 text-6xl lg:text-[76.61px] font-normal font-['Rockabye'] flex justify-center pt-32">
-          AURORA 24'
-        </div>
-
-        <div className="flex justify-center p-16 pt-20 text-center text-white text-1.5xl lg:text-[22px] font-medium font-['Inter'] capitalize tracking-wider">
-          Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean
-          commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus
-          et magnis dis parturient montes, nascetur ridiculus mus. Donec quam
-          felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla
-          consequat massa quis enim. Donec pede justo, fringilla vel, aliquet
-          nec, vulputate eget, arcu. In enim justo, rhoncus ut, imperdiet a,
-          venenatis vitae, justo. Nullam dictum felis eu pede mollis pretium.
-          Integer tincidunt. Cras dapibus.
-        </div>
-
-        <div className="flex justify-center text-center text-white text-[25.26px] font-medium font-['Inter'] pt-16">
-          <img src={icon} alt="dghh" />
-          02 Feb 2024 - 09 Feb 2024
-        </div>
-
-        <div className="lg:pl-10 pt-16 mb-10 pb-10 pl-8 pt-">
-          <Timeline className="w-5/6 h:auto" />
-        </div>
+    <div>
+      <div className='bg-black pb-4'>
+      <HomeNav/>
       </div>
+      <div
+        className="lg:grid lg:grid-cols-5 flex-col bg-[#000F21] text-white"
+        style={{ height: '', overflowY: 'auto', overflowX: 'hidden' }}
+      >
+        <div className="grid-rows-4 grid-cols-2 col-span-3 bg-[#000F21] lg:px-10">
+          <form onSubmit={handleSubmit}>
+            <div className="grid col-span-2 grid-rows-2 pl-10 lg:pl-14 pt-24">
+              <div className="text-[40px] font-normal font-['Inter'] leading-normal text-blue-500 p">
+                Registration Form
+              </div>
+            </div>
+            <div className="grid grid-cols-2 grid-rows-5 pl-10 lg:pl-14">
+              <div className="col-span-2 text-blue-500 text-2xl font-normal font-['Inter'] leading-normal">
+                Personal Information
+              </div>
 
-      <div className="grid-rows-4 grid-cols-2 col-span-3 bg-[#000F21]">
-        <form onSubmit={handleSubmit}>
-          <div className="grid col-span-2 grid-rows-2 pl-10 lg:pl-14 pt-24">
-            <div className="text-[40px] font-normal font-['Inter'] leading-normal text-blue-500 p">
-              Registration Form
-            </div>
-          </div>
-          <div className="grid grid-cols-2 grid-rows-5 pl-10 lg:pl-14">
-            <div className="col-span-2 text-blue-500 text-2xl font-normal font-['Inter'] leading-normal">
-              Personal Information
-            </div>
-
-            <div
-              key="underlined"
-              className="flex w-full flex-wrap pr-10 lg:pr-20 md:flex-nowrap mb-6 md:mb-0 pb-10"
-            >
-              <Input
-                onChange={handleChange}
-                isRequired
-                type="text"
-                variant="underlined"
-                label="Name"
-                name="name"
-                id="name"
-                style={{ color: "white" }} />
-            </div>
-
-            <div
-              key="underlined"
-              className="flex w-full flex-wrap pr-8 lg:pr-20 md:flex-nowrap mb-6 md:mb-0 pb-10"
-            >
-              <Input
-                onChange={handleChange}
-                isRequired
-                type="number"
-                variant="underlined"
-                label="Registration Number"
-                name="regNo"
-                id="regNo"
-                style={{ color: "white" }} />
-            </div>
-
-            <div
-              key="underlined"
-              className="flex w-full flex-wrap pr-10 lg:pr-20 md:flex-nowrap mb-6 md:mb-0 pb-10"
-            >
-              <Input
-                onChange={handleChange}
-                isRequired
-                type="number"
-                variant="underlined"
-                label="Phone Number"
-                name="phoneNo"
-                id="phoneNo"
-                style={{ color: "white" }} />
-            </div>
-
-            <div
-              key="underlined"
-              className="flex w-full flex-wrap md:flex-nowrap mb-6 md:mb-0 gap-4  pr-8 lg:pr-20"
-            >
-              <Input
-                onChange={handleChange}
-                isRequired
-                type="email"
-                variant="underlined"
-                label="Learner ID"
-                name="learnerid"
-                id="learnerid"
-                style={{ color: "white" }} />
-            </div>
-
-            <div
-              key="underlined"
-              className="flex w-full flex-wrap pr-10 lg:pr-20 md:flex-nowrap mb-6 md:mb-0  pb-10"
-            >
-              <Input
-                onChange={handleChange}
-                isRequired
-                type="number"
-                variant="underlined"
-                label="Year of Study"
-                name="year"
-                id="year"
-                style={{ color: "white" }} />
-            </div>
-
-            <div
-              key="underlined"
-              className="flex w-full flex-wrap pr-8 lg:pr-20 md:flex-nowrap mb-6 md:mb-0  pb-10"
-            >
-              <Input
-                onChange={handleChange}
-                isRequired
-                type="text"
-                variant="underlined"
-                label="Branch"
-                name="branch"
-                id="branch"
-                style={{ color: "white" }} />
-            </div>
-
-            <div
-              key="underlined"
-              className="flex w-full flex-wrap pr-10 lg:pr-20 md:flex-nowrap mb-6 md:mb-0  pb-10"
-            >
-              <Input
-                onChange={handleChange}
-                isRequired
-                type="text"
-                variant="underlined"
-                label="UPI ID"
-                name="upiID"
-                id="upiID"
-                style={{ color: "white" }} />
-            </div>
-
-            <div
-              key="underlined"
-              className="flex w-full flex-wrap pr-10 lg:pr-20 md:flex-nowrap mb-6 md:mb-0  pb-10"
-            >
-              <Input
-                onChange={handleChange}
-                isRequired
-                type="text"
-                variant="underlined"
-                label="Transaction ID"
-                name="txnID"
-                id="txnID"
-                style={{ color: "white" }} />
-            </div>
-
-          </div>
-
-          <div className="grid lg:grid-cols-2 sm:grid-cols-1 grid-rows-3 pl-10 h-60 pt-14">
-            <div className="col-span-2 text-blue-500 text-2xl font-normal font-['Inter'] leading-normal h-5 ">
-              Payment Information
-            </div>
-
-            <div className=" text-blue-500 text-xl lg:text-2xl font-normal font-['Inter'] leading-normal h-8">
-              Payment Address
-            </div>
-            <div className=" text-blue-500 text-xl lg:text-2xl font-normal font-['Inter'] leading-normal pl-10">
-              Payment Screenshot Upload
-            </div>
-
-            <div className="h-40 pt-5">
-              <img
-                src={QRimg}
-                alt="Description of the image"
-                className="rounded-lg shadow-lg pr-5 lg:max-w-full h-auto"
-              />
-            </div>
-            <form
-              onClick={() => document.querySelector('.input-field').click()}
-              className="pl-12"
-            >
-              <input
-                isRequired
-                id="file-upload"
-                name="screenshot"
-                type="file"
-                accept="image/*"
-                className="input-field"
-                hidden
-                onChange={(e) => { setImage(e.target.files[0]) }}
-              />
-              <div id='upload-box' className="lg:w-60 w-32 h-28 lg:h-60 border-dashed border-2 border-radius:1rem mt-5 flex align-middle justify-center">
-                <MdCloudUpload
-                  color="#ffffff"
-                  size={10}
-                  className="lg:w-16 w-8 h-auto align-middle justify-center"
+              <div
+                key="underlined"
+                className="flex w-full flex-wrap pr-10 lg:pr-20 md:flex-nowrap mb-6 md:mb-0 pb-10"
+              >
+                <Input
+                  onChange={handleChange}
+                  isRequired
+                  type="text"
+                  variant="underlined"
+                  label="Name"
+                  name="name"
+                  id="name"
+                  style={{ color: 'white' }}
                 />
               </div>
-            </form>
-          </div>
 
-          <div className=" h-80 pt-48 lg:pt-60">
-            <button type='submit' className="w-24 h-12 rounded-xl border-2 border-blue-600  items-center gap-3 ml-12 inline-flex ">
-              <div className="text-blue-600 text-base font-medium font-['Inter'] leading-normal pl-5">
-                Register
+              <div
+                key="underlined"
+                className="flex w-full flex-wrap pr-8 lg:pr-20 md:flex-nowrap mb-6 md:mb-0 pb-10"
+              >
+                <Input
+                  onChange={handleChange}
+                  isRequired
+                  type="number"
+                  variant="underlined"
+                  label="Registration Number"
+                  name="regNo"
+                  id="regNo"
+                  style={{ color: 'white' }}
+                />
               </div>
-            </button>
+
+              <div
+                key="underlined"
+                className="flex w-full flex-wrap pr-10 lg:pr-20 md:flex-nowrap mb-6 md:mb-0 pb-10"
+              >
+                <Input
+                  onChange={handleChange}
+                  isRequired
+                  type="number"
+                  variant="underlined"
+                  label="Phone Number"
+                  name="phoneNo"
+                  id="phoneNo"
+                  style={{ color: 'white' }}
+                />
+              </div>
+
+              <div
+                key="underlined"
+                className="flex w-full flex-wrap md:flex-nowrap mb-6 md:mb-0 gap-4  pr-8 lg:pr-20"
+              >
+                <Input
+                  onChange={handleChange}
+                  isRequired
+                  type="email"
+                  variant="underlined"
+                  label="Learner ID"
+                  name="learnerid"
+                  id="learnerid"
+                  style={{ color: 'white' }}
+                />
+              </div>
+
+              <div
+                key="underlined"
+                className="flex w-full flex-wrap pr-10 lg:pr-20 md:flex-nowrap mb-6 md:mb-0  pb-10"
+              >
+                <Input
+                  onChange={handleChange}
+                  isRequired
+                  type="number"
+                  variant="underlined"
+                  label="Year of Study"
+                  name="year"
+                  id="year"
+                  style={{ color: 'white' }}
+                />
+              </div>
+
+              <div
+                key="underlined"
+                className="flex w-full flex-wrap pr-8 lg:pr-20 md:flex-nowrap mb-6 md:mb-0  pb-10"
+              >
+                <Input
+                  onChange={handleChange}
+                  isRequired
+                  type="text"
+                  variant="underlined"
+                  label="Branch"
+                  name="branch"
+                  id="branch"
+                  style={{ color: 'white' }}
+                />
+              </div>
+
+              <div
+                key="underlined"
+                className="flex w-full flex-wrap pr-10 lg:pr-20 md:flex-nowrap mb-6 md:mb-0  pb-10"
+              >
+                <Input
+                  onChange={handleChange}
+                  isRequired
+                  type="text"
+                  variant="underlined"
+                  label="UPI ID"
+                  name="upiID"
+                  id="upiID"
+                  style={{ color: 'white' }}
+                />
+              </div>
+
+              <div
+                key="underlined"
+                className="flex w-full flex-wrap pr-10 lg:pr-20 md:flex-nowrap mb-6 md:mb-0  pb-10"
+              >
+                <Input
+                  onChange={handleChange}
+                  isRequired
+                  type="text"
+                  variant="underlined"
+                  label="Transaction ID"
+                  name="txnID"
+                  id="txnID"
+                  style={{ color: 'white' }}
+                />
+              </div>
+            </div>
+
+            <div className="grid lg:grid-cols-2 sm:grid-cols-1 grid-rows-3 pl-10 h-60 pt-14">
+              <div className="col-span-2 text-blue-500 text-2xl font-normal font-['Inter'] leading-normal h-5 ">
+                Payment Information
+              </div>
+
+              <div className=" text-blue-500 text-xl lg:text-2xl font-normal font-['Inter'] leading-normal h-8">
+                Payment Address
+              </div>
+              <div className=" text-blue-500 text-xl lg:text-2xl font-normal font-['Inter'] leading-normal pl-10">
+                Payment Screenshot Upload
+              </div>
+
+              <div className="h-40 pt-5">
+                <img
+                  src={QRimg}
+                  alt="Description of the image"
+                  className="rounded-lg shadow-lg pr-5 max-w-full lg:h-60 h-28"
+                />
+              </div>
+              <form
+                onClick={() => document.querySelector('.input-field').click()}
+                className="pl-12"
+              >
+                <input
+                  isRequired
+                  id="file-upload"
+                  name="screenshot"
+                  type="file"
+                  accept="image/*"
+                  className="input-field"
+                  hidden
+                  onChange={(e) => {
+                    setImage(e.target.files[0])
+                  }}
+                />
+                <div
+                  id="upload-box"
+                  className="lg:w-60 w-32 h-28 lg:h-60 border-dashed border-2 border-radius:1rem mt-5 flex align-middle justify-center"
+                >
+                  <MdCloudUpload
+                    color="#ffffff"
+                    size={10}
+                    className="lg:w-16 w-8 h-auto align-middle justify-center"
+                  />
+                </div>
+              </form>
+            </div>
+
+            <div className=" h-80 pt-48 lg:pt-60 submit-btn">
+              <button
+                type="submit"
+                className="w-24 h-12 rounded-xl border-2 border-blue-600  items-center gap-3 ml-12 inline-flex "
+              >
+                <div className="text-blue-600 text-base font-medium font-['Inter'] leading-normal pl-5">
+                  Register
+                </div>
+              </button>
+            </div>
+          </form>
+        </div>
+        <div
+          style={styles}
+          className="style={styles} grid-rows-4 row-span-5 block w-full  col-span-2 left-[-3px] lg:rounded-tr-[72.74px] lg:rounded-br-[72.74px] border border-white border-opacity-10"
+        >
+          <div className="mix-blend-hard-light text-blue-200 text-6xl lg:text-[76.61px] font-normal font-['Rockabye'] flex justify-center pt-32">
+            AURORA 24'
           </div>
-        </form>
+
+          {/* <div className="flex justify-center p-16 pt-20 text-center text-white text-1.5xl lg:text-[22px] font-medium font-['Inter'] capitalize tracking-wider">
+          
+        </div> */}
+
+          <div className="flex justify-center text-center text-white text-[25.26px] font-medium font-['Inter'] pt-16">
+            <img src={icon} alt="dghh" />
+            02 Feb 2024 - 09 Feb 2024
+          </div>
+
+          <div className="lg:pl-10 pt-16 mb-10 pb-10 pl-8 pt-">
+            <img src={regformtimeline} className="w-5/6 h:auto" />
+          </div>
+        </div>
+
+        <ToastContainer
+          position="top-right"
+          autoClose={5000}
+          hideProgressBar={false}
+          newestOnTop={false}
+          closeOnClick
+          rtl={false}
+          pauseOnFocusLoss
+          draggable
+          pauseOnHover
+          theme="colored"
+        />
+
+        <ToastContainer
+          position="top-right"
+          autoClose={2000}
+          hideProgressBar={true}
+          newestOnTop={false}
+          closeOnClick
+          rtl={false}
+          pauseOnFocusLoss
+          draggable
+          pauseOnHover
+          theme="light"
+        />
+        <ToastContainer />
       </div>
-
-      <ToastContainer
-        position="top-right"
-        autoClose={5000}
-        hideProgressBar={false}
-        newestOnTop={false}
-        closeOnClick
-        rtl={false}
-        pauseOnFocusLoss
-        draggable
-        pauseOnHover
-        theme="colored"
-      />
-
-      <ToastContainer
-        position="top-right"
-        autoClose={2000}
-        hideProgressBar={true}
-        newestOnTop={false}
-        closeOnClick
-        rtl={false}
-        pauseOnFocusLoss
-        draggable
-        pauseOnHover
-        theme="light"
-      />
-      <ToastContainer />
-
     </div>
   )
 }

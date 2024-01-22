@@ -8,7 +8,7 @@ import Sun from "../images/sun.svg"
 function HackathonPage() {
     return (
         <div id="hackathonpage"> 
-            <Parallax pages={3} className="bg-black no-scrollbar" id="hackathonpage">
+            <Parallax pages={4} className="bg-black no-scrollbar" id="hackathonpage">
 
 
                 <ParallaxLayer offset={0} speed={1.5}>
@@ -25,12 +25,12 @@ function HackathonPage() {
                     <MainHackathon />
                 </ParallaxLayer>
 
-                <ParallaxLayer offset={1} speed={0.1} className="" >
+                <ParallaxLayer offset={1} speed={0.1} className="h-[100rem] z-10" >
                     <AboutHackathon />
-                </ParallaxLayer>
-
-                <ParallaxLayer offset={2} speed={0.1} className="" >
                     <PrizesHackathon />
+                </ParallaxLayer>
+                <ParallaxLayer offset={3} className="h-[100rem]">
+                    {/* <Footer/> */}
                 </ParallaxLayer>
 
                 {/* <ParallaxLayer>
