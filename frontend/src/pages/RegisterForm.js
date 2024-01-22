@@ -8,7 +8,7 @@ import 'react-toastify/dist/ReactToastify.css'
 import HomeNav from '../components/HomeNav'
 import QRimg from '../images/QRimg.jpeg'
 import icon from '../images/Vector.svg'
-import formbg from '../images/reg-form-bg.svg'
+import formbg from '../images/reg-form-bg.png'
 import { ReactComponent as Timeline } from '../images/timeline form.svg'
 
 export default function RegisterForm() {
