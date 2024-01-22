@@ -167,14 +167,14 @@ const TimelineMain = () => {
   }, []);
 
   const titles = [
-    "ACM",
+    "CLASSIFIED: ML and NN workshop",
     "DRONAID",
-    "MIST",
-    "ISTE",
-    "GDSC",
-    "ISTE2",
-    "IE MECH",
-    "IEEE",
+    "HACKLINUX",
+    "BEYOND RATINGS",
+    "UNLOCKING CONVERSATIONS",
+    "FLUTTERCRAFT",
+    "F1 CAR MODELLING",
+    "SCRAPESPHERE",
     "ASTRONOMY",
     "CTF",
     "HACKATHON",
@@ -220,7 +220,9 @@ const TimelineMain = () => {
     ctf,
     hackathon,
   ];
-
+  const des = [
+    "a real world project using machine learning and neural networks",
+  ];
   return (
     <div className="">
       {/* desktop timeline  */}
@@ -292,24 +294,31 @@ const TimelineMain = () => {
                     width: "fit-content",
                   }}
                 >
-                  <Card className="py-4 lg:w-[20rem] w-[14rem] custom-timeline-card bg-black text-white opacity-80">
-                    <CardHeader className="pb-0 pt-2 px-4 flex-col items-start">
-                      <p className="text-tiny uppercase font-bold">
-                        {times[index]}
-                      </p>
-                      <small className="text-default-500">{dates[index]}</small>
-                      <h4 className="font-bold text-large">{titles}</h4>
-                    </CardHeader>
-                    <CardBody className="overflow-visible py-2">
-                      <Image
-                        alt="Card background"
-                        className="object-cover rounded-xl ml-3 mt-3"
-                        src={images[index]}
-                        width={270}
-                      />
-                      <div className="w-16 mt-6"></div>
-                    </CardBody>
-                  </Card>
+                  <div data-aos="flip-right">
+                    <Card className="py-4 lg:w-[20rem] w-[14rem] custom-timeline-card bg-black text-white opacity-80">
+                      <CardHeader className="pb-0 pt-2 px-4 flex-col items-start">
+                        <p className="text-tiny uppercase font-bold p-1">
+                          {times[index]}
+                        </p>
+                        <small className="text-default-500 p-1">
+                          {dates[index]}
+                        </small>
+                        <h4 className="font-bold text-large p-1">{titles}</h4>
+                        <small className="text-default-500 p-1">
+                          {des[index]}
+                        </small>
+                      </CardHeader>
+                      <CardBody className="overflow-visible py-2">
+                        <Image
+                          alt="Card background"
+                          className="object-cover rounded-xl ml-3 mt-3"
+                          src={images[index]}
+                          width={270}
+                        />
+                        <div className="w-16 mt-6"></div>
+                      </CardBody>
+                    </Card>
+                  </div>
                 </div>
               ))}
             </div>
@@ -380,7 +389,7 @@ const TimelineMain = () => {
                     width: "fit-content", // Adjust the width as needed
                   }}
                 >
-                  <div>
+                  <div data-aos="flip-right">
                     <Card className="py-4 lg:w-[20rem] w-[14rem] custom-timeline-card  bg-black text-white opacity-80">
                       <CardHeader className="pb-0 pt-2 px-4 flex-col items-start">
                         <p className="text-tiny uppercase font-bold">
