@@ -3,6 +3,7 @@ import {
   RouterProvider,
 } from "react-router-dom";
 import './App.css';
+import { useEffect } from "react";
 
 import Events from './components/Events';
 import AllHackathonRegistrations from "./pages/AllHackathonRegistrations";
@@ -15,7 +16,9 @@ import HackathonPage from './pages/HackathonPage';
 import MainHome from './pages/MainHome';
 import RegisterForm from './pages/RegisterForm';
 
+
 function App() {
+ 
   const router = createBrowserRouter([
     {
       path: "/",

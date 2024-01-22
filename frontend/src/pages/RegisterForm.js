@@ -5,7 +5,7 @@ import { MdCloudUpload } from 'react-icons/md'
 import { useNavigate } from 'react-router-dom'
 import QRimg from '../images/QRimg.jpeg'
 import icon from '../images/Vector.svg'
-import formbg from '../images/reg-form-bg.svg'
+import formbg from '../images/reg-form-bg.png'
 import { ReactComponent as Timeline } from '../images/timeline form.svg'
 import { ToastContainer, toast } from 'react-toastify'
 import 'react-toastify/dist/ReactToastify.css'
@@ -224,7 +224,7 @@ export default function RegisterForm() {
           AURORA 24'
         </div>
 
-        <div className="flex justify-center p-16 pt-20 text-center text-white text-1.5xl lg:text-[22px] font-medium font-['Inter'] capitalize tracking-wider">
+        {/* <div className="flex justify-center p-16 pt-20 text-center text-white text-1.5xl lg:text-[22px] font-medium font-['Inter'] capitalize tracking-wider">
           Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean
           commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus
           et magnis dis parturient montes, nascetur ridiculus mus. Donec quam
@@ -233,7 +233,7 @@ export default function RegisterForm() {
           nec, vulputate eget, arcu. In enim justo, rhoncus ut, imperdiet a,
           venenatis vitae, justo. Nullam dictum felis eu pede mollis pretium.
           Integer tincidunt. Cras dapibus.
-        </div>
+        </div> */}
 
         <div className="flex justify-center text-center text-white text-[25.26px] font-medium font-['Inter'] pt-16">
           <img src={icon} alt="dghh" />

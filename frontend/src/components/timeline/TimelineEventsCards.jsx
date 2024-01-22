@@ -17,9 +17,9 @@ import ctfevents from "../../images/ctfevents.svg";
 import laptop from "../../images/laptop.svg";
 import submitchoices from '../../images/submitchoices.svg';
 
-import W_iste2 from "../../images/AppDev (1).svg";
-import W_gdsc from "../../images/ChatBot (1).svg";
-import W_mist from "../../images/Cybersec (1).svg";
+import W_iste2 from "../../images/AppDev.svg";
+import W_gdsc from "../../images/ChatBot.svg";
+import W_mist from "../../images/Cybersec.svg";
 import W_ieee from "../../images/W-ieee.svg";
 import W_iemech from "../../images/W-iemech.svg";
 import W_iste1 from "../../images/W-iste1.svg";
