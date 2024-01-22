@@ -8,10 +8,10 @@ import aryan from '../images/aryan.jpg'
 import harry from '../images/harry.jpg'
 import kshitij from '../images/kshitij.jpg'
 import mugi from '../images/mugi.jpg'
+import nikhilesh from '../images/nikhilesh.jpg'
 import roop from '../images/roopanshi.jpg'
 import shashank from '../images/shashank.jpg'
 import souvik from '../images/souvik.jpg'
-import nikhilesh from '../images/nikhilesh.jpg'
 
 import HomeNav from '../components/HomeNav'
 import linkedin from '../images/bi_linkedin.svg'
@@ -184,7 +184,7 @@ export default function Developers() {
         </div>
         <div className="grid md:grid-cols-3 grid-cols-1 lg:m-24">
           {Juniors.map((member) => (
-            <JuniorCard key={member.id} member={member} />
+            <JuniorCard key={member.name} member={member} />
           ))}
         </div>
         <div className="py-6">
@@ -192,7 +192,7 @@ export default function Developers() {
         </div>
         <div className="grid md:grid-cols-3 grid-cols-1 lg:m-24">
           {Seniors.map((member) => (
-            <SeniorCard key={member.id} member={member} />
+            <SeniorCard key={member.name} member={member} />
           ))}
         </div>
       </div>

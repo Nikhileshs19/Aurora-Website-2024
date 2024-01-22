@@ -1,16 +1,16 @@
 import { Card, CardBody, CardHeader, Image } from "@nextui-org/react";
 import React, { useEffect, useRef, useState } from "react";
 import W_iste2 from "../../images/AppDev (1).svg";
+import ctf from "../../images/CTF (1).svg";
 import W_gdsc from "../../images/ChatBot (1).svg";
 import W_mist from "../../images/Cybersec (1).svg";
+import hackathon from "../../images/Hacathon.svg";
 import W_ieee from "../../images/W-ieee.svg";
 import W_iemech from "../../images/W-iemech.svg";
 import W_iste1 from "../../images/W-iste1.svg";
 import W_acm from "../../images/W_acm.svg";
 import W_astronomy from "../../images/W_astronomy.svg";
 import W_dronaid from "../../images/W_dronaid.svg";
-import hackathon from "../../images/Hacathon.svg";
-import ctf from "../../images/CTF (1).svg";
 import TitleStuff from "../Title_Stuff";
 import "./styles.css";
 
@@ -258,7 +258,7 @@ const TimelineMain = () => {
               style={{
                 marginLeft: "50%",
                 marginTop: "200px", // Set the left margin for the vertical line
-                backgroundImage: `repeating-linear-gradient(transparent, transparent 10px, white 10px, white 20px)`, // Vertical dashed line background
+                backgroundImage: `repeating-linear-gradient(transparent, transparent 10px, #000A29 10px, #000A29 20px)`, // Vertical dashed line background
               }}
             ></div>
             <div
