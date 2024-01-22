@@ -1,30 +1,26 @@
 import { Card, CardBody, CardHeader, Image } from "@nextui-org/react";
 import React, { useEffect, useRef, useState } from "react";
-
-import W_iste2 from "../../images/AppDev.svg";
-import ctf from "../../images/CTF.svg";
-import W_gdsc from "../../images/ChatBot.svg";
-import W_mist from "../../images/Cybersec.svg";
-import hackathon from "../../images/Hacathon.svg";
+import W_iste2 from "../../images/AppDev (1).svg";
+import W_gdsc from "../../images/ChatBot (1).svg";
+import W_mist from "../../images/Cybersec (1).svg";
 import W_ieee from "../../images/W-ieee.svg";
 import W_iemech from "../../images/W-iemech.svg";
 import W_iste1 from "../../images/W-iste1.svg";
 import W_acm from "../../images/W_acm.svg";
 import W_astronomy from "../../images/W_astronomy.svg";
 import W_dronaid from "../../images/W_dronaid.svg";
-
+import hackathon from "../../images/Hacathon.svg";
+import ctf from "../../images/CTF (1).svg";
 import TitleStuff from "../Title_Stuff";
 import "./styles.css";
 
-
 const TimelineMain = () => {
-
   //desktop
   const [scrollPercentage, setScrollPercentage] = useState(0);
   const [scrollPercentageMobile, setScrollPercentageMobile] = useState(0);
 
   const [timelineHeight, setTimelineHeight] = useState(0);
-  // console.log(timelineHeight);
+  console.log(timelineHeight);
   const [windowSize, setWindowSize] = useState([
     window.innerWidth, //0
     window.innerHeight, //1
@@ -74,7 +70,7 @@ const TimelineMain = () => {
           ((window.scrollY - startScrollPosition) / maxTimelineHeight) * 100
         )
       );
-      //console.log(newScrollPercentage);
+      console.log(newScrollPercentage);
 
       setScrollPercentage(newScrollPercentage);
 
@@ -135,7 +131,7 @@ const TimelineMain = () => {
             200
         )
       );
-      //console.log(newScrollPercentageMobile);
+      console.log(newScrollPercentageMobile);
 
       setScrollPercentageMobile(newScrollPercentageMobile);
 
@@ -171,22 +167,22 @@ const TimelineMain = () => {
   }, []);
 
   const titles = [
-    "ACM",
+    "CLASSIFIED: ML and NN workshop",
     "DRONAID",
-    "MIST",
-    "ISTE",
-    "GDSC",
-    "ISTE2",
-    "IE MECH",
-    "IEEE",
+    "HACKLINUX",
+    "BEYOND RATINGS",
+    "UNLOCKING CONVERSATIONS",
+    "FLUTTERCRAFT",
+    "F1 CAR MODELLING",
+    "SCRAPESPHERE",
     "ASTRONOMY",
     "CTF",
     "HACKATHON",
   ];
 
   const times = [
-    "05:30PM - 08:30PM & 10:00AM - 05:00PM",
-    "05:30PM - 08:30PM & 10:00AM - 05:00PM",
+    "05:30PM - 08:30PM & 10:00AM - 12:30PM & 2:00PM - 4:30PM",
+    "05:30PM - 08:30PM & 10:00AM - 12:30PM & 2:00PM - 4:30PM",
     "05:30PM - 08:30PM",
     "05:30PM - 08:30PM",
     "05:30PM - 08:30PM",
@@ -224,7 +220,9 @@ const TimelineMain = () => {
     ctf,
     hackathon,
   ];
-
+  const des = [
+    "a real world project using machine learning and neural networks",
+  ];
   return (
     <div className="">
       {/* desktop timeline  */}
@@ -296,25 +294,31 @@ const TimelineMain = () => {
                     width: "fit-content",
                   }}
                 >
-                  <Card className="py-4 lg:w-[20rem] w-[14rem] custom-timeline-card bg-black text-white opacity-80" id="shadowcard">
-                    <CardHeader className="pb-0 pt-2 px-4 flex-col items-start">
-                      <p className="text-tiny uppercase font-bold">
-                        {times[index]}
-                      </p>
-                      <small className="text-default-500">{dates[index]}</small>
-                      <h4 className="font-bold text-large">{titles}</h4>
-                    </CardHeader>
-                    <CardBody className="overflow-visible py-2">
-                      <Image
-                        alt="Card background"
-                        className="object-cover rounded-xl ml-3 mt-3"
-                        src={images[index]}
-                        width={270}
-                      />
-                      <div className="w-16 mt-6"></div>
-                    </CardBody>
-                  </Card>
-             
+                  <div data-aos="flip-right">
+                    <Card className="py-4 lg:w-[20rem] w-[14rem] custom-timeline-card bg-black text-white opacity-80" id="shadowcard">
+                      <CardHeader className="pb-0 pt-2 px-4 flex-col items-start">
+                        <p className="text-tiny uppercase font-bold p-1">
+                          {times[index]}
+                        </p>
+                        <small className="text-default-500 p-1">
+                          {dates[index]}
+                        </small>
+                        <h4 className="font-bold text-large p-1">{titles}</h4>
+                        <small className="text-default-500 p-1">
+                          {des[index]}
+                        </small>
+                      </CardHeader>
+                      <CardBody className="overflow-visible py-2">
+                        <Image
+                          alt="Card background"
+                          className="object-cover rounded-xl ml-3 mt-3"
+                          src={images[index]}
+                          width={270}
+                        />
+                        <div className="w-16 mt-6"></div>
+                      </CardBody>
+                    </Card>
+                  </div>
                 </div>
               ))}
             </div>
@@ -385,7 +389,7 @@ const TimelineMain = () => {
                     width: "fit-content", // Adjust the width as needed
                   }}
                 >
-                  <div>
+                  <div data-aos="flip-right">
                     <Card className="py-4 lg:w-[20rem] w-[14rem] custom-timeline-card  bg-black text-white opacity-80" id="shadowcard">
                       <CardHeader className="pb-0 pt-2 px-4 flex-col items-start">
                         <p className="text-tiny uppercase font-bold">
