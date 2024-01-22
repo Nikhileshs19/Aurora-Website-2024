@@ -25,12 +25,12 @@ function HackathonPage() {
                     <MainHackathon />
                 </ParallaxLayer>
 
-                <ParallaxLayer offset={1} speed={0.1} className="" >
+                <ParallaxLayer offset={1} speed={0.1} className="h-[100rem] z-10" >
                     <AboutHackathon />
-                </ParallaxLayer>
-
-                <ParallaxLayer offset={3} speed={0.1} className="h-[100rem]" >
                     <PrizesHackathon />
+                </ParallaxLayer>
+                <ParallaxLayer offset={3} className="h-[100rem]">
+                    {/* <Footer/> */}
                 </ParallaxLayer>
 
                 {/* <ParallaxLayer>

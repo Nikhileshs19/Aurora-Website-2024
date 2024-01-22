@@ -9,7 +9,7 @@ import HomeNav from '../components/HomeNav'
 import QRimg from '../images/QRimg.jpeg'
 import icon from '../images/Vector.svg'
 import formbg from '../images/reg-form-bg.png'
-import { ReactComponent as Timeline } from '../images/timeline form.svg'
+import regformtimeline from '../images/regformtimeline.svg'
 
 export default function RegisterForm() {
   const styles = {
@@ -440,7 +440,7 @@ export default function RegisterForm() {
           </div>
 
           <div className="lg:pl-10 pt-16 mb-10 pb-10 pl-8 pt-">
-            <Timeline className="w-5/6 h:auto" />
+            <img src={regformtimeline} className="w-5/6 h:auto" />
           </div>
         </div>
 

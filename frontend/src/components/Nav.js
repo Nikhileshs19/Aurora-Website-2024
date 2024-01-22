@@ -60,7 +60,7 @@ export default function Nav() {
                         <HashLink smooth className="text-white p-6" to='#timeline'>Timeline</HashLink>
                     </NavbarItem>
                     <NavbarItem>
-                        <HashLink smooth className="text-white" to='#sponsors'>Sponsors</HashLink>
+                        <HashLink smooth className="text-white p-6" to='#sponsors'>Sponsors</HashLink>
                     </NavbarItem>
                     <NavbarItem>
                         <HashLink smooth className="text-white p-6" to='/events'>Events</HashLink>
