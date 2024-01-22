@@ -3,15 +3,14 @@ import axios from 'axios'
 import React, { useEffect, useState } from 'react'
 import { MdCloudUpload } from 'react-icons/md'
 import { useNavigate } from 'react-router-dom'
-import QRimg from '../images/QRimg.png'
+import QRimg from '../images/QRimg.jpeg'
 import icon from '../images/Vector.svg'
 import formbg from '../images/reg-form-bg.svg'
 import { ReactComponent as Timeline } from '../images/timeline form.svg'
-import { ToastContainer, toast } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
+import { ToastContainer, toast } from 'react-toastify'
+import 'react-toastify/dist/ReactToastify.css'
 
 export default function RegisterForm() {
-
   const styles = {
     backgroundImage: `url(${formbg})`,
     backgroundSize: 'cover',
@@ -22,43 +21,45 @@ export default function RegisterForm() {
 
   const notify = () => {
     toast.success('Successfully Registered, Login again to continue', {
-      position: "top-right",
+      position: 'top-right',
       autoClose: 2500,
       hideProgressBar: false,
       closeOnClick: true,
       pauseOnHover: true,
       draggable: true,
       progress: undefined,
-      theme: "colored"
-    });
+      theme: 'colored',
+    })
   }
 
   const alreadyRegistered = () => {
-    toast.success("Already Registered!", {
-      position: "top-right",
+    toast.success('Already Registered!', {
+      position: 'top-right',
       autoClose: 2000,
       hideProgressBar: false,
       closeOnClick: true,
       pauseOnHover: true,
       draggable: true,
       progress: undefined,
-      theme: "light"
-    });
+      theme: 'light',
+    })
   }
 
-  const [googleData, setGoogleData] = useState({});
- // const [userData, setUserData] = useState({});
+  const [googleData, setGoogleData] = useState({})
+  // const [userData, setUserData] = useState({});
 
   // console.log("response googleData", googleData)
-  const navigate = useNavigate();
+  const navigate = useNavigate()
 
   const logout = () => {
-    window.open("http://localhost:6005/logout", "_self")
+    window.open('http://localhost:6005/logout', '_self')
   }
 
   const getGoogleData = async () => {
     try {
-      const response = await axios.get("/login/success", { withCredentials: true });
+      const response = await axios.get('/login/success', {
+        withCredentials: true,
+      })
       //console.log("response axios", response)
       setGoogleData(response.data.user)
       setFormData({ email: response.data.user.email })
@@ -69,13 +70,12 @@ export default function RegisterForm() {
       if (response.data.user.registered === true) {
         alreadyRegistered()
         setTimeout(() => {
-          navigate("/")
-        }, 2000);
+          navigate('/')
+        }, 2000)
       }
-
     } catch (error) {
-      console.log("axios error: ", error)
-      navigate("/*")
+      console.log('axios error: ', error)
+      navigate('/*')
     }
   }
 
@@ -88,7 +88,6 @@ export default function RegisterForm() {
   }, [googleData])
 
   const [formData, setFormData] = useState({
-
     email: 'null',
     name: 'null',
     phoneNo: 0,
@@ -98,100 +97,100 @@ export default function RegisterForm() {
     upiID: 'null',
     txnID: 'null',
     workshops: [],
-  });
+  })
 
-  const [image, setImage] = useState("")
+  const [image, setImage] = useState('')
 
   const handleChange = (e) => {
     setFormData({
       ...formData,
       [e.target.name]: e.target.value,
-    });
-  };
+    })
+  }
 
   const handleSubmit = async (e) => {
-    e.preventDefault();
+    e.preventDefault()
     if (!formData.screenshot) {
-      return;
+      return
     }
     // console.log(formData);
 
     try {
-      await registerUser();
+      await registerUser()
       try {
         const response = await fetch(`/update-google-data/${googleData._id}`, {
           method: 'PATCH',
           body: JSON.stringify({ registered: true }),
           headers: {
-            'Content-Type': 'application/json'
-          }
-        });
+            'Content-Type': 'application/json',
+          },
+        })
 
-        const json = await response.json();
+        const json = await response.json()
         //console.log("Response JSON: ", json);
       } catch (error) {
-        console.error("Error updating data:", error.message);
+        console.error('Error updating data:', error.message)
       }
-
     } catch (error) {
-      console.log("Error during form submission: ", error);
-      navigate("/*");
+      console.log('Error during form submission: ', error)
+      navigate('/*')
     }
     notify()
-      setTimeout(() => {
-        logout()
-      }, 5000);
-  };
+    setTimeout(() => {
+      logout()
+    }, 5000)
+  }
 
   useEffect(() => {
     uploadScreenshot()
-
   }, [image])
-
 
   const uploadScreenshot = async () => {
     // e.preventDefault()
-    if (!image) return;
+    if (!image) return
 
-    const uploadbg = document.getElementById('upload-box');
+    const uploadbg = document.getElementById('upload-box')
     if (uploadbg) {
-      uploadbg.innerHTML = "<div className='uploaded-image' style='display: flex; justify-content: center; align-items: center; color: white; font-size: 1.5rem;'>Uploading...</div>";
+      uploadbg.innerHTML =
+        "<div className='uploaded-image' style='display: flex; justify-content: center; align-items: center; color: white; font-size: 1.5rem;'>Uploading...</div>"
     }
 
-    const data = new FormData();
-    data.append("file", image);
-    data.append("upload_preset", "Aurora");
-    data.append("cloud_name", "days7d2mj");
+    const data = new FormData()
+    data.append('file', image)
+    data.append('upload_preset', 'Aurora')
+    data.append('cloud_name', 'days7d2mj')
 
     try {
-      const response = await fetch("https://api.cloudinary.com/v1_1/days7d2mj/image/upload", {
-        method: "POST",
-        body: data,
-      });
+      const response = await fetch(
+        'https://api.cloudinary.com/v1_1/days7d2mj/image/upload',
+        {
+          method: 'POST',
+          body: data,
+        }
+      )
 
       if (!response.ok) {
-        throw new Error('Failed to upload image');
+        throw new Error('Failed to upload image')
       }
 
-      const result = await response.json();
+      const result = await response.json()
       //console.log(result);
 
       // Update the screenshot field in the form data
-      setFormData({ ...formData, screenshot: result.secure_url });
+      setFormData({ ...formData, screenshot: result.secure_url })
     } catch (error) {
-      console.error('Error uploading image:', error);
-      throw error; // Propagate the error to the calling function
+      console.error('Error uploading image:', error)
+      throw error // Propagate the error to the calling function
     }
-  };
+  }
 
   useEffect(() => {
-    const uploadbg = document.getElementById('upload-box');
+    const uploadbg = document.getElementById('upload-box')
     if (uploadbg && formData.screenshot) {
-      uploadbg.innerText = 'Uploaded';
-      uploadbg.innerHTML = `<div className='uploaded-image' style='display: flex; justify-content: center; align-items: center; color: white; font-size: 1.5rem;'><img src=${formData.screenshot} alt="hduh"="df" /></div>`;
+      uploadbg.innerText = 'Uploaded'
+      uploadbg.innerHTML = `<div className='uploaded-image' style='display: flex; justify-content: center; align-items: center; color: white; font-size: 1.5rem;'><img src=${formData.screenshot} alt="hduh"="df" /></div>`
     }
   }, [formData.screenshot])
-
 
   // Define the asynchronous function
   const registerUser = async () => {
@@ -200,19 +199,17 @@ export default function RegisterForm() {
         method: 'POST',
         body: JSON.stringify(formData),
         headers: {
-          'Content-Type': 'application/json'
-        }
-      });
+          'Content-Type': 'application/json',
+        },
+      })
 
-      const json = await response.json();
+      const json = await response.json()
       //console.log("Response JSON: ", json);
     } catch (error) {
-      console.error("Error updating data:", error);
+      console.error('Error updating data:', error)
       // Handle the error as needed
     }
-  };
-
-
+  }
 
   return (
     <div
@@ -272,7 +269,8 @@ export default function RegisterForm() {
                 label="Name"
                 name="name"
                 id="name"
-                style={{ color: "white" }} />
+                style={{ color: 'white' }}
+              />
             </div>
 
             <div
@@ -287,7 +285,8 @@ export default function RegisterForm() {
                 label="Registration Number"
                 name="regNo"
                 id="regNo"
-                style={{ color: "white" }} />
+                style={{ color: 'white' }}
+              />
             </div>
 
             <div
@@ -302,7 +301,8 @@ export default function RegisterForm() {
                 label="Phone Number"
                 name="phoneNo"
                 id="phoneNo"
-                style={{ color: "white" }} />
+                style={{ color: 'white' }}
+              />
             </div>
 
             <div
@@ -317,7 +317,8 @@ export default function RegisterForm() {
                 label="Learner ID"
                 name="learnerid"
                 id="learnerid"
-                style={{ color: "white" }} />
+                style={{ color: 'white' }}
+              />
             </div>
 
             <div
@@ -332,7 +333,8 @@ export default function RegisterForm() {
                 label="Year of Study"
                 name="year"
                 id="year"
-                style={{ color: "white" }} />
+                style={{ color: 'white' }}
+              />
             </div>
 
             <div
@@ -347,7 +349,8 @@ export default function RegisterForm() {
                 label="Branch"
                 name="branch"
                 id="branch"
-                style={{ color: "white" }} />
+                style={{ color: 'white' }}
+              />
             </div>
 
             <div
@@ -362,7 +365,8 @@ export default function RegisterForm() {
                 label="UPI ID"
                 name="upiID"
                 id="upiID"
-                style={{ color: "white" }} />
+                style={{ color: 'white' }}
+              />
             </div>
 
             <div
@@ -377,9 +381,9 @@ export default function RegisterForm() {
                 label="Transaction ID"
                 name="txnID"
                 id="txnID"
-                style={{ color: "white" }} />
+                style={{ color: 'white' }}
+              />
             </div>
-
           </div>
 
           <div className="grid lg:grid-cols-2 sm:grid-cols-1 grid-rows-3 pl-10 h-60 pt-14">
@@ -413,9 +417,14 @@ export default function RegisterForm() {
                 accept="image/*"
                 className="input-field"
                 hidden
-                onChange={(e) => { setImage(e.target.files[0]) }}
+                onChange={(e) => {
+                  setImage(e.target.files[0])
+                }}
               />
-              <div id='upload-box' className="lg:w-60 w-32 h-28 lg:h-60 border-dashed border-2 border-radius:1rem mt-5 flex align-middle justify-center">
+              <div
+                id="upload-box"
+                className="lg:w-60 w-32 h-28 lg:h-60 border-dashed border-2 border-radius:1rem mt-5 flex align-middle justify-center"
+              >
                 <MdCloudUpload
                   color="#ffffff"
                   size={10}
@@ -426,7 +435,10 @@ export default function RegisterForm() {
           </div>
 
           <div className=" h-80 pt-48 lg:pt-60 submit-btn">
-            <button type='submit' className="w-24 h-12 rounded-xl border-2 border-blue-600  items-center gap-3 ml-12 inline-flex ">
+            <button
+              type="submit"
+              className="w-24 h-12 rounded-xl border-2 border-blue-600  items-center gap-3 ml-12 inline-flex "
+            >
               <div className="text-blue-600 text-base font-medium font-['Inter'] leading-normal pl-5">
                 Register
               </div>
@@ -461,7 +473,6 @@ export default function RegisterForm() {
         theme="light"
       />
       <ToastContainer />
-
     </div>
   )
 }
