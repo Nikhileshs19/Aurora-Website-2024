@@ -5,7 +5,7 @@ import axios from "axios";
 const AllUsers = () => {
   const navigate = useNavigate();
 
-  const admins = ["2shashank11@gmail.com", "istemanipalboard@gmail.com", "aditi26shr@gmail.com", "prateekanand.work@gmail.com"]
+  const admins = ["2shashank11@gmail.com", "istemanipalboard@gmail.com", "aditi26shr@gmail.com", "prateekanand.work@gmail.com", "tanishakar1906@gmail.com"]
   const getGoogleData = async () => {
     try {
       const response = await axios.get("/login/success", { withCredentials: true });

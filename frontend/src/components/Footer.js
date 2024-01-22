@@ -9,7 +9,7 @@ export default function Footer() {
 
   const [googleUserData, setGoogleUserData] = useState({});
 
-  const admins = ["2shashank11@gmail.com", "istemanipalboard@gmail.com", "aditi26shr@gmail.com", "prateekanand.work@gmail.com"]
+  const admins = ["2shashank11@gmail.com", "istemanipalboard@gmail.com", "aditi26shr@gmail.com", "prateekanand.work@gmail.com", "tanishakar1906@gmail.com"]
 
     const getGoogleData = async () => {
         try {
