@@ -1,11 +1,12 @@
-import { Link } from "react-router-dom";
+import axios from "axios";
+import React, { useEffect, useState } from 'react';
+import { Link, useNavigate } from "react-router-dom";
 import facebook from "../images/facebook.svg";
 import instagram from "../images/instagram.svg";
 import linkedin from "../images/linkedin.svg";
-import axios from "axios";
-import React, { useEffect, useState } from 'react';
 
 export default function Footer() {
+  const navigate = useNavigate()
 
   const [googleUserData, setGoogleUserData] = useState({});
 
@@ -26,14 +27,18 @@ export default function Footer() {
       getGoogleData()
   }, [])
 
+  const goTeam = () =>{
+    navigate('/developers')
+  }
+
   return (
     <div className="bg-footer-texture bg-transparent h-screen bg-blend-darken bg-fixed bg-cover bg-bottom">
       <div>
         <div className="lg:pt-[20rem] pt-96">
           <div className="text-center text-xl text-blue-600">
-            <Link to="/developers" className="text-white">
-              Click to meet the Team!!!
-            </Link>
+            <button className="text-default-300 bg-blue-700 hover:bg-blue-400 p-5 rounded-2xl ">
+              <a href="/developers">Click to meet the Team!!!</a>
+            </button>
           </div>
           <div className="text-center text-xl text-blue-600">
                 {(admins.includes(googleUserData.email)) ?

@@ -1,16 +1,18 @@
 import { Card, CardBody, CardHeader, Image } from "@nextui-org/react";
 import React, { useEffect, useRef, useState } from "react";
+
 import W_iste2 from "../../images/AppDev.svg";
 import W_gdsc from "../../images/ChatBot.svg";
 import W_mist from "../../images/Cybersec.svg";
+import hackathon from "../../images/Hacathon.svg";
 import W_ieee from "../../images/W-ieee.svg";
 import W_iemech from "../../images/W-iemech.svg";
 import W_iste1 from "../../images/W-iste1.svg";
 import W_acm from "../../images/W_acm.svg";
 import W_astronomy from "../../images/W_astronomy.svg";
 import W_dronaid from "../../images/W_dronaid.svg";
-import hackathon from "../../images/Hacathon.svg";
 import ctf from "../../images/CTF.svg";
+
 import TitleStuff from "../Title_Stuff";
 import "./styles.css";
 

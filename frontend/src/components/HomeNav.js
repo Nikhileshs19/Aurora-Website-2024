@@ -5,7 +5,7 @@ import logo from '../images/Mask group.svg'
 export default function HomeNav() {
     return (
         <div>
-            <nav className="flex justify-between lg:w-[70rem] mx-auto pt-7 px-10">
+            <nav className="flex justify-between lg:w-[90rem] mx-auto pt-7 lg:px-0 px-6">
                 <div className="justify-start">
                     <img src={logo} alt="h" />
                 </div>
