@@ -69,7 +69,7 @@ function HackathonForm() {
         },
       })
 
-      const json = await response.json()
+      //const json = await response.json()
       //console.log("Response update post JSON: ", json);
     } catch (error) {
       console.error('Error updating data:', error)

@@ -36,7 +36,7 @@ const allEvents = [
   ["TS2_E1_MIST", "MIST"],
   ["TS2_E2_ISTE1", "ISTE"],
   ["TS3_E1_GDSC", "GDSC"],
-  ["TS3_E2_ISTE2", "ISTE2"],
+  ["TS3_E2_ISTE2", "ISTE"],
   ["TS4_E1_IEMECH", "IE MECH"],
   ["TS4_E2_IEEE", "IEEE"],
   ["TS5_E1_ASTRONOMY", "ASTRONOMY"],

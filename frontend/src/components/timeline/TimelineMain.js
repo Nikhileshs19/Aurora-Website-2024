@@ -20,7 +20,7 @@ const TimelineMain = () => {
   const [scrollPercentageMobile, setScrollPercentageMobile] = useState(0);
 
   const [timelineHeight, setTimelineHeight] = useState(0);
-  console.log(timelineHeight);
+  //console.log(timelineHeight);
   const [windowSize, setWindowSize] = useState([
     window.innerWidth, //0
     window.innerHeight, //1
@@ -70,7 +70,7 @@ const TimelineMain = () => {
           ((window.scrollY - startScrollPosition) / maxTimelineHeight) * 100
         )
       );
-      console.log(newScrollPercentage);
+      //console.log(newScrollPercentage);
 
       setScrollPercentage(newScrollPercentage);
 
@@ -128,10 +128,10 @@ const TimelineMain = () => {
           144,
           ((window.scrollY - startScrollPositionMobile) /
             maxTimelineHeightMobile) *
-            200
+          200
         )
       );
-      console.log(newScrollPercentageMobile);
+      //console.log(newScrollPercentageMobile);
 
       setScrollPercentageMobile(newScrollPercentageMobile);
 

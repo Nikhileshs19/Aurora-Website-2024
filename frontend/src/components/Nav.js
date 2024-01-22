@@ -9,8 +9,6 @@ import trophy from '../images/trophycup.svg';
 
 export default function Nav() {
 
-    const admins = ["2shashank11@gmail.com"]
-
     const [isMenuOpen, setIsMenuOpen] = React.useState(false);
 
     const loginwithgoogle = () => {

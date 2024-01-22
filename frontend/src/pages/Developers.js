@@ -107,7 +107,7 @@ const Nikhilesh = {
   designation: 'Frontend Developer',
 }
 
-const Juniors = [Aarya, Aman, Kshitij, Nikhilesh, Kiri, Roop, Shash, Souvik]
+const Juniors = [Aarya, Kiri, Roop, Nikhilesh, Shash, Kshitij, Souvik, Aman]
 const Seniors = [Aryan, Aditi, Harry]
 
 function JuniorCard({ member }) {
@@ -126,12 +126,12 @@ function JuniorCard({ member }) {
           <h1 className="text-center text-xl px-4"> {member.designation} </h1>
         </div>
         <div className="flex flex-row justify-center">
-          <a href={member.linkedin} target="_blank">
+          <a href={member.linkedin} target="_blank" rel="noreferrer">
             <button className="p-2">
               <img src={linkedin} alt="h" />
             </button>
           </a>
-          <a href={member.git_link} target="_blank">
+          <a href={member.git_link} target="_blank" rel="noreferrer">
             <button className="p-2">
               <img src={gitlogo} alt="hd" />
             </button>
@@ -158,12 +158,12 @@ function SeniorCard({ member }) {
           <h1 className="text-center text-xl px-4"> {member.designation} </h1>
         </div>
         <div className="flex flex-row justify-center">
-          <a href={member.linkedin} target="_blank">
+          <a href={member.linkedin} target="_blank" rel="noreferrer">
             <button className="p-2">
               <img src={linkedin} alt="hd" />
             </button>
           </a>
-          <a href={member.git_link} target="_blank">
+          <a href={member.git_link} target="_blank" rel="noreferrer">
             <button className="p-2">
               <img src={gitlogo} alt="hd" />
             </button>

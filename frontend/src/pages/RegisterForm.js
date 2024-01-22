@@ -127,7 +127,7 @@ export default function RegisterForm() {
           },
         })
 
-        const json = await response.json()
+        // const json = await response.json()
         //console.log("Response JSON: ", json);
       } catch (error) {
         console.error('Error updating data:', error.message)
