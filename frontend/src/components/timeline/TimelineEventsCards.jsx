@@ -7,25 +7,25 @@ import workshopsevents from "../../images/workshopsevents.svg";
 
 
 import gr from "../../images/Group.svg";
-import hecker from "../../images/Hacker-cuate-2 1.svg";
+import hecker from "../../images/Hacker-cuate-2 1.png";
 import calen from "../../images/calendar.svg";
 import clock from "../../images/clock.svg";
 import P1 from "../../images/ctf1st.svg";
 import P2 from "../../images/ctf2nd.svg";
 import P3 from "../../images/ctf3rd.svg";
-import ctfevents from "../../images/ctfevents.svg";
+import ctfevents from "../../images/ctfevents.png";
 import laptop from "../../images/laptop.svg";
-import submitchoices from '../../images/submitchoices.svg';
+import submitchoices from '../../images/submitchoices.png';
 
-import W_iste2 from "../../images/AppDev.svg";
-import W_gdsc from "../../images/ChatBot.svg";
-import W_mist from "../../images/Cybersec.svg";
+import W_iste2 from "../../images/AppDev.png";
+import W_gdsc from "../../images/ChatBot.png";
+import W_mist from "../../images/Cybersec.png";
 import W_ieee from "../../images/W-ieee.svg";
 import W_iemech from "../../images/W-iemech.svg";
 import W_iste1 from "../../images/W-iste1.svg";
-import W_acm from "../../images/W_acm.svg";
-import W_astronomy from "../../images/W_astronomy.svg";
-import W_dronaid from "../../images/W_dronaid.svg";
+import W_acm from "../../images/W_acm.png";
+import W_astronomy from "../../images/W_astronomy.png";
+import W_dronaid from "../../images/W_dronaid.png";
 
 //
 import "./CheckBoxStyles.css";
@@ -435,7 +435,7 @@ export default function TimelineEventsCards() {
                         <span className="pt-1 pl-10 [font-family:'Inter-Medium',Helvetica] font-semibold lg:text-lg text-[0.8rem]"> Time: 12:30 PM</span>
                       </div>
                       <div className="pt-6 pl-10 flex flex-row">
-                        <img src={laptop} alt=""gesags className="lg:w-fit w-[1rem]"></img>
+                        <img src={laptop} alt="gesags" className="lg:w-fit w-[1rem]"></img>
                         <span className="pt-2 pl-10 [font-family:'Inter-Medium',Helvetica] font-semibold lg:text-lg text-[0.8rem]"> Mode: Online</span>
                       </div>
                     </div>

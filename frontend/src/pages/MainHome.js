@@ -2,6 +2,7 @@
 import React from "react";
 // import Navbar from '../components/Navbar.js'
 import About from "../components/About.js";
+import EventsBox from "../components/EventsBox.js";
 import Footer from "../components/Footer.js";
 import Gallery from "../components/Gallery.js";
 import Nav from "../components/Nav.js";
@@ -32,6 +33,8 @@ const MainHome = () => {
       <Gallery />
 
       <TimelineMain />
+
+      <EventsBox/>
 
       <Sponsors />
 

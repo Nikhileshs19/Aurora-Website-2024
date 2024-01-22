@@ -295,7 +295,7 @@ const TimelineMain = () => {
                   }}
                 >
                   <div data-aos="flip-right">
-                    <Card className="py-4 lg:w-[20rem] w-[14rem] custom-timeline-card bg-black text-white opacity-80">
+                    <Card className="py-4 lg:w-[20rem] w-[14rem] custom-timeline-card bg-black text-white opacity-80" id="shadowcard">
                       <CardHeader className="pb-0 pt-2 px-4 flex-col items-start">
                         <p className="text-tiny uppercase font-bold p-1">
                           {times[index]}
@@ -390,7 +390,7 @@ const TimelineMain = () => {
                   }}
                 >
                   <div data-aos="flip-right">
-                    <Card className="py-4 lg:w-[20rem] w-[14rem] custom-timeline-card  bg-black text-white opacity-80">
+                    <Card className="py-4 lg:w-[20rem] w-[14rem] custom-timeline-card  bg-black text-white opacity-80" id="shadowcard">
                       <CardHeader className="pb-0 pt-2 px-4 flex-col items-start">
                         <p className="text-tiny uppercase font-bold">
                           {times[index]}

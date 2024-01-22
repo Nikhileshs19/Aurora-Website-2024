@@ -111,10 +111,10 @@ const Carousel = () => {
           </svg>
         </div>
     {images.map((image, index) => (
-      <SwiperSlide key={index} className="w-full h-fit">
+      <SwiperSlide key={index} className="w-full h-fit rounded-[15rem]">
         <img 
           src={image} 
-          className={`w-full h-full flex justify-center items-center object-cover`}
+          className={`w-full h-full flex justify-center items-center object-cover rounded-[15rem]`}
           alt={`Slide ${index}`}
         />
       </SwiperSlide>

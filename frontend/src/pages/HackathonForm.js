@@ -1,7 +1,8 @@
-import { Input } from '@nextui-org/react'
+import { Button, Input } from '@nextui-org/react'
 import React, { useEffect, useState } from 'react'
 import { MdCloudUpload } from 'react-icons/md'
 import { useNavigate } from 'react-router-dom'
+import { HashLink } from 'react-router-hash-link'
 import { ToastContainer, toast } from 'react-toastify'
 import 'react-toastify/dist/ReactToastify.css'
 import HomeNav from '../components/HomeNav'
@@ -10,6 +11,7 @@ import calen from '../images/calendar.svg'
 import clock from '../images/clock.svg'
 import loc from '../images/loc.svg'
 import tsize from '../images/teamsize.svg'
+import trophycup from '../images/whitetrophy.svg'
 
 function HackathonForm() {
   const navigate = useNavigate()
@@ -134,14 +136,16 @@ function HackathonForm() {
 
   return (
     <div>
-      <HomeNav/>
+      <div className='bg-black pb-4'>
+        <HomeNav />
+      </div>
       <div
         className="lg:grid grid-cols-2 bg-[#000F21] text-white"
         style={{ overflowY: 'auto', overflowX: 'hidden' }}
       >
         <div
           id="hackathonleft"
-          className="row-span-5 bg-form-bg bg-center bg-cover lg:h-full h-[45rem] rounded-r-3xl block w-full bg-black text-white flex-col align-middle border-white border-opacity-10"
+          className="row-span-5 bg-form-bg bg-bottom bg-cover lg:h-full h-[45rem] block w-full bg-black text-white flex-col align-middle border-white border-opacity-10"
         >
           <div>
             <h1 className="text-center text-white md:text-5xl text-3xl font-bold [font-family:'Inter-Bold',Helvetica] uppercase p-6 pt-24">
@@ -149,12 +153,22 @@ function HackathonForm() {
             </h1>
           </div>
           <div className="justify-center flex">
-            <p className="flex align-middle justify-center w-5/6 pt-8 pb-24 [font-family:'Inter-Medium',Helvetica] font-medium text-white md:text-[25px] text-[16px] text-center tracking-[0] leading-7]">
+            <p className="flex align-middle justify-center w-5/6 pt-8 pb-14 [font-family:'Inter-Medium',Helvetica] font-medium text-white md:text-[25px] text-[16px] text-center tracking-[0] leading-7]">
               Experience the ultimate creative challenge with Hackathon! Join a
               golbal community of problem solvers, thinkers, and creators as you
               put your curiosity and creativity to the test. Hackathon is your
               platform to tackle real-life problems head-on.
             </p>
+          </div>
+          <div className='justify-center flex pb-10 lg:hidden'>
+            <Button color="primary" size="md" variant="shadow"
+              className="lg:w-[15rem] m-1"
+            >
+              <HashLink className='flex gap-4' smooth to='#formhackathon'>
+                <img src={trophycup} alt="" />
+                Fill the Form
+              </HashLink>
+            </Button>
           </div>
           <div className="w-[427px] h-[135px] left-[70px] top-[366px] flex-col lg:text-[20px] md:text-lg">
             <div className="pl-10 flex flex-row">
@@ -187,7 +201,7 @@ function HackathonForm() {
             </div>
           </div>
         </div>
-        <div className="grid-rows-5 grid-cols-2 bg-[#000F21]">
+        <div className="grid-rows-5 grid-cols-2 bg-[#000F21]" id='formhackathon'>
           <form action="" className="" onSubmit={handleSubmit}>
             <div className="grid col-span-2 grid-rows-2 pl-10 pt-20">
               <div className="text-[40px] font-normal font-['Inter'] leading-normal text-blue-500 p">
