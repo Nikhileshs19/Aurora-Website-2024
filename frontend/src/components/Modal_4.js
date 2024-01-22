@@ -89,7 +89,7 @@ const Modal_4 = ({ toggleModal, index }) => {
                   Prerequisites
                 </h2>
                 <p className="text-black text-base mx-3 font-sans">
-                  Lorem ipsum is placeholder text commonly used in the graphic,
+                  Details will be shared to the participants.
                 </p>
               </div>
               <div className="my-4 text-lg mx-1 font-sans">
