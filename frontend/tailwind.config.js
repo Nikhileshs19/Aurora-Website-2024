@@ -11,8 +11,8 @@ module.exports = {
         global: ['Raleway']
       },
       backgroundImage: {
-        'form-bg': "url('/src/images/reg-form-bg.svg')",
-        'footer-texture': "url('/src/images/bgfooter.svg')",
+        'form-bg': "url('/src/images/reg-form-bg.png')",
+        'footer-texture': "url('/src/images/bgfooter.png')",
         'aurora-bg': "url('/src/images/Rectangle.svg')",
         'dev-bg': "url('/src/images/graphy-dark.png')",
     },

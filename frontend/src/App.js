@@ -3,6 +3,7 @@ import {
   RouterProvider,
 } from "react-router-dom";
 import './App.css';
+import { useEffect } from "react";
 
 import Events from './components/Events';
 import AllHackathonRegistrations from "./pages/AllHackathonRegistrations";
@@ -15,7 +16,9 @@ import HackathonPage from './pages/HackathonPage';
 import MainHome from './pages/MainHome';
 import RegisterForm from './pages/RegisterForm';
 
+
 function App() {
+ 
   const router = createBrowserRouter([
     {
       path: "/",
@@ -53,17 +56,17 @@ function App() {
       element: <Developers />
     },
     {
-      path: "/get-all-users",
+      path: "/users",
       element: <AllUsers/>,
       // errorElement: <ErrorPage />,
     },
     {
-      path: "/get-all-hackathon-registrations",
+      path: "/hackathon-registrations",
       element: <AllHackathonRegistrations/>,
       // errorElement: <ErrorPage />,
     },
     {
-      path: "/get-all-workshops-registrations",
+      path: "/workshops-registrations",
       element: <AllWorkshopsRegistrations/>,
       // errorElement: <ErrorPage />,
     },

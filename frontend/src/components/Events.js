@@ -14,7 +14,7 @@ export default function Events() {
     {/* <div className="h-20"></div> */}
 
 
-      <img src={events} alt="fdbdzb" className='mx-auto'/>
+      <img src={events} alt="fdbdzb" className='mx-auto py-10 px-20'/>
 
 
       <TimelineEvents/>

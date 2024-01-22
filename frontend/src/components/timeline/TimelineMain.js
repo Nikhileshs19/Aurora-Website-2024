@@ -1,26 +1,30 @@
 import { Card, CardBody, CardHeader, Image } from "@nextui-org/react";
 import React, { useEffect, useRef, useState } from "react";
-import W_iste2 from "../../images/AppDev (1).svg";
-import W_gdsc from "../../images/ChatBot (1).svg";
-import W_mist from "../../images/Cybersec (1).svg";
+
+import W_iste2 from "../../images/AppDev.svg";
+import W_gdsc from "../../images/ChatBot.svg";
+import W_mist from "../../images/Cybersec.svg";
+import hackathon from "../../images/Hacathon.svg";
 import W_ieee from "../../images/W-ieee.svg";
 import W_iemech from "../../images/W-iemech.svg";
 import W_iste1 from "../../images/W-iste1.svg";
 import W_acm from "../../images/W_acm.svg";
 import W_astronomy from "../../images/W_astronomy.svg";
 import W_dronaid from "../../images/W_dronaid.svg";
-import hackathon from "../../images/Hacathon.svg";
-import ctf from "../../images/CTF (1).svg";
+import ctf from "../../images/CTF.svg";
+
 import TitleStuff from "../Title_Stuff";
 import "./styles.css";
 
+
 const TimelineMain = () => {
+
   //desktop
   const [scrollPercentage, setScrollPercentage] = useState(0);
   const [scrollPercentageMobile, setScrollPercentageMobile] = useState(0);
 
   const [timelineHeight, setTimelineHeight] = useState(0);
-  console.log(timelineHeight);
+  // console.log(timelineHeight);
   const [windowSize, setWindowSize] = useState([
     window.innerWidth, //0
     window.innerHeight, //1
@@ -70,7 +74,7 @@ const TimelineMain = () => {
           ((window.scrollY - startScrollPosition) / maxTimelineHeight) * 100
         )
       );
-      console.log(newScrollPercentage);
+      //console.log(newScrollPercentage);
 
       setScrollPercentage(newScrollPercentage);
 
@@ -131,7 +135,7 @@ const TimelineMain = () => {
             200
         )
       );
-      console.log(newScrollPercentageMobile);
+      //console.log(newScrollPercentageMobile);
 
       setScrollPercentageMobile(newScrollPercentageMobile);
 
@@ -310,6 +314,7 @@ const TimelineMain = () => {
                       <div className="w-16 mt-6"></div>
                     </CardBody>
                   </Card>
+             
                 </div>
               ))}
             </div>

@@ -5,9 +5,9 @@ const Error = () => {
   const navigate = useNavigate();
   return (
     <>
-      <div style={{textAlign:"center"}}>
-        <h1>Error</h1>
-        <button style={{cursor:"pointer"}} onClick={()=>navigate("/")}>Back To Home</button>
+      <div  className='flex align-center justify-center flex-col gap-10 flex-auto text-white text-4xl' style={{ textAlign: 'center', width: '100vw', height: '100vh', backgroundImage: "url('../images/bgfooter.svg')"}}>
+      <div><h1 className=''>Error</h1></div> 
+        <div><button className='text-white text-4xl' style={{cursor:"pointer"}} onClick={()=>navigate("/")}>Back To Home</button></div>
       </div>
     </>
   )

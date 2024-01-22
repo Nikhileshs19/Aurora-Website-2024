@@ -62,12 +62,12 @@ const Carousel = () => {
 
   const images = [P1, P2, P3, P4, P5, P1, P2, P3, P4, P5];
   return(
-  <div className="w-full overflow-hidden pt-10">
+  <div className="w-full overflow-hidden pt-10 lg:h-[30rem]">
   {/* <h1 className=" p-6 h-[109px] text-center [text-shadow:0px_4px_25.1px_#ffffff80] [font-family:'Inter-Bold',Helvetica] font-bold text-white text-3xl md:text-[69.9px] md:tracking-[6.99px] tracking-normal leading-[108.8px] md:leading-8 whitespace-nowrap">
           &lt;/Partners&gt;
         </h1> */}
     <Swiper
-      className='mySwiper p-6'
+      className='mySwiper p-16'
       modules={[Navigation, Autoplay]}
       grabCursor={true}
       centeredSlides={true}
