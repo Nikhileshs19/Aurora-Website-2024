@@ -107,7 +107,7 @@ const Nikhilesh = {
   designation: 'Frontend Developer',
 }
 
-const Juniors = [Aarya, Aman, Kiri, Kshitij, Nikhilesh, Roop, Shash, Souvik]
+const Juniors = [Aarya, Aman, Kshitij, Nikhilesh, Kiri, Roop, Shash, Souvik]
 const Seniors = [Aryan, Aditi, Harry]
 
 function JuniorCard({ member }) {
