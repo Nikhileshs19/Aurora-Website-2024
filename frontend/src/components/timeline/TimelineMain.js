@@ -258,7 +258,7 @@ const TimelineMain = () => {
               style={{
                 marginLeft: "50%",
                 marginTop: "200px", // Set the left margin for the vertical line
-                backgroundImage: `repeating-linear-gradient(transparent, transparent 10px, #000A29 10px, #000A29 20px)`, // Vertical dashed line background
+                backgroundImage: `repeating-linear-gradient(transparent, transparent 10px, white 10px, white 20px)`, // Vertical dashed line background
               }}
             ></div>
             <div

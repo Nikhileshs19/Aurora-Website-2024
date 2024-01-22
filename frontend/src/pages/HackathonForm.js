@@ -683,7 +683,7 @@ function HackathonForm() {
                 <img
                   src={QRimg}
                   alt="Description of the image"
-                  className="rounded-lg shadow-lg pr-5 lg:max-w-full h-auto"
+                  className="rounded-lg shadow-lg pr-5 max-w-full lg:h-60 h-28"
                 />
               </div>
               <form
