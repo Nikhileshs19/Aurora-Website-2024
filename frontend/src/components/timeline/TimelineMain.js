@@ -271,16 +271,13 @@ const TimelineMain = () => {
                   }}
                 >
                   <div data-aos="flip-right">
-                    <Card
-                      className="py-4 lg:w-[20rem] w-[14rem] custom-timeline-card bg-black text-white opacity-80"
-                      id="shadowcard"
-                    >
+                    <Card className="py-4 lg:w-[20rem] w-[14rem] custom-timeline-card bg-black text-white ">
                       <CardHeader className="pb-0 pt-2 px-4 flex-col items-start">
                         <p className="text-small uppercase font-bold p-1 font-sans">
                           {times[index]}
                         </p>
 
-                        <h7 className="font-black text-large p-1 font-sans">
+                        <h7 className="font-black text-2xl p-1 font-sans heading">
                           {titles}
                         </h7>
                         <p className="text-tiny uppercase font-medium p-1 font-sans">
@@ -356,16 +353,13 @@ const TimelineMain = () => {
                   }}
                 >
                   <div data-aos="flip-right">
-                    <Card
-                      className="py-4 lg:w-[20rem] w-[14rem] custom-timeline-card bg-black text-white opacity-80"
-                      id="shadowcard"
-                    >
+                    <Card className="py-4 lg:w-[20rem] w-[14rem] custom-timeline-card bg-black text-white opacity-80">
                       <CardHeader className="pb-0 pt-2 px-4 flex-col items-start">
                         <p className="text-small uppercase font-bold p-1 font-sans">
                           {times[index]}
                         </p>
 
-                        <h7 className="font-black text-large p-1 font-sans">
+                        <h7 className="font-black text-large p-1 font-sans heading">
                           {titles}
                         </h7>
                         <p className="text-tiny uppercase font-medium p-1 font-sans">
