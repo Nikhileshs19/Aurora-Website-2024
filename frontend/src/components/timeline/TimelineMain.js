@@ -218,10 +218,9 @@ const TimelineMain = () => {
     "Conducted By: ISTE Manipal",
   ];
   return (
-    <div className="">
+    <div className="" id="timeline">
       {/* desktop timeline  */}
       <div
-        id="timeline"
         className={windowSize[0] > 760 ? "bg-transparent" : "hidden"}
       >
         <TitleStuff name="timeline" className="relative top-[10rem]" />
@@ -271,7 +270,7 @@ const TimelineMain = () => {
                   }}
                 >
                   <div data-aos="flip-right">
-                    <Card className="py-4 lg:w-[20rem] w-[14rem] custom-timeline-card bg-black text-white ">
+                    <Card className="py-4 lg:w-[20rem] w-[14rem] custom-timeline-card bg-black text-white hover:scale-105" id="shadowcard">
                       <CardHeader className="pb-0 pt-2 px-4 flex-col items-start">
                         <p className="text-small uppercase font-bold p-1 font-sans">
                           {times[index]}
@@ -353,7 +352,8 @@ const TimelineMain = () => {
                   }}
                 >
                   <div data-aos="flip-right">
-                    <Card className="py-4 lg:w-[20rem] w-[14rem] custom-timeline-card bg-black text-white opacity-80">
+
+                    <Card className="py-4 lg:w-[20rem] w-[14rem] custom-timeline-card  bg-black text-white hover:scale-105" id="shadowcard">
                       <CardHeader className="pb-0 pt-2 px-4 flex-col items-start">
                         <p className="text-small uppercase font-bold p-1 font-sans">
                           {times[index]}
