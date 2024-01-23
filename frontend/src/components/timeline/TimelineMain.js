@@ -20,13 +20,12 @@ const TimelineMain = () => {
   const [scrollPercentageMobile, setScrollPercentageMobile] = useState(0);
 
   const [timelineHeight, setTimelineHeight] = useState(0);
-  //console.log(timelineHeight);
+
   const [windowSize, setWindowSize] = useState([
     window.innerWidth, //0
     window.innerHeight, //1
   ]);
-  const circleRef = useRef(null);
-  // let lastScrollY = 0;
+
   useEffect(() => {
     const maxTimelineHeight =
       (document.querySelectorAll(".timeline-container").length - 1) * 100;
@@ -49,12 +48,11 @@ const TimelineMain = () => {
     const handleScroll = () => {
       const firstCard = document.querySelector(".timeline-card:first-child");
       const lastCard = document.querySelector(".timeline-card:last-child");
-      const circle = document.querySelector(".timeline-circle");
+
       const dashedLine = document.querySelector(".vertical-dashed-line");
       const solidLine = document.querySelector(".vertical-solid-line");
-      const circleMobile = document.querySelector(".timeline-circle-mobile");
-      if (!firstCard || !lastCard || !circle || !dashedLine || !solidLine)
-        return;
+
+      if (!firstCard || !lastCard || !dashedLine || !solidLine) return;
 
       const firstCardRect = firstCard.getBoundingClientRect();
       const lastCardRect = lastCard.getBoundingClientRect();
@@ -70,7 +68,6 @@ const TimelineMain = () => {
           ((window.scrollY - startScrollPosition) / maxTimelineHeight) * 100
         )
       );
-      //console.log(newScrollPercentage);
 
       setScrollPercentage(newScrollPercentage);
 
@@ -80,16 +77,10 @@ const TimelineMain = () => {
       dashedLine.style.height = `${dashedLineHeight}px`;
       solidLine.style.zIndex = newScrollPercentage > 0 ? 2 : 0;
 
-      const adjustedPercentage = Math.min(225, newScrollPercentage * 2.5);
+      const adjustedPercentage = Math.min(240, newScrollPercentage * 2.5);
       document.querySelector(".vertical-solid-line").style.height =
         adjustedPercentage + "rem";
-      const circleTop =
-        (adjustedPercentage / 700) * maxTimelineHeight +
-        firstCardTop -
-        startScrollPosition -
-        circle.offsetHeight / 2;
 
-      circle.style.top = circleTop + "px";
       // Handle mobile timeline
       const firstCardMobile = document.querySelector(
         ".timeline-card-mobile:first-child"
@@ -125,13 +116,12 @@ const TimelineMain = () => {
       const newScrollPercentageMobile = Math.max(
         0,
         Math.min(
-          144,
+          155.5,
           ((window.scrollY - startScrollPositionMobile) /
             maxTimelineHeightMobile) *
-          200
+            200
         )
       );
-      //console.log(newScrollPercentageMobile);
 
       setScrollPercentageMobile(newScrollPercentageMobile);
 
@@ -142,21 +132,12 @@ const TimelineMain = () => {
       solidLineMobile.style.zIndex = newScrollPercentageMobile > 0 ? 2 : 0;
 
       const adjustedPercentageMobile = Math.min(
-        310,
+        380,
         newScrollPercentageMobile * 2.39
       );
+
       document.querySelector(".vertical-solid-line-mobile").style.height =
         adjustedPercentageMobile + "rem";
-
-      // if (circleMobile) {
-      //   const circleTopMobile =
-      //     (adjustedPercentageMobile / 400) * maxTimelineHeightMobile +
-      //     firstCardTopMobile -
-      //     startScrollPositionMobile -
-      //     circleMobile.offsetHeight / 2;
-
-      //   circleMobile.style.top = circleTopMobile + "px";
-      // }
     };
 
     window.addEventListener("scroll", handleScroll);
@@ -167,67 +148,79 @@ const TimelineMain = () => {
   }, []);
 
   const titles = [
-    "CLASSIFIED: ML and NN workshop",
-    "DRONAID",
+    "CLASSIFIED",
+    "DRONAID", //change
     "HACKLINUX",
     "BEYOND RATINGS",
+    "CAPTURE THE FLAG",
     "UNLOCKING CONVERSATIONS",
     "FLUTTERCRAFT",
     "F1 CAR MODELLING",
     "SCRAPESPHERE",
     "ASTRONOMY",
-    "CTF",
-    "HACKATHON",
+
+    "DEVSPRINT HACKATHON",
   ];
 
   const times = [
-    "05:30PM - 08:30PM & 10:00AM - 12:30PM & 2:00PM - 4:30PM",
-    "05:30PM - 08:30PM & 10:00AM - 12:30PM & 2:00PM - 4:30PM",
-    "05:30PM - 08:30PM",
-    "05:30PM - 08:30PM",
-    "05:30PM - 08:30PM",
-    "05:30PM - 08:30PM",
-    "05:30PM - 08:30PM",
-    "05:30PM - 08:30PM",
-    "8:30PM Onwards",
-    "12:30PM Onwards",
-    "08:00AM - 10:00PM",
-  ];
-  const dates = [
-    "3rd February, 2024 & 4th February, 2024",
-    "3rd February, 2024 & 4th February, 2024",
-    "5th February, 2024 & 6th February, 2024",
-    "5th February, 2024 & 6th February, 2024",
+    "3rd February, 2024: 05:30PM - 08:00PM \n 4th February, 2024 : 10:00AM - 12:30PM & 2:00PM - 4:30PM",
+    "3rd February, 2024: 05:30PM - 08:00PM \n 4th February, 2024 : 10:00AM - 12:30PM & 2:00PM - 4:30PM",
+    "5th February, 2024: 05:30PM - 08:00PM \n 6th February, 2024 : 05:30PM - 08:00PM ",
+    "5th February, 2024: 05:30PM - 08:00PM \n 6th February, 2024 : 05:30PM - 08:00PM ",
+    "7th February, 2024: 12:00AM - 11:59PM",
+    "7th February, 2024: 05:30PM - 08:00PM \n 8th February, 2024 : 05:30PM - 08:00PM ",
+    "7th February, 2024: 05:30PM - 08:00PM \n 8th February, 2024 : 05:30PM - 08:00PM ",
+    "9th February, 2024: 05:30PM - 08:00PM \n 10th February, 2024 : 05:30PM - 08:00PM ",
+    "9th February, 2024: 05:30PM - 08:00PM \n ",
+    "9th February, 2024: 8:00PM Onwards",
 
-    "7th February, 2024 & 8th February, 2024",
-    "7th February, 2024 & 8th February, 2024",
-    "9th February, 2024",
-    "9th February, 2024",
-    "9th February, 2024",
-    "31st January, 2024",
-    "11th February, 2024",
+    "11th February, 2024: 08:00AM - 10:00PM",
   ];
+
   const images = [
     W_acm,
     W_dronaid,
     W_mist,
     W_iste1,
+    ctf,
     W_gdsc,
     W_iste2,
     W_iemech,
     W_ieee,
     W_astronomy,
-    ctf,
+
     hackathon,
   ];
   const des = [
-    "a real world project using machine learning and neural networks",
+    "A real world classification project using Machine Learning and Neural Networks",
+    "A two-day Aircraft Modeling and Printed Circuit Board Design Workshop",
+    "Unleashing the power of Capture The Flag",
+    "Making intelligent Recommendatings using Machine Learning",
+    "",
+    "A dive into Machine Learning and Natural Language Processing with ChatBots",
+    "Exploring App Development",
+    "Computational Fluid Dynamics Simulation of a Formula Car and 3D printing",
+    "A Web Scraping workshop using Selenium",
+    "astronomy desc", //change this
+    "",
+  ];
+  const host = [
+    "Conducted By: ACM Manipal",
+    "Conducted By: Project Dronaid",
+    "Conducted By: MIST Manipal",
+    "Conducted By: ISTE Manipal",
+    "Conducted By: MIST Manipal",
+    "Conducted By: GDSC Manipal",
+    "Conducted By: ISTE Manipal",
+    "Conducted By: IE-MECH Manipal",
+    "Conducted By: IEEE Manipal",
+    "Conducted By: The Astronomy Club Manipal",
+    "Conducted By: ISTE Manipal",
   ];
   return (
-    <div className="">
+    <div className="" id="timeline">
       {/* desktop timeline  */}
       <div
-        id="timeline"
         className={windowSize[0] > 760 ? "bg-transparent" : "hidden"}
       >
         <TitleStuff name="timeline" className="relative top-[10rem]" />
@@ -236,24 +229,6 @@ const TimelineMain = () => {
             className="my-timeline"
             style={{ position: "relative", margin: "280px auto" }}
           >
-            {/* Timeline Circle */}
-            <div
-              ref={circleRef} // Set a ref to access the circle element
-              className="timeline-circle hidden"
-              style={{
-                position: "fixed",
-                width: "30px",
-                height: "30px",
-                backgroundColor: "blue",
-                borderRadius: "50%",
-                top: "50%",
-                left: "49.1%", // Move the circle to the left
-                zIndex: 3,
-                opacity: scrollPercentage > 0 ? 1 : 0,
-                transition: "opacity 0.5s ease",
-              }}
-            ></div>
-
             {/* Vertical Dashed Line */}
             <div
               className="vertical-dashed-line absolute left-0 top-0 bg-transparent w-1 h-full"
@@ -295,18 +270,18 @@ const TimelineMain = () => {
                   }}
                 >
                   <div data-aos="flip-right">
-                    <Card className="py-4 lg:w-[20rem] w-[14rem] custom-timeline-card bg-black text-white opacity-80" id="shadowcard">
+                    <Card className="py-4 lg:w-[20rem] w-[14rem] custom-timeline-card bg-black text-white hover:scale-105" id="shadowcard">
                       <CardHeader className="pb-0 pt-2 px-4 flex-col items-start">
-                        <p className="text-tiny uppercase font-bold p-1">
+                        <p className="text-small uppercase font-bold p-1 font-sans">
                           {times[index]}
                         </p>
-                        <small className="text-default-500 p-1">
-                          {dates[index]}
-                        </small>
-                        <h4 className="font-bold text-large p-1">{titles}</h4>
-                        <small className="text-default-500 p-1">
+
+                        <h7 className="font-black text-2xl p-1 font-sans heading">
+                          {titles}
+                        </h7>
+                        <p className="text-tiny uppercase font-medium p-1 font-sans">
                           {des[index]}
-                        </small>
+                        </p>
                       </CardHeader>
                       <CardBody className="overflow-visible py-2">
                         <Image
@@ -315,7 +290,10 @@ const TimelineMain = () => {
                           src={images[index]}
                           width={270}
                         />
-                        <div className="w-16 mt-6"></div>
+
+                        <p className="text-tiny uppercase font-medium  pl-2.5  pt-4 font-sans">
+                          {host[index]}
+                        </p>
                       </CardBody>
                     </Card>
                   </div>
@@ -336,22 +314,6 @@ const TimelineMain = () => {
             className="my-timeline"
             style={{ position: "relative", margin: "280px auto" }}
           >
-            <div
-              ref={circleRef} // Set a ref to access the circle element
-              className="timeline-circle-mobile hidden"
-              style={{
-                position: "fixed",
-                width: "30px",
-                height: "30px",
-                backgroundColor: "blue",
-                borderRadius: "50%",
-                top: "50%",
-                left: "7.2%", // Move the circle to the left
-                zIndex: 3,
-                opacity: scrollPercentageMobile > 0 ? 1 : 0,
-                transition: "opacity 0.5s ease",
-              }}
-            ></div>
             {/* Vertical Dashed Line */}
             <div
               className="vertical-dashed-line-mobile absolute left-0 top-1 bg-transparent w-1 h-full"
@@ -390,24 +352,31 @@ const TimelineMain = () => {
                   }}
                 >
                   <div data-aos="flip-right">
-                    <Card className="py-4 lg:w-[20rem] w-[14rem] custom-timeline-card  bg-black text-white opacity-80" id="shadowcard">
+
+                    <Card className="py-4 lg:w-[20rem] w-[14rem] custom-timeline-card  bg-black text-white hover:scale-105" id="shadowcard">
                       <CardHeader className="pb-0 pt-2 px-4 flex-col items-start">
-                        <p className="text-tiny uppercase font-bold">
+                        <p className="text-small uppercase font-bold p-1 font-sans">
                           {times[index]}
                         </p>
-                        <small className="text-default-500">
-                          {dates[index]}
-                        </small>
-                        <h4 className="font-bold text-large">{titles}</h4>
+
+                        <h7 className="font-black text-large p-1 font-sans heading">
+                          {titles}
+                        </h7>
+                        <p className="text-tiny uppercase font-medium p-1 font-sans">
+                          {des[index]}
+                        </p>
                       </CardHeader>
                       <CardBody className="overflow-visible py-2">
                         <Image
                           alt="Card background"
-                          className="object-cover rounded-xl ml-1 mt-1"
+                          className="object-cover rounded-xl ml-0.5 mt-1"
                           src={images[index]}
                           width={270}
                         />
-                        <div className="w-16 mt-6"></div>
+
+                        <p className="text-tiny uppercase font-medium pt-4 font-sans">
+                          {host[index]}
+                        </p>
                       </CardBody>
                     </Card>
                   </div>
