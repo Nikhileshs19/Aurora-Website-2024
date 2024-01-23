@@ -15,7 +15,7 @@ import timelinedate from '../images/timelinedate.svg';
 
 const MainHome = () => {
   return (
-    <div>
+    <div id="linesbg">
       <Nav />
 
       <MyParallax />
