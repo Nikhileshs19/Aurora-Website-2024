@@ -12,7 +12,7 @@ export default function Nav() {
     const [isMenuOpen, setIsMenuOpen] = React.useState(false);
 
     const loginwithgoogle = () => {
-        window.open("http://localhost:6005/auth/google/callback", "_self")
+        window.open("/auth/google/callback", "_self")
     }
 
     const [googleUserData, setGoogleUserData] = useState({});
@@ -30,7 +30,7 @@ export default function Nav() {
 
     //logout
     const logout = () => {
-        window.open("http://localhost:6005/logout", "_self")
+        window.open("/logout", "_self")
     }
 
     useEffect(() => {
@@ -47,27 +47,27 @@ export default function Nav() {
                     </NavbarBrand>
                 </NavbarContent>
 
-                <NavbarContent className="hidden md:flex sm:flex gap-4" justify="center">
-                    <NavbarItem >
-                        <HashLink smooth className="text-white p-6" to='#about'>About</HashLink>
+                <NavbarContent className="hidden md:flex sm:flex gap-4 " justify="center">
+                    <NavbarItem className="hover:scale-125 transform transition">
+                        <HashLink smooth className="text-white hover:text-blue-200 hover:underline p-6" to='#about'>About</HashLink>
                     </NavbarItem>
-                    <NavbarItem>
-                        <HashLink smooth className="text-white p-6" to='#partners'>Partners</HashLink>
+                    <NavbarItem className="hover:scale-125 transform transition">
+                        <HashLink smooth className="text-white hover:text-blue-200 hover:underline p-6" to='#partners'>Partners</HashLink>
                     </NavbarItem>
-                    <NavbarItem>
-                        <HashLink smooth className="text-white p-6" to='#timeline'>Timeline</HashLink>
+                    <NavbarItem className="hover:scale-125 transform transition">
+                        <HashLink smooth className="text-white hover:text-blue-200 hover:underline p-6" to='#timeline'>Timeline</HashLink>
                     </NavbarItem>
-                    <NavbarItem>
-                        <HashLink smooth className="text-white p-6" to='#sponsors'>Sponsors</HashLink>
+                    <NavbarItem className="hover:scale-125 transform transition">
+                        <HashLink smooth className="text-white hover:text-blue-200 hover:underline p-6" to='#sponsors'>Sponsors</HashLink>
                     </NavbarItem>
-                    <NavbarItem>
-                        <HashLink smooth className="text-white p-6" to='/events'>Events</HashLink>
+                    <NavbarItem className="hover:scale-125 transform transition">
+                        <HashLink smooth className="text-white hover:text-blue-200 hover:underline p-6" to='/events'>Events</HashLink>
                     </NavbarItem>
                 </NavbarContent>
                 <NavbarContent justify="end" className="lg:relative left-[10%]">
                     <NavbarItem>
                         <Link to='/hackathon' className="">
-                            <div className="lg:w-[7.2rem]  w-[5.9rem] lg:text-[14px] text-[12px] shadow-2xl font-medium h-fit flex justify-between bg-[#1b224a] text-[#006FEE] rounded-lg p-2">
+                            <div className="lg:w-[7.2rem]  w-[5.9rem] lg:text-[14px] text-[12px] shadow-2xl font-medium h-fit flex justify-between bg-[#1b224a] text-[#006FEE] rounded-lg p-2 hover:scale-110 transition hover:text-white">
                                 <img src={trophy} alt="h" className="lg:w-[1.5rem] w-[1rem]" />
                                 Hackathon
                             </div>
@@ -85,9 +85,8 @@ export default function Nav() {
                             </>
                         )
                             :
-                            <NavbarItem className="hidden lg:flex">
-                                <Link href="#" className="text-[#006FEE] font-medium p-4" onClick={loginwithgoogle}>Login</Link>
-                                {/* <Link href='/'>Logout</Link> */}
+                            <NavbarItem className="hidden lg:flex ">
+                                <Link href="#" className="text-[#006FEE] p-4 font-bold text-xl" onClick={loginwithgoogle}>Login</Link>
                             </NavbarItem>
 
                     }
@@ -148,7 +147,7 @@ export default function Nav() {
                         )
                             :
                             <NavbarMenuItem className="p-4 text-green-700 text-right">
-                                <HashLink size="lg" href='#' onClick={loginwithgoogle}>
+                                <HashLink className="" size="lg" href='#' onClick={loginwithgoogle}>
                                     Login
                                 </HashLink>
                             </NavbarMenuItem>

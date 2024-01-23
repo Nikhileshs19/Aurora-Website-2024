@@ -428,11 +428,11 @@ export default function TimelineEventsCards() {
                     <div className="flex-col flex m-auto justify-center align-middle md:text-3xl text-xl p-6">
                       <div className="pt-4 pl-10 flex flex-row">
                         <img src={calen} alt="gfw" className="lg:w-fit w-[1rem]"></img>
-                        <span className="pt-4 pl-10 [font-family:'Inter-Medium',Helvetica] font-semibold lg:text-lg text-[0.8rem]"> Date: <br className="lg:hidden"></br>31st Jan</span>
+                        <span className="pt-4 pl-10 [font-family:'Inter-Medium',Helvetica] font-semibold lg:text-lg text-[0.8rem]"> Date: <br className="lg:hidden"></br>7th Feb</span>
                       </div>
                       <div className="pt-6 pl-10 flex flex-row">
                         <img src={clock} alt="sgse" className="lg:w-fit w-[1rem]"></img>
-                        <span className="pt-1 pl-10 [font-family:'Inter-Medium',Helvetica] font-semibold lg:text-lg text-[0.8rem]"> Time: 12:30 PM</span>
+                        <span className="pt-1 pl-10 [font-family:'Inter-Medium',Helvetica] font-semibold lg:text-lg text-[0.8rem]"> Time: 00:00 hrs - 23:59 hrs</span>
                       </div>
                       <div className="pt-6 pl-10 flex flex-row">
                         <img src={laptop} alt="gesags" className="lg:w-fit w-[1rem]"></img>
