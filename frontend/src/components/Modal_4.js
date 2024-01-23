@@ -10,7 +10,7 @@ const Modal_4 = ({ toggleModal, index }) => {
   return (
     <div className="relative" onClick={handleBackdropClick}>
       <div className={toggleModal ? "" : "hidden"}>
-        <div className="fixed w-1/2 top-0 translate-y-[35rem] flex items-center justify-center z-[9999]">
+        <div className="fixed md:w-1/2 w-full top-0 md:translate-y-[35rem] translate-y-[75rem] md:translate-x-0 -translate-x-[10rem] flex items-center justify-center z-[9999]">
           <div className="bg-white w-[70%] h-[80%] rounded-3xl shadow-lg overflow-hidden">
             <div className="relative justify-between items-center border-b pb-4 mb-4">
               <h3 className="mt-3 mx-3 my-3 text-xl font-semibold text-[#00418C] p-2">
