@@ -6,7 +6,7 @@ const AllWorkshopsRegistrations = () => {
 
     const navigate = useNavigate();
 
-    const admins = ["2shashank11@gmail.com", "istemanipalboard@gmail.com", "aditi26shr@gmail.com", "prateekanand.work@gmail.com"]
+    const admins = ["2shashank11@gmail.com", "istemanipalboard@gmail.com", "aditi26shr@gmail.com", "prateekanand.work@gmail.com", "tanishakar1906@gmail.com"]
     const getGoogleData = async () => {
         try {
             const response = await axios.get("/login/success", { withCredentials: true });
@@ -69,7 +69,7 @@ const AllWorkshopsRegistrations = () => {
                     "ISTE2",
                     "IE MECH",
                     "IEEE",
-                    "Event 9",
+                    "ASTRONOMY",
                     "CTF"
                 ].map((name, index) => (
                     <label key={index} style={{ marginBottom: '10px', padding: '1rem' }}>

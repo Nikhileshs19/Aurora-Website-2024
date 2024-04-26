@@ -8,10 +8,10 @@ import aryan from '../images/aryan.jpg'
 import harry from '../images/harry.jpg'
 import kshitij from '../images/kshitij.jpg'
 import mugi from '../images/mugi.jpg'
+import nikhilesh from '../images/nikhilesh.jpg'
 import roop from '../images/roopanshi.jpg'
 import shashank from '../images/shashank.jpg'
 import souvik from '../images/souvik.jpg'
-import nikhilesh from '../images/nikhilesh.jpg'
 
 import HomeNav from '../components/HomeNav'
 import linkedin from '../images/bi_linkedin.svg'
@@ -107,7 +107,7 @@ const Nikhilesh = {
   designation: 'Frontend Developer',
 }
 
-const Juniors = [Aarya, Aman, Kshitij, Nikhilesh, Kiri, Roop, Shash, Souvik]
+const Juniors = [Aarya, Kiri, Roop, Nikhilesh, Shash, Kshitij, Souvik, Aman]
 const Seniors = [Aryan, Aditi, Harry]
 
 function JuniorCard({ member }) {
@@ -126,12 +126,12 @@ function JuniorCard({ member }) {
           <h1 className="text-center text-xl px-4"> {member.designation} </h1>
         </div>
         <div className="flex flex-row justify-center">
-          <a href={member.linkedin} target="_blank">
+          <a href={member.linkedin} target="_blank" rel="noreferrer">
             <button className="p-2">
               <img src={linkedin} alt="h" />
             </button>
           </a>
-          <a href={member.git_link} target="_blank">
+          <a href={member.git_link} target="_blank" rel="noreferrer">
             <button className="p-2">
               <img src={gitlogo} alt="hd" />
             </button>
@@ -158,12 +158,12 @@ function SeniorCard({ member }) {
           <h1 className="text-center text-xl px-4"> {member.designation} </h1>
         </div>
         <div className="flex flex-row justify-center">
-          <a href={member.linkedin} target="_blank">
+          <a href={member.linkedin} target="_blank" rel="noreferrer">
             <button className="p-2">
               <img src={linkedin} alt="hd" />
             </button>
           </a>
-          <a href={member.git_link} target="_blank">
+          <a href={member.git_link} target="_blank" rel="noreferrer">
             <button className="p-2">
               <img src={gitlogo} alt="hd" />
             </button>
@@ -184,7 +184,7 @@ export default function Developers() {
         </div>
         <div className="grid md:grid-cols-3 grid-cols-1 lg:m-24">
           {Juniors.map((member) => (
-            <JuniorCard key={member.id} member={member} />
+            <JuniorCard key={member.name} member={member} />
           ))}
         </div>
         <div className="py-6">
@@ -192,7 +192,7 @@ export default function Developers() {
         </div>
         <div className="grid md:grid-cols-3 grid-cols-1 lg:m-24">
           {Seniors.map((member) => (
-            <SeniorCard key={member.id} member={member} />
+            <SeniorCard key={member.name} member={member} />
           ))}
         </div>
       </div>

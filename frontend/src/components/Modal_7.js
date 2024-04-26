@@ -10,7 +10,7 @@ const Modal_7 = ({ toggleModal, index }) => {
   return (
     <div className="relative" onClick={handleBackdropClick}>
       <div className={toggleModal ? "" : "hidden"}>
-        <div className="fixed inset-0 flex items-center justify-center z-[9999]">
+        <div className="fixed top-0 md:translate-y-[60rem] translate-y-[160rem] md:translate-x-0 -translate-x-[10rem] md:w-1/2 w-full flex items-center justify-center z-[9999]">
           <div className="bg-white w-[70%] h-[80%] rounded-3xl shadow-lg overflow-hidden ">
             <div className="relative justify-between items-center border-b pb-4 mb-4">
               <h3 className="mt-3 mx-3 my-3 text-xl font-semibold text-[#00418C] p-2">
@@ -80,7 +80,7 @@ const Modal_7 = ({ toggleModal, index }) => {
               <div className="my-4 font-sans">
                 <h2 className="mt-2 p-2 text-lg mx-1">Prerequisites</h2>
                 <p className="text-black text-base mx-3 font-sans">
-                  Lorem ipsum is placeholder text commonly used in the graphic,
+                  Details will be shared to the participants.
                 </p>
               </div>
               <div className="my-4 text-lg font-sans">
